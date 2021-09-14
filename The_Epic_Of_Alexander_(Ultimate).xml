@@ -55,7 +55,7 @@
     <a time="010" text="フルイドスイング" sync="リビングリキッドの「フルイドスイング」" icon="Targetaoe03.png" notice="タンク強攻撃。" notice-d="Sub" />
     <a time="018" text="カスケード" sync="リビングリキッドは「カスケード」の構え。" icon="HardAllRangeAttack.png" notice="カスケード。" notice-d="Sub" />
     <a time="020" text="リキッドハンド出現" />
-    <a time="030" text="じゃんけん" icon="Attention.png" notice="じゃんけん。" notice-o="-1" />
+    <a time="030" text="じゃんけん" icon="Attention.png" notice="じゃんけん。" notice-o="-1" notice-d="Sub" />
     <a time="033" text="竜巻ウェイブ" sync="リキッドレイジ starts using プロティアンウェイブ on リキッドレイジ." notice="ウェーブ。" notice-d="Sub" />
     <a time="034" text="ヤークトドール出現" />
     <a time="038" text="タンク強攻撃" sync="リビングリキッドの「フルイドスイング」" icon="Targetaoe03.png" notice="タンク強攻撃。" notice-d="Sub" />
@@ -74,7 +74,7 @@
     <a time="105" text="均等化" sync="リキッドハンドは「ハンド・オブ・ペイン」の構え。" notice="均等化。" notice-d="Sub" />
     <a time="110" text="スルース" sync="リビングリキッド starts using スルース on Unknown." icon="AOE.png" notice="" />
     <a time="110" text="プロティアンウェイブ2" sync="リキッドレイジ starts using プロティアンウェイブ on リキッドレイジ." />
-    <a time="120" text="じゃんけん" notice="じゃんけん。" icon="Attention.png" notice-o="-1" />
+    <a time="120" text="じゃんけん" notice="じゃんけん。" icon="Attention.png" notice-o="-1" notice-d="Sub" />
     <a time="121" text="エンボラス出現" icon="Bomb.png" />
     <a time="126" text="ハンド・オブ・ペイン" sync="リキッドハンドは「ハンド・オブ・ペイン」の構え。" icon="True.png" notice="均等化。" notice-d="Sub" />
     <a time="127" text="スプラッシュ" sync="リビングリキッドの「スプラッシュ」" icon="AllRangeAttack.png" notice="スプラッシュ。" notice-d="Sub" />
@@ -450,7 +450,7 @@
 
     <a time="31" sync="ブルートジャスティス:コードネーム「ブルートジャスティス」！ 想定外ノ時空改変者ヲ発見……鉄槌ヲ下ス！" />
     <a time="32" text="ジャスティスキック" sync="ブルートジャスティスの「ジャスティスキック」" notice="ジャスティスキック。" notice-d="Sub" />
-    <a time="44" text="竜巻" sync="クルーズチェイサーの「竜巻」" notice="竜巻。" />
+    <a time="44" text="竜巻" sync="クルーズチェイサーの「竜巻」" notice="竜巻。" notice-d="Sub" />
     <a time="47" text="ジャッジメントナイサイ" sync="ブルートジャスティスの「ジャッジメントナイサイ」" notice="" />
     <a time="53" text="システムリンク" sync="ブルートジャスティスの「システムリンク」" notice="システムリンク。" notice-d="Sub" />
     <a time="55" text="チャクラム出現" sync="スチームチャクラムは「ビームチャクラム」の構え。" notice="外周えー。" notice-d="Sub" />
@@ -963,7 +963,7 @@
     <a time="19" text="ソード＋火炎放射2" />
     <a time="20" text="ソード＋火炎放射3" />
     @if (Model.Player.InRole("MagicDPS")) {
-      <a time="23" text="アドル" notice="アドル">
+      <a time="23" text="アドル" notice="アドル" />
     }
     <!-- 時間停止 end -->
     <a time="34" text="神罰の熱線" sync="アレキサンダー・プライムの「神罰の熱線」" icon="HardAttack.png" notice="次は、無敵受け。" notice-d="Sub" />
