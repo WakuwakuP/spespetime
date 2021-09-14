@@ -961,7 +961,10 @@
     <a time="16" text="神判：判定" sync="アレキサンダー・プライムの「誓約の神判」" />
     <a time="18" text="ソード＋火炎放射1" sync="クルーズチェイサーの「アルファソード」" />
     <a time="19" text="ソード＋火炎放射2" />
-    <a time="20" text="ソード＋火炎放射3" notice="アドル。" notice-d="Sub" />
+    <a time="20" text="ソード＋火炎放射3" />
+    @if (Model.Player.InRole("MagicDPS")) {
+      <a time="23" text="アドル" notice="アドル">
+    }
     <!-- 時間停止 end -->
     <a time="34" text="神罰の熱線" sync="アレキサンダー・プライムの「神罰の熱線」" icon="HardAttack.png" notice="次は、無敵受け。" notice-d="Sub" />
     <a time="38" text="聖なる炎1" sync="00:282b:アレキサンダー・プライムの「聖なる炎」" icon="Attack.png" notice="いち" notice-o="0" notice-d="Sub" />
