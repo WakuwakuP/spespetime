@@ -1169,22 +1169,34 @@
         duration-visible="false" />
     </t>
 
-    <t text="安全地帯コール左" sync=":49AA:Unknown_49Aa:.*:91.00694:78.28883:.*:0.392657:" notice="" sync-count="1" >
+    <t text="安全地帯コール左" sync=":49AA:Unknown_49Aa:.*:91.00694:78.28883:.*:0.392657:" notice="" sync-count="1" notice-d="Sub">
       <v-notice
         order="-3"
         text="左から２番目"
         icon="StackFront.png"
         duration="19"
         duration-visible="false" />
+      <i-notice
+        image="Alpha左上.png"
+        scale="0.6"
+        left="1332"
+        top="100"
+        duration="19" />
     </t>
 
-    <t text="安全地帯コール右" sync=":49AA:Unknown_49Aa:.*:108.9931:78.28883:.*:-0.3927531:" notice="" sync-count="1" >
+    <t text="安全地帯コール右" sync=":49AA:Unknown_49Aa:.*:108.9931:78.28883:.*:-0.3927531:" notice="" sync-count="1" notice-d="Sub">
       <v-notice
         order="-3"
         text="右から２番目"
         icon="StackFront.png"
         duration="19"
         duration-visible="false" />
+      <i-notice
+        image="Alpha右上.png"
+        scale="0.6"
+        left="1332"
+        top="100"
+        duration="19" />
     </t>
     <!-- 未来観測α時の行動・静止の通知トリガ end -->
 
