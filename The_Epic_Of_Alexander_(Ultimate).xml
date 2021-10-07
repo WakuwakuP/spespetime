@@ -17,15 +17,9 @@
   <default target-element="Activity" target-attr="notice-d" value="Main" />
   <default target-element="Trigger" target-attr="notice-d" value="Main" />
 
-  <!-- @if (Model.Player.InJob("WHM")) {
-    <t name="マーカー初期配置"
-      sync="(「絶アレキサンダー討滅戦」の攻略を開始した。|0139:戦闘開始まで|/mark init)"
-      exec="http://localhost:1337/preset/TEA_Init/load" />
+  <default target-element="ImageNotice" target-attr="enabled" value="true" />
+  <!-- 画像通知を無効にする場合は "false" にしてください。 -->
 
-      <t name="マーカー配置最終フェーズ"
-        sync="(アレキサンダー・プライムの「アレキサンダー召喚」|/mark final)"
-        exec="http://localhost:1337/preset/TEA_Final/load" />
-  } -->
 
   @{
     var ANTI_KNOCKBACK = Model.Player.InRole("HEALER","MagicDPS") ?
@@ -890,7 +884,7 @@
     <!-- カウント対象者通知 begin -->
 
     <!-- 遠隔DPSのみ優先度フラグ処理を動かす-->
-    @if (Model.Player.InJob("NIN","DNC")) { <!-- WHMは自分のデバッグ用-->
+    @if (Model.Player.InJob("NIN","SMN")) { <!-- WHMは自分のデバッグ用-->
       <t no="1" text="カウント" sync="1B:[id8]:[SAM]:0000:[id4]:0041:0000:0000:0000:" >
         <expressions>
           <set name="count_left" count="+1" />
@@ -903,13 +897,13 @@
         </expressions>
       </t>
 
-      <t no="3" text="カウント" sync="1B:[id8]:[DNC]:0000:[id4]:0041:0000:0000:0000:" >
+      <t no="3" text="カウント" sync="1B:[id8]:[SMN]:0000:[id4]:0041:0000:0000:0000:" >
         <expressions>
           <set name="count_right" count="+1" />
         </expressions>
       </t>
 
-      <t no="4" text="カウント" sync="1B:[id8]:[SMN]:0000:[id4]:0041:0000:0000:0000:" >
+      <t no="4" text="カウント" sync="1B:[id8]:[DNC]:0000:[id4]:0041:0000:0000:0000:" >
         <expressions>
           <set name="count_right" count="-1" />
         </expressions>
@@ -919,11 +913,11 @@
       <t no="5" text="カウント" sync="1B:[id8]:[SAM]:0000:[id4]:0041:0000:0000:0000:" notice="Bに移動。">
         <v-notice icon="B.png" duration="6" />
       </t>
-    } else if (Model.Player.InJob("SMN")) {
-      <t no="6" text="カウント" sync="1B:[id8]:[SMN]:0000:[id4]:0041:0000:0000:0000:" notice="Dに移動。">
+    } else if (Model.Player.InJob("DNC")) {
+      <t no="6" text="カウント" sync="1B:[id8]:[DNC]:0000:[id4]:0041:0000:0000:0000:" notice="Dに移動。">
         <v-notice icon="D.png" duration="6" />
       </t>
-      <t no="7" text="カウント" sync="1B:[id8]:[SMN]:0000:[id4]:0041:0000:0000:0000:" notice="入らない。">
+      <t no="7" text="カウント" sync="1B:[id8]:[DNC]:0000:[id4]:0041:0000:0000:0000:" notice="入らない。">
         <v-notice duration="6" />
       </t>
     } else if (Model.Player.InJob("NIN")) {
@@ -939,7 +933,7 @@
         </expressions>
         <v-notice icon="D.png" duration="6" />
       </t>
-    } else if (Model.Player.InJob("DNC")) {
+    } else if (Model.Player.InJob("SMN")) {
       <t no="9" text="カウント" sync="1B:[id8]:[pc]:0000:[id4]:0041:0000:0000:0000:" notice="Dに移動。">
         <expressions>
           <pre name="count_right" value="+1" />
@@ -1327,19 +1321,19 @@
 
 
     <!-- 試験的実装：テーブルのセット Beta end -->
-    <t name="Beta-init" sync="00:282b:パーフェクト・アレキサンダーは「未来観測β」の構え。" sync-count="0" >
+    <t name="Beta-init" sync="00:282b:パーフェクト・アレキサンダーは「未来観測β」の構え。">
       <expressions>
         <set name="beta_start" value="true" />
       </expressions>
     </t>
     
-    <t name="InsertTableBeta" sync="^03:([0-9A-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:">
+    <t no="0" name="InsertTableBeta" sync="^03:([0-9A-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:">
       <expressions>
         <pre name="beta_start" value="true" />
         <table>
         {
           "method":"Insert", "table":"beta",
-          "cols" : [
+          "cols": [
             { "name":"id", "val":"$1", "key":"true" },
             { "name":"job", "val":"$2" }
           ]
@@ -1350,7 +1344,7 @@
     <!-- 試験的実装：テーブルのセット Beta end -->
 
     <!-- 未来観測beta ソート順によるデバフ判定 begin -->
-    <t name="β：接触禁止＋接近禁止" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
+    <t no="1" name="β：接触禁止＋接近禁止" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
       <expressions>
         <pre name="TABLE['beta'][0]['job']" value="@Model.Player.Job" />
       </expressions>
@@ -1361,7 +1355,7 @@
         duration-visible="false" />
     </t>
 
-    <t name="β：逃亡禁止＋接近禁止" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左下えー。">
+    <t no="2" name="β：逃亡禁止＋接近禁止" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左下えー。">
       <expressions>
         <pre name="TABLE['beta'][1]['job']" value="@Model.Player.Job" />
       </expressions>
@@ -1372,7 +1366,7 @@
         duration-visible="false" />
     </t>
 
-    <t name="β：接触禁止＋接近強制" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
+    <t no="3" name="β：接触禁止＋接近強制" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
       <expressions>
         <pre name="TABLE['beta'][2]['job']" value="@Model.Player.Job" />
       </expressions>
@@ -1383,7 +1377,7 @@
         duration-visible="false" />
     </t>
 
-    <t name="β：逃亡禁止＋接近強制" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
+    <t no="4" name="β：逃亡禁止＋接近強制" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
       <expressions>
         <pre name="TABLE['beta'][3]['job']" value="@Model.Player.Job" />
       </expressions>
@@ -1394,7 +1388,7 @@
         duration-visible="false" />
     </t>
 
-    <t name="β：接触禁止＋集団罰" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
+    <t no="5" name="β：接触禁止＋集団罰" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
       <expressions>
         <pre name="TABLE['beta'][4]['job']" value="@Model.Player.Job" />
       </expressions>
@@ -1405,7 +1399,7 @@
         duration-visible="false" />
     </t>
 
-    <t name="β：逃亡禁止のみ" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左。">
+    <t no="6" name="β：逃亡禁止のみ" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左。">
       <expressions>
         <pre name="TABLE['beta'][5]['job']" value="@Model.Player.Job" />
       </expressions>
@@ -1416,7 +1410,7 @@
         duration-visible="false" />
     </t>
 
-    <t name="β：接触保護" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="北えー。">
+    <t no="7" name="β：接触保護" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="北えー。">
       <expressions>
         <pre name="TABLE['beta'][6]['job']" value="@Model.Player.Job" />
       </expressions>
@@ -1427,7 +1421,7 @@
         duration-visible="false" />
     </t>
 
-    <t name="β：逃亡監察" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、右えー。">
+    <t no="8" name="β：逃亡監察" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、右えー。">
       <expressions>
         <pre name="TABLE['beta'][7]['job']" value="@Model.Player.Job" />
       </expressions>
@@ -1465,8 +1459,15 @@
     <a time="160" text="加重誅罰" sync="00:282b:パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="ふたり受け。" notice-d="Sub" />
     <a time="169" text="誅罰" sync="00:282b:パーフェクト・アレキサンダーの「誅罰」" icon="HardAttack.png" notice="スイッチ。" notice-d="Sub">
       <expressions>
-        <set name="current" value="beta" />
+        <set name="beta_start" value="true" />
       </expressions>
+      <i-notice
+        image="Beta.png"
+        scale="0.55"
+        left="1335"
+        top="226"
+        duration="80"
+      />
     </a>
     <a time="184" text="未来観測β" sync="00:282b:パーフェクト・アレキサンダーの「未来観測β」" icon="Attention.png" notice="" />
     <a time="186" text="未来確定β Start" sync="00:282b:パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="" />
@@ -1483,7 +1484,7 @@
     <a time="304" text="加重誅罰" sync="00:282b:パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="次は、MT無敵受け。" notice-d="Sub" />
     <a time="314" text="誅罰" sync="00:282b:パーフェクト・アレキサンダーの「誅罰」" icon="HardAttack.png" />
     <a time="325" text="聖なる大審判2" sync="00:282b:パーフェクト・アレキサンダーの「聖なる大審判」" icon="Avoid.png" notice-o="0" notice="ヴェール。" notice-d="Sub" />
-    <a time="340" text="連帯刑" sync="00:282b:パーフェクト・アレキサンダーの「連帯刑」" icon="DamageShare.png" notice="頭割り、ミッショナリー、アドル、STリプ。" notice-d="Sub" />
+    <a time="340" text="連帯刑" sync="00:282b:パーフェクト・アレキサンダーの「連帯刑」" icon="DamageShare.png" notice="頭割り" notice-d="Sub" />
     <a time="349" text="時間切れ詠唱" sync="00:0044:パーフェクト・アレキサンダー:時空干渉、制限解除、「時の牢獄」に監禁する……。" icon="Dialog.png" />
     <a time="357" text="時の牢獄 Start" sync="00:302b:パーフェクト・アレキサンダーは「時の牢獄」の構え。" icon="Timer.png" />
     <a time="367" text="時間停止1人目" icon="Timer.png" />
