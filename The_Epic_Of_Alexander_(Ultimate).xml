@@ -36,8 +36,8 @@
       <v-notice duration="6" duration-visible="false" icon="Bomb.png" order="-1" />
     </t> -->
 
+    <!-- 窒息 -->
     @if (Model.Player.InRole("HEALER")) {
-                    <!-- 窒息 -->
     <t text="窒息" sync="[pc]に「窒息」の効果。" notice="エスナ。" sync-count="1">
       <v-notice duration="6" icon="Timer.png" />
     </t>
@@ -375,7 +375,7 @@
       <v-notice text="➜ Ａへ (雷爆発)" duration="10" duration-visible="false" icon="A.png" order="-10" />
     </a>
     }
-                    <!-- 水・雷 1回目 end -->
+    <!-- 水・雷 1回目 end -->
 
     <a time="90" text="ミサイル全弾発射" sync="ブルートジャスティスの「ミサイル全弾発射」" notice="" />
     <a time="94" text="ステルス地雷散布" sync="ブルートジャスティスの「ステルス地雷散布」" notice="" />
@@ -429,7 +429,7 @@
       <v-notice text="➜ 左下へ (雷爆発)" duration="7" duration-visible="false" icon="Arrow6.png" order="-10" />
     </a>
     }
-                    <!-- 水・雷 3回目 end -->
+    <!-- 水・雷 3回目 end -->
 
     <a time="160" text="プロペラウィンド" sync="クルーズチェイサーの「プロペラウィンド」" icon="Stack.png" notice="氷の後ろで整列。" notice-o="-10" notice-d="Sub" />
     <a time="163" text="最後の審判：結審" sync="ブルートジャスティスの「最後の審判：結審」" icon="True.png" notice="" />
@@ -548,7 +548,7 @@
       <v-notice order="-1" icon="Arrow3.png" duration="10" duration-visible="false" />
     </t>
     }
-                    <!-- 時空潜行のマーチ時のデバフ識別トリガ end -->
+    <!-- 時空潜行のマーチ時のデバフ識別トリガ end -->
 
     <!-- 次元断絶のマーチ時 頭上マーカ識別用トリガ begin -->
     <!-- アレキサンダー・プライムのPOP位置を南（下）として相対位置をアナウンス -->
@@ -642,7 +642,7 @@
     <!-- カウント対象者通知 begin -->
 
     <!-- 遠隔DPSのみ優先度フラグ処理を動かす-->
-    @if (Model.Player.InJob("SAM","SMN")) {                 <!-- WHMは自分のデバッグ用-->
+    @if (Model.Player.InJob("SAM","SMN")) {                                                                                                                                                                                                                                                                                                                             <!-- WHMは自分のデバッグ用-->
     <t no="1" text="カウント" sync="1B:[id8]:[NIN]:0000:[id4]:0041:0000:0000:0000:">
       <expressions>
         <set name="count_left" count="+1" />
@@ -667,6 +667,7 @@
       </expressions>
     </t>
     }
+    
     @if (Model.Player.InJob("NIN")) {
     <t no="5" text="カウント" sync="1B:[id8]:[NIN]:0000:[id4]:0041:0000:0000:0000:" notice="Bに移動。">
       <v-notice icon="B.png" duration="6" />
@@ -674,7 +675,7 @@
     <t no="6" text="カウント" sync="1B:[id8]:[nex]:0000:[id4]:0041:0000:0000:0000:" notice="入らない。" sync-count="2">
       <v-notice duration="6" />
     </t>
-    } else if (Model.Player.InJob("DNC")) {
+      } else if (Model.Player.InJob("DNC")) {
     <t no="6" text="カウント" sync="1B:[id8]:[DNC]:0000:[id4]:0041:0000:0000:0000:" notice="Dに移動。">
       <v-notice icon="D.png" duration="6" />
     </t>
@@ -711,13 +712,11 @@
       <v-notice icon="B.png" duration="6" />
     </t>
     <t no="11" text="カウント" sync="1B:[id8]:[mex]]:0000:[id4]:0041:0000:0000:0000:" notice="入らない。" sync-count="2">
-      <expressions>
-        <pre name="count_right" value="0" />
-      </expressions>
       <v-notice icon="False.png" duration="6" />
-    </t
+    </t>
     }
-                    <!-- カウント対象者通知 end -->
+    
+    <!-- カウント対象者通知 end -->
 
     <a time="0" sync="00:0044:アレキサンダー・プライム:我はアレキサンダー……機械仕掛けの神なり……。 理想郷に到る道を導くため……我が審判を受けよ……。">
       <expressions>
@@ -734,10 +733,11 @@
     <a time="18" text="ソード＋火炎放射1" sync="クルーズチェイサーの「アルファソード」" />
     <a time="19" text="ソード＋火炎放射2" />
     <a time="20" text="ソード＋火炎放射3" />
+    <!-- 時間停止 end -->
     @if (Model.Player.InRole("MagicDPS")) {
-    <a time="23" text="アドル" notice="アドル" />
+    <a time="26" text="アドル" notice="アドル" />
     }
-                    <!-- 時間停止 end -->
+
     <a time="34" text="神罰の熱線" sync="アレキサンダー・プライムの「神罰の熱線」" icon="HardAttack.png" notice="次は、無敵受け。" notice-d="Sub" />
     <a time="38" text="聖なる炎1" sync="00:282b:アレキサンダー・プライムの「聖なる炎」" icon="Attack.png" notice="いち" notice-o="0" notice-d="Sub" />
     <a time="40" text="聖なる炎2" sync="00:302b:アレキサンダー・プライムの「聖なる炎」" icon="Attack.png" notice="にー" notice-o="0" notice-d="Sub" />
@@ -797,7 +797,7 @@
     } else {
     <a time="188" text="カウント" icon="Stack.png" />
     }
-                    <!-- 次元断絶のマーチ end -->
+    <!-- 次元断絶のマーチ end -->
 
     <a time="190" text="（集合）" icon="StackBack.png" notice="" />
     <a time="196" text="メガホーリー1" sync="アレキサンダー・プライムの「メガホーリー」" icon="HardAllRangeAttack.png" notice="アドル。" notice-o="-8" notice-d="Sub" />
