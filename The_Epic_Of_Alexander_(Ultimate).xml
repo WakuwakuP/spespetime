@@ -671,39 +671,51 @@
     <t no="5" text="カウント" sync="1B:[id8]:[NIN]:0000:[id4]:0041:0000:0000:0000:" notice="Bに移動。">
       <v-notice icon="B.png" duration="6" />
     </t>
+    <t no="6" text="カウント" sync="1B:[id8]:[nex]:0000:[id4]:0041:0000:0000:0000:" notice="入らない。" sync-count="2">
+      <v-notice duration="6" />
+    </t>
     } else if (Model.Player.InJob("DNC")) {
     <t no="6" text="カウント" sync="1B:[id8]:[DNC]:0000:[id4]:0041:0000:0000:0000:" notice="Dに移動。">
       <v-notice icon="D.png" duration="6" />
     </t>
-    <t no="7" text="カウント" sync="1B:[id8]:[DNC]:0000:[id4]:0041:0000:0000:0000:" notice="入らない。">
-      <v-notice duration="6" />
+    <t no="7" text="カウント" sync="1B:[id8]:[nex]:0000:[id4]:0041:0000:0000:0000:" notice="入らない。" sync-count="2">
+      <v-notice icon="False.png" duration="6" />
     </t>
     } else if (Model.Player.InJob("SAM")) {
-    <t no="9" text="カウント" sync="1B:[id8]:[pc]:0000:[id4]:0041:0000:0000:0000:" notice="Bに移動。">
+    <t no="9" text="カウント" sync="1B:[id8]:[pc]:0000:[id4]:0041:0000:0000:0000:" notice="Bに移動。" sync-count="2">
       <expressions>
         <pre name="count_left" value="-1" />
       </expressions>
       <v-notice icon="B.png" duration="6" />
     </t>
-    <t no="10" text="カウント" sync="1B:[id8]:[pc]:0000:[id4]:0041:0000:0000:0000:" notice="Dに移動。">
+    <t no="10" text="カウント" sync="1B:[id8]:[pc]:0000:[id4]:0041:0000:0000:0000:" notice="Dに移動。" sync-count="2">
       <expressions>
         <pre name="count_left" value="0" />
       </expressions>
       <v-notice icon="D.png" duration="6" />
     </t>
+    <t no="11" text="カウント" sync="1B:[id8]:[nex]:0000:[id4]:0041:0000:0000:0000:" notice="入らない。" sync-count="2">
+      <v-notice icon="False.png" duration="6" />
+    </t>
     } else if (Model.Player.InJob("SMN")) {
-    <t no="9" text="カウント" sync="1B:[id8]:[pc]:0000:[id4]:0041:0000:0000:0000:" notice="Dに移動。">
+    <t no="9" text="カウント" sync="1B:[id8]:[pc]:0000:[id4]:0041:0000:0000:0000:" notice="Dに移動。" sync-count="2">
       <expressions>
         <pre name="count_right" value="+1" />
       </expressions>
       <v-notice icon="D.png" duration="6" />
     </t>
-    <t no="10" text="カウント" sync="1B:[id8]:[pc]:0000:[id4]:0041:0000:0000:0000:" notice="Bに移動。">
+    <t no="10" text="カウント" sync="1B:[id8]:[pc]:0000:[id4]:0041:0000:0000:0000:" notice="Bに移動。" sync-count="2">
       <expressions>
         <pre name="count_right" value="0" />
       </expressions>
       <v-notice icon="B.png" duration="6" />
     </t>
+    <t no="11" text="カウント" sync="1B:[id8]:[mex]]:0000:[id4]:0041:0000:0000:0000:" notice="入らない。" sync-count="2">
+      <expressions>
+        <pre name="count_right" value="0" />
+      </expressions>
+      <v-notice icon="False.png" duration="6" />
+    </t
     }
                     <!-- カウント対象者通知 end -->
 
@@ -1057,7 +1069,7 @@
     <a time="63" text="確定判決" sync="00:282b:パーフェクト・アレキサンダーの「確定判決」" icon="Attention.png" />
     <a time="68" text="静止／行動命令" icon="Attention.png" />
     <a time="78" text="静止／行動命令" icon="Attention.png" />
-    <a time="89" text="照準" sync="00:302b:パーフェクト・アレキサンダーの「照準」" notice="アドル。" />
+    <a time="89" text="照準" sync="00:302b:パーフェクト・アレキサンダーの「照準」" />
     <!-- 最初に静止が来た → 頭割り → 散開 -->
     <!-- 最初に行動が来た → 散開 → 頭割り -->
     <a time="90" text="頭割り／散開" />
@@ -1071,7 +1083,7 @@
     <a time="145" text="α：連帯の神判" sync="00:302b:パーフェクト・アレキサンダーの「連帯の神判」" />
     <a time="146" text="α：重罰の神判" sync="00:302b:パーフェクト・アレキサンダーの「重罰の神判」" />
     <a time="147" text="α：十字の秘蹟" sync="00:302b:パーフェクト・アレキサンダーの「十字の秘蹟」" />
-    <a time="160" text="加重誅罰" sync="00:282b:パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="ふたり受け。" notice-d="Sub" />
+    <a time="160" text="加重誅罰" sync="00:282b:パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="アドル" />
     <a time="169" text="誅罰" sync="00:282b:パーフェクト・アレキサンダーの「誅罰」" icon="HardAttack.png" notice="スイッチ。" notice-d="Sub">
       <expressions>
         <set name="beta_start" value="true" />
@@ -1088,11 +1100,11 @@
 
     <a time="259" text="加重誅罰" sync="00:282b:パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="次は、ST無敵受け。" notice-d="Sub" />
     <a time="268" text="誅罰" sync="00:282b:パーフェクト・アレキサンダーの「誅罰」" icon="HardAttack.png" notice="" />
-    <a time="278" text="聖なる大審判1" sync="00:282b:パーフェクト・アレキサンダーの「聖なる大審判」" icon="Avoid.png" notice="アドル。" />
+    <a time="278" text="聖なる大審判1" sync="00:282b:パーフェクト・アレキサンダーの「聖なる大審判」" icon="Avoid.png" />
     <a time="294" text="連帯刑" sync="00:282b:パーフェクト・アレキサンダーの「連帯刑」" icon="DamageShare.png" notice="頭割り。" notice-d="Sub" />
     <a time="304" text="加重誅罰" sync="00:282b:パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="次は、MT無敵受け。" notice-d="Sub" />
     <a time="314" text="誅罰" sync="00:282b:パーフェクト・アレキサンダーの「誅罰」" icon="HardAttack.png" />
-    <a time="325" text="聖なる大審判2" sync="00:282b:パーフェクト・アレキサンダーの「聖なる大審判」" icon="Avoid.png" notice-o="0" notice="ヴェール。" notice-d="Sub" />
+    <a time="325" text="聖なる大審判2" sync="00:282b:パーフェクト・アレキサンダーの「聖なる大審判」" icon="Avoid.png" notice-o="0" notice="アドル。" />
     <a time="340" text="連帯刑" sync="00:282b:パーフェクト・アレキサンダーの「連帯刑」" icon="DamageShare.png" notice="頭割り" notice-d="Sub" />
     <a time="349" text="時間切れ詠唱" sync="00:0044:パーフェクト・アレキサンダー:時空干渉、制限解除、「時の牢獄」に監禁する……。" icon="Dialog.png" />
     <a time="357" text="時の牢獄 Start" sync="00:302b:パーフェクト・アレキサンダーは「時の牢獄」の構え。" icon="Timer.png" />
