@@ -375,7 +375,7 @@
       <v-notice text="➜ Ａへ (雷爆発)" duration="10" duration-visible="false" icon="A.png" order="-10" />
     </a>
     }
-    <!-- 水・雷 1回目 end -->
+                                                                                                    <!-- 水・雷 1回目 end -->
 
     <a time="90" text="ミサイル全弾発射" sync="ブルートジャスティスの「ミサイル全弾発射」" notice="" />
     <a time="94" text="ステルス地雷散布" sync="ブルートジャスティスの「ステルス地雷散布」" notice="" />
@@ -429,7 +429,7 @@
       <v-notice text="➜ 左下へ (雷爆発)" duration="7" duration-visible="false" icon="Arrow6.png" order="-10" />
     </a>
     }
-    <!-- 水・雷 3回目 end -->
+                                                                                                    <!-- 水・雷 3回目 end -->
 
     <a time="160" text="プロペラウィンド" sync="クルーズチェイサーの「プロペラウィンド」" icon="Stack.png" notice="氷の後ろで整列。" notice-o="-10" notice-d="Sub" />
     <a time="163" text="最後の審判：結審" sync="ブルートジャスティスの「最後の審判：結審」" icon="True.png" notice="" />
@@ -548,7 +548,7 @@
       <v-notice order="-1" icon="Arrow3.png" duration="10" duration-visible="false" />
     </t>
     }
-    <!-- 時空潜行のマーチ時のデバフ識別トリガ end -->
+                                                                                                    <!-- 時空潜行のマーチ時のデバフ識別トリガ end -->
 
     <!-- 次元断絶のマーチ時 頭上マーカ識別用トリガ begin -->
     <!-- アレキサンダー・プライムのPOP位置を南（下）として相対位置をアナウンス -->
@@ -741,7 +741,7 @@
     } else {
     <a time="188" text="カウント" icon="Stack.png" />
     }
-                <!-- 次元断絶のマーチ end -->
+                                                                                                                <!-- 次元断絶のマーチ end -->
 
     <a time="190" text="（集合）" icon="StackBack.png" notice="" />
     <a time="196" text="メガホーリー1" sync="アレキサンダー・プライムの「メガホーリー」" icon="HardAllRangeAttack.png" notice="アドル。" notice-o="-8" notice-d="Sub" />
@@ -844,13 +844,13 @@
     <!-- 試験的実装：テーブルのセット Alpha begin -->
     <t name="Alpha-init" sync="00:282b:パーフェクト・アレキサンダーは「未来観測α」の構え。">
       <expressions>
-        <set name="alpha_Start" value="true" />
+        <set name="alpha_start" value="true" />
       </expressions>
     </t>
 
     <t name="InsertTableAlpha" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:">
       <expressions>
-        <pre name="alpha_Start" value="true" />
+        <pre name="alpha_start" value="true" />
         <table>
         {
           "method":"Insert", "table":"alpha",
@@ -865,56 +865,56 @@
     <!-- 試験的実装：テーブルのセット Alpha end -->
 
     <!-- 未来観測alpha ソート順によるデバフ判定 begin -->
-    <t name="α：デバフ無し1" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="無職、ひだりえー。">
+    <t name="α：デバフ無し1" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="無職、ひだりえー。">
       <expressions>
         <pre name="TABLE['alpha'][0]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="無職：左" icon="Free.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：デバフ無し2" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="無職、ひだりえー。">
+    <t name="α：デバフ無し2" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="無職、ひだりえー。">
       <expressions>
         <pre name="TABLE['alpha'][1]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="無職：左" icon="Free.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：デバフ無し3" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="無職、ひだりえー。">
+    <t name="α：デバフ無し3" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="無職、ひだりえー。">
       <expressions>
         <pre name="TABLE['alpha'][2]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="無職：左" icon="Free.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：加重罰1" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="加重罰、みぎえー。">
+    <t name="α：加重罰1" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="加重罰、みぎえー。">
       <expressions>
         <pre name="TABLE['alpha'][3]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="加重：右" icon="PunishmentHevy.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：加重罰2" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="加重罰、みぎえー。">
+    <t name="α：加重罰2" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="加重罰、みぎえー。">
       <expressions>
         <pre name="TABLE['alpha'][4]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="加重：右" icon="PunishmentHevy.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：加重罰3" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="加重罰、みぎえー。">
+    <t name="α：加重罰3" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="加重罰、みぎえー。">
       <expressions>
         <pre name="TABLE['alpha'][5]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="加重：右" icon="PunishmentHevy.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：名誉罰" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="名誉罰、前えー。">
+    <t name="α：名誉罰" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="名誉罰、前えー。">
       <expressions>
         <pre name="TABLE['alpha'][6]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="名誉：アレキ前" icon="PunishmentGlory.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：集団罰" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="無職、ひだりえー。">
+    <t name="α：集団罰" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="無職、ひだりえー。">
       <expressions>
         <pre name="TABLE['alpha'][7]['job']" value="@Model.Player.Job" />
       </expressions>
@@ -926,7 +926,17 @@
     <!-- 試験的実装：テーブルのセット Beta end -->
     <t name="Beta-init" sync="00:282b:パーフェクト・アレキサンダーは「未来観測β」の構え。">
       <expressions>
+        <set name="alpha_start" value="false" />
         <set name="beta_start" value="true" />
+        <table>
+        {
+          "method":"Insert", "table":"alpha",
+          "cols": [
+            { "name":"id", "val":"$1", "key":"true" },
+            { "name":"job", "val":"$2" }
+          ]
+        }
+        </table>
       </expressions>
     </t>
 
@@ -935,7 +945,7 @@
         <pre name="beta_start" value="true" />
         <table>
         {
-          "method":"Insert", "table":"beta",
+          "method":"Insert", "table":"kansoku2",
           "cols": [
             { "name":"id", "val":"$1", "key":"true" },
             { "name":"job", "val":"$2" }
@@ -947,58 +957,58 @@
     <!-- 試験的実装：テーブルのセット Beta end -->
 
     <!-- 未来観測beta ソート順によるデバフ判定 begin -->
-    <t no="1" name="β：接触禁止＋接近禁止" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
+    <t no="1" name="β：接触禁止＋接近禁止" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="2マーカー、左上えー。">
       <expressions>
-        <pre name="TABLE['beta'][0]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][0]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="接触＋接近禁止\n２マーカー ➜ 左上" icon="DontTouch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="2" name="β：逃亡禁止＋接近禁止" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左下えー。">
+    <t no="2" name="β：逃亡禁止＋接近禁止" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="2マーカー、左下えー。">
       <expressions>
-        <pre name="TABLE['beta'][1]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][1]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="逃亡＋接近禁止\n２マーカー ➜ 左下" icon="DontEscape.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="3" name="β：接触禁止＋接近強制" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
+    <t no="3" name="β：接触禁止＋接近強制" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="2マーカー、左上えー。">
       <expressions>
-        <pre name="TABLE['beta'][2]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][2]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="接触＋接近強制\n２マーカー ➜ 左上" icon="DontTouch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="4" name="β：逃亡禁止＋接近強制" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
+    <t no="4" name="β：逃亡禁止＋接近強制" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="2マーカー、左上えー。">
       <expressions>
-        <pre name="TABLE['beta'][3]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][3]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="逃亡＋接近強制\n２マーカー ➜ 左上" icon="DontEscape.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="5" name="β：接触禁止＋集団罰" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左上えー。">
+    <t no="5" name="β：接触禁止＋集団罰" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="2マーカー、左上えー。">
       <expressions>
-        <pre name="TABLE['beta'][4]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][4]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="接触＋集団罰\n２マーカー ➜ 左上" icon="DontTouch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="6" name="β：逃亡禁止のみ" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、左。">
+    <t no="6" name="β：逃亡禁止のみ" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="2マーカー、左。">
       <expressions>
-        <pre name="TABLE['beta'][5]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][5]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="逃亡禁止\n２マーカー ➜ 左" icon="DontEscape.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="7" name="β：接触保護" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="北えー。">
+    <t no="7" name="β：接触保護" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="北えー。">
       <expressions>
-        <pre name="TABLE['beta'][6]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][6]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="接触保護\n４マーカーのパレキ前" icon="Touch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="8" name="β：逃亡監察" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" sync-count="8" notice="2マーカー、右えー。">
+    <t no="8" name="β：逃亡監察" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:" notice="2マーカー、右えー。">
       <expressions>
-        <pre name="TABLE['beta'][7]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][7]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="逃亡監察\n２マーカー ➜ 右" icon="ObserveEscape.png" duration="26" duration-visible="false" />
     </t>
