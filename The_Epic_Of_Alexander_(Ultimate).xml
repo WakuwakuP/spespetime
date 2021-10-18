@@ -928,15 +928,6 @@
       <expressions>
         <set name="alpha_start" value="false" />
         <set name="beta_start" value="true" />
-        <table>
-        {
-          "method":"Insert", "table":"alpha",
-          "cols": [
-            { "name":"id", "val":"$1", "key":"true" },
-            { "name":"job", "val":"$2" }
-          ]
-        }
-        </table>
       </expressions>
     </t>
 
