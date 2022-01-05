@@ -375,8 +375,7 @@
       <v-notice text="➜ Ａへ (雷爆発)" duration="10" duration-visible="false" icon="A.png" order="-10" />
     </a>
     }
-                                                                                                                                <!-- 水・雷 1回目 end -->
-
+    
     <a time="90" text="ミサイル全弾発射" sync="ブルートジャスティスの「ミサイル全弾発射」" notice="" />
     <a time="94" text="ステルス地雷散布" sync="ブルートジャスティスの「ステルス地雷散布」" notice="" />
     <a time="95" text="アースミサイル" icon="AOE.png" notice="" />
@@ -429,8 +428,6 @@
       <v-notice text="➜ 左下へ (雷爆発)" duration="7" duration-visible="false" icon="Arrow6.png" order="-10" />
     </a>
     }
-                                                                                                                                <!-- 水・雷 3回目 end -->
-
     <a time="160" text="プロペラウィンド" sync="クルーズチェイサーの「プロペラウィンド」" icon="Stack.png" notice="氷の後ろで整列。" notice-o="-10" notice-d="Sub" />
     <a time="163" text="最後の審判：結審" sync="ブルートジャスティスの「最後の審判：結審」" icon="True.png" notice="" />
 
@@ -548,10 +545,6 @@
       <v-notice order="-1" icon="Arrow3.png" duration="10" duration-visible="false" />
     </t>
     }
-                                                                                                                                <!-- 時空潜行のマーチ時のデバフ識別トリガ end -->
-
-    <!-- 次元断絶のマーチ時 頭上マーカ識別用トリガ begin -->
-    <!-- アレキサンダー・プライムのPOP位置を南（下）として相対位置をアナウンス -->
     <t text="マーカー1番" sync="1B:[id8]:[mex]:0000:[id4]:004F:0000:0000:0000:" notice="いちばん、Aで外見る、切られたら無い側にスプリント、ざんげ３回目。">
       <expressions>
         <set name="call_delay" value="1" />
@@ -741,8 +734,6 @@
     } else {
     <a time="188" text="カウント" icon="Stack.png" />
     }
-                                                                                                                                            <!-- 次元断絶のマーチ end -->
-
     <a time="190" text="（集合）" icon="StackBack.png" notice="" />
     <a time="196" text="メガホーリー1" sync="アレキサンダー・プライムの「メガホーリー」" icon="HardAllRangeAttack.png" notice="アドル。" notice-o="-8" notice-d="Sub" />
     <a time="203" text="メガホーリー2" sync="アレキサンダー・プライムの「メガホーリー」" icon="HardAllRangeAttack.png" />

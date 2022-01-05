@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>Asphodelos: The Second Circle (Savage) timeline AquaCat Modify</name>
+  <rev>TEST01</rev>
+  <description>
+    202201050313:Happy New Year 個人用に調整byAC build1
+    202201050517:時間切れまで RevをTEST01へ 動作未チェック
+    SPECIAL THANKS!!:zett (https://twitter.com/zettnotfound)
+    AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
+    再生デバイスの設定をして使ってください。メインデバイスは個人通知、サブデバイスは全体通知です。
+  </description>
+  <author>sae81,Aqua Cat,RINGS,Wakuwaku</author>
+  <license>CC BY-SA</license>
+  <zone>Asphodelos: The Second Circle (Savage)</zone>
+  <locale>JA</locale>
+  <start>0039::戦闘開始！</start>
+  <entry>main</entry>
+  
+  @{
+    var ANTI_KNOCKBACK = Model.Player.InRole("HEALER","MagicDPS") ?
+      "堅実魔" :
+      "アムレン";
+  }
+
+  <default target-element="Activity" target-attr="notice-o" value="-4" />
+  <default target-element="Activity" target-attr="notice-d" value="Main" />
+  <default target-element="Trigger" target-attr="notice-d" value="Main" />
+  <!-- 
+  <default target-element="ImageNotice" target-attr="enabled" value="true" />
+  画像通知を無効にする場合は "false" にしてください。
+  -->
+
+
+
+  <!--カタラクティスのトリガーset-->
+  <t sync="^14:(6811|6812|6813|6817)" notice="背面安置" notice-d="Sub">
+    <v-notice text="ブレス:背面安置" duration="9" />
+  </t>
+  <t sync="^14:(6814|6815|6816|6818)" notice="前面安置" notice-d="Sub">
+    <v-notice text="ウィング:前面安置" duration="9" />
+  </t>
+
+  <!--刻印のトリガーset-->
+  <t sync="^1A:[id8]:[mex] gains the effect of 激流の刻印" notice="刻印ついた">
+    <v-notice text="激流の刻印:離れる" duration="9" />
+  </t>
+
+  <t sync="^1A:[id8]:[mex] gains the effect of 重圧の刻印" notice="頭割り対象">
+    <v-notice text="重圧の刻印:頭割り" duration="9" />
+  </t>
+
+  <t sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：(前|後|左|右) from  for 13.00 Seconds." notice="後 AoE処理">
+    <expressions>
+      <pre name="overflow" value="true" />
+    </expressions>
+    <v-notice text="後 AoE処理" duration="30" />
+  </t>
+  <t sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：(前|後|左|右) from  for 28.00 Seconds." notice="先 AoE処理">
+    <expressions>
+      <pre name="overflow" value="true" />
+    </expressions>
+    <v-notice text="先 AoE処理" duration="30" />
+  </t>
+
+
+  <!-- さいころ -->
+  <t sync="^1B:[id8]:[mex]:0000:0000:00D0:0000:0000:0000" notice="突進、いちばん。対角">
+    <v-notice text="突進 1回目\nボス対角" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:0000:00D1:0000:0000:0000" notice="突進、にばん。足元">
+    <v-notice text="突進 2回目\nボス足元" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:0000:00D2:0000:0000:0000" notice="突進、さんばん。対角">
+    <v-notice text="突進 3回目\nボス対角" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:0000:00D3:0000:0000:0000" notice="突進、よんばん。足元">
+    <v-notice text="突進 4回目\nボス足元" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:0000:00D4:0000:0000:0000" notice="頭、いちばん。">
+    <v-notice text="頭 1回目" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:0000:00D5:0000:0000:0000" notice="頭、にばん。">
+    <v-notice text="頭 2回目" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:0000:00D6:0000:0000:0000" notice="頭、さんばん。">
+    <v-notice text="頭 3回目" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:0000:00D7:0000:0000:0000" notice="頭、よんばん。">
+    <v-notice text="頭 4回目" duration="15" />
+  </t>
+
+  <s name="main">
+    <!--P1 水位上昇-->
+    <a time="017" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" v-notice="Sub" />
+    <a time="027" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" v-notice="Sub" />
+    <a time="040" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃" v-notice="Sub" />
+    <a time="050" sync="エリクトニオス:下水に、有害な魔力が満ちている……！？ 奴が水位を操っているらしい、下水の来ない場所へ退避するんだ！" />
+    <a time="054" text="【構】ブレスorウィング" sync="ヒッポカムポスの「(ブレス|ウィング)＆カタラクティス」の構え。" />
+    <a time="056" sync="エリクトニオス:か、顔と身体が別々の方を向き始めたぞ……？ あいつ、何をするつもりなんだ！？" />
+    <a time="062" text="カタラクティス" sync="ヒッポカムポスの「(ブレス|ウィング)＆カタラクティス」" />
+    <!--P2 タンク誘導、刻印処理-->
+    <a time="070" text="【構】コヒーレンス" sync="ヒッポカムポスは「コヒーレンス」の構え。" notice="線取り" v-notice="Sub" />
+    <a time="082" text="コヒーレンス" sync="ヒッポカムポスの「コヒーレンス」" notice="タンク先頭頭割り" v-notice="Sub" />
+    <a time="099" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" v-notice="Sub" />
+    <a time="106" text="霊水弾" sync="ヒッポカムポスの「霊水弾」" notice="霊水弾。" />
+    <a time="116" text="ショックウェーブ" sync="ヒッポカムポスの「ショックウェーブ」" notice="@ANTI_KNOCKBACK" />
+    <a time="120" text="霊水弾着弾" />
+    <a time="129" text="【詠】多重刻印" sync="ヒッポカムポスは「多重刻印」を唱えた。" />
+    <a time="134" text="多重刻印" sync="ヒッポカムポスの「多重刻印」" />
+    <a time="144" text="【構】ウィングorブレス" sync="ヒッポカムポスの「(ブレス|ウィング)＆カタラクティス」の構え。" />
+    <a time="153" text="カタラクティス" sync="ヒッポカムポスの「(ブレス|ウィング)＆カタラクティス」" />
+    <a time="159" text="多重刻印着弾" />
+    <!--P3 強制移動、サイコロ処理-->
+    <a time="172" text="チャネリングフロウ" sync="ヒッポカムポスの「チャネリングフロウ」" notice="全体ダメージ、矢印つくよ" v-notice="Sub" />
+    <a time="187" text="強制移動発動" notice="強制移動" />
+    <a time="203" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" v-notice="Sub" />
+    <a time="213" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" v-notice="Sub" />
+    <a time="230" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃" v-notice="Sub" />
+    <a time="247" text="ショックウェーブ" sync="ヒッポカムポスの「ショックウェーブ」" notice="@ANTI_KNOCKBACK" />
+    <a time="251" text="【構】カンペオス" sync="ヒッポカムポスは「カンペオスハルマ」の構え。" />
+    <a time="260" text="カンペオスハルマ" sync="ヒッポカムポスの「カンペオスハルマ」" />
+    <a time="283" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" v-notice="Sub" />
+    <!--P4 AoE処理、多重刻印 頭部分離-->
+    <a time="292" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" v-notice="Sub" />
+    <a time="306" text="オーバーフロウ" sync="ヒッポカムポスの「チャネリングオーバーフロウ」">
+      <expressions>
+        <set name="overflow" value="true" />
+      </expressions>
+    </a>
+    <a time="313" text="フラッド" sync="ヒッポカムポスの「テインテッドフラッド」" />
+    <a time="328" text="フラッド" sync="ヒッポカムポスの「テインテッドフラッド」" />
+    <a time="361" text="【詠】多重刻印" sync="ヒッポカムポスは「多重刻印」を唱えた。" />
+    <a time="366" text="多重刻印" sync="ヒッポカムポスの「多重刻印」" />
+    <a time="371" sync="エリクトニオス:頭部が分離したぞ！　あいつ、あんなことも可能なのか……！ 周囲に、気を配るんだ！" />
+    <a time="380" text="【構】ブレスorウィング" sync="ヒッポカムポスの「(ブレス|ウィング)＆カタラクティス」の構え。" />
+    <a time="381" text="【構】ディソシエーション" sync="ヒッポカムポスは「ディソシエーション」の構え。" />
+    <a time="388" text="刻印発動" sync="ヒッポカムポスの「重水塊」" />
+    <!--a time="388" text="激流衝" sync="ヒッポカムポスの「激流衝」" notice="激流衝。" /-->
+    <a time="389" text="カタラクティス" sync="ヒッポカムポスの「(ブレス|ウィング)＆カタラクティス」" />
+    <!--a time="389" text="ディソシエーション" sync="ヒッポカムポスの「ディソシエーション」" /-->
+    <!--P5 エラプション-->
+    <a time="410" text="【詠】エラプション" sync="ヒッポカムポスは「スウェッジエラプション」を唱えた。" notice="エラプション、3連続" />
+    <a time="411" text="ディソシエーション" sync="ヒッポカムポスは「ディソシエーション」の構え。" notice="外周を確認" />
+    <a time="416" text="3連エラプション" sync="ヒッポカムポスの「スウェッジエラプション」" />
+    <a time="420" text="ディソシエーション" sync="ヒッポカムポスの「ディソシエーション」" notice="ディソシエーション" />
+    <a time="421" text="フラッド" sync="ヒッポカムポスの「テインテッドフラッド」" notice="フラッド。" />
+    <a time="425" text="【構】コヒーレンス" sync="ヒッポカムポスは「コヒーレンス」の構え。" notice="線がつくよ" />
+    <a time="438" text="コヒーレンス" sync="ヒッポカムポスの「コヒーレンス」" notice="タンク先頭頭割り" />
+    <a time="453" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" />
+    <!--P5矢印・線・エラプション-->
+    <a time="462" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" />
+    <a time="479" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃" />
+    <a time="496" text="チャネリングオーバーフロウ" sync="ヒッポカムポスの「チャネリングオーバーフロウ」" notice="矢印つくよ" />
+    <a time="501" text="コヒーレンス" sync="ヒッポカムポスは「コヒーレンス」の構え。" notice="線が付くよ" />
+    <a time="511" text="1回目:荒波" sync="ヒッポカムポスの「荒波」" notice="強制移動、1回目" sync-interval="5" />
+    <a time="513" text="コヒーレンス" sync="ヒッポカムポスの「コヒーレンス」" notice="タンク先頭頭割り" />
+    <a time="526" text="2回目:荒波" sync="ヒッポカムポスの「荒波」" notice="強制移動、2回目" sync-interval="5" />
+    <a time="546" text="【詠】エラプション" sync="ヒッポカムポスは「スウェッジエラプション」を唱えた。" notice="エラプション、3連続" />
+    <a time="547" text="ディソシエーション" sync="ヒッポカムポスは「ディソシエーション」の構え。" notice="外周を確認" />
+    <a time="552" text="スウェッジエラプション" sync="ヒッポカムポスの「スウェッジエラプション」" />
+    <a time="556" text="ディソシエーション" sync="ヒッポカムポスの「ディソシエーション」" />
+    <a time="563" text="霊水弾" sync="ヒッポカムポスの「霊水弾」" />
+    <a time="574" text="ショックウェーブ" sync="ヒッポカムポスの「ショックウェーブ」" notice="@ANTI_KNOCKBACK" />
+    <a time="575" text="霊水弾着弾" />
+    <!--P6最終。最後は時間切れか不明-->
+    <a time="588" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク攻撃" />
+    <a time="600" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" />
+    <a time="612" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" />
+    <a time="627" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃" />
+    <a time="630" text="調査中" />
+  </s>
+</timeline>

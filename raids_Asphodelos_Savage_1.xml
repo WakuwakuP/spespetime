@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>Asphodelos: The First Circle (Savage) timeline</name>
+  <rev>draft</rev>
+  <description>
+    再生デバイスの設定をして使ってください。
+    メインデバイスは個人通知、サブデバイスは全体通知です。
+  </description>
+  <author>Wakuwaku</author>
+  <license>CC BY-SA</license>
+  <zone>Asphodelos: The First Circle (Savage)</zone>
+  <locale>JA</locale>
+  <start>0039::戦闘開始！</start>
+  <entry>main</entry>
+
+  <default target-element="Activity" target-attr="notice-o" value="-3" />
+  <default target-element="Activity" target-attr="notice-d" value="Main" />
+  <default target-element="Trigger" target-attr="notice-d" value="Main" />
+
+  <!-- 
+  <default target-element="ImageNotice" target-attr="enabled" value="true" />
+  画像通知を無効にする場合は "false" にしてください。
+  -->
+  
+  @{
+    var ANTI_KNOCKBACK = Model.Player.InRole("HEALER","MagicDPS") ?
+      "堅実魔" :
+      "アムレン";
+  }
+
+  <s name="main">
+    <!-- 鎖デバフトリガー -->
+    <t text="近呪の魔鎖" sync="[mex] gains the effect of 近呪の魔鎖" notice="近づく 付いた">
+      <expressions>
+        <pre name="four_times_chain" value="false" />
+      </expressions>
+      <v-notice text="近呪の魔鎖" job-icon="true" duration="15"></v-notice>
+    </t>
+    <t text="近呪の魔鎖" sync="[nex] gains the effect of 近呪の魔鎖">
+      <expressions>
+        <pre name="four_times_chain" value="false" />
+      </expressions>
+      <v-notice text="近呪の魔鎖" job-icon="true" duration="15"></v-notice>
+    </t>
+    <t text="遠呪の魔鎖" sync="[mex] gains the effect of 遠呪の魔鎖" notice="離れる 付いた">
+      <expressions>
+        <pre name="four_times_chain" value="false" />
+      </expressions>
+      <v-notice text="遠呪の魔鎖" job-icon="true" duration="15"></v-notice>
+    </t>
+    <t text="遠呪の魔鎖" sync="[nex] gains the effect of 遠呪の魔鎖">
+      <expressions>
+        <pre name="four_times_chain" value="false" />
+      </expressions>
+      <v-notice text="遠呪の魔鎖" job-icon="true" duration="15"></v-notice>
+    </t>
+
+    <!-- 懲罰連撃トリガー -->
+    <t text="懲罰連撃・炎" sync="エリクトニオスは「懲罰連撃・炎」の構え。" notice="スイッチ。１人受け。" notice-d="Sub">
+      <v-notice text="懲罰連撃・炎\nスイッチ。１人受け。" duration="15"></v-notice>
+    </t>
+    <t text="懲罰連撃・聖" sync="エリクトニオスは「懲罰連撃・聖」の構え。" notice="スイッチ。頭割り。" notice-d="Sub">
+      <v-notice text="懲罰連撃・聖\nスイッチ。頭割り。" duration="15"></v-notice>
+    </t>
+
+    <!-- 時限の魔鎖トリガー -->
+    <t text="時限の魔鎖" sync="[mex] gains the effect of 時限の魔鎖 from" notice="ほのお踏む">
+      <v-notice text="時限の魔鎖" job-icon="true" duration="16"></v-notice>
+    </t>
+    <t text="時限の魔鎖" sync="[nex] gains the effect of 時限の魔鎖 from" notice="ひかり踏む">
+      <v-notice text="時限の魔鎖" job-icon="true" duration="16"></v-notice>
+    </t>
+
+    <!-- 四連魔鎖トリガー -->
+    <t text="近呪の魔鎖" sync="[mex] gains the effect of 近呪の魔鎖 from  for 3.00 Seconds." notice="いちばん。">
+      <expressions>
+        <pre name="four_times_chain" value="ture" />
+      </expressions>
+      <v-notice text="近呪の魔鎖" icon="1.png" duration="15">
+      </v-notice>
+    </t>
+    <t text="近呪の魔鎖" sync="[mex] gains the effect of 近呪の魔鎖 from  for 8.00 Seconds." notice="にばん。">
+      <expressions>
+        <pre name="four_times_chain" value="ture" />
+      </expressions>
+      <v-notice text="近呪の魔鎖" icon="2.png" duration="15"></v-notice>
+    </t>
+    <t text="近呪の魔鎖" sync="[mex] gains the effect of 近呪の魔鎖 from  for 13.00 Seconds." notice="さんばん。">
+      <expressions>
+        <pre name="four_times_chain" value="ture" />
+      </expressions>
+      <v-notice text="近呪の魔鎖" icon="3.png" duration="15"></v-notice>
+    </t>
+    <t text="近呪の魔鎖" sync="[mex] gains the effect of 近呪の魔鎖 from  for 18.00 Seconds." notice="よんばん。">
+      <expressions>
+        <pre name="four_times_chain" value="ture" />
+      </expressions>
+      <v-notice text="近呪の魔鎖" icon="4.png" duration="15"></v-notice>
+    </t>
+
+    <t text="遠呪の魔鎖" sync="[mex] gains the effect of 遠呪の魔鎖 from  for 3.00 Seconds." notice="A">
+      <expressions>
+        <pre name="four_times_chain" value="ture" />
+      </expressions>
+      <v-notice text="遠呪の魔鎖" icon="A.png" duration="15" notice="A"></v-notice>
+    </t>
+    <t text="遠呪の魔鎖" sync="[mex] gains the effect of 遠呪の魔鎖 from  for 8.00 Seconds." notice="B">
+      <expressions>
+        <pre name="four_times_chain" value="ture" />
+      </expressions>
+      <v-notice text="遠呪の魔鎖" icon="B.png" duration="15"></v-notice>
+    </t>
+    <t text="遠呪の魔鎖" sync="[mex] gains the effect of 遠呪の魔鎖 from  for 13.00 Seconds." notice="C">
+      <expressions>
+        <pre name="four_times_chain" value="ture" />
+      </expressions>
+      <v-notice text="遠呪の魔鎖" icon="C.png" duration="15"></v-notice>
+    </t>
+    <t text="遠呪の魔鎖" sync="[mex] gains the effect of 遠呪の魔鎖 from  for 18.00 Seconds." notice="D">
+      <expressions>
+        <pre name="four_times_chain" value="ture" />
+      </expressions>
+      <v-notice text="遠呪の魔鎖" icon="D.png" duration="15"></v-notice>
+    </t>
+
+    <t text="懲罰撃: 円" sync="^15:{id8}:エリクトニオス:65F9:懲罰撃">
+      <v-notice text="懲罰撃: 円" icon="D.png" duration="15"></v-notice>
+    </t>
+    <t text="懲罰撃: ドーナツ" sync="^15:{id8}:エリクトニオス:6DA8:懲罰撃">
+      <v-notice text="懲罰撃: 円" icon="D.png" duration="15"></v-notice>
+    </t>
+
+    <a time="014.0" text="痛撃" sync="エリクトニオスの「痛撃」" notice="強攻撃。" notice-d="Sub" />
+    <a time="022.0" text="結呪の魔鎖" sync="エリクトニオスの「結呪の魔鎖」" />
+    <a time="032.0" text="魔鎖乱流" sync="エリクトニオスの「魔鎖乱流」" notice="全体攻撃。" notice-d="Sub" />
+    <a time="045.0" sync="エリクトニオス:俺の鎖から、逃れられると思うな！" />
+    <a time="057.0" text="懲罰撃" sync="エリクトニオスの「懲罰撃」" />
+    <a time="072.0" text="懲罰連撃" sync="エリクトニオスの「懲罰連撃・(炎|聖)」" />
+    <a time="091.0" text="懲罰撃" sync="エリクトニオスの「懲罰撃」" />
+    <a time="105.0" text="魔鎖乱流" sync="エリクトニオスの「魔鎖乱流」" notice="全体攻撃。" notice-d="Sub" />
+    <a time="115.0" sync="エリクトニオス:氷火による呪縛を発動させる……！" />
+    <a time="118.0" text="氷火の侵食" sync="エリクトニオスの「氷火の侵食」" />
+    <a time="134.0" text="侵食執行" sync="エリクトニオスの「侵食執行」" />
+    <a time="141.0" text="魔鎖乱流" sync="エリクトニオスの「魔鎖乱流」" notice="全体攻撃。" notice-d="Sub" />
+    <a time="151.0" text="魔鎖乱流" sync="エリクトニオスの「魔鎖乱流」" notice="全体攻撃。" notice-d="Sub" />
+    <a time="162.0" sync="エリクトニオス:この一撃で、貴様を……砕く！" />
+    <a time="168.0" text="懲罰連撃" sync="エリクトニオスの「懲罰連撃・(炎|聖)」" />
+    <a time="188.0" text="光炎監獄" sync="エリクトニオスの「光炎監獄」" notice="全体攻撃。" notice-d="Sub" />
+    <a enabled="false" time="207.8" text="懲罰爆鎖 Sign" sync="15:[id8]:エリクトニオス:6602:懲罰爆鎖:[id8]::" />
+    <a time="208.0" text="懲罰爆鎖" sync="エリクトニオスの「懲罰爆鎖」" />
+    <a time="224.0" text="懲罰連撃" sync="エリクトニオスの「懲罰連撃・(炎|聖)」" />
+    <a time="243.0" text="懲罰爆鎖" sync="エリクトニオスの「懲罰爆鎖」" />
+    <a time="255.0" text="時限の魔鎖" sync="エリクトニオスの「時限の魔鎖」" />
+    <a time="265.0" text="痛撃" sync="エリクトニオスの「痛撃」" />
+    <a time="271.0" sync="エリクトニオス:ウゥゥ……この鎖で払えないとは……！ だが俺は、仲間を、創造生物を……救わねばならないんだ！" />
+    <a time="279.0" text="監獄閉塞" sync="エリクトニオスの「監獄閉塞」" notice="全体攻撃。" notice-d="Sub" />
+    <a time="291.0" sync="エリクトニオス:一撃で駄目なら、何度でも……！ 結呪の四連魔鎖……これで貴様を滅する！！">
+      <expressions>
+        <set name="four_times_chain" value="ture" />
+      </expressions>
+    </a>
+    <a time="294.0" text="結呪の四連魔鎖" sync="エリクトニオスの「結呪の四連魔鎖」" />
+    <a time="329.0" text="魔鎖乱流" sync="エリクトニオスの「魔鎖乱流」" notice="全体攻撃。" notice-d="Sub">
+      <expressions>
+        <set name="four_times_chain" value="false" />
+      </expressions>
+    </a>
+    <a time="342.0" text="氷火の侵食" sync="エリクトニオスの「氷火の侵食」" />
+    <a time="358.0" text="侵食執行" sync="エリクトニオスの「侵食執行」" />
+    <a time="373.0" text="懲罰撃" sync="エリクトニオスの「懲罰撃」" />
+    <a time="376.0" text="懲罰撃" sync="エリクトニオスの「懲罰撃」" />
+    <a time="390.0" text="魔鎖乱流" sync="エリクトニオスの「魔鎖乱流」" notice="全体攻撃。" notice-d="Sub" />
+    <a time="400.0" sync="エリクトニオス:俺が諦めたら、すべてが終わってしまう……！ 光炎監獄、再展開！！" />
+    <a time="408.0" text="光炎監獄" sync="エリクトニオスの「光炎監獄」" notice="全体攻撃。" notice-d="Sub" />
+    <a time="410.0" sync="エリクトニオス:この光炎監獄で、貴様のすべてを消し飛ばす！" />
+    <a time="419.0" text="結呪の魔鎖" sync="エリクトニオスの「結呪の魔鎖」" />
+    <a time="424.0" text="爆鎖" sync="エリクトニオスは「爆鎖」の構え。" />
+    <a time="430.0" text="爆鎖" sync="エリクトニオスの「爆鎖」" />
+    <a time="438.0" text="爆鎖" sync="エリクトニオスの「爆鎖」" />
+    <a enabled="false" time="438.1" text="爆鎖 Sign" sync="15:[id8]:エリクトニオス:6619:爆鎖:[id8]:エリクトニオス:" />
+    <a enabled="false" time="439.0" text="光爆 Sign" sync="15:[id8]:エリクトニオス:661B:光爆:[id8]::" />
+    <a time="442.0" text="魔鎖乱流" sync="エリクトニオスは「魔鎖乱流」の構え。" notice="全体攻撃。" notice-d="Sub" />
+    <a time="448.0" text="魔鎖乱流" sync="エリクトニオスの「魔鎖乱流」" notice="全体攻撃。" notice-d="Sub" />
+    <a time="455.0" text="時限の魔鎖" sync="エリクトニオスは「時限の魔鎖」の構え。" notice="次は、時限の魔鎖。" />
+    <a time="459.0" text="時限の魔鎖" sync="エリクトニオスの「時限の魔鎖」" />
+    <a time="467.0" text="懲罰連撃" sync="エリクトニオスの「懲罰連撃・(炎|聖)」" />
+    <a time="477.0" sync="エリクトニオス:フゥ……フゥ……俺の命にかえても……！ これ以上、貴様の好きにはさせない！" />
+    <a time="485.0" text="魔鎖乱流" sync="エリクトニオスの「魔鎖乱流」" notice="全体攻撃。" notice-d="Sub" />
+    <a time="505.0" text="懲罰爆鎖" sync="エリクトニオスの「懲罰爆鎖」" />
+    <a time="509.0" text="懲罰爆鎖" sync="エリクトニオスの「懲罰爆鎖」" />
+    <a time="523.0" text="懲罰爆鎖" sync="エリクトニオスの「懲罰爆鎖」" />
+    <a time="526.0" text="懲罰爆鎖" sync="エリクトニオスの「懲罰爆鎖」" />
+    <a time="541.0" text="懲罰爆鎖" sync="エリクトニオスの「懲罰爆鎖」" />
+    <a time="544.0" text="懲罰爆鎖" sync="エリクトニオスの「懲罰爆鎖」" />
+  </s>
+</timeline>
