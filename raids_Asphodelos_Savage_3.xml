@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>パンデモ零式:辺獄3層</name>
+  <rev>TEST03</rev>
+  <description>
+    202201060609:時間切れまで。動作未チェック。トリガーコメントアウト中。
+    202201060743:移行時のサブルーチンの記載間違いを訂正TEST02ex
+    202201061556:zone名訂正。TEST03
+    SPECIAL THANKS!!:zett (https://twitter.com/zettnotfound)
+    AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
+  </description>
+  <author>Aqua Cat,RINGS</author>
+  <license>CC BY-SA</license>
+  <zone>Asphodelos: The Third Circle (Savage)</zone>
+  <locale>JA</locale>
+  <start>0039::戦闘開始！</start>
+  <entry>前半</entry>
+
+  <default target-element="Activity" target-attr="notice-o" value="-3" />
+  <default target-element="Activity" target-attr="notice-d" value="Main" />
+  <default target-element="Trigger" target-attr="notice-d" value="Main" />
+
+
+  <!--魔力錬成set-->
+  <t sync="^14:66BE" notice="大玉">
+    <v-notice text="劫火天焦:大玉" duration="9" />
+  </t>
+  <t sync="^14:66C0" notice="回転">
+    <v-notice text="劫火天焦:回転" duration="9" />
+  </t>
+
+
+  <!--
+  <t sync="^14:66FB" notice="左右安置、散開">
+    <v-notice text="左右安置、散開" duration="9" />
+  </t>
+  <t sync="^14:66FC" notice="中央安置、ペア">
+    <v-notice text="中央安置、ペア" duration="9" />
+  </t>
+
+    <t sync="^14:66C6" notice="大玉、散開">
+      <v-notice text="炎闇劫火:大玉→散開" duration="9" />
+    </t>
+    <t sync="^14:66C8" notice="大玉、頭割">
+      <v-notice text="炎闇劫火:大玉→頭割" duration="9" />
+    </t>
+      <t sync="^14:66CA" notice="回転、散開">
+        <v-notice text="炎闇劫火:回転→散開" duration="9" />
+      </t>
+      <t sync="^14:66CC" notice="大玉、頭割">
+        <v-notice text="炎闇劫火:大玉→頭割り" duration="9" />
+      </t>
+
+      <t sync="^14:66C2" notice="頭割り">
+        <v-notice text="暗闇の劫火天焦:頭割り" duration="9" />
+      </t>
+      <t sync="^14:66CC" notice="散開">
+        <v-notice text="暗闇の劫火天焦:散開" duration="9" />
+      </t>
+    -->
+
+  <s name="前半">
+    <a time="014" text="灰燼の炎(全体)" sync="フェネクスの「灰燼の炎」" notice="全体攻撃" notice-d="Sub" />
+    <a time="016" text="【構】獄炎の炎撃" sync="フェネクスは「獄炎の炎撃」の構え。" notice="線が付くよ" notice-d="Sub" />
+    <a time="023" text="獄炎の炎撃" sync="フェネクスの「獄炎の炎撃」" notice="獄炎の炎撃" notice-d="Sub" />
+    <!--トリガセット済みなのでnoticeは無し。-->
+    <a time="028" text="【構】魔力錬成" sync="フェネクスは「魔力錬成：劫火天焦」の構え。" />
+    <a time="034" text="魔力錬成" sync="フェネクスの「魔力錬成：劫火天焦」" />
+    <a time="045" text="左右焼却" sync="フェネクスの「(左|右)翼焼却」" notice="左右注意" notice-d="Sub" />
+    <!--P2サイコロ-->
+    <a time="052" text="【構】闇の炎" sync="フェネクスは「闇の炎」の構え。" notice="闇の炎設置" notice-d="Sub" />
+    <a time="059" text="闇の炎" sync="フェネクスの「闇の炎」" notice="闇の炎。" notice-d="Sub" />
+    <!--a time="061" text="闇の大炎上" sync="闇の炎は「闇の大炎上」の構え。" notice="闇の大炎上。" /-->
+    <a time="063" text="【サイコロ】" sync="フェネクスは「光の炎」の構え。" notice="サイコロ確認" notice-d="Sub" />
+    <!--a time="069" text="光の炎" sync="フェネクスの「光の炎」" /-->
+    <!--a time="070" text="光の炎" sync="フェネクスの「光の炎」" /-->
+    <!--a time="071" text="光の炎" sync="フェネクスの「光の炎」" /-->
+    <!--a time="072" text="光の炎" sync="フェネクスの「光の炎」" /-->
+    <!--a time="074" text="光の炎" sync="フェネクスの「光の炎」" /-->
+    <!--a time="075" text="光の炎" sync="フェネクスの「光の炎」" /-->
+    <!--a time="076" text="光の炎" sync="フェネクスの「光の炎」" /-->
+    <!--a time="077" text="光の炎" sync="フェネクスの「光の炎」" /-->
+    <a time="090" text="獄炎の炎撃" sync="フェネクスは「獄炎の炎撃」の構え。" notice="線が付くよ" notice-d="Sub" />
+    <a time="096" text="獄炎の炎撃" sync="フェネクスの「獄炎の炎撃」" notice="獄炎の炎撃。" notice-d="Sub" />
+    <a time="105" text="灰燼の炎(全体)" sync="フェネクスの「灰燼の炎」" notice="全体攻撃" notice-d="Sub" />
+    <!--P3十字走火-->
+    <a time="114" text="十字走火" sync="フェネクスの「十字走火」" notice="十字走火" notice-d="Sub" />
+    <a time="116" text="【構】魔力錬成" sync="フェネクスは「魔力錬成：劫火天焦」の構え。" />
+    <a time="122" text="魔力錬成" sync="フェネクスの「魔力錬成：劫火天焦」" />
+    <a time="132" text="熱噴射" sync="フェネクスの「熱噴射」" notice="AoE捨て" notice-d="Sub" />
+    <a time="141" text="左右焼却" sync="フェネクスの「(左|右)翼焼却」" notice="左右注意" notice-d="Sub" />
+    <a time="143" text="【構】獄炎の炎撃" sync="フェネクスは「獄炎の炎撃」の構え。" notice="線が付くよ" notice-d="Sub" />
+    <a time="149" text="獄炎の炎撃" sync="フェネクスの「獄炎の炎撃」" notice="獄炎の炎撃" notice-d="Sub" />
+    <a time="152" text="【構】魔力錬成" sync="フェネクスは「魔力錬成：劫火天焦」の構え。" />
+    <a time="158" text="魔力錬成" sync="フェネクスの「魔力錬成：劫火天焦」" />
+    <a time="165" text="獄炎の焔" sync="フェネクスは「獄炎の焔」の構え。" notice="線が付くよ" notice-d="Sub" />
+    <a time="172" text="獄炎の焔" sync="フェネクスの「獄炎の焔」" notice="獄炎の炎撃" notice-d="Sub" />
+    <!--P4雑魚フェーズ-->
+    <a time="181" text="炎の雨" />
+    <a time="189" text="炎の雨" />
+    <a time="197" text="炎の雨" />
+    <a time="205" text="炎の雨" />
+    <!--P5-->
+    <!--a time="208" text="反魂の炎" sync="フェネクスの「反魂の炎」" notice="反魂の炎。" /-->
+    <a time="228" text="反魂の炎" sync="フェネクスの「反魂の炎」" notice="反魂の炎。" sync-s="-50" notice-d="Sub" />
+    <a time="234" text="連続強襲滑空" sync="陽炎鳥は「連続強襲滑空」の構え。" notice="線が付くよ" notice-d="Sub" />
+    <a time="241" text="炎の雨" />
+    <a time="245" text="連続強襲滑空" sync="陽炎鳥の「連続強襲滑空」" notice="突進" sync-interval="5" notice-d="Sub" />
+    <a time="250" text="炎の雨" />
+    <a time="257" text="炎の雨" />
+    <a time="265" text="炎の雨" />
+    <a time="274" text="炎の雨" />
+    <a time="282" text="炎の雨" />
+    <a time="302" text="反魂の炎" sync="フェネクスの「反魂の炎」" notice="反魂の炎。" sync-s="50" notice-d="Sub" />
+    <a time="323" text="移行待ち" sync="フェネクスは「黒き不死鳥」の構え。" sync-s="-50" goto="後半" />
+  </s>
+
+  <s name="後半">
+    <!--a time="000" text="黒き不死鳥" sync="フェネクスは「黒き不死鳥」の構え。" notice="黒き不死鳥。" /-->
+    <a time="011" text="黒き不死鳥" sync="フェネクスの「黒き不死鳥」" notice="黒き不死鳥" notice-d="Sub" />
+    <a time="019" text="【構】獄炎の炎撃" sync="フェネクスは「獄炎の炎撃」の構え。" notice="線が付くよ" notice-d="Sub"/>
+    <a time="025" text="獄炎の炎撃" sync="フェネクスの「獄炎の炎撃」" notice="獄炎の炎撃。" notice-d="Sub"/>
+    <a time="037" text="群鳥飛翔" sync="フェネクスの「群鳥飛翔」" notice="群鳥飛翔" notice-d="Sub"/>
+    <a time="051" text="闇の瞳" sync="火霊鳥の「闇の瞳」" notice="闇の瞳。" notice-d="Sub"/>
+    <a time="064" text="魔力錬成2連" sync="フェネクスの「魔力錬成：炎闇劫火」" notice="魔力錬成" notice-d="Sub"/>
+    <a time="067" text="魔力錬成" />
+    <a time="096" text="霊泉の炎" sync="フェネクスの「霊泉の炎」" notice="霊泉の炎"notice-d="Sub"/>
+    <!--a time="097" text="陽炎の翼" sync="フェネクスは「陽炎の翼」の構え。" notice="陽炎の翼。" /-->
+    <a time="104" text="陽炎の翼" sync="フェネクスの「陽炎の翼」" />
+    <a time="105" text="霊泉の波動4" sync="霊泉の炎の「霊泉の波動」" notice="霊泉の波動。" sync-interval="20" notice-d="Sub"/>
+    <a time="110" text="霊泉の波動3" />
+    <a time="110" text="強襲滑空3" sync="炎霊鳥の「強襲滑空」" notice="強襲滑空、3連" sync-interval="15" notice-d="Sub"/>
+    <a time="115" text="霊泉の波動2" />
+    <a time="115" text="強襲滑空2" />
+    <a time="120" text="霊泉の波動1" />
+    <a time="120" text="強襲滑空1" />
+    <a time="127" text="灰燼の炎(全体)" sync="フェネクスの「灰燼の炎」" notice="全体攻撃" sync-e="6" notice-d="Sub"/>
+    <a time="134" text="灰燼の炎(全体)" sync="フェネクスの「灰燼の炎」" notice="全体攻撃" sync-o="-6" notice-d="Sub"/>
+    <a time="138" text="獄炎の炎撃" sync="フェネクスは「獄炎の炎撃」の構え。" notice="線が付くよ" notice-d="Sub"/>
+    <a time="145" text="獄炎の炎撃" sync="フェネクスの「獄炎の炎撃」" notice="獄炎の炎撃。" notice-d="Sub"/>
+    <a time="160" text="辺獄の炎嵐" sync="フェネクスの「辺獄の炎嵐」" notice="竜巻出るよ" notice-d="Sub"/>
+    <a time="166" text="辺獄の炎" sync="フェネクスの「辺獄の炎」" noatice="辺獄の炎" notice-d="Sub"/>
+    <a time="167" text="【構】魔力錬成：暗闇" sync="フェネクスは「魔力錬成：暗闇の劫火天焦」の構え。"/>
+    <a time="173" text="魔力錬成：暗闇" sync="フェネクスの「魔力錬成：暗闇の劫火天焦」" />
+    <a time="184" text="辺獄の炎" sync="フェネクスの「辺獄の炎」" noatice="辺獄の炎" notice-d="Sub"/>
+    <a time="193" text="辺獄の嵐" sync="フェネクスは「辺獄の嵐」の構え。" notice="線が付くよ" notice-d="Sub"/>
+    <a time="202" text="辺獄の嵐" sync="フェネクスの「辺獄の嵐」" notice="辺獄の嵐。" notice-d="Sub"/>
+    <a time="208" text="辺獄の闇炎旋風" sync="フェネクスの「辺獄の闇炎旋風」" notice="辺獄の闇炎旋風" notice-d="Sub"/>
+    <!--a time="210" text="闇旋風" sync="闇炎旋風は「闇旋風」の構え。" notice="闇旋風。" /-->
+    <!--a time="210" text="炎旋風" sync="闇炎旋風は「炎旋風」の構え。" notice="炎旋風。" /-->
+    <a time="215" text="熱噴射(エラプ)" sync="フェネクスの「熱噴射」" notice="AoE捨て、4連" notice-d="Sub"/>
+    <a time="219" text="【構】魔力錬成：暗闇" sync="フェネクスは「魔力錬成：暗闇の劫火天焦」の構え。" />
+    <a time="225" text="魔力錬成：暗闇" sync="フェネクスの「魔力錬成：暗闇の劫火天焦」" />
+    <a time="227" text="闇旋風" sync="闇炎旋風の「闇旋風」" notice="ノックバック" notice-d="Sub"/>
+    <a time="229" text="炎旋風" sync="闇炎旋風の「炎旋風」" />
+    <a time="239" text="灰燼の炎(全体)" sync="フェネクスの「灰燼の炎」" notice="全体攻撃" notice-d="Sub"/>
+    <a time="252" text="死の運命" sync="フェネクスの「死の運命」" notice="死の運命" notice-d="Sub"/>
+    <a time="258" text="群鳥飛翔" sync="フェネクスの「群鳥飛翔」" notice="群鳥飛翔" notice-d="Sub"/>
+
+    <a time="272" text="闇の瞳4" sync="火霊鳥の「闇の瞳」" sync-interval="10" />
+    <a time="273" text="闇の瞳3" />
+    <a time="274" text="闇の瞳2" />
+    <a time="275" text="闇の瞳1" />
+    <a time="284" text="生苦の炎" sync="フェネクスの「生苦の炎」" notice="生苦の炎。" notice-d="Sub"/>
+
+
+    <a time="291" text="【構】魔力錬成" sync="フェネクスは「魔力錬成：炎闇劫火」の構え。" notice="魔力錬成：炎闇劫火。" notice-d="Sub"/>
+    <a time="296" text="魔力錬成" sync="フェネクスの「魔力錬成：炎闇劫火」" />
+    <a time="299" text="魔力錬成" sync="フェネクスの「魔力錬成：炎闇劫火」" />
+
+    <a time="310" text="【構】獄炎の焔" sync="フェネクスは「獄炎の焔」の構え。" notice="外周注意" notice-d="Sub"/>
+    <a time="316" text="獄炎の焔" sync="フェネクスの「獄炎の焔」" notice="獄炎の焔" notice-d="Sub"/>
+    <!--カータ時の着弾。通知不要かと思うのでコメントアウト-->
+    <!--a time="318" text="獄炎の火撃" sync="フェネクスの「獄炎の火撃」" notice="獄炎の火撃。" /-->
+
+    <a time="328" text="十字走火" sync="フェネクスの「十字走火」" notice="十字走火" notice-d="Sub"/>
+    <a time="330" text="【構】魔力錬成" sync="フェネクスは「魔力錬成：劫火天焦」の構え。" />
+    <a time="336" text="魔力錬成" sync="フェネクスの「魔力錬成：劫火天焦」" />
+    <a time="346" text="熱噴射" sync="フェネクスの「熱噴射」" notice="AoE捨て" />
+    <a time="355" text="左右焼却" sync="フェネクスの「(左|右)焼却」" notice="左右注意" notice-d="Sub"/>
+    <a time="366" text="灰燼の炎(全体)" sync="フェネクスの「灰燼の炎」" notice="全体攻撃" notice-d="Sub"/>
+    <a time="373" text="灰燼の炎(全体)" sync="フェネクスの「灰燼の炎」" notice="全体攻撃" notice-d="Sub"/>
+    <a time="374" text="灰燼の豪炎" sync="フェネクスは「灰燼の豪炎」の構え。" />
+    <a time="385" text="時間切れ？" sync="フェネクスの「灰燼の豪炎」" />
+  </s>
+</timeline>

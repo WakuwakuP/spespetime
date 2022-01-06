@@ -8,6 +8,7 @@
     SPECIAL THANKS!!:zett (https://twitter.com/zettnotfound)
     AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
     再生デバイスの設定をして使ってください。メインデバイスは個人通知、サブデバイスは全体通知です。
+    一部トリガー定義:Sheeva (https://blog.sheeva.me/)
   </description>
   <author>sae81,Aqua Cat,RINGS,Wakuwaku</author>
   <license>CC BY-SA</license>
@@ -30,78 +31,200 @@
   画像通知を無効にする場合は "false" にしてください。
   -->
 
-
-
-  <!--カタラクティスのトリガーset-->
-  <t sync="^14:(6811|6812|6813|6817)" notice="背面安置" notice-d="Sub">
-    <v-notice text="ブレス:背面安置" duration="9" />
-  </t>
-  <t sync="^14:(6814|6815|6816|6818)" notice="前面安置" notice-d="Sub">
-    <v-notice text="ウィング:前面安置" duration="9" />
-  </t>
-
-  <!--刻印のトリガーset-->
-  <t sync="^1A:[id8]:[mex] gains the effect of 激流の刻印" notice="刻印ついた">
-    <v-notice text="激流の刻印:離れる" duration="9" />
-  </t>
-
-  <t sync="^1A:[id8]:[mex] gains the effect of 重圧の刻印" notice="頭割り対象">
-    <v-notice text="重圧の刻印:頭割り" duration="9" />
-  </t>
-
-  <t sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：(前|後|左|右) from  for 13.00 Seconds." notice="後 AoE処理">
-    <expressions>
-      <pre name="overflow" value="true" />
-    </expressions>
-    <v-notice text="後 AoE処理" duration="30" />
-  </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：(前|後|左|右) from  for 28.00 Seconds." notice="先 AoE処理">
-    <expressions>
-      <pre name="overflow" value="true" />
-    </expressions>
-    <v-notice text="先 AoE処理" duration="30" />
-  </t>
-
-
-  <!-- さいころ -->
-  <t sync="^1B:[id8]:[mex]:0000:0000:00D0:0000:0000:0000" notice="突進、いちばん。対角">
-    <v-notice text="突進 1回目\nボス対角" duration="15" />
-  </t>
-  <t sync="^1B:[id8]:[mex]:0000:0000:00D1:0000:0000:0000" notice="突進、にばん。足元">
-    <v-notice text="突進 2回目\nボス足元" duration="15" />
-  </t>
-  <t sync="^1B:[id8]:[mex]:0000:0000:00D2:0000:0000:0000" notice="突進、さんばん。対角">
-    <v-notice text="突進 3回目\nボス対角" duration="15" />
-  </t>
-  <t sync="^1B:[id8]:[mex]:0000:0000:00D3:0000:0000:0000" notice="突進、よんばん。足元">
-    <v-notice text="突進 4回目\nボス足元" duration="15" />
-  </t>
-  <t sync="^1B:[id8]:[mex]:0000:0000:00D4:0000:0000:0000" notice="頭、いちばん。">
-    <v-notice text="頭 1回目" duration="15" />
-  </t>
-  <t sync="^1B:[id8]:[mex]:0000:0000:00D5:0000:0000:0000" notice="頭、にばん。">
-    <v-notice text="頭 2回目" duration="15" />
-  </t>
-  <t sync="^1B:[id8]:[mex]:0000:0000:00D6:0000:0000:0000" notice="頭、さんばん。">
-    <v-notice text="頭 3回目" duration="15" />
-  </t>
-  <t sync="^1B:[id8]:[mex]:0000:0000:00D7:0000:0000:0000" notice="頭、よんばん。">
-    <v-notice text="頭 4回目" duration="15" />
-  </t>
-
   <s name="main">
+    <!--カタラクティスのトリガーset-->
+    <t sync="^14:(6811|6812|6813|6817)" notice="背面安置" notice-d="Sub">
+      <v-notice text="ブレス:背面安置" icon="StackBack" duration="9" />
+    </t>
+    <t sync="^14:(6814|6815|6816|6818)" notice="前面安置" notice-d="Sub">
+      <v-notice text="ウィング:前面安置" icon="StackFront" duration="9" />
+    </t>
+
+    <!--刻印のトリガーset-->
+    <t sync="^1A:[id8]:[mex] gains the effect of 激流の刻印" notice="刻印ついた">
+      <v-notice text="激流の刻印:離れる" job-icon="true" duration="9" />
+    </t>
+    <t sync="^1A:[id8]:[nex] gains the effect of 激流の刻印">
+      <v-notice text="激流の刻印:対象" job-icon="true" duration="9" />
+    </t>
+
+    <t sync="^1A:[id8]:[mex] gains the effect of 重圧の刻印" notice="頭割り対象">
+      <v-notice text="重圧の刻印:頭割り" icon="Stack" duration="9" />
+    </t>
+
+    <t no="1" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：前 from  for 13.00 Seconds." notice="矢印は前。">
+      <v-notice order="-1" text="前（北向き）" icon="Arrow1.png" duration="14" />
+    </t>
+
+    <t no="1" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：後 from  for 13.00 Seconds." notice="矢印は後ろ。">
+      <v-notice order="-1" text="後ろ（南向き）" icon="Arrow5.png" duration="14" />
+    </t>
+
+    <t no="1" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：右 from  for 13.00 Seconds." notice="矢印は右。">
+      <v-notice order="-1" text="右（東向き）" icon="Arrow3.png" duration="14" />
+    </t>
+
+    <t no="1" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：左 from  for 13.00 Seconds." notice="矢印は左。">
+      <v-notice order="-1" text="左（西向き）" icon="Arrow7.png" duration="14" />
+    </t>
+
+    <t no="11" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：前 from  for 28.00 Seconds." notice="/wait 3, 矢印は前。">
+      <v-notice order="-1" text="前（北向き）" icon="Arrow1.png" duration="28" />
+    </t>
+
+    <t no="11" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：後 from  for 28.00 Seconds." notice="/wait 3, 矢印は後ろ。">
+      <v-notice order="-1" text="後ろ（南向き）" icon="Arrow5.png" duration="28" />
+    </t>
+
+    <t no="11" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：右 from  for 28.00 Seconds." notice="/wait 3, 矢印は右。">
+      <v-notice order="-1" text="右（東向き）" icon="Arrow3.png" duration="28" />
+    </t>
+
+    <t no="11" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：左 from  for 28.00 Seconds." notice="/wait 3, 矢印は左。">
+      <v-notice order="-1" text="左（西向き）" icon="Arrow7.png" duration="28" />
+    </t>
+
+    <t no="10" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：(前|後|右|左) from  for 13.00 Seconds." notice="/wait 11, 次は、散開。">
+      <expressions>
+        <pre name="overflow_1" value="true" />
+      </expressions>
+      <v-notice order="0" text="強制移動➜AoE散開" icon="TargetAOE01.png" duration="28" />
+    </t>
+    <t no="10" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：(前|後|右|左) from  for 28.00 Seconds." notice="最初は散開。">
+      <expressions>
+        <pre name="overflow_1" value="true" />
+      </expressions>
+      <v-notice order="-2" text="AoE散開➜矢印の処理" icon="TargetAOE01.png" duration="28" />
+    </t>
+
+    @if (Model.Player.InRole("TANK")) {
+    <t no="10" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：(前|後|右|左) from  for 13.00 Seconds." notice="/wait 11, 次は、先頭で頭割り。">
+      <expressions>
+        <pre name="overflow_2" value="true" />
+      </expressions>
+      <v-notice order="0" text="強制移動➜頭割り先頭" icon="Stack.png" duration="28" />
+    </t>
+    } else {
+    <t no="10" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：(前|後|右|左) from  for 13.00 Seconds." notice="/wait 11, 次は、頭割り。">
+      <expressions>
+        <pre name="overflow_2" value="true" />
+      </expressions>
+      <v-notice order="0" text="強制移動➜頭割り" icon="Stack.png" duration="28" />
+    </t>
+    }
+
+    @if (Model.Player.InRole("TANK")) {
+    <t no="10" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：(前|後|右|左) from  for 28.00 Seconds." notice="線を取って離れる。">
+      <expressions>
+        <pre name="overflow_2" value="true" />
+      </expressions>
+      <v-notice order="-2" text="線取り➜矢印の処理" icon="Distance.png" duration="28" />
+    </t>
+    } else {
+    <t no="10" sync="^1A:[id8]:[mex] gains the effect of 激動の刻印：(前|後|右|左) from  for 28.00 Seconds." notice="最初は頭割り。">
+      <expressions>
+        <pre name="overflow_2" value="true" />
+      </expressions>
+      <v-notice order="-2" text="頭割り➜矢印の処理" icon="Stack.png" duration="28" />
+    </t>
+    }
+
+    <t no="1" sync="^1B:[id8]:[pc]:0000:[id4]:(?&lt;mark_code&gt;[0-9a-fA-F]{4}):">
+      <expressions>
+        <pre name="dice_start" value="true"/>
+        <table>
+        {
+          "method":"Insert",
+          "table":"dice",
+          "cols" : [
+            {
+              "name" : "marker",
+              "val" : "${mark_code}",
+              "key" : "true"
+            },
+            {
+              "name":"name",
+              "val":"${_pc}"
+            },
+          ]
+        }
+        </table>
+      </expressions>
+    </t>
+    <t no="2" text="線あり1番" sync="^1B:" sync-count="8" notice="突進、いちばん。対角">
+      <expressions>
+        <pre name="dice_start" value="true" />
+        <pre name="TABLE['dice'][0]['name']" value="@Model.Player.Name"/>
+      </expressions>
+      <v-notice text="突進 1回目\nボス対角" duration="15" />
+    </t>
+    <t no="3" text="線あり1番" sync="^1B:" sync-count="8" notice="突進、にばん。足元">
+      <expressions>
+        <pre name="dice_start" value="true" />
+        <pre name="TABLE['dice'][1]['name']" value="@Model.Player.Name"/>
+      </expressions>
+      <v-notice text="頭 1回目" duration="15" />
+    </t>
+    <t no="4" text="線あり1番" sync="^1B:" sync-count="8" notice="突進、さんばん。対角">
+      <expressions>
+        <pre name="dice_start" value="true" />
+        <pre name="TABLE['dice'][2]['name']" value="@Model.Player.Name"/>
+      </expressions>
+      <v-notice text="突進 2回目\nボス足元" duration="15" />
+    </t>
+    <t no="5" text="線あり1番" sync="^1B:" sync-count="8" notice="突進、よんばん。足元">
+      <expressions>
+        <pre name="dice_start" value="true" />
+        <pre name="TABLE['dice'][3]['name']" value="@Model.Player.Name"/>
+      </expressions>
+      <v-notice text="頭 2回目" duration="15" />
+    </t>
+    <t no="6" text="線あり1番" sync="^1B:" sync-count="8" notice="頭、いちばん。">
+      <expressions>
+        <pre name="dice_start" value="true" />
+        <pre name="TABLE['dice'][4]['name']" value="@Model.Player.Name"/>
+      </expressions>
+      <v-notice text="突進 3回目\nボス対角" duration="15" />
+    </t>
+    <t no="7" text="線あり1番" sync="^1B:" sync-count="8" notice="頭、にばん。">
+      <expressions>
+        <pre name="dice_start" value="true" />
+        <pre name="TABLE['dice'][5]['name']" value="@Model.Player.Name"/>
+      </expressions>
+      <v-notice text="頭 3回目" duration="15" />
+    </t>
+    <t no="8" text="線あり1番" sync="^1B:" sync-count="8" notice="頭、さんばん。">
+      <expressions>
+        <pre name="dice_start" value="true" />
+        <pre name="TABLE['dice'][6]['name']" value="@Model.Player.Name"/>
+      </expressions>
+      <v-notice text="突進 4回目\nボス足元" duration="15" />
+    </t>
+    <t no="9" text="線あり1番" sync="^1B:" sync-count="8" notice="頭、よんばん。">
+      <expressions>
+        <pre name="dice_start" value="true" />
+        <pre name="TABLE['dice'][7]['name']" value="@Model.Player.Name"/>
+      </expressions>
+      <v-notice text="頭 4回目" duration="15" />
+    </t>
+
     <!--P1 水位上昇-->
-    <a time="017" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" v-notice="Sub" />
-    <a time="027" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" v-notice="Sub" />
-    <a time="040" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃" v-notice="Sub" />
+    <a time="000">
+      <set name="dice_start" value="false" />
+      <set name="overflow_1" value="false" />
+      <set name="overflow_2" value="false" />
+    </a>
+    <a time="017" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" notice-d="Sub" />
+    <a time="027" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" notice-d="Sub" />
+    <a time="040" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃" notice-d="Sub" />
     <a time="050" sync="エリクトニオス:下水に、有害な魔力が満ちている……！？ 奴が水位を操っているらしい、下水の来ない場所へ退避するんだ！" />
     <a time="054" text="【構】ブレスorウィング" sync="ヒッポカムポスの「(ブレス|ウィング)＆カタラクティス」の構え。" />
     <a time="056" sync="エリクトニオス:か、顔と身体が別々の方を向き始めたぞ……？ あいつ、何をするつもりなんだ！？" />
     <a time="062" text="カタラクティス" sync="ヒッポカムポスの「(ブレス|ウィング)＆カタラクティス」" />
     <!--P2 タンク誘導、刻印処理-->
-    <a time="070" text="【構】コヒーレンス" sync="ヒッポカムポスは「コヒーレンス」の構え。" notice="線取り" v-notice="Sub" />
-    <a time="082" text="コヒーレンス" sync="ヒッポカムポスの「コヒーレンス」" notice="タンク先頭頭割り" v-notice="Sub" />
-    <a time="099" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" v-notice="Sub" />
+    <a time="070" text="【構】コヒーレンス" sync="ヒッポカムポスは「コヒーレンス」の構え。" notice="線取り" notice-d="Sub" />
+    <a time="082" text="コヒーレンス" sync="ヒッポカムポスの「コヒーレンス」" notice="タンク先頭頭割り" nodice-d="Sub" />
+    <a time="099" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" nodice-d="Sub" />
     <a time="106" text="霊水弾" sync="ヒッポカムポスの「霊水弾」" notice="霊水弾。" />
     <a time="116" text="ショックウェーブ" sync="ヒッポカムポスの「ショックウェーブ」" notice="@ANTI_KNOCKBACK" />
     <a time="120" text="霊水弾着弾" />
@@ -111,22 +234,26 @@
     <a time="153" text="カタラクティス" sync="ヒッポカムポスの「(ブレス|ウィング)＆カタラクティス」" />
     <a time="159" text="多重刻印着弾" />
     <!--P3 強制移動、サイコロ処理-->
-    <a time="172" text="チャネリングフロウ" sync="ヒッポカムポスの「チャネリングフロウ」" notice="全体ダメージ、矢印つくよ" v-notice="Sub" />
+    <a time="172" text="チャネリングフロウ" sync="ヒッポカムポスの「チャネリングフロウ」" notice="全体ダメージ、矢印つくよ" nodice-d="Sub" />
     <a time="187" text="強制移動発動" notice="強制移動" />
-    <a time="203" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" v-notice="Sub" />
-    <a time="213" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" v-notice="Sub" />
-    <a time="230" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃" v-notice="Sub" />
-    <a time="247" text="ショックウェーブ" sync="ヒッポカムポスの「ショックウェーブ」" notice="@ANTI_KNOCKBACK" />
-    <a time="251" text="【構】カンペオス" sync="ヒッポカムポスは「カンペオスハルマ」の構え。" />
-    <a time="260" text="カンペオスハルマ" sync="ヒッポカムポスの「カンペオスハルマ」" />
-    <a time="283" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" v-notice="Sub" />
-    <!--P4 AoE処理、多重刻印 頭部分離-->
-    <a time="292" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" v-notice="Sub" />
-    <a time="306" text="オーバーフロウ" sync="ヒッポカムポスの「チャネリングオーバーフロウ」">
+    <a time="203" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" nodice-d="Sub" />
+    <a time="213" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" nodice-d="Sub" />
+    <a time="230" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃" nodice-d="Sub" />
+    <a time="247" text="ショックウェーブ" sync="ヒッポカムポスの「ショックウェーブ」" notice="@ANTI_KNOCKBACK">
       <expressions>
-        <set name="overflow" value="true" />
+        <set name="dice_start" value="true" />
       </expressions>
     </a>
+    <a time="251" text="【構】カンペオス" sync="ヒッポカムポスは「カンペオスハルマ」の構え。" />
+    <a time="260" text="カンペオスハルマ" sync="ヒッポカムポスの「カンペオスハルマ」" />
+    <a time="283" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" nodice-d="Sub" />
+    <!--P4 AoE処理、多重刻印 頭部分離-->
+    <a time="292" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」">
+      <expressions>
+        <set name="overflow_1" value="true" />
+      </expressions>
+    </a>
+    <a time="306" text="オーバーフロウ" sync="ヒッポカムポスの「チャネリングオーバーフロウ」" />
     <a time="313" text="フラッド" sync="ヒッポカムポスの「テインテッドフラッド」" />
     <a time="328" text="フラッド" sync="ヒッポカムポスの「テインテッドフラッド」" />
     <a time="361" text="【詠】多重刻印" sync="ヒッポカムポスは「多重刻印」を唱えた。" />
@@ -149,7 +276,12 @@
     <a time="453" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" />
     <!--P5矢印・線・エラプション-->
     <a time="462" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" />
-    <a time="479" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃" />
+    <a time="479" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃">
+      <expressions>
+        <set name="overflow_1" value="false" />
+        <set name="overflow_2" value="true" />
+      </expressions>
+    </a>
     <a time="496" text="チャネリングオーバーフロウ" sync="ヒッポカムポスの「チャネリングオーバーフロウ」" notice="矢印つくよ" />
     <a time="501" text="コヒーレンス" sync="ヒッポカムポスは「コヒーレンス」の構え。" notice="線が付くよ" />
     <a time="511" text="1回目:荒波" sync="ヒッポカムポスの「荒波」" notice="強制移動、1回目" sync-interval="5" />
@@ -166,7 +298,6 @@
     <a time="588" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク攻撃" />
     <a time="600" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" />
     <a time="612" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" />
-    <a time="627" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃" />
-    <a time="630" text="調査中" />
+    <a time="627" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="もうすぐ時間切れ" />
   </s>
 </timeline>

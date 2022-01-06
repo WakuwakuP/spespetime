@@ -122,13 +122,13 @@
       </expressions>
       <v-notice text="遠呪の魔鎖" icon="D.png" duration="15"></v-notice>
     </t>
-
+    <!-- 
     <t text="懲罰撃: 円" sync="^15:{id8}:エリクトニオス:65F9:懲罰撃">
       <v-notice text="懲罰撃: 円" icon="D.png" duration="15"></v-notice>
     </t>
     <t text="懲罰撃: ドーナツ" sync="^15:{id8}:エリクトニオス:6DA8:懲罰撃">
       <v-notice text="懲罰撃: 円" icon="D.png" duration="15"></v-notice>
-    </t>
+    </t> -->
 
     <a time="014.0" text="痛撃" sync="エリクトニオスの「痛撃」" notice="強攻撃。" notice-d="Sub" />
     <a time="022.0" text="結呪の魔鎖" sync="エリクトニオスの「結呪の魔鎖」" />
