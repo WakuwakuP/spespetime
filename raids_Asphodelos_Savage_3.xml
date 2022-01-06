@@ -124,7 +124,7 @@
     <a time="051" text="闇の瞳" sync="火霊鳥の「闇の瞳」" notice="闇の瞳。" notice-d="Sub"/>
     <a time="064" text="魔力錬成2連" sync="フェネクスの「魔力錬成：炎闇劫火」" notice="魔力錬成" notice-d="Sub"/>
     <a time="067" text="魔力錬成" />
-    <a time="096" text="霊泉の炎" sync="フェネクスの「霊泉の炎」" notice="霊泉の炎"notice-d="Sub"/>
+    <a time="096" text="霊泉の炎" sync="フェネクスの「霊泉の炎」" notice="霊泉の炎" notice-d="Sub"/>
     <!--a time="097" text="陽炎の翼" sync="フェネクスは「陽炎の翼」の構え。" notice="陽炎の翼。" /-->
     <a time="104" text="陽炎の翼" sync="フェネクスの「陽炎の翼」" />
     <a time="105" text="霊泉の波動4" sync="霊泉の炎の「霊泉の波動」" notice="霊泉の波動。" sync-interval="20" notice-d="Sub"/>
