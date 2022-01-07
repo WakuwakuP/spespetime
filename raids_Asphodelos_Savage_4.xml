@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>Asphodelos: The Fourth Circle (Savage) timeline</name>
+  <rev>draft</rev>
+  <description>
+  再生デバイスの設定をして使ってください。メインデバイスは個人通知、サブデバイスは全体通知です。
+  </description>
+  <author>Wakuwaku</author>
+  <license>CC BY-SA</license>
+  <!-- <zone>Asphodelos: The Fourth Circle (Savage)</zone> -->
+  <zone>Asphodelos: The Fourth Circle</zone>
+  <locale>JA</locale>
+  <entry>ENTRY</entry>
+
+  <default target-element="Activity" target-attr="notice-o" value="-3" />
+  <default target-element="Activity" target-attr="notice-d" value="Main" />
+  <default target-element="Trigger" target-attr="notice-d" value="Main" />
+
+
+  <s name="ENTRY">
+    <t sync="ヘスペロス:ク、カカカカカ……待っていたぞ……。 半神「ヘーミテオス」の力、その身で味わえ！！" goto="前半">
+      <!-- <load target="前半" truncate="true"/> -->
+    </t>
+    <t sync="ヘスペロスは「デコレーション」の構え">
+      <load target="前半" truncate="true"/>
+    </t>
+    <a time="5" text="前半後半の判別" icon="分岐">
+      <load target="後半" truncate="true"/>
+    </a>
+  </s>
+
+  <s name="前半">
+    <t name="フェーズ移行" sync="ヘスペロス:グウゥ……こうなれば、半神としての均衡は崩れるが、 この姿を脱ぎ捨て、さらなる変化をわが身に……！" goto="後半"/>
+    <t name="シフティングストライクN" sync="ヘスペロスは「シフティングストライクN」の構え。" notice="Aから" nodice-d="Sub">
+      <v-notice text="Aから" icon="A" duration="9" order="0"/>
+    </t>
+    <t name="シフティングストライクE" sync="ヘスペロスは「シフティングストライクE」の構え。" notice="Bから" nodice-d="Sub">
+      <v-notice text="Bから" icon="B" duration="9" order="0"/>
+    </t>
+    <t name="シフティングストライクS" sync="ヘスペロスは「シフティングストライクS」の構え。" notice="Cから" nodice-d="Sub">
+      <v-notice text="Cから" icon="C" duration="9" order="0"/>
+    </t>
+    <t name="シフティングストライクW" sync="ヘスペロスは「シフティングストライクW」の構え。" notice="Dから" nodice-d="Sub">
+      <v-notice text="Dから" icon="D" duration="9" order="0"/>
+    </t>
+    <a time="006" text="デコレーション" sync="ヘスペロスの「デコレーション」" />
+  </s>
+  <s name="後半"></s>
+</timeline>

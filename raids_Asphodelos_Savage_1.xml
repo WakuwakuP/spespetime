@@ -64,10 +64,10 @@
     </t>
 
     <!-- 時限の魔鎖トリガー -->
-    <t text="時限の魔鎖" sync="[mex] gains the effect of 時限の魔鎖 from" notice="ほのお踏む">
+    <t text="時限の魔鎖" sync="[mex] gains the effect of 時限の魔鎖 from" notice="鎖付いた">
       <v-notice text="時限の魔鎖" job-icon="true" duration="16"></v-notice>
     </t>
-    <t text="時限の魔鎖" sync="[nex] gains the effect of 時限の魔鎖 from" notice="ひかり踏む">
+    <t text="時限の魔鎖" sync="[nex] gains the effect of 時限の魔鎖 from">
       <v-notice text="時限の魔鎖" job-icon="true" duration="16"></v-notice>
     </t>
 
@@ -177,8 +177,6 @@
     <a time="424.0" text="爆鎖" sync="エリクトニオスは「爆鎖」の構え。" />
     <a time="430.0" text="爆鎖" sync="エリクトニオスの「爆鎖」" />
     <a time="438.0" text="爆鎖" sync="エリクトニオスの「爆鎖」" />
-    <a enabled="false" time="438.1" text="爆鎖 Sign" sync="15:[id8]:エリクトニオス:6619:爆鎖:[id8]:エリクトニオス:" />
-    <a enabled="false" time="439.0" text="光爆 Sign" sync="15:[id8]:エリクトニオス:661B:光爆:[id8]::" />
     <a time="442.0" text="魔鎖乱流" sync="エリクトニオスは「魔鎖乱流」の構え。" notice="全体攻撃。" notice-d="Sub" />
     <a time="448.0" text="魔鎖乱流" sync="エリクトニオスの「魔鎖乱流」" notice="全体攻撃。" notice-d="Sub" />
     <a time="455.0" text="時限の魔鎖" sync="エリクトニオスは「時限の魔鎖」の構え。" notice="次は、時限の魔鎖。" />

@@ -8,9 +8,9 @@
     SPECIAL THANKS!!:zett (https://twitter.com/zettnotfound)
     AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
     再生デバイスの設定をして使ってください。メインデバイスは個人通知、サブデバイスは全体通知です。
-    一部トリガー定義:Sheeva (https://blog.sheeva.me/)
+    一部トリガー定義参考:Sheeva (https://blog.sheeva.me/)
   </description>
-  <author>sae81,Aqua Cat,RINGS,Wakuwaku</author>
+  <author>sae81,Aqua Cat,RINGS,Sheeva,Wakuwaku</author>
   <license>CC BY-SA</license>
   <zone>Asphodelos: The Second Circle (Savage)</zone>
   <locale>JA</locale>
@@ -129,7 +129,7 @@
     </t>
     }
 
-    <t no="1" sync="^1B:[id8]:[pc]:0000:[id4]:(?&lt;mark_code&gt;[0-9a-fA-F]{4}):">
+    <t no="1" sync="^1B:[id8]:[pc]:0000:[id4]:(?(mark_code)[0-9a-fA-F]{4}):">
       <expressions>
         <pre name="dice_start" value="true"/>
         <table>
@@ -210,9 +210,11 @@
 
     <!--P1 水位上昇-->
     <a time="000">
-      <set name="dice_start" value="false" />
-      <set name="overflow_1" value="false" />
-      <set name="overflow_2" value="false" />
+      <expressions>
+        <set name="dice_start" value="false" />
+        <set name="overflow_1" value="false" />
+        <set name="overflow_2" value="false" />
+      </expressions>
     </a>
     <a time="017" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" notice-d="Sub" />
     <a time="027" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" notice-d="Sub" />
@@ -225,7 +227,7 @@
     <a time="070" text="【構】コヒーレンス" sync="ヒッポカムポスは「コヒーレンス」の構え。" notice="線取り" notice-d="Sub" />
     <a time="082" text="コヒーレンス" sync="ヒッポカムポスの「コヒーレンス」" notice="タンク先頭頭割り" nodice-d="Sub" />
     <a time="099" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" nodice-d="Sub" />
-    <a time="106" text="霊水弾" sync="ヒッポカムポスの「霊水弾」" notice="霊水弾。" />
+    <a time="106" text="霊水弾" sync="ヒッポカムポスの「霊水弾」" notice="霊水弾。" nodice-d="Sub" />
     <a time="116" text="ショックウェーブ" sync="ヒッポカムポスの「ショックウェーブ」" notice="@ANTI_KNOCKBACK" />
     <a time="120" text="霊水弾着弾" />
     <a time="129" text="【詠】多重刻印" sync="ヒッポカムポスは「多重刻印」を唱えた。" />
@@ -234,8 +236,8 @@
     <a time="153" text="カタラクティス" sync="ヒッポカムポスの「(ブレス|ウィング)＆カタラクティス」" />
     <a time="159" text="多重刻印着弾" />
     <!--P3 強制移動、サイコロ処理-->
-    <a time="172" text="チャネリングフロウ" sync="ヒッポカムポスの「チャネリングフロウ」" notice="全体ダメージ、矢印つくよ" nodice-d="Sub" />
-    <a time="187" text="強制移動発動" notice="強制移動" />
+    <a time="172" text="チャネリングフロウ" sync="ヒッポカムポスの「チャネリングフロウ」" notice="全体攻撃、矢印つくよ" nodice-d="Sub" />
+    <a time="187" text="強制移動発動" notice="強制移動" nodice-d="Sub"/>
     <a time="203" text="ダブルインパクト" sync="ヒッポカムポスの「ダブルインパクト」" notice="タンク強攻撃" nodice-d="Sub" />
     <a time="213" text="マーキーディープ" sync="ヒッポカムポスの「マーキーディープ」" notice="全体攻撃" nodice-d="Sub" />
     <a time="230" text="スウェッジデリージュ" sync="ヒッポカムポスの「スウェッジデリージュ」" notice="全体攻撃" nodice-d="Sub" />
