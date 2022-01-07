@@ -151,56 +151,56 @@
         </table>
       </expressions>
     </t>
-    <t no="2" text="線あり1番" sync="^1B:" sync-count="8" notice="突進、いちばん。対角">
+    <t no="2" text="線あり1番" sync="ヒッポカムポスは「カンペオスハルマ」の構え。" notice="突進、いちばん。対角">
       <expressions>
         <pre name="dice_start" value="true" />
         <pre name="TABLE['dice'][0]['name']" value="@Model.Player.Name"/>
       </expressions>
       <v-notice text="突進 1回目\nボス対角" duration="15" />
     </t>
-    <t no="3" text="線あり1番" sync="^1B:" sync-count="8" notice="突進、にばん。足元">
+    <t no="3" text="線あり1番" sync="ヒッポカムポスは「カンペオスハルマ」の構え。" notice="突進、にばん。足元">
       <expressions>
         <pre name="dice_start" value="true" />
         <pre name="TABLE['dice'][1]['name']" value="@Model.Player.Name"/>
       </expressions>
       <v-notice text="頭 1回目" duration="15" />
     </t>
-    <t no="4" text="線あり1番" sync="^1B:" sync-count="8" notice="突進、さんばん。対角">
+    <t no="4" text="線あり1番" sync="ヒッポカムポスは「カンペオスハルマ」の構え。" notice="突進、さんばん。対角">
       <expressions>
         <pre name="dice_start" value="true" />
         <pre name="TABLE['dice'][2]['name']" value="@Model.Player.Name"/>
       </expressions>
       <v-notice text="突進 2回目\nボス足元" duration="15" />
     </t>
-    <t no="5" text="線あり1番" sync="^1B:" sync-count="8" notice="突進、よんばん。足元">
+    <t no="5" text="線あり1番" sync="ヒッポカムポスは「カンペオスハルマ」の構え。" notice="突進、よんばん。足元">
       <expressions>
         <pre name="dice_start" value="true" />
         <pre name="TABLE['dice'][3]['name']" value="@Model.Player.Name"/>
       </expressions>
       <v-notice text="頭 2回目" duration="15" />
     </t>
-    <t no="6" text="線あり1番" sync="^1B:" sync-count="8" notice="頭、いちばん。">
+    <t no="6" text="線あり1番" sync="ヒッポカムポスは「カンペオスハルマ」の構え。" notice="頭、いちばん。">
       <expressions>
         <pre name="dice_start" value="true" />
         <pre name="TABLE['dice'][4]['name']" value="@Model.Player.Name"/>
       </expressions>
       <v-notice text="突進 3回目\nボス対角" duration="15" />
     </t>
-    <t no="7" text="線あり1番" sync="^1B:" sync-count="8" notice="頭、にばん。">
+    <t no="7" text="線あり1番" sync="ヒッポカムポスは「カンペオスハルマ」の構え。" notice="頭、にばん。">
       <expressions>
         <pre name="dice_start" value="true" />
         <pre name="TABLE['dice'][5]['name']" value="@Model.Player.Name"/>
       </expressions>
       <v-notice text="頭 3回目" duration="15" />
     </t>
-    <t no="8" text="線あり1番" sync="^1B:" sync-count="8" notice="頭、さんばん。">
+    <t no="8" text="線あり1番" sync="ヒッポカムポスは「カンペオスハルマ」の構え。" notice="頭、さんばん。">
       <expressions>
         <pre name="dice_start" value="true" />
         <pre name="TABLE['dice'][6]['name']" value="@Model.Player.Name"/>
       </expressions>
       <v-notice text="突進 4回目\nボス足元" duration="15" />
     </t>
-    <t no="9" text="線あり1番" sync="^1B:" sync-count="8" notice="頭、よんばん。">
+    <t no="9" text="線あり1番" sync="ヒッポカムポスは「カンペオスハルマ」の構え。" notice="頭、よんばん。">
       <expressions>
         <pre name="dice_start" value="true" />
         <pre name="TABLE['dice'][7]['name']" value="@Model.Player.Name"/>
