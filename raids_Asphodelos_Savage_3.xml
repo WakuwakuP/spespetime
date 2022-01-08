@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <timeline>
   <name>Asphodelos: The Third Circle (Savage)</name>
-  <rev>TEST03</rev>
+  <rev>Rev1.2</rev>
   <description>
-    202201060609:時間切れまで。動作未チェック。トリガーコメントアウト中。
-    202201060743:移行時のサブルーチンの記載間違いを訂正TEST02ex
-    202201061556:zone名訂正。TEST03
+    202201070120:生苦の炎まで確認済みTEST03から調整。Rev1.0へ
+    202201072009:死の運命のトリガー追加。noticeの間違いを訂正。Rev1.1
+    202201080142:時間切れまで確認、微調整。Rev1.2
     SPECIAL THANKS!!:zett (https://twitter.com/zettnotfound)
     AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
   </description>
-  <author>Aqua Cat,RINGS</author>
+  <author>Aqua Cat,RINGS,Wakuwaku</author>
   <license>CC BY-SA</license>
   <zone>Asphodelos: The Third Circle (Savage)</zone>
   <locale>JA</locale>
@@ -21,43 +21,64 @@
   <default target-element="Trigger" target-attr="notice-d" value="Main" />
 
 
-  <!--魔力錬成set-->
+  <!--魔力錬成:劫火天焦set-->
   <t sync="^14:66BE" notice="大玉">
     <v-notice text="劫火天焦:大玉" duration="9" />
   </t>
+
   <t sync="^14:66C0" notice="回転">
     <v-notice text="劫火天焦:回転" duration="9" />
   </t>
 
 
-  <!--
+  <!--魔力錬成:炎闇劫火set-->
+  <t sync="^14:66CA" notice="回転、散開か頭割">
+    <v-notice text="炎闇劫火:回転→散開or頭割り" duration="9" />
+  </t>
+
+  <t sync="^14:66C6" notice="大玉、散開か頭割">
+    <v-notice text="炎闇劫火:大玉→散開or頭割" duration="9" />
+  </t>
+
+  <!--魔力錬成:暗闇の劫火天焦set-->
+  <t sync="^14:66C2" notice="頭割り">
+    <v-notice text="暗闇の劫火天焦:頭割り" duration="9" />
+  </t>
+
+  <t sync="^14:66C4" notice="散開">
+    <v-notice text="暗闇の劫火天焦:散開" duration="9" />
+  </t>
+
+  <!--外周からの攻撃set-->
   <t sync="^14:66FB" notice="左右安置、散開">
     <v-notice text="左右安置、散開" duration="9" />
   </t>
+
   <t sync="^14:66FC" notice="中央安置、ペア">
     <v-notice text="中央安置、ペア" duration="9" />
   </t>
 
-    <t sync="^14:66C6" notice="大玉、散開">
-      <v-notice text="炎闇劫火:大玉→散開" duration="9" />
-    </t>
-    <t sync="^14:66C8" notice="大玉、頭割">
-      <v-notice text="炎闇劫火:大玉→頭割" duration="9" />
-    </t>
-      <t sync="^14:66CA" notice="回転、散開">
-        <v-notice text="炎闇劫火:回転→散開" duration="9" />
-      </t>
-      <t sync="^14:66CC" notice="大玉、頭割">
-        <v-notice text="炎闇劫火:大玉→頭割り" duration="9" />
-      </t>
+  <!--外周からの攻撃set-->
+  <t sync="^14:66FB" notice="左右安置、散開">
+    <v-notice text="左右安置、散開" duration="9" />
+  </t>
 
-      <t sync="^14:66C2" notice="頭割り">
-        <v-notice text="暗闇の劫火天焦:頭割り" duration="9" />
-      </t>
-      <t sync="^14:66CC" notice="散開">
-        <v-notice text="暗闇の劫火天焦:散開" duration="9" />
-      </t>
-    -->
+  <t sync="^14:66FC" notice="中央安置、ペア">
+    <v-notice text="中央安置、ペア" duration="9" />
+  </t>
+
+  <!--死の運命 テスト中-->
+  <t sync="^1A:[id8]:[me] gains the effect of 死の運命 from  for .*? Seconds. BuffID: [id4]-01" notice="死の運命。1">
+    <v-notice text="死の運命:1" duration="9" />
+  </t>
+
+  <t sync="^1A:[id8]:[me] gains the effect of 死の運命 from  for .*? Seconds. BuffID: [id4]-02" notice="死の運命。2">
+    <v-notice text="死の運命:2" duration="9" />
+  </t>
+
+  <t sync="^1A:[id8]:[me] gains the effect of 死の運命 from  for .*? Seconds. BuffID: [id4]-04" notice="死の運命。4">
+    <v-notice text="死の運命:4" duration="9" />
+  </t>
 
   <s name="前半">
     <a time="014" text="灰燼の炎(全体)" sync="フェネクスの「灰燼の炎」" notice="全体攻撃" notice-d="Sub" />
