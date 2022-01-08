@@ -41,29 +41,29 @@
   </t>
 
   <!--魔力錬成:暗闇の劫火天焦set-->
-  <t sync="^14:66C2" notice="頭割り">
+  <t sync="^14:66C2" notice="頭割り" notice-d="Sub">
     <v-notice text="暗闇の劫火天焦:頭割り" duration="9" />
   </t>
 
-  <t sync="^14:66C4" notice="散開">
+  <t sync="^14:66C4" notice="散開" notice-d="Sub">
     <v-notice text="暗闇の劫火天焦:散開" duration="9" />
   </t>
 
   <!--外周からの攻撃set-->
-  <t sync="^14:66FB" notice="左右安置、散開">
+  <t sync="^14:66FB" notice="左右安置、散開" notice-d="Sub">
     <v-notice text="左右安置、散開" duration="9" />
   </t>
 
-  <t sync="^14:66FC" notice="中央安置、ペア">
+  <t sync="^14:66FC" notice="中央安置、ペア" notice-d="Sub">
     <v-notice text="中央安置、ペア" duration="9" />
   </t>
 
   <!--外周からの攻撃set-->
-  <t sync="^14:66FB" notice="左右安置、散開">
+  <t sync="^14:66FB" notice="左右安置、散開" notice-d="Sub">
     <v-notice text="左右安置、散開" duration="9" />
   </t>
 
-  <t sync="^14:66FC" notice="中央安置、ペア">
+  <t sync="^14:66FC" notice="中央安置、ペア" notice-d="Sub">
     <v-notice text="中央安置、ペア" duration="9" />
   </t>
 
