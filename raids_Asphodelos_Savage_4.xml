@@ -7,9 +7,13 @@
   </description>
   <author>Wakuwaku</author>
   <license>CC BY-SA</license>
-  <!-- <zone>Asphodelos: The Fourth Circle (Savage)</zone> -->
-  <zone>Asphodelos: The Fourth Circle</zone>
+  <zone>Asphodelos: The Fourth Circle (Savage)</zone>
+  <!--
+    一部トリガーテスト用
+    <zone>Asphodelos: The Fourth Circle</zone>
+  -->
   <locale>JA</locale>
+  <start>0039::戦闘開始！</start>
   <entry>ENTRY</entry>
 
   <default target-element="Activity" target-attr="notice-o" value="-3" />
@@ -18,32 +22,370 @@
 
 
   <s name="ENTRY">
-    <t sync="ヘスペロス:ク、カカカカカ……待っていたぞ……。 半神「ヘーミテオス」の力、その身で味わえ！！" goto="前半">
-      <!-- <load target="前半" truncate="true"/> -->
-    </t>
-    <t sync="ヘスペロスは「デコレーション」の構え">
+    <t sync="ヘスペロスは「デコレーション」の構え。">
       <load target="前半" truncate="true"/>
     </t>
-    <a time="5" text="前半後半の判別" icon="分岐">
+    <t sync="ヘスペロスは「シアリングストリーム」の構え。">
       <load target="後半" truncate="true"/>
-    </a>
+    </t>
+    <a time="20" text="前半後半の判別" icon="分岐.png" />
   </s>
 
   <s name="前半">
-    <t name="フェーズ移行" sync="ヘスペロス:グウゥ……こうなれば、半神としての均衡は崩れるが、 この姿を脱ぎ捨て、さらなる変化をわが身に……！" goto="後半"/>
-    <t name="シフティングストライクN" sync="ヘスペロスは「シフティングストライクN」の構え。" notice="Aから" nodice-d="Sub">
-      <v-notice text="Aから" icon="A" duration="9" order="0"/>
+    <a time="000">
+      <expressions>
+        <set name="bloodrake_1" value="false" />
+        <set name="bloodrake_2" value="false" />
+      </expressions>
+    </a>
+    <t sync="ヘスペロスは「シアリングストリーム」の構え。">
+      <load target="後半" truncate="true"/>
     </t>
-    <t name="シフティングストライクE" sync="ヘスペロスは「シフティングストライクE」の構え。" notice="Bから" nodice-d="Sub">
-      <v-notice text="Bから" icon="B" duration="9" order="0"/>
+
+    <!--床予兆のトリガ-->
+    <t sync="^14:69D4" notice="散開" nodice-d="Sub">
+      <v-notice text="散開:毒床" duration="5" />
     </t>
-    <t name="シフティングストライクS" sync="ヘスペロスは「シフティングストライクS」の構え。" notice="Cから" nodice-d="Sub">
-      <v-notice text="Cから" icon="C" duration="9" order="0"/>
+    <t sync="^14:69D5" notice="頭割" nodice-d="Sub">
+      <v-notice text="頭割:炎床" duration="5" />
     </t>
-    <t name="シフティングストライクW" sync="ヘスペロスは「シフティングストライクW」の構え。" notice="Dから" nodice-d="Sub">
-      <v-notice text="Dから" icon="D" duration="9" order="0"/>
+    <t sync="^14:69D6" notice="ノックバック" nodice-d="Sub">
+      <v-notice text="ノックバック:水床" duration="5" />
     </t>
-    <a time="006" text="デコレーション" sync="ヘスペロスの「デコレーション」" />
+    <t sync="^14:69D7" notice="離れる" nodice-d="Sub">
+      <v-notice text="離れる:雷床" duration="5" />
+    </t>
+
+    <t sync="^14:69FD" notice="Aから 吹き飛ばし" nodice-d="Sub">
+      <v-notice text="マント" icon="A" duration="5" />
+    </t>
+    <t sync="^14:69FF" notice="Bから 吹き飛ばし" nodice-d="Sub">
+      <v-notice text="マント" icon="B" duration="5" />
+    </t>
+    <t sync="^14:69FE" notice="Cから 吹き飛ばし" nodice-d="Sub">
+      <v-notice text="マント" icon="C" duration="5" />
+    </t>
+    <t sync="^14:6A00" notice="Dから 吹き飛ばし" nodice-d="Sub">
+      <v-notice text="マント" icon="D" duration="5" />
+    </t>
+    <t sync="^14:6A02" notice="Aから 剣" nodice-d="Sub">
+      <v-notice text="剣" icon="A" duration="5" />
+    </t>
+    <t sync="^14:6A04" notice="Bから 剣" nodice-d="Sub">
+      <v-notice text="剣" icon="B" duration="5" />
+    </t>
+    <t sync="^14:6A03" notice="Cから 剣" nodice-d="Sub">
+      <v-notice text="剣" icon="C" duration="5" />
+    </t>
+    <t sync="^14:6A05" notice="Dから 剣" nodice-d="Sub">
+      <v-notice text="剣" icon="D" duration="5" />
+    </t>
+
+    <!--4枚床の安置検知-->
+    <t sync="^14:69F5" notice="緑に移動" nodice-d="Sub">
+      <v-notice text="緑/毒:安置" duration="15" />
+    </t>
+    <t sync="^14:69F6" notice="赤に移動" nodice-d="Sub">
+      <v-notice text="赤/炎:安置" duration="15" />
+    </t>
+    <t sync="^14:69F7" notice="白に移動" nodice-d="Sub">
+      <v-notice text="白/水:安置" duration="15" />
+    </t>
+    <t sync="^14:69F8" notice="青に移動" nodice-d="Sub">
+      <v-notice text="青/雷:安置" duration="15" />
+    </t>
+
+    <!--玉取りデバフ検知-->
+    <t sync="^1A:[id8]:[mex] gains the effect of 癒手の魔呪" notice="ヒラの玉を取る">
+      <v-notice text="ヒラの玉取り" duration="9" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of 守手の魔呪" notice="タンクの玉を取る">
+      <v-notice text="タンクの玉取り" duration="9" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of 攻手の魔呪" notice="DPSの玉を取る">
+      <v-notice text="DPSの玉取り" duration="9" />
+    </t>
+
+    <t sync="^16:[id8]:ヘスペロス:[id4]:ブラッドレイク:[id8]:[nex]:" sync-count="4" notice="線を取る">
+      <expressions>
+        <pre name="bloodrake_1" value="true"/>
+      </expressions>
+      <v-notice text="線取る" icon="True" duration="40" />
+    </t>
+
+    <t sync="^16:[id8]:ヘスペロス:[id4]:ブラッドレイク:[id8]:[mex]:" notice="線を取らない">
+      <expressions>
+        <pre name="bloodrake_1" value="true"/>
+      </expressions>
+      <v-notice text="線取らない" icon="False" duration="40" />
+    </t>
+
+    <t sync="^16:[id8]:ヘスペロス:[id4]:ブラッドレイク:[id8]:[nex]" sync-count="4" notice="デバフ取る">
+      <expressions>
+        <pre name="bloodrake_2" value="true"/>
+      </expressions>
+      <v-notice text="デバフ取る" icon="True" duration="25" />
+    </t>
+
+    <t sync="^16:[id8]:ヘスペロス:[id4]:ブラッドレイク:[id8]:[mex]" notice="デバフ取らない">
+      <expressions>
+        <pre name="bloodrake_2" value="true"/>
+      </expressions>
+      <v-notice text="デバフ取らない" icon="False" duration="25" />
+    </t>
+
+    <t sync="⇒ [mex]に「三役の腐呪」の効果。" notice="デバフ付いた">
+      <expressions>
+      </expressions>
+      <v-notice text="デバフ付いた"/>
+    </t>
+
+    <a time="006" text="デコレーション" sync="ヘスペロスの「デコレーション」">
+      <expressions>
+        <set name="bloodrake_1" value="true"/>
+      </expressions>
+    </a>
+
+    <a time="009" sync="ヘスペロス:お前のエーテルを吸収させてもらおう……。 その力、私が利用させてもらうぞ！！" />
+    <a time="009" text="【構】ブラッドレイク" sync="ヘスペロスは「ブラッドレイク」の構え。" />
+    <a time="014" text="1回目ブラッドレイク" sync="ヘスペロスの「ブラッドレイク」" />
+    <a time="016" sync="ヘスペロス:ゆらめけ、クラミュス！" />
+    <!--何もしてこない？-->
+    <a time="021" text="エーテルクラミュス" sync="ヘスペロスの「エーテルクラミュス」">
+      <expressions>
+        <set name="bloodrake_1" value="false"/>
+        <set name="bloodrake_2" value="true"/>
+      </expressions>
+    </a>
+    <a time="024" text="【構】ブラッドレイク" sync="ヘスペロスは「ブラッドレイク」の構え。" />
+    <a time="029" text="2回目ブラッドレイク" sync="ヘスペロスの「ブラッドレイク」" />
+    <a time="032" sync="ヘスペロス:我が呪詛を込め、エーテルを「腐呪」へと変える……。 自分自身のエーテルで、朽ち果てるがいい！">
+      <expressions>
+        <set name="bloodrake_2" value="false"/>
+      </expressions>
+    </a>
+    <a time="038" text="ペルソナ" sync="ヘスペロスの「エンチャンテッドペロネー：ペルソナ」" notice="デバフがつくよ" notice-d="Sub" />
+    <a time="047" text="インヴァース" sync="ヘスペロスは「インヴァースクラミュス」の構え。" notice="線が付くよ" notice-d="Sub" />
+    <a time="054" text="インヴァース" sync="ヘスペロスの「インヴァースクラミュス」" notice="発動" />
+    <!--a time="064" text="呪詛発動" sync="ヘスペロスの「呪詛発動」" notice="呪詛発動。" /-->
+    <a time="063" text="(全体)デコレーション" sync="ヘスペロスの「デコレーション」" notice="全体攻撃" notice-d="Sub" />
+    <a time="067" text="【構】タンク強攻撃" sync="ヘスペロスは「エレガントイヴィセレーション」の構え。" />
+    <a time="073" text="イヴィセレーション2" sync="ヘスペロスの「エレガントイヴィセレーション」" notice="タンク強攻撃" notice-d="Sub" />
+    <a time="076" text="イヴィセレーション1" />
+
+    <!--P2劇場前半-->
+    <a time="083" sync="ヘスペロス:獄卒長たる我が権限を以てすれば、監獄すら蠢く……。" />
+    <a time="091" text="劇場創造" sync="ヘスペロスの「劇場創造」" notice="劇場創造 1回目" notice-d="Sub" />
+    <a time="098" sync="ヘスペロス:地形改変も、このとおりよ……！ 喰らえッ……！" />
+    <a time="104" text="ピナクス" sync="ヘスペロスの「ピナクス」" notice="床を確認" notice-d="Sub" />
+    <a time="114" text="水or雷" sync="ヘスペロスの「ピナクス(スプラッシュ|サンダー)」" />
+    <a time="117" text="炎or毒" sync="ヘスペロスの「ピナクス(ラーヴァ|ポインズン)」" />
+    <a time="119" sync="ヘスペロス:逃さぬ…！" />
+    <a time="121" text="【構】シフトX" sync="ヘスペロスは「シフティングストライク(E|W|S|N)」の構え。" />
+    <a time="127" text="水or雷" sync="ヘスペロスの「ピナクスサンダー」" />
+    <a time="130" text="シフティングストライク" sync="ヘスペロスの「シフティングストライク(E|W|S|N)」" />
+    <a time="138" text="炎or毒" sync="ヘスペロスの「ピナクスポイズン」" />
+    <a time="142" text="【構】タンク強攻撃" sync="ヘスペロスは「エレガントイヴィセレーション」の構え。" />
+    <a time="148" text="イヴィセレーション2" sync="ヘスペロスの「エレガントイヴィセレーション」" notice="タンク強攻撃" notice-d="Sub" />
+    <a time="151" text="イヴィセレーション1" />
+
+    <!--P3劇場後半-->
+    <a time="154" text="【構】ブラッドレイク" sync="ヘスペロスは「ブラッドレイク」の構え。" notice="床を確認" notice-d="Sub" />
+    <a time="159" text="ブラッドレイク" sync="ヘスペロスの「ブラッドレイク」" />
+    <a time="170" text="劇場創造" sync="ヘスペロスの「劇場創造」" notice="劇場創造 2回目" notice-d="Sub" />
+    <a time="177" sync="ヘスペロス:我が腐呪を、浴びよ" />
+    <!--a time="188" text="エンチャ：リベンジ" sync="ヘスペロスは「エンチャンテッドペロネー：リベンジ」の構え。"  /-->
+    <a time="182" text="エンチャ：リベンジ" sync="ヘスペロスの「エンチャンテッドペロネー：リベンジ」" notice="デバフを確認、1個目" notice-d="Sub" />
+    <a time="190" text="エンチャ：エレメンタル" sync="ヘスペロスの「エンチャンテッドペロネー：エレメンタル」" notice="デバフを確認、2個目" notice-d="Sub" />
+    <a time="199" text="ブラッドレイク(全体)" sync="ヘスペロスの「ブラッドレイク」" notice="全体" notice-d="Sub" />
+    <a time="202" sync="ヘスペロス:己がエーテルに食い殺されよ！" />
+    <a time="202" text="玉がPOP" sync="ヘスペロスは「エンチャンテッドペロネー：エクスプロージョン」の構え。" notice="玉がPOP" notice-d="Sub" />
+    <a time="208" text="エンチャ：エクスプロージョン" sync="ヘスペロスの「エンチャンテッドペロネー：エクスプロージョン」" />
+    <a time="222" text="(床)ペリアクトイ" sync="ヘスペロスの「ペリアクトイ」" notice="ペリアクトイ" notice-d="Sub" />
+    <a time="224" sync="ヘスペロス:……紛れ込んだネズミも、初めのうちは可愛いものだが、 いつまでもウロチョロされては、目障りだな。" />
+
+    <!--P4塔-->
+    <a time="234" text="ブラッドレイク" sync="ヘスペロスの「ブラッドレイク」" notice="ブラッドレイク" notice-d="Sub" />
+    <a time="241" text="エンチャ：ラウンド" sync="ヘスペロスの「エンチャンテッドペロネー：ラウンド」" notice="塔が出るよ" notice-d="Sub" />
+    <a time="244" text="線" sync="ヘスペロスは「インヴァースクラミュス」の構え。" notice="線が付くよ" notice-d="Sub" />
+    <a time="251" text="インヴァース" sync="ヘスペロスの「インヴァースクラミュス」" />
+    <a time="254" sync="ヘスペロス:ゆらめけ、クラミュス！" />
+    <a time="259" text="エーテルクラミュス" sync="ヘスペロスの「エーテルクラミュス」" />
+    <a time="267" text="ブラッドレイク" sync="ヘスペロスの「ブラッドレイク」" notice="ブラッドレイク" notice-d="Sub" />
+    <a time="275" text="エンチャンテッドペロネー：ラウンド" sync="ヘスペロスの「エンチャンテッドペロネー：ラウンド」" notice="塔が出るよ" notice-d="Sub" />
+    <a time="289" text="エンチャ：ペルソナ" sync="ヘスペロスの「エンチャンテッドペロネー：ペルソナ」" notice="呪いが付くよ" notice-d="Sub" />
+    <a time="298" text="線" sync="ヘスペロスは「インヴァースクラミュス」の構え。" notice="線が付くよ" notice-d="Sub" />
+    <a time="305" text="インヴァース" sync="ヘスペロスの「インヴァースクラミュス」" />
+    <a time="314" text="(全体)デコレーション" sync="ヘスペロスの「デコレーション」" notice="全体攻撃" notice-d="Sub" />
+    <a time="318" text="【構】タンク強攻撃" sync="ヘスペロスは「エレガントイヴィセレーション」の構え。" />
+    <a time="324" text="イヴィセレーション2" sync="ヘスペロスの「エレガントイヴィセレーション」" notice="タンク強攻撃" notice-d="Sub" />
+    <a time="327" text="イヴィセレーション1" />
+
+    <!--P5劇場最終-->
+    <a time="342" text="劇場創造" sync="ヘスペロスの「劇場創造」" notice="劇場創造 3回目" notice-d="Sub" />
+    <a time="349" sync="ヘスペロス:改変した地形を 利用させてもらうッ！" />
+    <a time="355" text="ピナクス" sync="ヘスペロスの「ピナクス」" notice="床を確認" notice-d="Sub" />
+    <a time="365" text="水or雷" sync="ヘスペロスの「ピナクス(スプラッシュ|サンダー)」" />
+    <a time="368" text="炎or毒" sync="ヘスペロスの「ピナクス(ラーヴァ|ポインズン)」" />
+    <a time="370" sync="ヘスペロス:逃さぬ…！" />
+    <a time="372" text="【構】シフトX" sync="ヘスペロスは「シフティングストライク(E|W|S|N)」の構え。" />
+    <a time="378" text="水or雷" sync="ヘスペロスの「ピナクス(スプラッシュ|サンダー)」" />
+    <a time="381" text="シフティングストライク" sync="ヘスペロスの「シフティングストライク(E|W|S|N)」" />
+    <a time="389" text="炎or毒" sync="ヘスペロスの「ピナクス(ラーヴァ|ポインズン)」" />
+
+    <a time="395" text="デコレーション" sync="ヘスペロスの「デコレーション」" notice="全体攻撃" notice-d="Sub" />
+    <a time="404" text="デコレーション" notice="全体攻撃" />
+    <a time="413" text="デコレーション" sync="ヘスペロスの「デコレーション」" notice="全体攻撃" notice-d="Sub" />
+    <a time="420" text="調査中" />
+
+    <a time="480" sync="ヘスペロスは「シアリングストリーム」の構え。" goto="後半" />
   </s>
-  <s name="後半"></s>
+
+  <s name="後半">
+    <t sync="^1B:[id8]:[me]:[id4]:[id4]:0207:" notice="紫ついたよ">
+      <v-notice text="紫:ダージャ" duration="9" />
+    </t>
+    <t sync="^1B:[id8]:[me]:[id4]:[id4]:0208:" notice="緑ついたよ">
+      <v-notice text="緑:エアロ" duration="9" />
+    </t>
+    <t sync="^1B:[id8]:[me]:[id4]:[id4]:0209:" notice="赤ついたよ">
+      <v-notice text="赤:ファイア" duration="9" />
+    </t>
+    <!--第4幕用トリガ-->
+    <t sync="^1B:[id8]:[me]:[id4]:[id4]:0206:" notice="青ついたよ">
+      <v-notice text="青:塔処理" duration="9" />
+    </t>
+    <!--遠近のトリガ-->
+    <t sync="^14:6A26" notice="近思の魔撃">
+      <v-notice text="近思の魔撃" duration="5" />
+    </t>
+    <t sync="^14:6A27" notice="遠見の魔撃">
+      <v-notice text="遠見の魔撃" duration="5" />
+    </t>
+
+    <!--P1-->
+    <a time="014" text="茨の悲劇：序幕" sync="ヘスペロスは「茨の悲劇：序幕」の構え。" notice="茨の悲劇：序幕。" notice-d="Sub" />
+    <!--a time="032" text="茨の悲劇：序幕" sync="ヘスペロスの「茨の悲劇：序幕」" /-->
+    <a time="029" text="(全体)ストリーム" sync="ヘスペロスの「シアリングストリーム」" notice="全体攻撃" notice-d="Sub" />
+    <a time="034" text="ソーンヘッジ" sync="ヘスペロスは「ソーンヘッジ」の構え。" notice="線を確認" notice-d="Sub" />
+    <!--a time="055" text="ソーンヘッジ" sync="ヘスペロスの「ソーンヘッジ」" /-->
+    <a time="046" text="AoE" sync="ヘスペロスの「ヘーミテオス・ファイジャ」" />
+    <a time="048" text="塔踏み" sync="ヘスペロスの「ヘーミテオス・サンダガ」" />
+    <a time="052" text="AoE" sync="ヘスペロスの「ヘーミテオス・ファイジャ」" />
+    <a time="052" text="遠近魔撃" sync="ヘスペロスは「(遠見|近思)の魔撃」の構え。" notice="遠近注意" notice-d="Sub" />
+    <a time="058" text="遠近魔撃" sync="ヘスペロスの「(遠見|近思)の魔撃」" />
+
+    <!--P2-->
+    <a time="066" text="茨の悲劇：第ニ幕" sync="ヘスペロスは「茨の悲劇：第ニ幕」の構え。" notice="茨の悲劇：第ニ幕。" notice-d="Sub" />
+    <!--a time="083" text="茨の悲劇：第ニ幕" sync="ヘスペロスの「茨の悲劇：第ニ幕」" /-->
+    <a time="075" text="【構】タンク強攻撃" sync="ヘスペロスは「半神の双撃」の構え。" />
+    <a time="080" text="半神の双撃" sync="ヘスペロスの「半神の双撃」" notice="半神の双撃" notice-d="Sub" />
+    <a time="084" text="ソーンヘッジ" sync="ヘスペロスは「ソーンヘッジ」の構え。" notice="線を確認" notice-d="Sub" />
+    <a time="091" text="デバフ確認" sync="ヘスペロスの「ソーンヘッジ」" notice="デバフを確認" notice-d="Sub" />
+    <!--a time="105" text="ダークデザイン" sync="ヘスペロスは「ダークデザイン」の構え。" notice="ダークデザイン。" /-->
+    <!--a time="110" text="ヘーミテオス・ダージャ" sync="ヘスペロスの「ヘーミテオス・ダージャ」" notice="ヘーミテオス・ダージャ。" /-->
+    <a time="099" text="AoE捨て" sync="ヘスペロスの「ダークデザイン」" notice="AoE捨て" notice-d="Sub" />
+    <a time="103" text="ファイジャ" sync="ヘスペロスの「ヘーミテオス・ファイジャ」" notice="ファイジャ。" notice-d="Sub" />
+    <a time="110" sync="ヘスペロス:我が最大の一撃だ…！" />
+    <a time="110" text="ファイジャ" sync="ヘスペロスの「ヘーミテオス・ファイジャ」" notice="ファイジャ。" notice-d="Sub" />
+    <a time="118" text="(全体)インパルス" sync="ヘスペロスの「アルティメットインパルス」" notice="全体攻撃" notice-d="Sub" />
+
+    <!--P3-->
+    <a time="125" text="茨の悲劇：第三幕" sync="ヘスペロスは「茨の悲劇：第三幕」の構え。" notice="茨の悲劇：第三幕。" notice-d="Sub" />
+    <!--a time="143" text="茨の悲劇：第三幕" sync="ヘスペロスの「茨の悲劇：第三幕」" /-->
+    <!--a time="147" text="ソーンヘッジ" sync="ヘスペロスは「ソーンヘッジ」の構え。" notice="線を確認" /-->
+    <a time="143" text="ソーンヘッジ" sync="ヘスペロスの「ソーンヘッジ」" notice="線を確認" notice-d="Sub" />
+    <a time="146" sync="ヘスペロス:吹き飛べッ！" />
+    <a time="151" text="キック" sync="ヘスペロスの「コトルヌスキック」" notice="キック。" notice-d="Sub" />
+    <a time="156" text="クエイク" sync="ヘスペロスの「コトルヌスクエイク」" notice="スクエイク。" notice-d="Sub" />
+    <a time="158" text="ウォタジャ" sync="ヘスペロスの「ヘーミテオス・ウォタジャ」" notice="ウォタジャ。" notice-d="Sub" />
+    <a time="162" text="キック" sync="ヘスペロスの「コトルヌスキック」" notice="キック。" notice-d="Sub" />
+    <a time="166" text="クエイク" sync="ヘスペロスの「コトルヌスクエイク」" notice="クエイク。" notice-d="Sub" />
+    <a time="169" sync="ヘスペロス:食らうがよいッ！" />
+    <a time="169" text="【構え】遠近魔撃" sync="ヘスペロスは「(遠見|近思)の魔撃」の構え。" notice="遠近注意" notice-d="Sub" />
+    <a time="175" text="遠近魔撃" sync="ヘスペロスの「(遠見|近思)の魔撃」" notice-d="Sub" />
+    <!--a time="196" text="ハートステイク" sync="ヘスペロスは「ハートステイク」の構え。" notice="ハートステイク。" /-->
+    <a time="190" text="(DoT)ハートステイク" sync="ヘスペロスの「ハートステイク」" notice="DoTつくよ" notice-d="Sub" />
+    <a time="193" text="(DoT)ハートステイク" />
+
+    <!--P4-->
+    <a time="197" text="茨の悲劇：第四幕" sync="ヘスペロスは「茨の悲劇：第四幕」の構え。" notice="茨の悲劇：第四幕。" notice-d="Sub" />
+    <!--a time="214" text="茨の悲劇：第四幕" sync="ヘスペロスの「茨の悲劇：第四幕」" /-->
+    <a time="212" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" notice="全体攻撃" notice-d="Sub" />
+    <a time="215" text="ソーンヘッジ" sync="ヘスペロスは「ソーンヘッジ」の構え。" notice="線を確認" notice-d="Sub" />
+    <!--a time="233" text="ソーンヘッジ" sync="ヘスペロスの「ソーンヘッジ」" /-->
+    <a time="229" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" notice="全体攻撃" notice-d="Sub" />
+    <a time="245" text="塔を踏む" sync="ヘスペロスの「ヘーミテオス・サンダガ」" notice="塔を踏む" notice-d="Sub" />
+    <a time="244" text="線を切る4" />
+    <a time="249" text="線を切る3" />
+    <a time="254" text="線を切る2" />
+    <a time="256" sync="ヘスペロス:我が最大の一撃だ…！" />
+    <a time="259" text="線を切る1" />
+    <a time="264" text="(全体)インパルス" sync="ヘスペロスの「アルティメットインパルス」" notice="全体攻撃" notice-d="Sub" />
+    <a time="268" sync="ヘスペロス:茨の悲劇も終幕だ……！ さあ、足掻け！　最後まで演じ切ってみせろ！" />
+    <a time="278" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" notice="全体攻撃" notice-d="Sub" />
+
+    <!--P5-->
+    <a time="282" text="茨の悲劇：終幕" sync="ヘスペロスは「茨の悲劇：終幕」の構え。" notice="茨の悲劇：終幕。" notice-d="Sub" />
+    <!--a time="299" text="茨の悲劇：終幕" sync="ヘスペロスの「茨の悲劇：終幕」" /-->
+    <!--a time="303" text="ソーンヘッジ" sync="ヘスペロスは「ソーンヘッジ」の構え。" notice="ソーンヘッジ。" /-->
+    <a time="297" text="ソーンヘッジ" sync="ヘスペロスの「ソーンヘッジ」" notice="線を確認" notice-d="Sub" />
+    <a time="299" sync="ヘスペロス:迸れ、魔力よ！" />
+    <a time="305" text="インパルス1" sync="ヘスペロスの「フリーティングインパルス」" />
+    <a time="306" text="インパルス2" />
+    <a time="308" text="インパルス3" />
+    <a time="309" text="インパルス4" />
+    <a time="310" text="インパルス5" />
+    <a time="312" text="インパルス6" />
+    <a time="313" text="インパルス7" />
+    <a time="314" text="インパルス8" />
+    <a time="317" text="線を確認" sync="ヘスペロスは「ソーンヘッジ」の構え。" notice="線を確認" notice-d="Sub" />
+    <a time="324" text="ソーンヘッジ" sync="ヘスペロスの「ソーンヘッジ」" notice="塔処理開始" notice-d="Sub" />
+    <a time="326" text="サンダガ1" sync="ヘスペロスの「ヘーミテオス・サンダガ」" />
+    <a time="328" text="サンダガ2" />
+    <a time="329" text="サンダガ3" />
+    <a time="330" text="サンダガ4" />
+    <a time="331" text="サンダガ5" />
+    <a time="332" text="サンダガ6" />
+    <a time="334" text="サンダガ7" />
+    <a time="334" sync="ヘスペロス:食らうがよいッ！" />
+    <a time="334" text="【構】遠近魔撃" sync="ヘスペロスは「(遠見|近思)の魔撃」の構え。" notice="遠近注意" notice-d="Sub" />
+    <a time="335" text="サンダガ8" />
+    <a time="340" text="遠近の魔撃" sync="ヘスペロスの「(遠見|近思)の魔撃」" />
+    <a time="353" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" notice="全体攻撃" notice-d="Sub" />
+    <a time="357" text="【構】タンク強攻撃" sync="ヘスペロスは「半神の双撃」の構え。" />
+    <a time="363" text="半神の双撃" sync="ヘスペロスの「半神の双撃」" notice="半神の双撃。" notice-d="Sub" />
+
+    <!--P6 カーテンコール。帰れ。-->
+    <a time="360" sync="ヘスペロス:最低最悪の悲劇を乗り越えた者たちよ……。 残すは……カーテンコールだァッ！！" />
+    <a time="360" text="茨の悲劇：カーテンコール" sync="ヘスペロスは「茨の悲劇：カーテンコール」の構え。" notice="茨の悲劇：カーテンコール。" notice-d="Sub" />
+    <!--a time="388" text="茨の悲劇：カーテンコール" sync="ヘスペロスの「茨の悲劇：カーテンコール」" notice="茨の悲劇：カーテンコール。" /-->
+    <!--処理タイミングは目安。検証中-->
+    <a time="380" text="処理1" />
+    <a time="386" text="ヘルスティング" sync="ヘスペロスは「ヘルスティング」の構え。" notice="ヘルスティング。" notice-d="Sub" />
+    <a time="386" text="処理2" />
+    <a time="388" text="ヘルスティング" sync="ヘスペロスの「ヘルスティング」" />
+    <a time="391" text="ヘルスティング" />
+    <a time="392" text="処理3" />
+    <a time="398" text="処理4" />
+    <a time="404" text="処理5" />
+    <a time="406" text="ヘルスティング" sync="ヘスペロスは「ヘルスティング」の構え。" notice="ヘルスティング。" notice-d="Sub" />
+    <a time="409" text="ヘルスティング" sync="ヘスペロスの「ヘルスティング」" />
+    <a time="410" text="処理6" />
+    <a time="412" text="ヘルスティング" />
+    <a time="416" text="処理7" />
+    <a time="422" text="処理8" />
+
+    <a time="428" text="(全体)インパルス" sync="ヘスペロスの「アルティメットインパルス」" notice="全体攻撃" notice-d="Sub" />
+    <a time="435" text="ヘルスティング" sync="ヘスペロスは「ヘルスティング」の構え。" notice="ヘルスティング。" notice-d="Sub" />
+    <a time="438" text="ヘルスティング" sync="ヘスペロスの「ヘルスティング」" />
+    <a time="441" text="ヘルスティング" />
+    <a time="455" text="ヘルスティング" sync="ヘスペロスは「ヘルスティング」の構え。" notice="ヘルスティング。" notice-d="Sub" />
+    <a time="458" text="ヘルスティング" sync="ヘスペロスの「ヘルスティング」" />
+    <a time="461" text="ヘルスティング" />
+    <a time="478" text="(全体)インパルス" sync="ヘスペロスの「アルティメットインパルス」" notice="全体攻撃" notice-d="Sub" />
+    <a time="482" sync="ヘスペロス:嗚呼、悲劇は繰り返されるもの……。 哀れな愚者が抱きし、救いの幻想は打ち砕かれる……！" />
+    <a time="483" text="時間切れ詠唱" sync="ヘスペロスは「アルティメットインパルス」の構え。" notice="時間切れ開始" notice-d="Sub" />
+    <a time="493" text="時間切れ" />
+  </s>
 </timeline>
