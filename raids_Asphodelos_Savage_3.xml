@@ -22,21 +22,21 @@
 
 
   <!--魔力錬成:劫火天焦set-->
-  <t sync="^14:66BE" notice="大玉">
+  <t sync="^14:66BE" notice="大玉" notice-d="Sub">
     <v-notice text="劫火天焦:大玉" duration="9" />
   </t>
 
-  <t sync="^14:66C0" notice="回転">
+  <t sync="^14:66C0" notice="回転" notice-d="Sub">
     <v-notice text="劫火天焦:回転" duration="9" />
   </t>
 
 
   <!--魔力錬成:炎闇劫火set-->
-  <t sync="^14:66CA" notice="回転、散開か頭割">
+  <t sync="^14:66CA" notice="回転、散開か頭割" notice-d="Sub">
     <v-notice text="炎闇劫火:回転→散開or頭割り" duration="9" />
   </t>
 
-  <t sync="^14:66C6" notice="大玉、散開か頭割">
+  <t sync="^14:66C6" notice="大玉、散開か頭割" notice-d="Sub">
     <v-notice text="炎闇劫火:大玉→散開or頭割" duration="9" />
   </t>
 
