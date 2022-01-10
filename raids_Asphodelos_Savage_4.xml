@@ -3,9 +3,11 @@
   <name>Asphodelos: The Fourth Circle (Savage) timeline</name>
   <rev>draft</rev>
   <description>
-  再生デバイスの設定をして使ってください。メインデバイスは個人通知、サブデバイスは全体通知です。
+    AquaCatさんのタイムラインを参考にしました。ありがとうございます。
+    再生デバイスの設定をして使ってください。メインデバイスは個人通知、サブデバイスは全体通知です。
+    全体通知が不要ならサブデバイスを「Use DISCORD BOT」に設定してください。
   </description>
-  <author>Wakuwaku</author>
+  <author>Wakuwaku,AquaCat</author>
   <license>CC BY-SA</license>
   <zone>Asphodelos: The Fourth Circle (Savage)</zone>
   <!--
@@ -16,10 +18,15 @@
   <start>0039::戦闘開始！</start>
   <entry>ENTRY</entry>
 
+  @{
+    var ANTI_KNOCKBACK = Model.Player.InRole("HEALER","MagicDPS") ?
+      "堅実魔" :
+      "アムレン";
+  }
+
   <default target-element="Activity" target-attr="notice-o" value="-3" />
   <default target-element="Activity" target-attr="notice-d" value="Main" />
   <default target-element="Trigger" target-attr="notice-d" value="Main" />
-
 
   <s name="ENTRY">
     <t sync="ヘスペロスは「デコレーション」の構え。">
@@ -32,66 +39,60 @@
   </s>
 
   <s name="前半">
-    <a time="000">
-      <expressions>
-        <set name="bloodrake_1" value="false" />
-        <set name="bloodrake_2" value="false" />
-      </expressions>
-    </a>
     <t sync="ヘスペロスは「シアリングストリーム」の構え。">
       <load target="後半" truncate="true"/>
     </t>
 
     <!--床予兆のトリガ-->
-    <t sync="^14:69D4" notice="散開" nodice-d="Sub">
-      <v-notice text="散開:毒床" duration="5" />
+    <t sync="^14:69D4" notice="散開" notice-d="Sub">
+      <v-notice text="散開:毒床" icon="SpreadB" duration="5" />
     </t>
-    <t sync="^14:69D5" notice="頭割" nodice-d="Sub">
-      <v-notice text="頭割:炎床" duration="5" />
+    <t sync="^14:69D5" notice="頭割" notice-d="Sub">
+      <v-notice text="頭割:炎床" icon="DamageShare" duration="5" />
     </t>
-    <t sync="^14:69D6" notice="ノックバック" nodice-d="Sub">
-      <v-notice text="ノックバック:水床" duration="5" />
+    <t sync="^14:69D6" notice="ノックバック" notice-d="Sub">
+      <v-notice text="ノックバック:水床" icon="KnockBack" duration="5" />
     </t>
-    <t sync="^14:69D7" notice="離れる" nodice-d="Sub">
-      <v-notice text="離れる:雷床" duration="5" />
+    <t sync="^14:69D7" notice="離れる" notice-d="Sub">
+      <v-notice text="離れる:雷床" icon="AOEInside" duration="5" />
     </t>
 
-    <t sync="^14:69FD" notice="Aから 吹き飛ばし" nodice-d="Sub">
-      <v-notice text="マント" icon="A" duration="5" />
+    <t sync="^14:69FD" notice="1から 吹き飛ばし" notice-d="Sub">
+      <v-notice text="マント" icon="my1" duration="5" />
     </t>
-    <t sync="^14:69FF" notice="Bから 吹き飛ばし" nodice-d="Sub">
-      <v-notice text="マント" icon="B" duration="5" />
+    <t sync="^14:69FF" notice="2から 吹き飛ばし" notice-d="Sub">
+      <v-notice text="マント" icon="my2" duration="5" />
     </t>
-    <t sync="^14:69FE" notice="Cから 吹き飛ばし" nodice-d="Sub">
-      <v-notice text="マント" icon="C" duration="5" />
+    <t sync="^14:69FE" notice="3から 吹き飛ばし" notice-d="Sub">
+      <v-notice text="マント" icon="my3" duration="5" />
     </t>
-    <t sync="^14:6A00" notice="Dから 吹き飛ばし" nodice-d="Sub">
-      <v-notice text="マント" icon="D" duration="5" />
+    <t sync="^14:6A00" notice="4から 吹き飛ばし" notice-d="Sub">
+      <v-notice text="マント" icon="my4" duration="5" />
     </t>
-    <t sync="^14:6A02" notice="Aから 剣" nodice-d="Sub">
-      <v-notice text="剣" icon="A" duration="5" />
+    <t sync="^14:6A02" notice="1から 剣" notice-d="Sub">
+      <v-notice text="剣" icon="my1" duration="5" />
     </t>
-    <t sync="^14:6A04" notice="Bから 剣" nodice-d="Sub">
-      <v-notice text="剣" icon="B" duration="5" />
+    <t sync="^14:6A04" notice="2から 剣" notice-d="Sub">
+      <v-notice text="剣" icon="my2" duration="5" />
     </t>
-    <t sync="^14:6A03" notice="Cから 剣" nodice-d="Sub">
-      <v-notice text="剣" icon="C" duration="5" />
+    <t sync="^14:6A03" notice="3から 剣" notice-d="Sub">
+      <v-notice text="剣" icon="my3" duration="5" />
     </t>
-    <t sync="^14:6A05" notice="Dから 剣" nodice-d="Sub">
-      <v-notice text="剣" icon="D" duration="5" />
+    <t sync="^14:6A05" notice="4から 剣" notice-d="Sub">
+      <v-notice text="剣" icon="my4" duration="5" />
     </t>
 
     <!--4枚床の安置検知-->
-    <t sync="^14:69F5" notice="緑に移動" nodice-d="Sub">
+    <t sync="^14:69F5" notice="緑に移動" notice-d="Sub">
       <v-notice text="緑/毒:安置" duration="15" />
     </t>
-    <t sync="^14:69F6" notice="赤に移動" nodice-d="Sub">
+    <t sync="^14:69F6" notice="赤に移動" notice-d="Sub">
       <v-notice text="赤/炎:安置" duration="15" />
     </t>
-    <t sync="^14:69F7" notice="白に移動" nodice-d="Sub">
+    <t sync="^14:69F7" notice="白に移動" notice-d="Sub">
       <v-notice text="白/水:安置" duration="15" />
     </t>
-    <t sync="^14:69F8" notice="青に移動" nodice-d="Sub">
+    <t sync="^14:69F8" notice="青に移動" notice-d="Sub">
       <v-notice text="青/雷:安置" duration="15" />
     </t>
 
@@ -106,41 +107,96 @@
       <v-notice text="DPSの玉取り" duration="9" />
     </t>
 
+    <!-- 開幕ブラッドレイク -->
     <t sync="^16:[id8]:ヘスペロス:[id4]:ブラッドレイク:[id8]:[nex]:" sync-count="4" notice="線を取る">
       <expressions>
         <pre name="bloodrake_1" value="true"/>
       </expressions>
-      <v-notice text="線取る" icon="True" duration="40" />
+      <v-notice text="線取る" icon="True" duration="40"/>
     </t>
 
     <t sync="^16:[id8]:ヘスペロス:[id4]:ブラッドレイク:[id8]:[mex]:" notice="線を取らない">
       <expressions>
         <pre name="bloodrake_1" value="true"/>
+        <set name="minus_1" value="true"/>
       </expressions>
       <v-notice text="線取らない" icon="False" duration="40" />
     </t>
 
-    <t sync="^16:[id8]:ヘスペロス:[id4]:ブラッドレイク:[id8]:[nex]" sync-count="4" notice="デバフ取る">
+    <t sync="^16:[id8]:ヘスペロス:[id4]:ブラッドレイク:[id8]:[nex]:" sync-count="8" notice="デバフ取る">
       <expressions>
         <pre name="bloodrake_2" value="true"/>
+        <pre name="minus_1" value="false"/>
       </expressions>
       <v-notice text="デバフ取る" icon="True" duration="25" />
     </t>
 
-    <t sync="^16:[id8]:ヘスペロス:[id4]:ブラッドレイク:[id8]:[mex]" notice="デバフ取らない">
+    <t sync="^16:[id8]:ヘスペロス:[id4]:ブラッドレイク:[id8]:[nex]:" sync-count="7" notice="デバフ取る">
+      <expressions>
+        <pre name="bloodrake_2" value="true"/>
+        <pre name="minus_1" value="true"/>
+      </expressions>
+      <v-notice text="デバフ取る" icon="True" duration="25" />
+    </t>
+
+    <t sync="^16:[id8]:ヘスペロス:[id4]:ブラッドレイク:[id8]:[mex]:" notice="デバフ取らない">
       <expressions>
         <pre name="bloodrake_2" value="true"/>
       </expressions>
       <v-notice text="デバフ取らない" icon="False" duration="25" />
     </t>
 
-    <t sync="⇒ [mex]に「三役の腐呪」の効果。" notice="デバフ付いた">
+    <!-- 塔踏み -->
+    <t sync="^15:[id8]:ヘスペロス:[id4]:爆発:[id8]:[nex]:" sync-count="4" notice="線を取る">
       <expressions>
+        <pre name="bloodrake_3" value="true"/>
       </expressions>
-      <v-notice text="デバフ付いた"/>
+      <v-notice text="線取る" icon="True" duration="65"/>
     </t>
 
-    <a time="006" text="デコレーション" sync="ヘスペロスの「デコレーション」">
+    <t sync="^15:[id8]:ヘスペロス:[id4]:爆発:[id8]:[mex]:" notice="線を取らない">
+      <expressions>
+        <pre name="bloodrake_3" value="true"/>
+        <set name="minus_2" value="true"/>
+      </expressions>
+      <v-notice text="線取らない" icon="False" duration="65" />
+    </t>
+
+    <t sync="^15:[id8]:ヘスペロス:[id4]:爆発:[id8]:[nex]:" sync-count="8" notice="デバフ取る">
+      <expressions>
+        <pre name="bloodrake_4" value="true"/>
+        <pre name="minus_2" value="false"/>
+      </expressions>
+      <v-notice text="デバフ取る" icon="True" duration="25" />
+    </t>
+
+    <t sync="^15:[id8]:ヘスペロス:[id4]:爆発:[id8]:[nex]:" sync-count="7" notice="デバフ取る">
+      <expressions>
+        <pre name="bloodrake_4" value="true"/>
+        <pre name="minus_2" value="true"/>
+      </expressions>
+      <v-notice text="デバフ取る" icon="True" duration="25" />
+    </t>
+
+    <t sync="^15:[id8]:ヘスペロス:[id4]:爆発:[id8]:[mex]:" notice="デバフ取らない">
+      <expressions>
+        <pre name="bloodrake_4" value="true"/>
+      </expressions>
+      <v-notice text="デバフ取らない" icon="False" duration="25" />
+    </t>
+
+    <a time="000">
+      <expressions>
+        <set name="bloodrake_1" value="false" />
+        <set name="bloodrake_2" value="false" />
+        <set name="bloodrake_3" value="false" />
+        <set name="bloodrake_4" value="false" />
+        <set name="minus_1" value="false" />
+        <set name="minus_2" value="false" />
+      </expressions>
+    </a>
+
+    <a time="006" text="デコレーション" sync="ヘスペロスの「デコレーション」" notice="全体攻撃" notice-d="Sub">
       <expressions>
         <set name="bloodrake_1" value="true"/>
       </expressions>
@@ -149,13 +205,14 @@
     <a time="009" sync="ヘスペロス:お前のエーテルを吸収させてもらおう……。 その力、私が利用させてもらうぞ！！" />
     <a time="009" text="【構】ブラッドレイク" sync="ヘスペロスは「ブラッドレイク」の構え。" />
     <a time="014" text="1回目ブラッドレイク" sync="ヘスペロスの「ブラッドレイク」" />
-    <a time="016" sync="ヘスペロス:ゆらめけ、クラミュス！" />
-    <!--何もしてこない？-->
-    <a time="021" text="エーテルクラミュス" sync="ヘスペロスの「エーテルクラミュス」">
+    <a time="016" sync="ヘスペロス:ゆらめけ、クラミュス！">
       <expressions>
         <set name="bloodrake_1" value="false"/>
         <set name="bloodrake_2" value="true"/>
       </expressions>
+    </a>
+    <!--何もしてこない？-->
+    <a time="021" text="エーテルクラミュス" sync="ヘスペロスの「エーテルクラミュス」">
     </a>
     <a time="024" text="【構】ブラッドレイク" sync="ヘスペロスは「ブラッドレイク」の構え。" />
     <a time="029" text="2回目ブラッドレイク" sync="ヘスペロスの「ブラッドレイク」" />
@@ -170,8 +227,8 @@
     <!--a time="064" text="呪詛発動" sync="ヘスペロスの「呪詛発動」" notice="呪詛発動。" /-->
     <a time="063" text="(全体)デコレーション" sync="ヘスペロスの「デコレーション」" notice="全体攻撃" notice-d="Sub" />
     <a time="067" text="【構】タンク強攻撃" sync="ヘスペロスは「エレガントイヴィセレーション」の構え。" />
-    <a time="073" text="イヴィセレーション2" sync="ヘスペロスの「エレガントイヴィセレーション」" notice="タンク強攻撃" notice-d="Sub" />
-    <a time="076" text="イヴィセレーション1" />
+    <a time="073" text="イヴィセレーション1" sync="ヘスペロスの「エレガントイヴィセレーション」" notice="タンク強攻撃" notice-d="Sub" />
+    <a time="076" text="イヴィセレーション2" />
 
     <!--P2劇場前半-->
     <a time="083" sync="ヘスペロス:獄卒長たる我が権限を以てすれば、監獄すら蠢く……。" />
@@ -186,8 +243,8 @@
     <a time="130" text="シフティングストライク" sync="ヘスペロスの「シフティングストライク(E|W|S|N)」" />
     <a time="138" text="炎or毒" sync="ヘスペロスの「ピナクスポイズン」" />
     <a time="142" text="【構】タンク強攻撃" sync="ヘスペロスは「エレガントイヴィセレーション」の構え。" />
-    <a time="148" text="イヴィセレーション2" sync="ヘスペロスの「エレガントイヴィセレーション」" notice="タンク強攻撃" notice-d="Sub" />
-    <a time="151" text="イヴィセレーション1" />
+    <a time="148" text="イヴィセレーション1" sync="ヘスペロスの「エレガントイヴィセレーション」" notice="タンク強攻撃" notice-d="Sub" />
+    <a time="151" text="イヴィセレーション2" />
 
     <!--P3劇場後半-->
     <a time="154" text="【構】ブラッドレイク" sync="ヘスペロスは「ブラッドレイク」の構え。" notice="床を確認" notice-d="Sub" />
@@ -195,31 +252,44 @@
     <a time="170" text="劇場創造" sync="ヘスペロスの「劇場創造」" notice="劇場創造 2回目" notice-d="Sub" />
     <a time="177" sync="ヘスペロス:我が腐呪を、浴びよ" />
     <!--a time="188" text="エンチャ：リベンジ" sync="ヘスペロスは「エンチャンテッドペロネー：リベンジ」の構え。"  /-->
-    <a time="182" text="エンチャ：リベンジ" sync="ヘスペロスの「エンチャンテッドペロネー：リベンジ」" notice="デバフを確認、1個目" notice-d="Sub" />
-    <a time="190" text="エンチャ：エレメンタル" sync="ヘスペロスの「エンチャンテッドペロネー：エレメンタル」" notice="デバフを確認、2個目" notice-d="Sub" />
+    <a time="182" text="エンチャ：リベンジ" sync="ヘスペロスの「エンチャンテッドペロネー：リベンジ」" notice="デバフを確認" notice-d="Sub" />
+    <a time="190" text="エンチャ：エレメンタル" sync="ヘスペロスの「エンチャンテッドペロネー：エレメンタル」" />
     <a time="199" text="ブラッドレイク(全体)" sync="ヘスペロスの「ブラッドレイク」" notice="全体" notice-d="Sub" />
     <a time="202" sync="ヘスペロス:己がエーテルに食い殺されよ！" />
     <a time="202" text="玉がPOP" sync="ヘスペロスは「エンチャンテッドペロネー：エクスプロージョン」の構え。" notice="玉がPOP" notice-d="Sub" />
     <a time="208" text="エンチャ：エクスプロージョン" sync="ヘスペロスの「エンチャンテッドペロネー：エクスプロージョン」" />
     <a time="222" text="(床)ペリアクトイ" sync="ヘスペロスの「ペリアクトイ」" notice="ペリアクトイ" notice-d="Sub" />
-    <a time="224" sync="ヘスペロス:……紛れ込んだネズミも、初めのうちは可愛いものだが、 いつまでもウロチョロされては、目障りだな。" />
 
     <!--P4塔-->
+    <a time="224" sync="ヘスペロス:……紛れ込んだネズミも、初めのうちは可愛いものだが、 いつまでもウロチョロされては、目障りだな。">
+      <expressions>
+        <set name="bloodrake_3" value="true"/>
+      </expressions>
+    </a>
     <a time="234" text="ブラッドレイク" sync="ヘスペロスの「ブラッドレイク」" notice="ブラッドレイク" notice-d="Sub" />
     <a time="241" text="エンチャ：ラウンド" sync="ヘスペロスの「エンチャンテッドペロネー：ラウンド」" notice="塔が出るよ" notice-d="Sub" />
     <a time="244" text="線" sync="ヘスペロスは「インヴァースクラミュス」の構え。" notice="線が付くよ" notice-d="Sub" />
     <a time="251" text="インヴァース" sync="ヘスペロスの「インヴァースクラミュス」" />
-    <a time="254" sync="ヘスペロス:ゆらめけ、クラミュス！" />
+    <a time="254" sync="ヘスペロス:ゆらめけ、クラミュス！">
+      <expressions>
+        <set name="bloodrake_3" value="false"/>
+        <set name="bloodrake_4" value="true"/>
+      </expressions>
+    </a>
     <a time="259" text="エーテルクラミュス" sync="ヘスペロスの「エーテルクラミュス」" />
     <a time="267" text="ブラッドレイク" sync="ヘスペロスの「ブラッドレイク」" notice="ブラッドレイク" notice-d="Sub" />
     <a time="275" text="エンチャンテッドペロネー：ラウンド" sync="ヘスペロスの「エンチャンテッドペロネー：ラウンド」" notice="塔が出るよ" notice-d="Sub" />
-    <a time="289" text="エンチャ：ペルソナ" sync="ヘスペロスの「エンチャンテッドペロネー：ペルソナ」" notice="呪いが付くよ" notice-d="Sub" />
+    <a time="289" text="エンチャ：ペルソナ" sync="ヘスペロスの「エンチャンテッドペロネー：ペルソナ」">
+      <expressions>
+        <set name="bloodrake_4" value="false"/>
+      </expressions>
+    </a>
     <a time="298" text="線" sync="ヘスペロスは「インヴァースクラミュス」の構え。" notice="線が付くよ" notice-d="Sub" />
     <a time="305" text="インヴァース" sync="ヘスペロスの「インヴァースクラミュス」" />
     <a time="314" text="(全体)デコレーション" sync="ヘスペロスの「デコレーション」" notice="全体攻撃" notice-d="Sub" />
     <a time="318" text="【構】タンク強攻撃" sync="ヘスペロスは「エレガントイヴィセレーション」の構え。" />
-    <a time="324" text="イヴィセレーション2" sync="ヘスペロスの「エレガントイヴィセレーション」" notice="タンク強攻撃" notice-d="Sub" />
-    <a time="327" text="イヴィセレーション1" />
+    <a time="324" text="イヴィセレーション1" sync="ヘスペロスの「エレガントイヴィセレーション」" notice="タンク強攻撃" notice-d="Sub" />
+    <a time="327" text="イヴィセレーション2" />
 
     <!--P5劇場最終-->
     <a time="342" text="劇場創造" sync="ヘスペロスの「劇場創造」" notice="劇場創造 3回目" notice-d="Sub" />
@@ -236,8 +306,7 @@
     <a time="395" text="デコレーション" sync="ヘスペロスの「デコレーション」" notice="全体攻撃" notice-d="Sub" />
     <a time="404" text="デコレーション" notice="全体攻撃" />
     <a time="413" text="デコレーション" sync="ヘスペロスの「デコレーション」" notice="全体攻撃" notice-d="Sub" />
-    <a time="420" text="調査中" />
-
+    <a time="420" text="デコレーション (時間切れ)" sync="ヘスペロスの「デコレーション」" notice="もうすぐ時間切れ" notice-d="Sub" notice-o="-5" />
     <a time="480" sync="ヘスペロスは「シアリングストリーム」の構え。" goto="後半" />
   </s>
 
