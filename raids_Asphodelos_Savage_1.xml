@@ -130,7 +130,7 @@
       <v-notice text="懲罰撃: 円" icon="D.png" duration="15"></v-notice>
     </t> -->
 
-    <a time="014.0" text="痛撃" sync="エリクトニオスの「痛撃」" notice="強攻撃。" notice-d="Sub" />
+    <a time="014.0" text="痛撃" sync="エリクトニオスの「痛撃」" />
     <a time="022.0" text="結呪の魔鎖" sync="エリクトニオスの「結呪の魔鎖」" />
     <a time="032.0" text="魔鎖乱流" sync="エリクトニオスの「魔鎖乱流」" notice="全体攻撃。" notice-d="Sub" />
     <a time="045.0" sync="エリクトニオス:俺の鎖から、逃れられると思うな！" />
