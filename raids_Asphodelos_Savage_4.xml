@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <timeline>
-  <name>Asphodelos: The Fourth Circle (Savage) timeline</name>
+  <name>Asphodelos: The Fourth Circle (Savage)</name>
   <rev>draft</rev>
   <description>
     AquaCatさんのタイムラインを参考にしました。ありがとうございます。
@@ -304,33 +304,39 @@
     <a time="389" text="炎or毒" sync="ヘスペロスの「ピナクス(ラーヴァ|ポインズン)」" />
 
     <a time="395" text="デコレーション" sync="ヘスペロスの「デコレーション」" notice="全体攻撃" notice-d="Sub" />
-    <a time="404" text="デコレーション" notice="全体攻撃" />
+    <a time="404" text="デコレーション" notice="全体攻撃" notice-d="Sub" />
     <a time="413" text="デコレーション" sync="ヘスペロスの「デコレーション」" notice="全体攻撃" notice-d="Sub" />
     <a time="420" text="デコレーション (時間切れ)" sync="ヘスペロスの「デコレーション」" notice="もうすぐ時間切れ" notice-d="Sub" notice-o="-5" />
     <a time="480" sync="ヘスペロスは「シアリングストリーム」の構え。" goto="後半" />
   </s>
 
-  <s name="後半">
-    <!-- 後半用グローバルトリガー begin -->
-    <!--近思の魔撃 / 遠見の魔撃 判定トリガー begin -->
+  <!-- 後半用グローバルトリガー begin -->
+  <!--近思の魔撃 / 遠見の魔撃 判定トリガー begin -->
     @{
       var TANK_NEAR_CALL = Model.Player.InRole("TANK") ? "近づくー。" : "離れるー。";
       var TANK_FAR_CALL = Model.Player.InRole("TANK") ? "離れるー。" : "近づくー。";
     }
-    <t sync="^14:6A26:" notice="タンク近づく">
-      <v-notice text="近思:タンク近づく" duration="6" />
-    </t>
-    <t sync="^14:6A27:" notice="タンク離れる">
-      <v-notice text="遠見:タンク離れる" duration="6" />
-    </t>
-    <!-- 後半戦で最初に出現する赤マーカーを marker_origin とする -->
-    <t no="1" sync="1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):" sync-count="1" notice="">
-      <expressions>
-        <set name="marker_origin" value="0x${marker}" scope="CurrentZone" />
-      </expressions>
-    </t>
+  <t sync="^14:6A26:" notice="タンク近づく">
+    <v-notice text="近思:タンク近づく" duration="6" />
+  </t>
+  <t sync="^14:6A27:" notice="タンク離れる">
+    <v-notice text="遠見:タンク離れる" duration="6" />
+  </t>
+  <!-- 後半戦で最初に受けたシアリングストリームからボスのCombatant IDをキャプチャする -->
+  <t name="ボスIDキャプチャ" sync="^16:(?&lt;boss_id&gt;[0-9a-fA-F]{8}):ヘスペロス:6A2D:シアリングストリーム:" sync-count="1">
+    <expressions>
+      <set name="boss_id" value="0x${boss_id}" />
+    </expressions>
+  </t>
 
-    <a time="005" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" sync-s="-16" />
+  <t name="フラグ変数セット" sync="14:[id4]:ヘスペロス starts using 茨の悲劇：">
+    <expressions>
+      <set name="is_first_tether" value="true" />
+    </expressions>
+  </t>
+
+  <s name="後半">
+    <a time="005" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" sync-s="-5" notice="全体攻撃" notice-d="Sub" />
     <a time="015" text="茨の悲劇:序幕" call="P1 序幕" sync="ヘスペロス:エーテルソーン展開！ 茨の悲劇が幕を開ける……喜べ、主演はお前たちだッ！！" />
     <a time="067" text="茨の悲劇:第二幕" call="P2 第二幕" sync="ヘスペロスは「茨の悲劇：第二幕」の構え。" />
     <a time="127" text="茨の悲劇:第三幕" call="P3 第三幕" sync="ヘスペロスは「茨の悲劇：第三幕」の構え。" />
@@ -340,10 +346,27 @@
   </s>
 
   <s name="P1 序幕">
+    <!-- Combatant IDがboss_id+36なら東西どちらかの茨が線で繋がれている -->
+    <t no="2" name="Act1-南北スタート" sync="^23:EVAL(VAR['boss_id']+36, X8):" sync-count="1" notice="南北スタート" notice-d="Sub">
+      <expressions>
+        <pre name="is_first_tether" value="true" />
+        <set name="is_first_tether" value="false" />
+      </expressions>
+      <v-notice order="-2" text="南北➜塔➜東西" duration="18" duration-visible="false" />
+    </t>
+
+    <!-- Combatant IDがboss_id+38なら南北どちらかの茨が線で繋がれている -->
+    <t no="2" name="Act1-東西スタート" sync="^23:EVAL(VAR['boss_id']+38, X8):" sync-count="1" notice="東西スタート" notice-d="Sub">
+      <expressions>
+        <pre name="is_first_tether" value="true" />
+        <set name="is_first_tether" value="false" />
+      </expressions>
+      <v-notice order="-2" text="東西➜塔➜南北" duration="18" duration-visible="false" />
+    </t>
     @* このフェーズの基点となる秒数 26 *@
     @{ var origin = 26; }
     <a time="@(032.0 - origin)" text="茨の悲劇：序幕" sync="ヘスペロスの「茨の悲劇：序幕」" />
-    <a time="@(041.0 - origin)" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" />
+    <a time="@(041.0 - origin)" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" notice="全体攻撃" notice-d="Sub" />
     <a time="@(055.0 - origin)" text="ソーンヘッジ" sync="ヘスペロスの「ソーンヘッジ」" />
     <a time="@(058.2 - origin)" text="大AoE" sync="ヘスペロスの「ヘーミテオス・ファイジャ」" />
     <a time="@(061.0 - origin)" text="塔踏み" sync="ヘスペロスの「ヘーミテオス・サンダガ」" />
@@ -352,35 +375,123 @@
   </s>
 
   <s name="P2 第二幕">
+    <!-- Combatant IDが boss_id+35~38 の範囲なら南北どちらかのAoEと繋がった茨が線で繋がれている -->
+    <t name="Act2-東西スタート" sync="^23:EVAL(VAR['boss_id']+38, X8):" sync-count="2" notice="東西スタート。" notice-d="Sub">
+      <expressions>
+        <pre name="is_first_tether" value="true" />
+        <set name="is_first_tether" value="false" />
+        <set name="act2_safespot1" value="EW" />
+      </expressions>
+      <v-notice order="-1" text="最初は東西が安全" duration="18" duration-visible="false" />
+    </t>
+
+    <!-- Combatant IDが boss_id+31~34 の範囲なら東西どちらかのAoEと繋がった茨が線で繋がれている -->
+    <t name="Act2-南北スタート" sync="^23:EVAL(VAR['boss_id']+34, X8):ヘスペロス:" sync-count="2" notice="南北スタート。" notice-d="Sub">
+      <expressions>
+        <pre name="is_first_tether" value="true" />
+        <set name="is_first_tether" value="false" />
+        <set name="act2_safespot1" value="NS" />
+      </expressions>
+      <v-notice order="-1" text="最初は南北が安全" duration="18" duration-visible="false" />
+    </t>
+
+    <t no="1" sync="1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):" sync-count="1" notice="">
+      <expressions>
+        <set name="marker_origin" value="0x${marker}" scope="CurrentZone" />
+      </expressions>
+    </t>
+
     @if (Model.Player.InRole("DPS")) {
-    <t no="2" name="Act2-赤(D)" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。南。">
+    <t no="2" name="Act2-赤(D)_NS" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。C。">
+      <expressions>
+        <pre name="act2_safespot1" value="NS" />
+      </expressions>
+      <v-notice text="ファイガ\n中央 → 東/南" icon="Pair" duration="20" />
+    </t>
+
+    <t no="2" name="Act2-赤(D)_EW" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。B。">
+      <expressions>
+        <pre name="act2_safespot1" value="EW" />
+      </expressions>
       <v-notice text="ファイガ\n中央 → 東/南" icon="Pair" duration="20" />
     </t>
     } else if (Model.Player.InRole("Healer")) {
-    <t no="2" name="Act2-赤(H)" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。南。">
+    <t no="2" name="Act2-赤(H)_NS" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。C。">
+      <expressions>
+        <pre name="act2_safespot1" value="NS" />
+      </expressions>
+      <v-notice text="ファイガ\n中央 → 東/南" icon="Pair" duration="20" />
+    </t>
+
+    <t no="2" name="Act2-赤(H)_EW" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。B。">
+      <expressions>
+        <pre name="act2_safespot1" value="EW" />
+      </expressions>
       <v-notice text="ファイガ\n中央 → 東/南" icon="Pair" duration="20" />
     </t>
     } else if (Model.Player.InRole("TANK")) {
-    <t no="2" name="Act2-赤(T)" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。北。">
+    <t no="2" name="Act2-赤(T)_NS" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。A。">
+      <expressions>
+        <pre name="act2_safespot1" value="NS" />
+      </expressions>
       <v-notice text="ファイガ\n中央 → 西/北" icon="Pair" duration="20" />
     </t>
+    <t no="2" name="Act2-赤(T)_EW" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。D。">
+      <expressions>
+        <pre name="act2_safespot1" value="EW" />
+      </expressions>
+      <v-notice text="ファイガ\n中央 → 西/北 → 半時計" icon="Pair" duration="20" />
+    </t>
     }
-    <t no="2" name="Act2-緑" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin']-1, X4):" notice="エアロガ。北。">
+    <t no="2" name="Act2-緑_NS" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 1, X4):" notice="エアロガ。A。">
+      <expressions>
+        <pre name="act2_safespot1" value="NS" />
+      </expressions>
       <v-notice text="エアロガ\n中央 → 西/北" icon="Twister" duration="20" />
     </t>
+
+    <t no="2" name="Act2-緑_EW" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 1, X4):" notice="エアロガ。D。">
+      <expressions>
+        <pre name="act2_safespot1" value="EW" />
+      </expressions>
+      <v-notice text="エアロガ\n中央 → 西/北" icon="Twister" duration="20" />
+    </t>
+
     @if (Model.Player.InRole("TANK")) {
-    <t no="3" name="Act2-マーカーなし(T)" sync="^1B:[id8]:[nex]:" sync-count="7" notice="ダージャ。北、塔踏み。">
+    <t no="3" name="Act2-マーカーなし(T)_NS" sync="^1B:[id8]:[nex]:" sync-count="7" notice="線を切る。次は、1。">
+      <expressions>
+        <pre name="act2_safespot1" value="NS" />
+      </expressions>
       <v-notice text="塔踏み\n西/北 → 時計" icon="FallingObject" duration="20" />
     </t>
+
+    <t no="3" name="Act2-マーカーなし(T)_EW" sync="^1B:[id8]:[nex]:" sync-count="7" notice="線を切る。次は、4。">
+      <expressions>
+        <pre name="act2_safespot1" value="EW" />
+      </expressions>
+      <v-notice text="塔踏み\n西/北 → 時計" icon="FallingObject" duration="20" />
+    </t>
+
     } else {
-    <t no="2" name="Act2-紫(H)" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin']-2, X4):" notice="ダージャ。南、塔踏み。">
+    <t no="2" name="Act2-紫(H)_NS" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 2, X4):" notice="線を切る。次は、3。">
+      <expressions>
+        <pre name="act2_safespot1" value="NS" />
+      </expressions>
+      <v-notice text="塔踏み\n東/南 → 時計" icon="FallingObject" duration="20" />
+    </t>
+
+    <t no="2" name="Act2-紫(H)_EW" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 2, X4):" notice="線を切る。次は、2。">
+      <expressions>
+        <pre name="act2_safespot1" value="EW" />
+      </expressions>
       <v-notice text="塔踏み\n東/南 → 時計" icon="FallingObject" duration="20" />
     </t>
     }
+
     @* このフェーズの基点となる秒数 78 *@
     @{ origin = 78; }
     <a time="@(083.0 - origin)" text="茨の悲劇：第ニ幕" sync="ヘスペロスの「茨の悲劇：第ニ幕」" />
-    <a time="@(092.0 - origin)" text="半神の双撃" sync="ヘスペロスの「半神の双撃」" notice="" />
+    <a time="@(092.0 - origin)" text="半神の双撃" sync="ヘスペロスの「半神の双撃」" notice="次は、タンク頭割り。" notice-d="Sub" />
     <a time="@(103.0 - origin)" text="ソーンヘッジ" sync="ヘスペロスの「ソーンヘッジ」" />
     <a time="@(110.0 - origin)" text="紫TH：線切り" />
     <a time="@(111.0 - origin)" text="ダークデザイン(エラプ)" sync="ヘスペロスの「ダークデザイン」" />
@@ -422,9 +533,9 @@
     @* このフェーズの基点となる秒数 209 *@
     @{ origin = 209; }
     <a time="@(214.0 - origin)" text="茨の悲劇：第四幕" sync="ヘスペロスの「茨の悲劇：第四幕」" />
-    <a time="@(223.0 - origin)" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" />
+    <a time="@(223.0 - origin)" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" notice="次は、全体攻撃。" notice-d="Sub"/>
     <a time="@(233.0 - origin)" text="ソーンヘッジ" sync="ヘスペロスの「ソーンヘッジ」" />
-    <a time="@(241.0 - origin)" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" notice="" />
+    <a time="@(241.0 - origin)" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" notice="次は、全体攻撃。" notice-d="Sub" />
     <a time="@(246.0 - origin)" text="塔＋ウォタガ目安" />
     <a time="@(253.0 - origin)" text="大AoE＋ダージャ1目安" />
     <a time="@(258.0 - origin)" text="大AoE＋ダージャ2目安" />
@@ -451,7 +562,7 @@
 
     @* このフェーズの基点となる秒数 279 *@
     @{ origin = 279; }
-    <a time="@(290.0 - origin)" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" />
+    <a time="@(290.0 - origin)" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" notice="次は、全体攻撃。" notice-d="Sub"/>
     <a time="@(299.0 - origin)" text="茨の悲劇：終幕" sync="ヘスペロスの「茨の悲劇：終幕」">
       <expressions>        <!-- 変数の初期化 -->
         <set name="impulse_target_count" value="0" />
@@ -465,7 +576,7 @@
     <a time="@(339.0 - origin)" text="塔踏みｘ８" />
     <a time="@(347.0 - origin)" sync="ヘスペロス:食らうがよいッ！" />
     <a time="@(353.0 - origin)" text="近思or遠見" sync="ヘスペロスの「(近思|遠見)の魔撃」" />
-    <a time="@(366.0 - origin)" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" />
+    <a time="@(366.0 - origin)" text="シアリングストリーム" sync="ヘスペロスの「シアリングストリーム」" notice="次は、全体攻撃。" notice-d="Sub"/>
     <a time="@(375.0 - origin)" text="半神の双撃" sync="ヘスペロスの「半神の双撃」" notice="次は、タンク頭割り。" notice-d="Sub" />
   </s>
 
