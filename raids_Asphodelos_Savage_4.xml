@@ -406,7 +406,7 @@
       <pre name="act2_safespot1" value="NS" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="ファイガ\n中央 → 東/南" icon="Pair" duration="20" />
+    <v-notice text="ファイガ\n中央 → C" icon="Pair" duration="20" ordre="1"/>
   </t>
 
   <t no="2" name="Act2-赤(D)_EW" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。B。">
@@ -414,7 +414,13 @@
       <pre name="act2_safespot1" value="EW" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="ファイガ\n中央 → 東/南" icon="Pair" duration="20" />
+    <v-notice text="ファイガ\n中央 → B" icon="Pair" duration="20" ordre="1" />
+  </t>
+  <t no="3" name="Act2-赤(D)_相方" sync="1B:[id8]:[dps]:0000:[id4]:EVAL(VAR['marker_origin'], X4):">
+    <expressions>
+      <pre name="act2" value="true" />
+    </expressions>
+    <v-notice text="相方" job-icon="true" duration="20" ordre="2" />
   </t>
   } else if (Model.Player.InRole("Healer")) {
   <t no="2" name="Act2-赤(H)_NS" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。C。">
@@ -422,7 +428,7 @@
       <pre name="act2_safespot1" value="NS" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="ファイガ\n中央 → 東/南" icon="Pair" duration="20" />
+    <v-notice text="ファイガ\n中央 → C" icon="Pair" duration="20" />
   </t>
 
   <t no="2" name="Act2-赤(H)_EW" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。B。">
@@ -430,7 +436,7 @@
       <pre name="act2_safespot1" value="EW" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="ファイガ\n中央 → 東/南" icon="Pair" duration="20" />
+    <v-notice text="ファイガ\n中央 → B" icon="Pair" duration="20" />
   </t>
   } else if (Model.Player.InRole("TANK")) {
   <t no="2" name="Act2-赤(T)_NS" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。A。">
@@ -438,14 +444,14 @@
       <pre name="act2_safespot1" value="NS" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="ファイガ\n中央 → 西/北" icon="Pair" duration="20" />
+    <v-notice text="ファイガ\n中央 → A → 半時計" icon="Pair" duration="20" />
   </t>
   <t no="2" name="Act2-赤(T)_EW" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="ファイガ。D。">
     <expressions>
       <pre name="act2_safespot1" value="EW" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="ファイガ\n中央 → 西/北 → 半時計" icon="Pair" duration="20" />
+    <v-notice text="ファイガ\n中央 → D → 半時計" icon="Pair" duration="20" />
   </t>
   }
   <t no="2" name="Act2-緑_NS" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 1, X4):" notice="エアロガ。A。">
@@ -453,7 +459,7 @@
       <pre name="act2_safespot1" value="NS" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="エアロガ\n中央 → 西/北" icon="Twister" duration="20" />
+    <v-notice text="エアロガ\n中央 → A" icon="Twister" duration="20" />
   </t>
 
   <t no="2" name="Act2-緑_EW" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 1, X4):" notice="エアロガ。D。">
@@ -461,7 +467,7 @@
       <pre name="act2_safespot1" value="EW" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="エアロガ\n中央 → 西/北" icon="Twister" duration="20" />
+    <v-notice text="エアロガ\n中央 → D" icon="Twister" duration="20" />
   </t>
 
   @if (Model.Player.InRole("TANK")) {
@@ -470,7 +476,7 @@
       <pre name="act2_safespot1" value="NS" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="塔踏み\n西/北 → 時計" icon="FallingObject" duration="20" />
+    <v-notice text="塔踏み\n1 → 時計" icon="FallingObject" duration="20" />
   </t>
 
   <t no="3" name="Act2-マーカーなし(T)_EW" sync="^1B:[id8]:[nex]:" sync-count="7" notice="線を切る。次は、4。">
@@ -478,7 +484,7 @@
       <pre name="act2_safespot1" value="EW" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="塔踏み\n西/北 → 時計" icon="FallingObject" duration="20" />
+    <v-notice text="塔踏み\n4 → 時計" icon="FallingObject" duration="20" />
   </t>
 
   } else {
@@ -487,7 +493,7 @@
       <pre name="act2_safespot1" value="NS" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="塔踏み\n東/南 → 時計" icon="FallingObject" duration="20" />
+    <v-notice text="塔踏み\n3 → 時計" icon="FallingObject" duration="20" />
   </t>
 
   <t no="2" name="Act2-紫(H)_EW" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 2, X4):" notice="線を切る。次は、2。">
@@ -495,7 +501,7 @@
       <pre name="act2_safespot1" value="EW" />
       <pre name="act2" value="true" />
     </expressions>
-    <v-notice text="塔踏み\n東/南 → 時計" icon="FallingObject" duration="20" />
+    <v-notice text="塔踏み\n2 → 時計" icon="FallingObject" duration="20" />
   </t>
   }
 

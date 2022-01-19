@@ -80,6 +80,45 @@
     <v-notice text="死の運命:4" duration="9" />
   </t>
 
+  <!-- 光の炎 サイコロマーカー判定 begin -->
+  <t no="1" sync="1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):" sync-count="1">
+    <expressions>
+      <set name="marker_origin" value="0x${marker}" />
+    </expressions>
+  </t>
+
+  <t no="2" name="サイコロ1" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'], X4):" notice="1へ">
+    <v-notice text="１番：１へ" duration="10" />
+  </t>
+
+  <t no="2" name="サイコロ2" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin']+1, X4):" notice="2へ">
+    <v-notice text="２番：２へ" duration="10" />
+  </t>
+
+  <t no="2" name="サイコロ3" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin']+2, X4):" notice="3へ">
+    <v-notice text="３番：３へ" duration="10" />
+  </t>
+
+  <t no="2" name="サイコロ4" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin']+3, X4):" notice="4へ">
+    <v-notice text="４番：４へ" duration="10" />
+  </t>
+
+  <t no="2" name="サイコロ5" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin']+4, X4):" notice="5へ">
+    <v-notice text="５番：１へ" duration="10" />
+  </t>
+
+  <t no="2" name="サイコロ6" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin']+5, X4):" notice="6へ">
+    <v-notice text="６番：２へ" duration="10" />
+  </t>
+
+  <t no="2" name="サイコロ7" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin']+6, X4):" notice="7へ">
+    <v-notice text="７番：３へ" duration="10" />
+  </t>
+
+  <t no="2" name="サイコロ8" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin']+7, X4):" notice="8へ">
+    <v-notice text="８番：４へ" duration="10" />
+  </t>
+
   <s name="前半">
     <a time="014" text="灰燼の炎(全体)" sync="フェネクスの「灰燼の炎」" notice="全体攻撃" notice-d="Sub" />
     <a time="016" text="【構】獄炎の炎撃" sync="フェネクスは「獄炎の炎撃」の構え。" notice="線が付くよ" notice-d="Sub" />

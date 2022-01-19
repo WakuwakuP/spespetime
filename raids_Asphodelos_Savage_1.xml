@@ -54,6 +54,22 @@
       </expressions>
       <v-notice text="遠呪の魔鎖" job-icon="true" duration="15"></v-notice>
     </t>
+    <!-- 懲罰撃トリガー -->
+    <t name="懲罰撃(左から右)" sync="^14:65F6:" notice="左から右えー。" notice-d="Sub">
+      <v-notice order="-1" text="左➜右" duration="13" icon="West.png" />
+    </t>
+
+    <t name="懲罰撃(右から左)" sync="^14:65F7:" notice="右から左えー。" notice-d="Sub">
+      <v-notice order="-1" text="右➜左" duration="13" icon="East.png" />
+    </t>
+
+    <t name="懲罰撃(外から中)" sync="^14:65F(8|9):" notice="外側から内側えー。" notice-d="Sub">
+      <v-notice order="-1" text="中➜外" duration="13" icon="AOEInside.png" />
+    </t>
+
+    <t name="懲罰撃(中から外)" sync="^14:65F(A|B):" notice="内側から外側えー。" notice-d="Sub">
+      <v-notice order="-1" text="中➜外" duration="13" icon="AOEOutside.png" />
+    </t>
 
     <!-- 懲罰連撃トリガー -->
     <t text="懲罰連撃・炎" sync="エリクトニオスは「懲罰連撃・炎」の構え。" notice="スイッチ。１人受け。" notice-d="Sub">
