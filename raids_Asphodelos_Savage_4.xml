@@ -628,9 +628,68 @@
     <a time="@(375.0 - origin)" text="半神の双撃" sync="ヘスペロスの「半神の双撃」" notice="次は、タンク頭割り。" notice-d="Sub" />
   </s>
 
+  <!-- 茨の悲劇：カーテンコール デバフによる処理タイミング通知トリガー begin -->
+  @if (Model.Player.InRole("DPS")) {
+  <t name="カーテンコール12秒(先)" sync="^1A:[id8]:[mex] gains the effect.*12.00 Seconds. BuffID: 0AF4-00" notice="線を切るー。">
+    <expressions>
+      <pre name="act6" value="true"/>
+    </expressions>
+    <v-notice text="デバフ12秒:1番目\n➜残り11秒で線切り" duration="12" />
+  </t>
+  <t name="カーテンコール22秒(先)" sync="^1A:[id8]:[mex] gains the effect.*22.00 Seconds. BuffID: 0AF4-00" notice="/wait 9, 次、線を切るー。">
+    <expressions>
+      <pre name="act6" value="true"/>
+    </expressions>
+    <v-notice text="デバフ22秒:2番目\n➜残り11秒で線切り" duration="22" />
+  </t>
+  <t name="カーテンコール32秒(DPS)" sync="^1A:[id8]:[mex] gains the effect.*32.00 Seconds. BuffID: 0AF4-00" notice="/wait 19, 次、線を切るー。">
+    <expressions>
+      <pre name="act6" value="true"/>
+    </expressions>
+    <v-notice text="デバフ32秒:3番目\n➜残り11秒で線切り" duration="32" />
+  </t>
+  <t name="カーテンコール42秒(先)" sync="^1A:[id8]:[mex] gains the effect.*42.00 Seconds. BuffID: 0AF4-00" notice="/wait 29, 次、線を切るー。">
+    <expressions>
+      <pre name="act6" value="true"/>
+    </expressions>
+    <v-notice text="デバフ42秒:4番目\n➜残り11秒で線切り" duration="42" />
+  </t>
+  }
+  @if (Model.Player.InRole("Tank", "Healer")) {
+  <t name="カーテンコール12秒(後)" sync="^1A:[id8]:[mex] gains the effect.*12.00 Seconds. BuffID: 0AF4-00" notice="/wait 4, 次、線を切るー。">
+    <expressions>
+      <pre name="act6" value="true"/>
+    </expressions>
+    <v-notice text="デバフ12秒:1番目\n➜残り6秒で線切り" duration="12" />
+  </t>
+  <t name="カーテンコール22秒(後)" sync="^1A:[id8]:[mex] gains the effect.*22.00 Seconds. BuffID: 0AF4-00" notice="/wait 13, 次、線を切るー。">
+    <expressions>
+      <pre name="act6" value="true"/>
+    </expressions>
+    <v-notice text="デバフ22秒:2番目\n➜残り6秒で線切り" duration="22" />
+  </t>
+  <t name="カーテンコール32秒(後)" sync="^1A:[id8]:[mex] gains the effect.*32.00 Seconds. BuffID: 0AF4-00" notice="/wait 23, 次、線を切るー。">
+    <expressions>
+      <pre name="act6" value="true"/>
+    </expressions>
+    <v-notice text="デバフ32秒:3番目\n➜残り6秒で線切り" duration="32" />
+  </t>
+  <t name="カーテンコール42秒(後)" sync="^1A:[id8]:[mex] gains the effect.*42.00 Seconds. BuffID: 0AF4-00" notice="/wait 33, 次、線を切るー。">
+    <expressions>
+      <pre name="act6" value="true"/>
+    </expressions>
+    <v-notice text="デバフ42秒:4番目\n➜残り6秒で線切り" duration="42" />
+  </t>
+  }
+
   <s name="P6 カーテンコール">
     @* このフェーズの基点となる秒数 382 *@
     @{ origin = 383; }
+    <a time="0">
+      <expressions>
+        <set name="act6" value="true"/>
+      </expressions>
+    </a>
     <a time="@(388.0 - origin)" text="茨の悲劇：カーテンコール" sync="ヘスペロスの「茨の悲劇：カーテンコール」" />
     <a time="@(401.0 - origin)" text="ヘルスティング" sync="ヘスペロスの「ヘルスティング」" />
     <a time="@(404.0 - origin)" text="(不可視:追撃)" />
