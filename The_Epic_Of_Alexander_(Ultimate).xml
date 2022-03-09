@@ -11,7 +11,7 @@
   <zone>887,The Epic Of Alexander (Ultimate)</zone>
   <locale>JA</locale>
   <entry>P1 LIQUID</entry>
-  <start>0039:戦闘開始！</start>
+  <start>0039::戦闘開始！</start>
 
   <default target-element="Activity" target-attr="notice-o" value="-3" />
   <default target-element="Activity" target-attr="notice-d" value="Main" />
@@ -73,61 +73,61 @@
   </s>
 
   <s name="P2 JUDGEMENT">
-    <t text="プライムフェーズへ" sync="00:0044:アレキサンダー・プライム:我はアレキサンダー……機械仕掛けの神なり……。 理想郷に到る道を導くため……我が審判を受けよ……。">
+    <t text="プライムフェーズへ" sync="00:0044::アレキサンダー・プライム:我はアレキサンダー……機械仕掛けの神なり……。 理想郷に到る道を導くため……我が審判を受けよ……。">
       <load target="P3 PRIME" truncate="true" />
     </t>
 
     <!-- 頭上マーカ識別用トリガ begin -->
-    <t text="マーカー1番" sync="1B:[id8]:[mex]:0000:[id4]:004F:0000:0000:0000:" notice="いちばん。">
+    <t text="マーカー1番" sync="1B:[id8]::[mex]:0000:[id4]:004F:0000:0000:0000:" notice="いちばん。">
       <expressions>
         <set name="call_delay" value="1" />
       </expressions>
       <v-notice text="マーカー１番\n北 ➜ 中央 ➜ 北" duration="27" icon="Targetaoe03.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー2番" sync="1B:[id8]:[mex]:0000:[id4]:0050:0000:0000:0000:" notice="にばん。">
+    <t text="マーカー2番" sync="1B:[id8]::[mex]:0000:[id4]:0050:0000:0000:0000:" notice="にばん。">
       <expressions>
         <set name="call_delay" value="1" />
       </expressions>
       <v-notice text="マーカー２番\n北 ➜ 中央 ➜ 北" duration="27" icon="Targetaoe02.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー3番" sync="1B:[id8]:[mex]:0000:[id4]:0051:0000:0000:0000:" notice="さんばん。">
+    <t text="マーカー3番" sync="1B:[id8]::[mex]:0000:[id4]:0051:0000:0000:0000:" notice="さんばん。">
       <expressions>
         <set name="call_delay" value="2" />
       </expressions>
       <v-notice text="マーカー３番\n南 ➜ 時計回り" duration="27" icon="Targetaoe03.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー4番" sync="1B:[id8]:[mex]:0000:[id4]:0052:0000:0000:0000:" notice="よんばん。">
+    <t text="マーカー4番" sync="1B:[id8]::[mex]:0000:[id4]:0052:0000:0000:0000:" notice="よんばん。">
       <expressions>
         <set name="call_delay" value="2" />
       </expressions>
       <v-notice text="マーカー４番\n南 ➜ 時計回り" duration="27" icon="Targetaoe02.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー5番" sync="1B:[id8]:[mex]:0000:[id4]:0053:0000:0000:0000:" notice="ごばん。">
+    <t text="マーカー5番" sync="1B:[id8]::[mex]:0000:[id4]:0053:0000:0000:0000:" notice="ごばん。">
       <expressions>
         <set name="call_delay" value="3" />
       </expressions>
       <v-notice text="マーカー５番\n南 ➜ 中央 ➜ 南" duration="27" icon="Targetaoe03.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー6番" sync="1B:[id8]:[mex]:0000:[id4]:0054:0000:0000:0000:" notice="ろくばん。">
+    <t text="マーカー6番" sync="1B:[id8]::[mex]:0000:[id4]:0054:0000:0000:0000:" notice="ろくばん。">
       <expressions>
         <set name="call_delay" value="3" />
       </expressions>
       <v-notice text="マーカー６番\n南 ➜ 中央 ➜ 南" duration="27" icon="Targetaoe02.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー7番" sync="1B:[id8]:[mex]:0000:[id4]:0055:0000:0000:0000:" notice="ななばん。">
+    <t text="マーカー7番" sync="1B:[id8]::[mex]:0000:[id4]:0055:0000:0000:0000:" notice="ななばん。">
       <expressions>
         <set name="call_delay" value="4" />
       </expressions>
       <v-notice text="マーカー７番\n南 ➜ 中央 ➜ 北" duration="27" icon="Targetaoe03.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー8番" sync="1B:[id8]:[mex]:0000:[id4]:0056:0000:0000:0000:" notice="はちばん。">
+    <t text="マーカー8番" sync="1B:[id8]::[mex]:0000:[id4]:0056:0000:0000:0000:" notice="はちばん。">
       <expressions>
         <set name="call_delay" value="4" />
       </expressions>
@@ -136,28 +136,28 @@
     <!-- 頭上マーカ識別用トリガ end -->
 
     <!--
-    <t name="マーカー1番・2番" sync="15:[id8]:クルーズチェイサー:4830:ホークブラスター:[id8]:" sync-count="6" notice="セット。受けたら中央。">
+    <t name="マーカー1番・2番" sync="15:[id8]::クルーズチェイサー:4830:ホークブラスター:[id8]:" sync-count="6" notice="セット。受けたら中央。">
       <expressions>
         <pre name="call_delay" value="1" />
       </expressions>
       <v-notice text="@ANTI_KNOCKBACK\n中央➜ 北" icon="true" duration="5" duration-visible="false" />
     </t>
 
-    <t name="マーカー3番・4番" sync="15:[id8]:クルーズチェイサー:4B4F:スーパーブラスティ・チャージ:[id8]:" sync-count="1" notice="セット。そのまま時計回り。">
+    <t name="マーカー3番・4番" sync="15:[id8]::クルーズチェイサー:4B4F:スーパーブラスティ・チャージ:[id8]:" sync-count="1" notice="セット。そのまま時計回り。">
       <expressions>
         <pre name="call_delay" value="2" />
       </expressions>
       <v-notice text="@ANTI_KNOCKBACK\n時計回り" icon="true" duration="5" duration-visible="false" />
     </t>
 
-    <t name="マーカー5番・6番" sync="15:[id8]:クルーズチェイサー:4B4F:スーパーブラスティ・チャージ:[id8]:" sync-count="2" notice="セット。そのまま時計回り。">
+    <t name="マーカー5番・6番" sync="15:[id8]::クルーズチェイサー:4B4F:スーパーブラスティ・チャージ:[id8]:" sync-count="2" notice="セット。そのまま時計回り。">
       <expressions>
         <pre name="call_delay" value="3" />
       </expressions>
       <v-notice text="@ANTI_KNOCKBACK\n時計回り" icon="true" duration="5" duration-visible="false" />
     </t>
 
-    <t name="マーカー7番・8番" sync="15:[id8]:クルーズチェイサー:4B4F:スーパーブラスティ・チャージ:[id8]:" sync-count="3" notice="セット。受けたら中央。">
+    <t name="マーカー7番・8番" sync="15:[id8]::クルーズチェイサー:4B4F:スーパーブラスティ・チャージ:[id8]:" sync-count="3" notice="セット。受けたら中央。">
       <expressions>
         <pre name="call_delay" value="4" />
       </expressions>
@@ -309,7 +309,7 @@
     <!-- ジャッジメントナイサイの受け渡し識別用トリガ end -->
 
     <a time="0" sync="クルーズチェイサー:コードネーム「ブラスティー」！ 階差閉宇宙ヲ、脅カス敵ヲ発見……撃滅スル！" notice="北を確認。" notice-d="Sub" />
-    <a time="6" text="ホークブラスター1" sync="15:[id8]:クルーズチェイサー:4830:ホークブラスター:[id8]:" notice="" sync-s="-3" />
+    <a time="6" text="ホークブラスター1" sync="15:[id8]::クルーズチェイサー:4830:ホークブラスター:[id8]:" notice="" sync-s="-3" />
     <a time="8" text="ホークブラスター2" notice="" />
     <a time="10" text="ホークブラスター3" notice="" />
     <a time="12" text="ホークブラスター4" notice="" />
@@ -341,7 +341,7 @@
     <a time="53" text="システムリンク" sync="ブルートジャスティスの「システムリンク」" notice="システムリンク。" notice-d="Sub" />
     <a time="55" text="チャクラム出現" sync="スチームチャクラムは「ビームチャクラム」の構え。" notice="外周えー。" notice-d="Sub" />
     <a time="61" text="照準" sync="クルーズチェイサーの「照準」" notice="" />
-    <a time="61" text="ビームチャクラム" sync="15:[id8]:スチームチャクラム:4855:ビームチャクラム:[id8]:" icon="AOEHorizontal.png" notice="チャクラム。" notice-d="Sub" />
+    <a time="61" text="ビームチャクラム" sync="15:[id8]::スチームチャクラム:4855:ビームチャクラム:[id8]:" icon="AOEHorizontal.png" notice="チャクラム。" notice-d="Sub" />
 
     <a time="68" text="フォトン" sync="クルーズチェイサーの「フォトン」" icon="ForceHP1.png" notice="フォトン。ナイサイ。" notice-d="Sub" />
     <a time="79" text="スピンクラッシャー" sync="クルーズチェイサーは「スピンクラッシャー」の構え。" notice="" />
@@ -545,56 +545,56 @@
       <v-notice order="-1" icon="Arrow3.png" duration="10" duration-visible="false" />
     </t>
     }
-    <t text="マーカー1番" sync="1B:[id8]:[mex]:0000:[id4]:004F:0000:0000:0000:" notice="いちばん、Aで外見る、切られたら無い側にスプリント、ざんげ３回目。">
+    <t text="マーカー1番" sync="1B:[id8]::[mex]:0000:[id4]:004F:0000:0000:0000:" notice="いちばん、Aで外見る、切られたら無い側にスプリント、ざんげ３回目。">
       <expressions>
         <set name="call_delay" value="1" />
       </expressions>
       <v-notice text="１番 Aで 外周向く\nレイ誘導 ➜ 懺悔３回目" icon="Arrow8.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー2番" sync="1B:[id8]:[mex]:0000:[id4]:0050:0000:0000:0000:" notice="にばん、プライム横、ない側、飛んで来たら移動、ざんげ３回目。">
+    <t text="マーカー2番" sync="1B:[id8]::[mex]:0000:[id4]:0050:0000:0000:0000:" notice="にばん、プライム横、ない側、飛んで来たら移動、ざんげ３回目。">
       <expressions>
         <set name="call_delay" value="1" />
       </expressions>
       <v-notice text="２番 プライム横 黒2個目\nレイ誘導 ➜ 懺悔３回目" icon="Arrow2.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー3番" sync="1B:[id8]:[mex]:0000:[id4]:0051:0000:0000:0000:" notice="さんばん、スプリントして１マーカー。安置に逃げる。">
+    <t text="マーカー3番" sync="1B:[id8]::[mex]:0000:[id4]:0051:0000:0000:0000:" notice="さんばん、スプリントして１マーカー。安置に逃げる。">
       <expressions>
         <set name="call_delay" value="2" />
       </expressions>
       <v-notice text="３番 1マーカー\n切られる ➜ 懺悔なし。" icon="Arrow6.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー4番" sync="1B:[id8]:[mex]:0000:[id4]:0052:0000:0000:0000:" notice="よんばん、スプリントして４マーカー。安置に逃げる。">
+    <t text="マーカー4番" sync="1B:[id8]::[mex]:0000:[id4]:0052:0000:0000:0000:" notice="よんばん、スプリントして４マーカー。安置に逃げる。">
       <expressions>
         <set name="call_delay" value="2" />
       </expressions>
       <v-notice text="４番 ４マーカー\n突進誘導 ➜ 懺悔なし。" icon="Arrow4.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー5番" sync="1B:[id8]:[mex]:0000:[id4]:0053:0000:0000:0000:" notice="ごばん、Bマーカー側、ざんげ１回目。">
+    <t text="マーカー5番" sync="1B:[id8]::[mex]:0000:[id4]:0053:0000:0000:0000:" notice="ごばん、Bマーカー側、ざんげ１回目。">
       <expressions>
         <set name="call_delay" value="3" />
       </expressions>
       <v-notice text="５番 Ｂマーカー。\n懺悔１回目 ➜ １マーカーで切られる。" icon="Arrow8.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー6番" sync="1B:[id8]:[mex]:0000:[id4]:0054:0000:0000:0000:" notice="ろくばん、Ｄマーカー。ざんげ１回目。">
+    <t text="マーカー6番" sync="1B:[id8]::[mex]:0000:[id4]:0054:0000:0000:0000:" notice="ろくばん、Ｄマーカー。ざんげ１回目。">
       <expressions>
         <set name="call_delay" value="3" />
       </expressions>
       <v-notice text="６番 Ｄマーカー。\n懺悔１回目 ➜ 4マーカー突進。" icon="Arrow2.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー7番" sync="1B:[id8]:[mex]:0000:[id4]:0055:0000:0000:0000:" notice="ななばん、Ｂマーカー。ざんげ２回目。">
+    <t text="マーカー7番" sync="1B:[id8]::[mex]:0000:[id4]:0055:0000:0000:0000:" notice="ななばん、Ｂマーカー。ざんげ２回目。">
       <expressions>
         <set name="call_delay" value="4" />
       </expressions>
       <v-notice text="７番 Ｂマーカー。\n懺悔２回目 ➜ １マーカーで切られる。" icon="Arrow8.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー8番" sync="1B:[id8]:[mex]:0000:[id4]:0056:0000:0000:0000:" notice="はちばん、Ｄマーカー。ざんげ２回目。">
+    <t text="マーカー8番" sync="1B:[id8]::[mex]:0000:[id4]:0056:0000:0000:0000:" notice="はちばん、Ｄマーカー。ざんげ２回目。">
       <expressions>
         <set name="call_delay" value="4" />
       </expressions>
@@ -603,28 +603,28 @@
     <!-- 次元断絶のマーチ時 頭上マーカ識別用トリガ end -->
 
     <!-- ノックバック防止の通知調整 begin -->
-    <t text="ノックバック注意" sync="00:282b:ブルートジャスティスは「スーパージャンプ」の構え。" notice="@ANTI_KNOCKBACK、レイ誘導。" sync-count="2">
+    <t text="ノックバック注意" sync="00:282b::ブルートジャスティスは「スーパージャンプ」の構え。" notice="@ANTI_KNOCKBACK、レイ誘導。" sync-count="2">
       <expressions>
         <pre name="call_delay" value="1" />
       </expressions>
       <v-notice text="@ANTI_KNOCKBACK、レイ誘導。" icon="KnockBack.png" duration="6" duration-visible="false" />
     </t>
 
-    <t text="ノックバック注意" sync="00:282b:ブルートジャスティスは「スーパージャンプ」の構え。" notice="/wait 2,@ANTI_KNOCKBACK、サイコロの後に十字ビーム回避。" sync-count="2">
+    <t text="ノックバック注意" sync="00:282b::ブルートジャスティスは「スーパージャンプ」の構え。" notice="/wait 2,@ANTI_KNOCKBACK、サイコロの後に十字ビーム回避。" sync-count="2">
       <expressions>
         <pre name="call_delay" value="2" />
       </expressions>
       <v-notice text="@ANTI_KNOCKBACK" icon="KnockBack.png" duration="6" duration-visible="false" />
     </t>
 
-    <t text="ノックバック注意" sync="15:[id8]:ブルートジャスティス:484C:アポカリプティクレイ:[id8]" notice="/wait 1,@ANTI_KNOCKBACK。" sync-count="1">
+    <t text="ノックバック注意" sync="15:[id8]::ブルートジャスティス:484C:アポカリプティクレイ:[id8]" notice="/wait 1,@ANTI_KNOCKBACK。" sync-count="1">
       <expressions>
         <pre name="call_delay" value="3" />
       </expressions>
       <v-notice text="@ANTI_KNOCKBACK" icon="True.png" duration="6" duration-visible="false" />
     </t>
 
-    <t text="ノックバック注意" sync="15:[id8]:ブルートジャスティス:484C:アポカリプティクレイ:[id8]" notice="/wait 3,@ANTI_KNOCKBACK" sync-count="1">
+    <t text="ノックバック注意" sync="15:[id8]::ブルートジャスティス:484C:アポカリプティクレイ:[id8]" notice="/wait 3,@ANTI_KNOCKBACK" sync-count="1">
       <expressions>
         <pre name="call_delay" value="4" />
       </expressions>
@@ -636,26 +636,26 @@
 
     <!-- 遠隔DPSのみ優先度フラグ処理を動かす-->
     @if (Model.Player.InRole("DPS")) {
-    <t text="カウント➜ 忍" sync="^1B:[id8]:[NIN]:0000:[id4]:0041:">
+    <t text="カウント➜ 忍" sync="^1B:[id8]::[NIN]:0000:[id4]:0041:">
       <v-notice order="-29" duration="5" icon="NIN.png" />
     </t>
 
-    <t text="カウント➜ 侍" sync="^1B:[id8]:[SAM]:0000:[id4]:0041:">
+    <t text="カウント➜ 侍" sync="^1B:[id8]::[SAM]:0000:[id4]:0041:">
       <v-notice order="-28" duration="5" icon="SAM.png" />
     </t>
 
-    <t text="カウント➜ 召" sync="^1B:[id8]:[SMN]:0000:[id4]:0041:">
+    <t text="カウント➜ 召" sync="^1B:[id8]::[SMN]:0000:[id4]:0041:">
       <v-notice order="-27" duration="5" icon="SMN.png" />
     </t>
 
-    <t text="カウント➜ 踊" sync="^1B:[id8]:[DNC]:0000:[id4]:0041:">
+    <t text="カウント➜ 踊" sync="^1B:[id8]::[DNC]:0000:[id4]:0041:">
       <v-notice order="-26" duration="5" icon="DNC.png" />
     </t>
 
-    <t name="カウント" sync="^1B:[id8]:[pc]:0000:[id4]:0041:" notice="カウント" />
+    <t name="カウント" sync="^1B:[id8]::[pc]:0000:[id4]:0041:" notice="カウント" />
     }
 
-    <a time="0" sync="00:0044:アレキサンダー・プライム:我はアレキサンダー……機械仕掛けの神なり……。 理想郷に到る道を導くため……我が審判を受けよ……。">
+    <a time="0" sync="00:0044::アレキサンダー・プライム:我はアレキサンダー……機械仕掛けの神なり……。 理想郷に到る道を導くため……我が審判を受けよ……。">
       <expressions>
         <!-- フラグ初期化 -->
         <set name="is_inception_formation" value="false" />
@@ -676,8 +676,8 @@
     }
 
     <a time="34" text="神罰の熱線" sync="アレキサンダー・プライムの「神罰の熱線」" icon="HardAttack.png" notice="次は、無敵受け。" notice-d="Sub" />
-    <a time="38" text="聖なる炎1" sync="00:282b:アレキサンダー・プライムの「聖なる炎」" icon="Attack.png" notice="いち" notice-o="0" notice-d="Sub" />
-    <a time="40" text="聖なる炎2" sync="00:302b:アレキサンダー・プライムの「聖なる炎」" icon="Attack.png" notice="にー" notice-o="0" notice-d="Sub" />
+    <a time="38" text="聖なる炎1" sync="00:282b::アレキサンダー・プライムの「聖なる炎」" icon="Attack.png" notice="いち" notice-o="0" notice-d="Sub" />
+    <a time="40" text="聖なる炎2" sync="00:302b::アレキサンダー・プライムの「聖なる炎」" icon="Attack.png" notice="にー" notice-o="0" notice-d="Sub" />
     <a time="42" text="聖なる炎3" icon="Attack.png" notice="さん" notice-o="0" notice-d="Sub">
       <expressions>
         <set name="is_inception_formation" value="true" />
@@ -687,24 +687,24 @@
     <!-- 時空潜行のマーチ begin -->
     <a time="51" text="時空潜行のマーチ" sync="アレキサンダー・プライムの「時空潜行のマーチ」" notice="" />
     <a time="65" text="審判の結晶" sync="アレキサンダー・プライムの「審判の結晶」" />
-    <a time="71" text="おうえん" sync="00:302b:シャノアの「おうえん」" notice="" />
+    <a time="71" text="おうえん" sync="00:302b::シャノアの「おうえん」" notice="" />
     <a time="83" text="火炎放射1" sync="ブルートジャスティスの「大火炎放射」" notice="" />
     <a time="85" text="火炎放射2" />
     <a time="87" text="火炎放射3" />
     <a time="94" text="時空潜行" sync="アレキサンダー・プライムの「時空潜行」" notice="プライムの位置を確認。" notice-d="Sub" />
     <a time="102" text="（頭割り：判定）" notice="" />
 
-    <a time="103" text="十字の秘蹟" sync="00:282b:アレキサンダー・プライムの「十字の秘蹟」" notice="次は、ソード誘導。" notice-d="Sub" />
+    <a time="103" text="十字の秘蹟" sync="00:282b::アレキサンダー・プライムの「十字の秘蹟」" notice="次は、ソード誘導。" notice-d="Sub" />
     <a time="107" text="スーパージャンプ" sync="ブルートジャスティスは「スーパージャンプ」の構え。" notice="次は、ジャンプ誘導。" notice-d="Sub" />
-    <a time="108" text="ソード1" sync="00:282b:クルーズチェイサーの「アルファソード」" />
+    <a time="108" text="ソード1" sync="00:282b::クルーズチェイサーの「アルファソード」" />
     <a time="109" text="ソード2" />
     <a time="110" text="ソード3" />
     <a time="112" text="スーパージャンプ着弾" />
     <!-- 時空潜行のマーチ end -->
 
     <a time="124" text="神罰の熱線" sync="アレキサンダー・プライムの「神罰の熱線」" icon="HardAttack.png" notice="" />
-    <a time="129" text="聖なる炎1" sync="00:282b:アレキサンダー・プライムの「聖なる炎」" icon="Attack.png" />
-    <a time="131" text="聖なる炎2" sync="00:302b:アレキサンダー・プライムの「聖なる炎」" icon="Attack.png" />
+    <a time="129" text="聖なる炎1" sync="00:282b::アレキサンダー・プライムの「聖なる炎」" icon="Attack.png" />
+    <a time="131" text="聖なる炎2" sync="00:302b::アレキサンダー・プライムの「聖なる炎」" icon="Attack.png" />
     <a time="133" text="聖なる炎3" icon="Attack.png" />
 
     <!-- 次元断絶のマーチ begin -->
@@ -722,7 +722,7 @@
     <a time="170" text="懺悔2回目" />
     <a time="174" text="サイコロ７・８" />
     <a time="174" text="懺悔3回目" />
-    <a time="183" text="浄化の熱戦" sync="00:302b:アレキサンダー・プライムの「浄化の熱線」" icon="DamageShare.png" notice="頭割り。" notice-d="Sub" />
+    <a time="183" text="浄化の熱戦" sync="00:302b::アレキサンダー・プライムの「浄化の熱線」" icon="DamageShare.png" notice="頭割り。" notice-d="Sub" />
     @if (Model.Player.InRole("TANK")) {
     <a time="188" text="カウント" icon="Stack.png" notice="カウント。Dえー。">
       <v-notice text="Dでカウント処理" duration="6" icon="D.png" />
@@ -785,11 +785,11 @@
     </t>
 
     <!-- 1回目 行動・静止の通知トリガ begin -->
-    <t text="止まる！" sync="00:282b:パーフェクト・アレキサンダーは「静止命令」の構え。" notice="うごかない。" notice-d="Sub">
+    <t text="止まる！" sync="00:282b::パーフェクト・アレキサンダーは「静止命令」の構え。" notice="うごかない。" notice-d="Sub">
       <v-notice order="-1" icon="DontMove.png" duration="10" duration-visible="false" />
     </t>
 
-    <t text="動く！" sync="00:282b:パーフェクト・アレキサンダーは「行動命令」の構え。" notice="うごく。" notice-d="Sub">
+    <t text="動く！" sync="00:282b::パーフェクト・アレキサンダーは「行動命令」の構え。" notice="うごく。" notice-d="Sub">
       <v-notice order="-1" icon="Avoid.png" duration="10" duration-visible="false" />
     </t>
     <!-- 1回目 行動・静止の通知トリガ end -->
@@ -833,7 +833,7 @@
     <!-- 未来観測β時の照準トリガ end -->
 
     <!-- 試験的実装：テーブルのセット Alpha begin -->
-    <t name="Alpha-init" sync="00:282b:パーフェクト・アレキサンダーは「未来観測α」の構え。">
+    <t name="Alpha-init" sync="00:282b::パーフェクト・アレキサンダーは「未来観測α」の構え。">
       <expressions>
         <set name="alpha_start" value="true" />
       </expressions>
@@ -856,56 +856,56 @@
     <!-- 試験的実装：テーブルのセット Alpha end -->
 
     <!-- 未来観測alpha ソート順によるデバフ判定 begin -->
-    <t name="α：デバフ無し1" sync="00:282b:パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
+    <t name="α：デバフ無し1" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
       <expressions>
         <pre name="TABLE['alpha'][0]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="無職：左" icon="Free.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：デバフ無し2" sync="00:282b:パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
+    <t name="α：デバフ無し2" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
       <expressions>
         <pre name="TABLE['alpha'][1]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="無職：左" icon="Free.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：デバフ無し3" sync="00:282b:パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
+    <t name="α：デバフ無し3" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
       <expressions>
         <pre name="TABLE['alpha'][2]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="無職：左" icon="Free.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：加重罰1" sync="00:282b:パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
+    <t name="α：加重罰1" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
       <expressions>
         <pre name="TABLE['alpha'][3]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="加重：右" icon="PunishmentHevy.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：加重罰2" sync="00:282b:パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
+    <t name="α：加重罰2" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
       <expressions>
         <pre name="TABLE['alpha'][4]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="加重：右" icon="PunishmentHevy.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：加重罰3" sync="00:282b:パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
+    <t name="α：加重罰3" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
       <expressions>
         <pre name="TABLE['alpha'][5]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="加重：右" icon="PunishmentHevy.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：名誉罰" sync="00:282b:パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="名誉罰、前えー。">
+    <t name="α：名誉罰" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="名誉罰、前えー。">
       <expressions>
         <pre name="TABLE['alpha'][6]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="名誉：アレキ前" icon="PunishmentGlory.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：集団罰" sync="00:282b:パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
+    <t name="α：集団罰" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
       <expressions>
         <pre name="TABLE['alpha'][7]['job']" value="@Model.Player.Job" />
       </expressions>
@@ -915,7 +915,7 @@
 
 
     <!-- 試験的実装：テーブルのセット Beta end -->
-    <t name="Beta-init" sync="00:282b:パーフェクト・アレキサンダーは「未来観測β」の構え。">
+    <t name="Beta-init" sync="00:282b::パーフェクト・アレキサンダーは「未来観測β」の構え。">
       <expressions>
         <set name="alpha_start" value="false" />
         <set name="beta_start" value="true" />
@@ -939,56 +939,56 @@
     <!-- 試験的実装：テーブルのセット Beta end -->
 
     <!-- 未来観測beta ソート順によるデバフ判定 begin -->
-    <t no="1" name="β：接触禁止＋接近禁止" sync="00:282b:パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
+    <t no="1" name="β：接触禁止＋接近禁止" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
       <expressions>
         <pre name="TABLE['kansoku2'][0]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="接触＋接近禁止\n２マーカー ➜ 左上" icon="DontTouch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="2" name="β：逃亡禁止＋接近禁止" sync="00:282b:パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左下えー。">
+    <t no="2" name="β：逃亡禁止＋接近禁止" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左下えー。">
       <expressions>
         <pre name="TABLE['kansoku2'][1]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="逃亡＋接近禁止\n２マーカー ➜ 左下" icon="DontEscape.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="3" name="β：接触禁止＋接近強制" sync="00:282b:パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
+    <t no="3" name="β：接触禁止＋接近強制" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
       <expressions>
         <pre name="TABLE['kansoku2'][2]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="接触＋接近強制\n２マーカー ➜ 左上" icon="DontTouch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="4" name="β：逃亡禁止＋接近強制" sync="00:282b:パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
+    <t no="4" name="β：逃亡禁止＋接近強制" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
       <expressions>
         <pre name="TABLE['kansoku2'][3]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="逃亡＋接近強制\n２マーカー ➜ 左上" icon="DontEscape.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="5" name="β：接触禁止＋集団罰" sync="00:282b:パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
+    <t no="5" name="β：接触禁止＋集団罰" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
       <expressions>
         <pre name="TABLE['kansoku2'][4]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="接触＋集団罰\n２マーカー ➜ 左上" icon="DontTouch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="6" name="β：逃亡禁止のみ" sync="00:282b:パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左。">
+    <t no="6" name="β：逃亡禁止のみ" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左。">
       <expressions>
         <pre name="TABLE['kansoku2'][5]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="逃亡禁止\n２マーカー ➜ 左" icon="DontEscape.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="7" name="β：接触保護" sync="00:282b:パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="北えー。">
+    <t no="7" name="β：接触保護" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="北えー。">
       <expressions>
         <pre name="TABLE['kansoku2'][6]['job']" value="@Model.Player.Job" />
       </expressions>
       <v-notice text="接触保護\n４マーカーのパレキ前" icon="Touch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="8" name="β：逃亡監察" sync="00:282b:パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、右えー。">
+    <t no="8" name="β：逃亡監察" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、右えー。">
       <expressions>
         <pre name="TABLE['kansoku2'][7]['job']" value="@Model.Player.Job" />
       </expressions>
@@ -997,62 +997,62 @@
     <!-- 未来観測beta ソート順によるデバフ判定 end -->
 
     <a time="0" />
-    <a time="12" name="セリフ1" sync="00:0044:アレキサンダー・プライム:我は機械仕掛けの神なれば、 我は我を改良し、究極へと至らん……。" />
-    <a time="20" name="セリフ2" sync="00:0044:ブルートジャスティス:コードネーム「ブルートジャスティス」！ 合神、スタンバイ！" />
-    <a time="39" name="セリフ3" sync="00:0044:クルーズチェイサー:コードネーム「ブラスティー」！ 合神、スタンバイ！" />
-    <a time="54" name="セリフ4" sync="00:0044:パーフェクト・アレキサンダー:いまここに合神は果たされた……。 我はアレキサンダー……絶望に至る道に導かん……！" />
+    <a time="12" name="セリフ1" sync="00:0044::アレキサンダー・プライム:我は機械仕掛けの神なれば、 我は我を改良し、究極へと至らん……。" />
+    <a time="20" name="セリフ2" sync="00:0044::ブルートジャスティス:コードネーム「ブルートジャスティス」！ 合神、スタンバイ！" />
+    <a time="39" name="セリフ3" sync="00:0044::クルーズチェイサー:コードネーム「ブラスティー」！ 合神、スタンバイ！" />
+    <a time="54" name="セリフ4" sync="00:0044::パーフェクト・アレキサンダー:いまここに合神は果たされた……。 我はアレキサンダー……絶望に至る道に導かん……！" />
     <a time="59" text="ターゲット可能" icon="True.png" />
-    <a time="63" text="確定判決" sync="00:282b:パーフェクト・アレキサンダーの「確定判決」" icon="Attention.png" />
+    <a time="63" text="確定判決" sync="00:282b::パーフェクト・アレキサンダーの「確定判決」" icon="Attention.png" />
     <a time="68" text="静止／行動命令" icon="Attention.png" />
     <a time="78" text="静止／行動命令" icon="Attention.png" />
-    <a time="89" text="照準" sync="00:302b:パーフェクト・アレキサンダーの「照準」" />
+    <a time="89" text="照準" sync="00:302b::パーフェクト・アレキサンダーの「照準」" />
     <!-- 最初に静止が来た → 頭割り → 散開 -->
     <!-- 最初に行動が来た → 散開 → 頭割り -->
     <a time="90" text="頭割り／散開" />
     <a time="96" text="頭割り／散開" />
-    <a time="111" text="未来観測α" sync="00:282b:パーフェクト・アレキサンダーの「未来観測α」" notice="" />
-    <a time="112" text="未来確定α Start" sync="00:282b:パーフェクト・アレキサンダーは「未来確定α」の構え。" icon="Attention.png" notice="" />
-    <a time="135" text="未来確定α" sync="00:282b:パーフェクト・アレキサンダーの「未来確定α」" notice="" />
+    <a time="111" text="未来観測α" sync="00:282b::パーフェクト・アレキサンダーの「未来観測α」" notice="" />
+    <a time="112" text="未来確定α Start" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" icon="Attention.png" notice="" />
+    <a time="135" text="未来確定α" sync="00:282b::パーフェクト・アレキサンダーの「未来確定α」" notice="" />
 
-    <a time="142" text="α：静止命令" sync="00:282b:パーフェクト・アレキサンダーの「静止命令」" />
-    <a time="144" text="α：汚名の神判" sync="00:302b:パーフェクト・アレキサンダーの「汚名の神判」" />
-    <a time="145" text="α：連帯の神判" sync="00:302b:パーフェクト・アレキサンダーの「連帯の神判」" />
-    <a time="146" text="α：重罰の神判" sync="00:302b:パーフェクト・アレキサンダーの「重罰の神判」" />
-    <a time="147" text="α：十字の秘蹟" sync="00:302b:パーフェクト・アレキサンダーの「十字の秘蹟」" />
-    <a time="160" text="加重誅罰" sync="00:282b:パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="アドル">
+    <a time="142" text="α：静止命令" sync="00:282b::パーフェクト・アレキサンダーの「静止命令」" />
+    <a time="144" text="α：汚名の神判" sync="00:302b::パーフェクト・アレキサンダーの「汚名の神判」" />
+    <a time="145" text="α：連帯の神判" sync="00:302b::パーフェクト・アレキサンダーの「連帯の神判」" />
+    <a time="146" text="α：重罰の神判" sync="00:302b::パーフェクト・アレキサンダーの「重罰の神判」" />
+    <a time="147" text="α：十字の秘蹟" sync="00:302b::パーフェクト・アレキサンダーの「十字の秘蹟」" />
+    <a time="160" text="加重誅罰" sync="00:282b::パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="アドル">
       <expressions>
         <set name="alpha_start" value="false" />
         <set name="beta_start" value="true" />
       </expressions>
     </a>
-    <a time="169" text="誅罰" sync="00:282b:パーフェクト・アレキサンダーの「誅罰」" icon="HardAttack.png" notice="スイッチ。" notice-d="Sub">
+    <a time="169" text="誅罰" sync="00:282b::パーフェクト・アレキサンダーの「誅罰」" icon="HardAttack.png" notice="スイッチ。" notice-d="Sub">
       <i-notice image="Beta.png" scale="0.55" left="1335" top="226" duration="80" />
     </a>
-    <a time="184" text="未来観測β" sync="00:282b:パーフェクト・アレキサンダーの「未来観測β」" icon="Attention.png" notice="" />
-    <a time="186" text="未来確定β Start" sync="00:282b:パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="" />
-    <a time="222" text="未来確定β" sync="00:282b:パーフェクト・アレキサンダーの「未来確定β」" notice="" />
-    <a time="233" text="β：神判：判定" sync="00:302b:パーフェクト・アレキサンダーの「誓約の神判」" icon="Pair.png" />
-    <a time="234" text="β：ジャスティスジャンプ" sync="00:302b:パーフェクト・アレキサンダーの「ジャスティスジャンプ」" icon="Targetaoe01.png" />
-    <a time="238" text="β：照準" sync="00:302b:パーフェクト・アレキサンダーの「照準」" icon="Branch.png" notice="散開なら中央。" notice-d="Sub" />
-    <a time="245" text="β：拝火の秘蹟" sync="00:302b:パーフェクト・アレキサンダーの「拝火の秘蹟」" icon="AOEOutside.png" notice="" />
+    <a time="184" text="未来観測β" sync="00:282b::パーフェクト・アレキサンダーの「未来観測β」" icon="Attention.png" notice="" />
+    <a time="186" text="未来確定β Start" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="" />
+    <a time="222" text="未来確定β" sync="00:282b::パーフェクト・アレキサンダーの「未来確定β」" notice="" />
+    <a time="233" text="β：神判：判定" sync="00:302b::パーフェクト・アレキサンダーの「誓約の神判」" icon="Pair.png" />
+    <a time="234" text="β：ジャスティスジャンプ" sync="00:302b::パーフェクト・アレキサンダーの「ジャスティスジャンプ」" icon="Targetaoe01.png" />
+    <a time="238" text="β：照準" sync="00:302b::パーフェクト・アレキサンダーの「照準」" icon="Branch.png" notice="散開なら中央。" notice-d="Sub" />
+    <a time="245" text="β：拝火の秘蹟" sync="00:302b::パーフェクト・アレキサンダーの「拝火の秘蹟」" icon="AOEOutside.png" notice="" />
 
-    <a time="259" text="加重誅罰" sync="00:282b:パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="次は、ST無敵受け。" notice-d="Sub" />
-    <a time="268" text="誅罰" sync="00:282b:パーフェクト・アレキサンダーの「誅罰」" icon="HardAttack.png" notice="" />
-    <a time="278" text="聖なる大審判1" sync="00:282b:パーフェクト・アレキサンダーの「聖なる大審判」" icon="Avoid.png" />
-    <a time="294" text="連帯刑" sync="00:282b:パーフェクト・アレキサンダーの「連帯刑」" icon="DamageShare.png" notice="頭割り。" notice-d="Sub" />
-    <a time="304" text="加重誅罰" sync="00:282b:パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="次は、MT無敵受け。" notice-d="Sub" />
-    <a time="314" text="誅罰" sync="00:282b:パーフェクト・アレキサンダーの「誅罰」" icon="HardAttack.png" />
-    <a time="325" text="聖なる大審判2" sync="00:282b:パーフェクト・アレキサンダーの「聖なる大審判」" icon="Avoid.png" notice-o="0" notice="アドル。" />
-    <a time="340" text="連帯刑" sync="00:282b:パーフェクト・アレキサンダーの「連帯刑」" icon="DamageShare.png" notice="頭割り" notice-d="Sub" />
-    <a time="349" text="時間切れ詠唱" sync="00:0044:パーフェクト・アレキサンダー:時空干渉、制限解除、「時の牢獄」に監禁する……。" icon="Dialog.png" />
-    <a time="357" text="時の牢獄 Start" sync="00:302b:パーフェクト・アレキサンダーは「時の牢獄」の構え。" icon="Timer.png" />
+    <a time="259" text="加重誅罰" sync="00:282b::パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="次は、ST無敵受け。" notice-d="Sub" />
+    <a time="268" text="誅罰" sync="00:282b::パーフェクト・アレキサンダーの「誅罰」" icon="HardAttack.png" notice="" />
+    <a time="278" text="聖なる大審判1" sync="00:282b::パーフェクト・アレキサンダーの「聖なる大審判」" icon="Avoid.png" />
+    <a time="294" text="連帯刑" sync="00:282b::パーフェクト・アレキサンダーの「連帯刑」" icon="DamageShare.png" notice="頭割り。" notice-d="Sub" />
+    <a time="304" text="加重誅罰" sync="00:282b::パーフェクト・アレキサンダーの「加重誅罰」" icon="TankShare.png" notice="次は、MT無敵受け。" notice-d="Sub" />
+    <a time="314" text="誅罰" sync="00:282b::パーフェクト・アレキサンダーの「誅罰」" icon="HardAttack.png" />
+    <a time="325" text="聖なる大審判2" sync="00:282b::パーフェクト・アレキサンダーの「聖なる大審判」" icon="Avoid.png" notice-o="0" notice="アドル。" />
+    <a time="340" text="連帯刑" sync="00:282b::パーフェクト・アレキサンダーの「連帯刑」" icon="DamageShare.png" notice="頭割り" notice-d="Sub" />
+    <a time="349" text="時間切れ詠唱" sync="00:0044::パーフェクト・アレキサンダー:時空干渉、制限解除、「時の牢獄」に監禁する……。" icon="Dialog.png" />
+    <a time="357" text="時の牢獄 Start" sync="00:302b::パーフェクト・アレキサンダーは「時の牢獄」の構え。" icon="Timer.png" />
     <a time="367" text="時間停止1人目" icon="Timer.png" />
     <a time="372" text="時間停止2人目" icon="Timer.png" />
     <a time="377" text="時間停止3人目" icon="Timer.png" />
     <a time="382" text="時間停止4人目" icon="Timer.png" />
     <a time="387" text="時間停止5人目" icon="Timer.png" />
     <a time="392" text="時間停止6人目" icon="Timer.png" />
-    <a time="393" sync="00:302b:パーフェクト・アレキサンダーの「時の終身刑」" />
+    <a time="393" sync="00:302b::パーフェクト・アレキサンダーの「時の終身刑」" />
     <a time="397" text="時間停止7人目" icon="Timer.png" />
     <a time="402" text="時の終身刑" icon="Timeout.png" />
     <a time="420" />
