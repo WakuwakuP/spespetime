@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>絶竜詩戦争 draft timeline</name>
+  <rev>Draft-4-FIX</rev>
+  <description>
+    202204300429:人型ニーズまで。Draft-3
+    202205010212:各種調整。通知のミスを修正Draft-3.1
+    202205011843:両目フェーズまで。Draft-4
+    SPECIAL THANKS!!
+    Leila.E
+    K.Aura
+    SlayDoll(https://www.twitch.tv/ta_kun0813)
+    zett (https://twitter.com/zettnotfound)
+    AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
+
+    改変
+    - プレステ散開時の散開ガイド表示追加
+  </description>
+  <author>
+    Aqua Cat,RINGS
+    miyulab
+  </author>
+  <license>CC BY-SA</license>
+  <zone>Dragonsong's Reprise (Ultimate)</zone>
+  <locale>JA</locale>
+  <entry>ENTRY</entry>
+  <start>0039::戦闘開始！</start>
+
+  <default target-element="Activity" target-attr="notice-o" value="-3" />
+  <default target-element="Activity" target-attr="notice-d" value="Main" />
+  <default target-element="Trigger" target-attr="notice-d" value="Main" />
+
+  <default target-element="ImageNotice" target-attr="enabled" value="true" />
+  
+  @{
+    var ANTI_KNOCKBACK = Model.Player.InRole("HEALER","MagicDPS") ?
+      "堅実魔" :
+      "アムレン";
+  }
+
+  <s name="ENTRY">
+    <t sync="聖騎士アデルフェルは「ホリエストホーリー」の構え。">
+      <load target="教皇庁P1" truncate="true"/>
+    </t>
+    <t sync="騎神トールダン:神に抗う光の使徒よ">
+      <load target="ナイツP1" truncate="true"/>
+    </t>
+    <a time="20" text="フェーズの判別" icon="分岐.png" />
+  </s>
+
+
+  <s name="教皇庁P1">
+    <a time="005" text="" sync="聖騎士アデルフェルは「ホリエストホーリー」の構え。" />
+    <a time="010" text="全体攻撃" sync="聖騎士アデルフェルの「ホリエストホーリー」" notice="全体攻撃" />
+    <a time="017" text="線" sync="聖騎士グリノーは「エンプティディメンション」の構え。" notice="線が付くよ" />
+    <a time="023" text="" sync="聖騎士アデルフェルの「ホーリーシールドバッシュ」" notice="" />
+    <a time="023" text="エンプティD" sync="聖騎士グリノーの「エンプティディメンション」" notice="" />
+    <a time="025" text="ブレードダンス" sync="聖騎士アデルフェルの「ホーリーブレードダンス」" notice="ブレードダンス。" />
+    <a time="028" text="頭割り" sync="聖騎士シャリベルの「ヘヴンブレイズ」" notice="頭割り" />
+    <a time="038" text="散開待機" sync="聖騎士グリノーは「ハイパーディメンション」の構え。" notice="散開待機" />
+    <a time="044" text="ハイパーディメンション2" sync="聖騎士グリノーの「ハイパーディメンション」" notice="ハイパーディメンション。" sync-count="1" />
+    <a time="051" text="ハイパーディメンション1" notice="次は、ハイパーディメンション。" />
+    <a time="060" text="ノックバック" sync="聖騎士グリノーの「フェイスアンムーブ」" notice="ノックバック" />
+    <a time="061" text="全体攻撃" sync="聖騎士アデルフェルの「ホリエストホーリー」" notice="全体攻撃" />
+    <a time="063" text="シャイニングブレード4" sync="聖騎士アデルフェルの「シャイニングブレード」" sync-count="1" />
+    <a time="064" text="シャイニングブレード3" />
+    <a time="065" text="シャイニングブレード2" />
+    <a time="066" text="シャイニングブレード1" />
+    <a time="069" text="(MT)エクスキューション" sync="聖騎士アデルフェルの「エクスキューション」" notice="エクスキューション。" />
+    <a time="071" text="！沈黙！" sync="聖騎士アデルフェルは「ホリエストブレッシング」を唱えた。" notice="沈黙入れる！">
+      <i-notice image="プレステ散開.png" scale="0.55" left="1090" top="65" duration="20" />
+    </a>
+    <a time="080" text="鎖の予兆" sync="聖騎士シャリベルは「ヘヴンフレイム」を唱えた。" notice="鎖がつくよ" />
+    <a time="086" text="フェイスアンムーブ" sync="聖騎士グリノーの「フェイスアンムーブ」" notice="ノックバック" />
+    <!--8人へAoE攻撃。通知不要か-->
+    <a time="088" text="ヘヴンフレイム" sync="聖騎士シャリベルの「ヘヴンフレイム」" notice="" />
+    <a time="089" text="！沈黙！" sync="聖騎士アデルフェルは「ホリエストブレッシング」を唱えた。" notice="沈黙入れる！" />
+    <a time="098" text="内外確認" sync="聖騎士グリノーは「フルディメンション」の構え。" notice="" />
+    <a time="102" text="全体攻撃" sync="聖騎士アデルフェルの「ホリエストホーリー」" notice="全体攻撃" />
+    <a time="104" text="E/Fディメンション" sync="聖騎士グリノーの「フルディメンション」" />
+    <a time="121" text="時間切れ開始" sync="聖騎士アデルフェルは「美剣の覚悟」の構え。" notice="" />
+    <a time="125" text="時間切れ" notice="" />
+    <a time="126" text="強制移行" goto="教皇庁P2" />
+
+    <t sync="聖騎士ゼフィランは「スピア・オブ・ハルオーネ」の構え。" goto="教皇庁P2" />
+
+    <!--ダイナモ、チャリの判断(最速版)-->
+    <t sync="^14:62DA" notice="足元へ">
+      <v-notice text="ダイナモ:足元へ" duration="5" />
+    </t>
+    <t sync="^14:62DB" notice="離れる">
+      <v-notice text="チャリ:離れる" duration="5" />
+    </t>
+
+    <!--ダイナモ、チャリの判断(メンテ時対策用)
+    <t sync="「エンプティディメンション」の構え。" notice="ダイナモ">
+      <v-notice text="足元へ" duration="5" />
+    </t>
+    <t sync="「フルディメンション」の構え。" notice="チャリ">
+      <v-notice text="離れる" duration="5" />
+    </t>
+  -->
+
+    <!--試作。通知間違ってるかも。-->
+    <t sync="^14:62D4:.*100.00,78.00," notice="Cへ">
+      <v-notice text="南安置:Cへ" duration="5" />
+    </t>
+    <t sync="^14:62D4:.*78.00,100.00," notice="Bへ">
+      <v-notice text="西安置:Bへ" duration="5" />
+    </t>
+    <t sync="^14:62D4:.*122.00,100.00," notice="Dへ">
+      <v-notice text="東安置:Dへ" duration="5" />
+    </t>
+    <t sync="^14:62D4:.*100.00,122.00," notice="Aへ">
+      <v-notice text="北安置:Aへ" duration="5" />
+    </t>
+
+    <!--マーカーセット。ビームを基準にし、他マーカーを逆算するよう試作。-->
+    <t no="1" sync="^1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):" sync-count="1">
+      <expressions>
+        <set name="marker_origin" value="0x${marker}" scope="CurrentZone" />
+      </expressions>
+    </t>
+    <t no="2" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 47, X4):" notice="○マーカー">
+      <v-notice text="まるまーかー" duration="15" />
+    </t>
+    <t no="3" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 48, X4):" notice="×マーカー">
+      <v-notice text="ばつマーカー" duration="15" />
+    </t>
+    <t no="4" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 49, X4):" notice="□マーカー">
+      <v-notice text="しかくまーかー" duration="15" />
+    </t>
+    <t no="5" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 50, X4):" notice="▽マーカー">
+      <v-notice text="さんかくまーかー" duration="15" />
+    </t>
+  </s>
+
+  <s name="教皇庁P2">
+    <a time="001" text="蒼天の光翼" sync="聖騎士アデルフェルの「蒼天の光翼」" notice="蒼天の光翼。" />
+    <a time="007" text="オルシュファン:危ないッ！" sync="オルシュファン:危ないッ！" />
+    <!--a time="010.0" sync="聖騎士ゼフィラン:喰らえッ！" /-->
+    <a time="010.0" text="スピア・オブ・ハルオーネ" sync="聖騎士ゼフィランの「スピア・オブ・ハルオーネ」" />
+    <a time="016" text="光翼閃4" sync="^15:[id8]:聖騎士シャリベル:6319:光翼閃:[id8]:[pc]:" />
+    <a time="021" text="光翼閃3" />
+    <a time="026" text="光翼閃2" />
+    <a time="031" text="光翼閃1" />
+    <a time="032" text="調査中" />
+    <a time="050" text="移行待ち" />
+    <t sync="騎神トールダン:神に抗う光の使徒よ" goto="ナイツP1" />
+    <t sync="オルシュファン:無事…だったのだな…" goto="偽典P1" />
+  </s>
+
+  <s name="ナイツP1">
+    <a time="000" text="セリフ" sync="騎神トールダン:神に抗う光の使徒よ" />
+    <a time="004" sync="騎神トールダンは「インビジブル・アスカロンメルシー」の構え。" />
+    <a time="007" text="I,Aメルシー" sync="騎神トールダンの「インビジブル・アスカロンメルシー」" notice="メルシー" />
+    <a time="011" text="Aマイト3" sync="騎神トールダンの「アスカロンマイト」" notice="マイト3連" />
+    <a time="012" text="Aマイト2" />
+    <a time="014" text="Aマイト1" />
+    <a time="025" text="蒼天の陣：雷槍" sync="騎神トールダンの「蒼天の陣：雷槍」" />
+    <a time="025" sync="騎神トールダン:王の栄光をここに！" />
+    <a time="031" text="◇外周POP◇" sync="聖騎士イニアセルは「スパイラルスラスト」の構え。" notice="外周確認" />
+    <a time="037" text="百雷" sync="騎神トールダンの「百雷」" notice="百雷" />
+    <a time="038" text="スパイラルスラスト" sync="聖騎士イニアセルの「スパイラルスラスト」" />
+    <a time="039" text="◇範囲誘導◇" sync="騎神トールダンは「インビジブル・アスカロンメルシー」の構え。" />
+    <a time="043" text="I,Aメルシー" sync="騎神トールダンの「インビジブル・アスカロンメルシー」" notice="メルシー" />
+    <a time="044" text="マーカー注意" sync="聖騎士グリノーは「ディメンションクラッシュ」の構え。" notice="マーカーつくよ" />
+    <a time="046" text="" sync="聖騎士エルムノストは「コンヴィクション」の構え。" notice="" />
+    <a time="047" text="線取り注意" sync="騎神トールダンは「邪竜の魔炎」を唱えた。" notice="線取り注意" />
+    <a time="053" text="ディメンション" sync="聖騎士グリノーの「ディメンションクラッシュ」" />
+    <a time="054" text="邪竜の魔炎" sync="騎神トールダンの「邪竜の魔炎」" notice="頭割りとバッシュ" />
+    <a time="054" text="バッシュ" sync="聖騎士アデルフェルの「ホーリーシールドバッシュ」" notice="" />
+    <a time="056" text="ブレードダンス" sync="聖騎士アデルフェルの「ホーリーブレードダンス」" notice="" />
+    <a time="057" text="コンヴィクション" sync="聖騎士エルムノストの「コンヴィクション」" notice="塔を踏む" />
+    <a time="066" text="エンシェントクエイガ" sync="騎神トールダンの「エンシェントクエイガ」" notice="全体攻撃" />
+    <a time="071" text="タンク交代" sync="騎神トールダンは「ヘヴンリーヒール」の構え。" notice="タンクスイッチ" />
+    <a time="075" text="ヘヴンリーヒール" sync="騎神トールダンの「ヘヴンリーヒール」" notice="強攻撃" />
+    <a time="078" text="Aマイト3" sync="騎神トールダンの「アスカロンマイト」" notice="マイト3連" />
+    <a time="080" text="Aマイト2" />
+    <a time="082" text="Aマイト1" />
+    <a time="087" text="ナイツ・オブ・ラウンド" sync="騎神トールダンの「ナイツ・オブ・ラウンド」" />
+    <a time="088" text="移行：ナイツP2" sync="騎神トールダンは「蒼天の陣：聖杖」の構え。" sync-s="-30" goto="ナイツP2" />
+    <!--強制移行-->
+    <t sync="騎神トールダン:我は人にして、神なり！" goto="ナイツP2" />
+
+
+    <t no="6" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 96, X4):" notice="範囲対象">
+      <v-notice text="1B:青対象" duration="15" />
+    </t>
+    <!--設定が多すぎてキモいので一旦3つに絞ることに。-->
+    <t sync="^14:63CE:.*(83.73,116.26|99.99,122.97|116.26,116.26)," notice="北側">
+      <v-notice text="北側" duration="9" />
+    </t>
+    <t sync="^14:63CE:.*(83.73,83.73|99.99,76.98|116.26,83.73)," notice="南側">
+      <v-notice text="南側" duration="9" />
+    </t>
+    <t sync="^14:63CE:.*(76.98,99.99|122.97,99.99)," notice="東か西">
+      <v-notice text="東か西" duration="9" />
+    </t>
+  </s>
+
+
+  <s name="ナイツP2">
+    <a time="005" text="セリフ" sync="騎神トールダン:我は人にして、神なり！" />
+    <a time="005" text="蒼天の陣：聖杖" sync="騎神トールダンの「蒼天の陣：聖杖」" />
+    <a time="018" text="竜の邪眼" sync="騎神トールダンの「竜の邪眼」" />
+    <a time="018" text="シャイニングブレード" sync="聖騎士ジャンルヌの「シャイニングブレード」" notice="" />
+    <a time="018" text="セイクリッドカット4" sync="聖騎士ゼフィランの「セイクリッドカット」" notice="" />
+    <a time="020" text="セイクリッドカット3" />
+    <a time="022" text="セイクリッドカット2" />
+    <a time="024" text="セイクリッドカット1" />
+    <a time="026" sync="騎神トールダン:「竜の眼」を喰らいし聖剣アスカロンよ…… この地に眠る、微睡みの神より力を引き出せ！" />
+    <a time="028" text="Marking" />
+    <a time="036" text="炎設置" sync="聖騎士シャリベルの「ヘヴンステイク」" />
+    <a time="036.6" text="氷設置" sync="^15:[id8]:聖騎士グリノー:63E7:ハイマルストーム:" notice="氷設置" />
+    <a time="038" text="塔発動" sync="^15:[id8]:聖騎士エルムノスト:737B:コンヴィクション:" notice="塔発動" />
+    <a time="040" text="コンヴィクション" sync="聖騎士エルムノストの「コンヴィクション」" notice="塔を踏む" />
+    <a time="041" text="ホーリーコメット" sync="聖騎士ヌドゥネーの「ホーリーコメット」" notice="コメット開始" />
+    <a time="042.4" text="コメット7" />
+    <a time="043.8" text="コメット6" />
+    <a time="045.2" text="コメット5" />
+    <a time="046.6" text="コメット4" />
+    <a time="048" text="コメット3" />
+    <a time="049.4" text="コメット2" />
+    <!--時系列おかしいけどとりあえず放置-->
+    <a time="051.8" text="コメット1" />
+    <a time="051" text="フェイスアンムーブ" sync="聖騎士グリノーの「フェイスアンムーブ」" notice="ノックバック" />
+    <a time="054" text="塔発動" sync="聖騎士エルムノストの「コンヴィクション」" notice="塔を踏む" />
+    <a time="071" text="アルティメットエンド" sync="騎神トールダンの「アルティメットエンド」" notice="" />
+    <a time="050" text="調査中" />
+    <a time="084" text="大振り" sync="騎神トールダンの「大振り」" />
+    <a time="093" text="大振り" sync="騎神トールダンの「大振り」" />
+    <a time="097" text="時間切れ開始" sync="騎神トールダンは「エーテルバースト」の構え。" notice="エーテルバースト。" />
+    <a time="122" text="移行待ち" />
+    <t sync="異邦の詩人:騎神トールダンを討ち果たすも" goto="ニーズP1" />
+
+    <t no="7" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 184, X4):" notice="１ばんまーかー">
+      <v-notice text="1B:1番" duration="15" />
+    </t>
+    <t no="8" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 183, X4):" notice="２ばんまーかー">
+      <v-notice text="1B:2番" duration="15" />
+    </t>
+
+    <t no="9" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 51, X4):" notice="隕石対象">
+      <v-notice text="隕石対象" duration="15" />
+    </t>
+
+  </s>
+
+  <s name="ニーズP1">
+    <a time="005" sync="ニーズヘッグ:これぞ終焉の竜詩よ！" />
+    <a time="006" text="終焉の竜詩" sync="ニーズヘッグの「終焉の竜詩」" notice="終焉の竜詩。" />
+    <a time="011" sync="ニーズヘッグ:我が竜詩を耐えるというのか……！ フレースヴェルグの力を使いこなしていると！？" />
+    <a time="011" text="攻撃" sync="ニーズヘッグの「攻撃」" sync-count="1" />
+    <a time="014" text="攻撃" />
+    <a time="018" text="攻撃" />
+    <a time="019" sync="ニーズヘッグ:殺す、殺す、殺す！" />
+    <a time="019" text="マーカー" sync="ニーズヘッグは「堕天のドラゴンダイブ」の構え。" notice="マーカーつくよ" />
+    <a time="025" text="堕天のドラゴンダイブ" sync="ニーズヘッグの「堕天のドラゴンダイブ」" />
+    <a time="026" text="連旋確認" sync="ニーズヘッグは「(尾牙|牙尾)の連旋」の構え。" notice="" />
+    <!--a time="033.0" text="牙尾の連旋" sync="ニーズヘッグの「牙尾の連旋」" /-->
+    <!--塔1回目-->
+    <a time="034" text="塔1回目" sync="ニーズヘッグの「ダークハイジャンプ」" notice="塔1回目" />
+    <a time="035" text="頭割り" sync="ニーズヘッグの「アイ・オブ・タイラント」" notice="頭割り" />
+    <a time="038" text="大車輪1" sync="ニーズヘッグの「大車輪・(邪尾|咬牙)」" notice="大車輪" />
+    <a time="040" text="塔踏み" sync="ニーズヘッグの「ダークドラゴンダイブ」" notice="塔踏み1回目" />
+    <a time="041" text="大車輪2" notice="大車輪" />
+    <a time="043" text="直線誘導" sync="ニーズヘッグは「ゲイルスコグル」の構え。" notice="直線誘導" />
+    <!--塔2回目-->
+    <a time="044" text="塔2回目" sync="ニーズヘッグの「ダークハイジャンプ」" notice="塔2回目" />
+    <a time="048" text="連旋確認" sync="ニーズヘッグは「(尾牙|牙尾)の連旋」の構え。" notice="" />
+    <a time="050" text="塔踏み" sync="ニーズヘッグの「ダークドラゴンダイブ」" notice="塔踏み2回目" />
+    <a time="053" text="直線誘導" sync="ニーズヘッグは「ゲイルスコグル」の構え。" notice="直線誘導" />
+    <!--塔3回目-->
+    <a time="055" text="塔3回目" sync="ニーズヘッグの「ダークハイジャンプ」" notice="塔3回目" />
+    <a time="056" text="頭割り" sync="ニーズヘッグの「アイ・オブ・タイラント」" notice="頭割り" />
+    <a time="059" text="大車輪1" sync="ニーズヘッグの「大車輪・(邪尾|咬牙)」" notice="大車輪" />
+    <a time="061" text="塔踏み" sync="ニーズヘッグの「ダークドラゴンダイブ」" notice="塔踏み3回目" />
+    <a time="062" text="大車輪2" notice="大車輪" />
+    <a time="064" text="直線誘導" sync="ニーズヘッグは「ゲイルスコグル」の構え。" notice="直線誘導" />
+    <a time="066" text="攻撃" sync="ニーズヘッグの「攻撃」" sync-count="1" />
+    <a time="069" text="攻撃" />
+    <a time="074" text="ドラッケンランス" sync="ニーズヘッグの「ドラッケンランス」" notice="ドラッケンランス" />
+    <!--塔4回目-->
+    <a time="075" text="塔を確認" sync="ニーズヘッグは「ダークドラゴンダイブ」の構え。" notice="塔を確認" />
+    <a time="081" text="塔踏み" sync="ニーズヘッグの「ダークドラゴンダイブ」" notice="塔が発動" />
+    <a time="083" text="直線誘導" sync="ニーズヘッグは「ゲイルスコグル」の構え。" notice="直線誘導" />
+    <a time="088" text="ソウルテザー" sync="ニーズヘッグの「ソウルテザー」" notice="次は、ソウルテザー。" />
+    <a time="093" text="攻撃" sync="ニーズヘッグの「攻撃」" sync-count="1" />
+    <a time="096" text="攻撃" />
+    <a time="099" text="攻撃" />
+    <a time="102" text="攻撃" />
+    <a time="105" text="攻撃" />
+    <a time="112" text="ドラッケンランス" sync="ニーズヘッグの「ドラッケンランス」" />
+    <a time="113" text="時間切れ開始" sync="ニーズヘッグは「最期の咆哮」の構え。" notice="" />
+    <t sync="アルフィノ:エスティニアン殿！" goto="ニーズP2" />
+
+    <t sync="ニーズヘッグは「牙尾の連旋」の構え。" notice="外側から">
+      <v-notice text="安置:外側→内側" duration="10" />
+    </t>
+    <t sync="ニーズヘッグは「尾牙の連旋」の構え。" notice="内側から">
+      <v-notice text="安置:内側→外側" duration="10" />
+    </t>
+
+    <!--ハイジャンプ-->
+    <t sync="^1A:[id8]:[me] gains the effect of ターゲッティング：ダークハイジャンプ from  for 9.00 Seconds" notice="ジャンプいち">
+      <v-notice text="塔1:その場,塔踏み:2回目or3回目" duration="9" />
+    </t>
+    <t sync="^1A:[id8]:[me] gains the effect of ターゲッティング：ダークハイジャンプ from  for 19.00 Seconds" notice="ジャンプに">
+      <v-notice text="塔2:その場,塔踏み:3回目" duration="19" />
+    </t>
+    <t sync="^1A:[id8]:[me] gains the effect of ターゲッティング：ダークハイジャンプ from  for 30.00 Seconds" notice="ジャンプさん">
+      <v-notice text="塔踏み:1回目,塔3:その場" duration="30" />
+    </t>
+    <!--スパインダイブ-->
+    <t sync="^1A:[id8]:[me] gains the effect of ターゲッティング：ダークスパインダイブ from  for 9.00 Seconds" notice="スパインいち">
+      <v-notice text="塔1:前,塔踏み:2回目" duration="9" />
+    </t>
+    <t sync="^1A:[id8]:[me] gains the effect of ターゲッティング：ダークスパインダイブ from  for 19.00 Seconds" notice="スパインに">
+      <v-notice text="塔2:前,塔踏み:3回目" duration="19" />
+    </t>
+    <t sync="^1A:[id8]:[me] gains the effect of ターゲッティング：ダークスパインダイブ from  for 30.00 Seconds" notice="スパインさん">
+      <v-notice text="塔踏み:1回目,塔3:前" duration="30" />
+    </t>
+    <!--イルーシブ-->
+    <t sync="^1A:[id8]:[me] gains the effect of ターゲッティング：ダークイルーシブジャンプ from  for 9.00 Seconds" notice="イルーシブいち">
+      <v-notice text="塔1:後ろ,塔踏み:2回目" duration="9" />
+    </t>
+    <t sync="^1A:[id8]:[me] gains the effect of ターゲッティング：ダークイルーシブジャンプ from  for 19.00 Seconds" notice="イルーシブに">
+      <v-notice text="塔2:後ろ,塔踏み:3回目" duration="19" />
+    </t>
+    <t sync="^1A:[id8]:[me] gains the effect of ターゲッティング：ダークイルーシブジャンプ from  for 30.00 Seconds" notice="イルーシブさん">
+      <v-notice text="塔踏み:1回目,塔3:後ろ" duration="30" />
+    </t>
+  </s>
+
+  <s name="ニーズP2">
+    <a time="003" text="セリフ4" sync="エスティニアン:あ、相棒よ… 最期の頼みだ…！" />
+    <a time="007" text="セリフ3" sync="エスティニアン:俺が邪竜の意思を 押さえ込んでいる隙に…" />
+    <a time="010" text="盟友の想い" sync="オルシュファンの「盟友の想い」" notice="盟友の想い。" />
+    <a time="011" text="セリフ2" sync="エスティニアン:トドメを… トドメを刺してくれッ！" />
+    <a time="017" text="セリフ1" sync="エスティニアン:グオオオォォォォッ！" />
+    <a time="018" text="全体攻撃" sync="エスティニアンの「苦悶の咆哮」" notice="全体攻撃" />
+    <a time="022" text="線が付与" sync="邪竜の左眼は「邪竜爪牙」の構え。" notice="線が付くよ" />
+    <a time="026" text="邪竜爪牙" sync="邪竜の左眼の「邪竜爪牙」" />
+    <a time="033" text="黄色玉" notice="きいろ" />
+    <a time="038" text="青色玉" notice="あお" />
+    <a time="048" text="ダイブ準備" sync="邪竜の左眼は「ミラージュダイブ」の構え。" notice="ダイブの準備" />
+    <a time="053" text="ダイブ4" sync="ニーズヘッグの「ミラージュダイブ」" sync-count="1" notice="1回目" />
+    <a time="058" text="ダイブ3" notice="2回目" />
+    <a time="063" text="ダイブ2" notice="3回目" />
+    <a time="068" text="ダイブ1" notice="4回目" />
+    <a time="078" text="全体攻撃" sync="邪竜の左眼の「憤怒の波動」" notice="全体攻撃" />
+    <a time="085" text="時間切れ" sync="邪竜の左眼の「影の侵食」" notice="影の侵食。" />
+    <a time="088" text="移行待ち" goto="教皇庁P2" />
+    <t sync="聖騎士グリノーの「ディメンションジェイル」" goto="教皇庁P2" />
+    <t sync="^1A:[id8]:[me] gains the effect of 邪竜の爪" notice="あか">
+      <v-notice text="赤鎖" duration="5" />
+    </t>
+    <t sync="^1A:[id8]:[me] gains the effect of 邪竜の牙" notice="あお">
+      <v-notice text="青鎖" duration="5" />
+    </t>
+  </s>
+
+  <s name="偽典P1">
+    <!--ここ以降は製作者が予習中の為、調整中-->
+    <a time="012" text="" sync="騎神トールダンは「聖徒化」の構え。" notice="" />
+    <a time="016" text="" sync="騎神トールダン:穢れし竜たちよ… 変革の礎となれ！" />
+    <a time="017" text="聖徒化" sync="騎神トールダンの「聖徒化」" />
+    <a time="019" text="" sync="騎神トールダンは「竜の眼」の構え。" notice="" />
+    <a time="023" text="竜の眼" sync="騎神トールダンの「竜の眼」" notice="竜の眼" />
+    <a time="027" text="攻撃" sync="騎神トールダンの「攻撃」" />
+    <a time="030" text="攻撃" />
+
+    <!--至天の陣1-->
+    <a time="033" text="" sync="騎神トールダン:来たれ！ 我が騎士、我が竜よ！" />
+    <a time="036" text="ナイツ・オブ・ラウンド" sync="騎神トールダンの「ナイツ・オブ・ラウンド」" notice="ナイツ・オブ・ラウンド。" />
+    <a time="042" text="至天の陣：風槍" sync="騎神トールダンの「至天の陣：風槍」" />
+    <a time="042" text="" sync="騎神トールダン:王の栄光をここに！" />
+    <a time="047" text="" sync="ヴェズルフェルニルは「ツイスターダイブ」の構え。" notice="" />
+    <a time="051" text="雷付与" sync="ダークスケールの「チェインライトニング」" notice="" />
+    <!--a time="053" text="スカイワードリープ" sync="聖騎士ポールクランの「スカイワードリープ」" notice="スカイワードリープ。" /-->
+    <a time="053" text="ツイスターダイブ" sync="ヴェズルフェルニルの「ツイスターダイブ」" notice="ツイスターダイブ" />
+    <!--a time="054" text="スパイラルピアス" sync="聖騎士ヴェルギーンの「スパイラルピアス」" notice="スパイラルピアス。" />
+  <a time="054" text="スパイラルピアス" sync="聖騎士イニアセルの「スパイラルピアス」" notice="スパイラルピアス。" />-->
+    <a time="055" text="ツイスター" sync="ヴェズルフェルニルの「ツイスター」" notice="ツイスター" />
+    <a time="055" text="範囲誘導" sync="騎神トールダンは「レベレーション・アスカロンメルシー」の構え。" notice="" />
+    <a time="059" text="R,Aメルシー" sync="騎神トールダンの「レベレーション・アスカロンメルシー」" notice="メルシー" />
+    <a time="060" text="ヘブンリキッド5" sync="ヴェズルフェルニルの「ヘブンリキッド」" notice="リキッド5連" sync-count="1" />
+    <a time="061" text="ヘブンリキッド4" />
+    <a time="063" text="ヘブンリキッド3" />
+    <a time="063" text="アルターフレア" sync="聖騎士シャリベルの「アルターフレア」" />
+    <a time="064" text="ヘブンリキッド2" />
+    <a time="065" text="ヘブンリキッド1" />
+    <a time="067" text="カータライズ" sync="ダークスケールの「カータライズ」" notice="" />
+    <!--a time="067" text="カータライズ" sync="ヴィゾーヴニルの「カータライズ」" /-->
+    <a time="067" text="チェインライトニング" sync="ダークスケールの「チェインライトニング」" notice="チェインライトニング。" />
+    <a time="067" text="エンプティD" sync="聖騎士グリノーの「エンプティディメンション」" notice="" />
+    <a time="074" text="全体攻撃" sync="騎神トールダンの「エンシェントクエイガ」" notice="全体攻撃" />
+    <a time="077" sync="騎神トールダン:さて、光の使徒よ、ここで問おう。 貴様はいかにして、この千年戦争を終わらせようというのだ？" />
+    <a time="078" text="攻撃" sync="騎神トールダンの「攻撃」" notice="" />
+    <a time="080" text="タンク交代" sync="騎神トールダンは「ヘヴンリーヒール」の構え。" notice="タンクスイッチ" />
+    <a time="084" text="ヘヴンリーヒール" sync="騎神トールダンの「ヘヴンリーヒール」" notice="強攻撃" />
+    <a time="088" text="Aマイト3" sync="騎神トールダンの「アスカロンマイト」" notice="マイト3連" sync-count="1" />
+    <a time="089" text="Aマイト2" />
+    <a time="091" text="Aマイト1" />
+
+    <!--至天の陣2-->
+    <a time="093" text="" sync="騎神トールダン:来たれ！ 我が騎士、我が竜よ！" />
+    <a time="096" text="ナイツ・オブ・ラウンド" sync="騎神トールダンの「ナイツ・オブ・ラウンド」" notice="ナイツ・オブ・ラウンド。" />
+    <a time="102" text="至天の陣：死刻" sync="騎神トールダンの「至天の陣：死刻」" />
+    <a time="102" text="" sync="騎神トールダン:我は人にして、神なり！" />
+    <a time="109" text="デスストーム" sync="ダークスケールの「デスストーム」" notice="デスストーム。" />
+    <a time="116" text="ヘヴィインパクト" sync="聖騎士ゲリックの「ヘヴィインパクト」" notice="ヘヴィインパクト" />
+    <a time="118" text="サルヴェーション" sync="ヴィゾーヴニルの「サルヴェーションウィング」" notice="" />
+    <a time="118" text="百雷" sync="騎神トールダンの「百雷」" notice="百雷" />
+    <a time="119" text="ツイスターダイブ" sync="ヴェズルフェルニルの「ツイスターダイブ」" notice="ツイスターダイブ" />
+    <!--a time="119" text="カータライズ" sync="ダークスケールの「カータライズ」" /-->
+    <a time="119" text="スピア" sync="聖騎士ゼフィランの「スピア・オブ・ハルオーネ」" />
+    <!--a time="132" text="竜の邪眼" sync="騎神トールダンの「竜の邪眼」" /-->
+    <a time="132" text="邪竜の眼光" sync="騎神トールダンの「邪竜の眼光」" notice="視線攻撃" />
+    <!--a time="132" text="フェイスアンムーブ" sync="聖騎士グリノーの「フェイスアンムーブ」" /-->
+    <a time="134" text="ヘヴンフレイム" sync="聖騎士シャリベルの「ヘヴンフレイム」" notice="ヘヴンフレイム" />
+
+    <!--メテオ-->
+    <a time="136" text="ホーリーメテオ" sync="聖騎士ヌドゥネーの「ホーリーメテオ」" notice="メテオ開始" />
+    <a time="151" text="メテオインパクト" sync="流星の聖紋の「メテオインパクト」" notice="" />
+    <!--+20-->
+    <a time="170" text="同期待ち" sync="騎神トールダンは「エンシェントクエイガ」を唱えた。" sync-s="-30" />
+    <a time="177" text="エンシェントクエイガ" sync="騎神トールダンの「エンシェントクエイガ」" />
+    <a time="181" text="攻撃" sync="騎神トールダンの「攻撃」" notice="" />
+    <a time="182" text="タンク交代" sync="騎神トールダンは「ヘヴンリーヒール」の構え。" notice="タンクスイッチ" />
+    <a time="187" text="ヘヴンリーヒール" sync="騎神トールダンの「ヘヴンリーヒール」" notice="強攻撃" />
+    <a time="187" sync="騎神トールダン:ワシを排せば、この戦が終わり、千年の禍根が断てるとでも？ もうやめようではないか、光の使徒よ……。" />
+    <a time="190" text="Aマイト3" sync="騎神トールダンの「アスカロンマイト」" notice="マイト3連" />
+    <a time="192" text="Aマイト2" />
+    <a time="194" text="Aマイト1" />
+    <a time="196" text="攻撃" sync="騎神トールダンの「攻撃」" notice="" />
+    <a time="198" text="時間切れ詠唱" sync="騎神トールダンは「エーテルバースト」の構え。" notice="" />
+    <a time="205" text="2%待ち" sync="騎神トールダン:負けを…認めよう… ゆえに、命だけは…頼む…" />
+    <t sync="異邦の詩人:ひとつの命が 歴史の流れを変えてゆく" goto="2竜P1" />
+
+    <t sync="^1A:[id8]:[me] gains the effect of サンダーウィング" notice="サンダー注意">
+      <v-notice text="サンダー対象" duration="15" />
+    </t>
+    <t sync="^1A:[id8]:[me] gains the effect of 死の宣告" notice="死の宣告">
+      <v-notice text="死の宣告" duration="29" />
+    </t>
+
+    <!--調査中。-->
+    <t no="9" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 220, X4):" notice="範囲対象">
+      <v-notice text="範囲対象:左上へ" duration="15" />
+    </t>
+    <t no="9" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 214, X4):" notice="ダイブ誘導">
+      <v-notice text="ダイブ誘導:下側へ" duration="15" />
+    </t>
+    <!--教皇庁フェーズで使用したものと同じ。-->
+    <t no="2" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 47, X4):" notice="まるマーカー">
+      <v-notice text="○マーカー" duration="15" />
+    </t>
+    <t no="3" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 48, X4):" notice="さんかくマーカー">
+      <v-notice text="▽マーカー" duration="15" />
+    </t>
+    <t no="4" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 49, X4):" notice="しかくマーカー">
+      <v-notice text="□マーカー" duration="15" />
+    </t>
+    <t no="5" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 50, X4):" notice="ばつマーカー">
+      <v-notice text="×マーカー" duration="15" />
+    </t>
+  </s>
+
+  <s name="2竜P1">
+    <!--a time="005.0" sync="異邦の詩人:ひとつの命が 歴史の流れを変えてゆく" /-->
+    <a time="010" text="同期待ち" sync="ニーズヘッグ:穢らわしいヒトどもめ！" />
+    <a time="014" text="AA" sync="ニーズヘッグの「ウィルムクロウ」" notice="" sync-count="1" />
+    <a time="017" text="AA" />
+    <a time="019" text="(開始)竜の息吹" sync="ニーズヘッグは「邪竜の息吹」の構え。" />
+    <a time="026" text="竜の息吹" sync="ニーズヘッグの「邪竜の息吹」" notice="竜の息吹。" />
+    <a time="027" text="オーブ＆ブレス" sync="ニーズヘッグの「ダークオーブ」" notice="" />
+    <a time="030" text="AA" />
+    <a time="033" text="AA" />
+
+    <!--a time="035" text="滅殺の誓い1" sync="ニーズヘッグの「滅殺の誓い」" notice="滅殺の誓い。" /-->
+    <!--a time="037" sync="フレースヴェルグ:我はシヴァに誓ったのだ…… 決して人を殺めはしないと……頼む……！" /-->
+    <a time="046" text="アク・アファー" sync="ニーズヘッグの「アク・アファー」" />
+    <a time="051" text="" sync="フレースヴェルグは「ホーリーウィング」の構え。" />
+    <a time="054" text="" sync="ニーズヘッグは「カータライズ」の構え。" />
+    <a time="059" text="ホーリーウィング" sync="フレースヴェルグの「ホーリーウィング」" notice="" />
+    <a time="060" text="カータライズ" sync="ニーズヘッグの「カータライズ」" notice="カータライズ。" />
+    <a time="065" text="AA" sync="ニーズヘッグの「ウィルムクロウ」" sync-count="1" />
+    <a time="065" text="AA" />
+    <a time="068" text="AA"/>
+
+    <!--a time="068" text="滅殺の誓い2" sync="ニーズヘッグの「滅殺の誓い」" notice="滅殺の誓い。" /-->
+    <a time="075" text="邪念の炎" sync="ニーズヘッグの「邪念の炎」" notice="邪念の炎" />
+    <!--a time="076" text="アク・モーン" sync="ニーズヘッグは「アク・モーン」の構え。" notice="アク・モーン。" /-->
+    <a time="079" text="カータ確認" sync="フレースヴェルグは「カータライズ」の構え。" />
+    <a time="083" text="玉を確認" sync="真紅の珠は「フレイムブラスト」の構え。" sync-count="1" />
+    <a time="085" text="玉を確認" />
+    <a time="085" text="アク・モーン4" sync="ニーズヘッグの「アク・モーン」" notice="アク・モーン4連" sync-count="1" />
+    <a time="085" text="カータライズ" sync="フレースヴェルグの「カータライズ」" notice="" />
+    <a time="087" text="アク・モーン3" />
+    <a time="088" text="フレイムブラスト" sync="真紅の珠の「フレイムブラスト」" />
+    <a time="088" text="アク・モーン2" />
+    <a time="090" text="フレイムブラスト" />
+    <a time="090" text="アク・モーン1" />
+    <a time="091" text="テイルorウィング確認" sync="ニーズヘッグは「ヒート(ウィング|テイル)」の構え。" />
+    <a time="093" text="フレイムブラスト" />
+    <a time="097" text="テイルorウィング" sync="ニーズヘッグの「ヒート(ウィング|テイル)」" />
+    <!--なんで2回?
+  a time="098" text="復讐の炎" sync="ニーズヘッグの「復讐の炎」" notice="復讐の炎。" />
+  <a time="098" text="道連れの炎" sync="ニーズヘッグの「道連れの炎」" notice="道連れの炎。" /-->
+    <a time="098" text="復讐の炎" sync="ニーズヘッグの「復讐の炎」" notice="復讐の炎。" />
+    <a time="098" text="道連れの炎" notice="" />
+    <a time="101" text="AA" />
+
+    <!--a time="102" text="滅殺の誓い3" sync="ニーズヘッグの「滅殺の誓い」" notice="滅殺の誓い。" /-->
+    <a time="104" text="AA" />
+    <a time="106" text="" sync="ニーズヘッグは「アク・アファー」の構え。" />
+    <a time="115" text="アク・アファー" sync="ニーズヘッグの「アク・アファー」" notice="アク・アファー。" />
+    <!--テイルとウィングの通知はID取れたらトリガにて通知する予定。-->
+    <a time="119" text="" sync="フレースヴェルグは「ホーリーウィング」の構え。" notice="" />
+    <a time="121" text="テイルorウィング確認" sync="ニーズヘッグは「ヒート(ウィング|テイル)」の構え。" />
+    <a time="127" text="ホーリーウィング" sync="フレースヴェルグの「ホーリーウィング」" />
+    <a time="127" text="テイルorウィング" sync="ニーズヘッグの「ヒートテイルorウィング確認」" />
+    <a time="132" text="AA" sync="ニーズヘッグの「ウィルムクロウ」" nsync-count="1" />
+    <a time="135" text="AA" />
+
+    <!--a time="136" text="滅殺の誓い4" sync="ニーズヘッグの「滅殺の誓い」" notice="滅殺の誓い。" /-->
+    <a time="138" text="AA" />
+    <a time="140" text="" sync="ニーズヘッグは「邪竜の息吹」の構え。" />
+    <a time="147" text="竜の息吹" sync="ニーズヘッグの「邪竜の息吹」" notice="竜の息吹。" />
+    <!--
+    <a time="147" text="スタッガーブレス" sync="フレースヴェルグの「スタッガーブレス」" notice="スタッガーブレス。" />
+    <a time="147" text="ブリザードサークル" sync="フレースヴェルグの「ブリザードサークル」" notice="ブリザードサークル。" />
+    <a time="147" text="ダークブレス" sync="ニーズヘッグの「ダークブレス」" notice="ダークブレス。" />
+    <a time="147" text="フレイムブレス" sync="ニーズヘッグの「フレイムブレス」" notice="フレイムブレス。" />
+    <a time="147" text="フレイムブレス" sync="ニーズヘッグの「フレイムブレス」" notice="フレイムブレス。" />
+    <a time="147" text="フレイムブレス" sync="ニーズヘッグの「フレイムブレス」" notice="フレイムブレス。" />
+    <a time="147" text="コールドブレス" sync="フレースヴェルグの「コールドブレス」" notice="コールドブレス。" />
+    <a time="147" text="コールドブレス" sync="フレースヴェルグの「コールドブレス」" notice="コールドブレス。" />
+    <a time="147" text="コールドブレス" sync="フレースヴェルグの「コールドブレス」" notice="コールドブレス。" />
+    -->
+    <a time="151" text="AA" />
+    <a time="154" text="" sync="ニーズヘッグは「カータライズ」の構え。" notice="" />
+    <a time="160" text="カータライズ" sync="ニーズヘッグの「カータライズ」" notice="カータライズ。" />
+    <a time="166" text="タッチダウン" sync="ニーズヘッグの「タッチダウン」" notice="タッチダウン。" />
+    <a time="168" text="最期の咆哮" sync="ニーズヘッグは「最期の咆哮」の構え。" notice="" />
+    <a time="193" text="時間切れ" sync="ニーズヘッグの「最期の咆哮」" notice="" />
+    <t sync="騎神トールダン:ハハハハハ！" goto="騎竜神P" />
+
+    <t sync="^14:(6D2B|6D2C)" notice="内側へ">
+      <v-notice text="ウィング:内側安置" duration="10" />
+    </t>
+    <t sync="^14:(6D2D|6D2E)" notice="外側へ">
+      <v-notice text="テイル:外側安置" duration="10" />
+    </t>
+
+    <!--ホーリーウィング6D23~6D28は調査中。-->
+  </s>
+
+  <s name="騎竜神P">
+    <a time="002.0" sync="アルフィノ:…あれは、教皇トールダン！" />
+    <a time="006.0" text="衝撃波" sync="騎神トールダンの「衝撃波」" notice="" />
+    <a time="022.0" text="アルティメットエンド・オルタナ" sync="騎竜神トールダンの「アルティメットエンド・オルタナ」" notice="" />
+    <a time="035.0" sync="騎竜神トールダン:眼を喰らいし聖剣よ！" />
+    <!--エクサ1回目-->
+    <a time="035.0" text="【予兆】エクサフレア" sync="騎竜神トールダンは「騎竜剣エクサフレア」の構え。" />
+    <a time="042.0" text="騎竜剣エクサフレア" sync="騎竜神トールダンの「騎竜剣エクサフレア」" notice="エクサフレア。" />
+    <a time="042.0" text="(フレイム|アイス)・オブ・アスカロン" sync="騎竜神トールダンの「(フレイム|アイス)・オブ・アスカロン」" notice="" />
+    <a time="050.0" text="トリニティ" sync="騎竜神トールダンの「トリニティ」" notice="トリニティ" sync-count="1" />
+    <a time="054.0" text="トリニティ" />
+    <!--a time="056.0" sync="騎竜神トールダン:眼を喰らいし聖剣よ！ その怨念の輝きで、死の底に叩き落とせ！" /-->
+    <a time="056.0" text="【予兆】アク・モーン" sync="騎竜神トールダンは「騎竜剣アク・モーン」の構え。" />
+    <a time="063.0" text="アク・モーン5" sync="騎竜神トールダンの「騎竜剣アク・モーン」" notice="アク・モーン。" />
+    <!--チャリダイナモ　アイスがダイナモ-->
+    <a time="063.0" text="(フレイム|アイス)・オブ・アスカロン" sync="騎竜神トールダンの「(フレイム|アイス)・オブ・アスカロン」" notice="" />
+    <a time="065.0" text="アク・モーン4" />
+    <a time="066.0" text="アク・モーン3" />
+    <a time="067.0" text="アク・モーン2" />
+    <a time="068.0" text="アク・モーン1" />
+    <a time="074.0" text="トリニティ" sync="騎竜神トールダンの「トリニティ」" notice="トリニティ" sync-count="1" />
+    <a time="078.0" text="トリニティ" />
+    <a time="090.0" text="ギガフレア" sync="騎竜神トールダンの「騎竜剣ギガフレア」" notice="ギガフレア。" />
+    <a time="090.0" text="(フレイム|アイス)・オブ・アスカロン" sync="騎竜神トールダンの「(フレイム|アイス)・オブ・アスカロン」" notice="" />
+    <a time="108.0" text="トリニティ" sync="騎竜神トールダンの「トリニティ」" notice="トリニティ" sync-count="1" />
+    <a time="112.0" text="トリニティ" />
+
+    <!--エクサ2回目-->
+    <a time="114.0" text="【予兆】エクサフレア" sync="騎竜神トールダンは「騎竜剣エクサフレア」の構え。" />
+    <a time="121.0" text="エクサフレア" sync="騎竜神トールダンの「騎竜剣エクサフレア」" notice="エクサフレア" sync-count="1" />
+    <a time="121.0" text="(フレイム|アイス)・オブ・アスカロン" sync="騎竜神トールダンの「(フレイム|アイス)・オブ・アスカロン」" notice="" />
+    <a time="129.0" text="トリニティ" sync="騎竜神トールダンの「トリニティ」" notice="トリニティ" sync-count="1" />
+    <a time="133.0" text="トリニティ" />
+    <a time="135.0" text="【予兆】アク・モーン" sync="騎竜神トールダンは「騎竜剣アク・モーン」の構え。" notice="" />
+    <a time="142.0" text="アク・モーン6" sync="騎竜神トールダンの「騎竜剣アク・モーン」" notice="アク・モーン" sync-count="1" />
+    <a time="142.0" text="(フレイム|アイス)・オブ・アスカロン" sync="騎竜神トールダンの「(フレイム|アイス)・オブ・アスカロン」" notice="" />
+    <a time="144.0" text="アク・モーン5" />
+    <a time="145.0" text="アク・モーン4" />
+    <a time="146.0" text="アク・モーン3" />
+    <a time="147.0" text="アク・モーン2" />
+    <a time="148.0" text="アク・モーン1" />
+    <a time="154.0" text="トリニティ" sync="騎竜神トールダンの「トリニティ」" notice="トリニティ" sync-count="1" />
+    <a time="158.0" text="トリニティ" />
+    <a time="160.0" text="ギガフレア" sync="騎竜神トールダンは「騎竜剣ギガフレア」の構え。" notice="騎竜剣ギガフレア。" />
+    <a time="169.0" text="騎竜剣ギガフレア" sync="騎竜神トールダンの「騎竜剣ギガフレア」" />
+    <a time="170.0" text="(フレイム|アイス)・オブ・アスカロン" sync="騎竜神トールダンの「(フレイム|アイス)・オブ・アスカロン」" notice="" />
+    <a time="188.0" text="トリニティ" sync="騎竜神トールダンの「トリニティ」" notice="トリニティ" sync-count="1" />
+    <a time="192.0" text="トリニティ" />
+
+    <!--エクサ3回目-->
+    <a time="194.0" text="【予兆】エクサフレア" sync="騎竜神トールダンは「騎竜剣エクサフレア」の構え。" />
+    <a time="201.0" text="エクサフレア" sync="騎竜神トールダンの「騎竜剣エクサフレア」" notice="騎竜剣エクサフレア。" />
+    <a time="201.0" text="(フレイム|アイス)・オブ・アスカロン" sync="騎竜神トールダンの「(フレイム|アイス)・オブ・アスカロン」" notice="" />
+    <a time="209.0" text="トリニティ" sync="騎竜神トールダンの「トリニティ」" notice="トリニティ" sync-count="1" />
+    <a time="213.0" text="トリニティ" />
+    <a time="215.0" text="【予兆】アク・モーン" sync="騎竜神トールダンは「騎竜剣アク・モーン」の構え。" />
+    <a time="222.0" text="アク・モーン7" sync="騎竜神トールダンの「騎竜剣アク・モーン」" notice="アク・モーン。" />
+    <a time="222.0" text="(フレイム|アイス)・オブ・アスカロン" sync="騎竜神トールダンの「(フレイム|アイス)・オブ・アスカロン」" notice="" />
+    <a time="224.0" text="アク・モーン6" />
+    <a time="225.0" text="アク・モーン5" />
+    <a time="226.0" text="アク・モーン4" />
+    <a time="227.0" text="アク・モーン3" />
+    <a time="228.0" text="アク・モーン2" />
+    <a time="229.0" text="アク・モーン1" />
+    <a time="235.0" text="トリニティ" sync="騎竜神トールダンの「トリニティ」" notice="トリニティ" sync-count="1" />
+    <a time="239.0" text="トリニティ" />
+    <!--a time="241.0" sync="騎竜神トールダン:そろそろ終いだ……！ すべての眼よ、永遠の死をここに……！" /-->
+    <a time="241.0" text="最終詠唱" sync="騎竜神トールダンは「騎竜剣モーン・アファー」の構え。" notice="" />
+    <a time="252.0" text="騎竜剣モーン・アファー" />
+    <a time="255.0" text="騎竜剣モーン・アファー" />
+    <a time="258.0" text="騎竜剣モーン・アファー" />
+    <t sync="^14:6D93" notice="内側へ">
+      <v-notice text="氷:内側安置" duration="10" />
+    </t>
+    <t sync="^14:6D9B" notice="外側へ">
+      <v-notice text="炎:外側安置" duration="10" />
+    </t>
+  </s>
+</timeline>
