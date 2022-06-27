@@ -471,7 +471,9 @@
     <a time="017" text="AA" />
     <a time="019" text="(開始)竜の息吹" sync="ニーズヘッグは「邪竜の息吹」の構え。" />
     <a time="026" text="竜の息吹" sync="ニーズヘッグの「邪竜の息吹」" notice="竜の息吹。" />
-    <a time="027" text="オーブ＆ブレス" sync="ニーズヘッグの「ダークオーブ」" notice="" />
+    <a time="027" text="オーブ＆ブレス" sync="ニーズヘッグの「ダークオーブ」" notice="DPS散開" >
+      <v-notice icon="PunishmentHevy.png" text="滅殺の誓い注意" duration="20" />
+    </a>
     <a time="030" text="AA" />
     <a time="033" text="AA" />
     <a time="035" text="滅殺の誓い付与" sync="ニーズヘッグの「滅殺の誓い」" notice="滅殺の誓い。" />
