@@ -19,6 +19,9 @@
 
     <!--X秒前通知のセット-->
   <default target-element="Activity" target-attr="notice-o" value="-3" />
+  <default target-element="Activity" target-attr="notice-d" value="Main" />
+  <default target-element="Trigger" target-attr="notice-d" value="Main" />
+
 
 
   <s name="ENTRY">

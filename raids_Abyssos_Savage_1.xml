@@ -21,6 +21,9 @@
 
   <!--X秒前通知のセット-->
   <default target-element="Activity" target-attr="notice-o" value="-3" />
+  <default target-element="Activity" target-attr="notice-d" value="Main" />
+  <default target-element="Trigger" target-attr="notice-d" value="Main" />
+
 
   <s name="ENTRY">
     <a time="014" text="全体攻撃" sync="プロトカーバンクルの「ソニックハウル」" notice="全体攻撃" />
@@ -29,7 +32,7 @@
     <a time="056" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="スイッチ" />
     <a time="063" text="ベノムクランチ" sync="プロトカーバンクルの「ベノムクランチ」" />
     <a time="083" text="沼を踏む" notice="沼を踏む" />
-    <a time="094" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="タンク" />
+    <a time="094" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="スイッチ" />
     <a time="100" text="ベノムクランチ" sync="プロトカーバンクルの「ベノムクランチ」" />
     <a time="115" text="ルビーの光" sync="プロトカーバンクルの「ルビーの光」" notice="ルビーの光" />
     <a time="120" text="【予告】突進" />
@@ -78,7 +81,7 @@
     <a time="513" text="ソニックハウル" sync="プロトカーバンクルの「ソニックハウル」" notice="全体攻撃" />
     <a time="521" text="スコールorスプラッシュ" sync="プロトカーバンクルの「ベノム(スコール|スプラッシュ)」" />
     <a time="534" text="クロウorテイル" sync="プロトカーバンクルは「(テイル・アンド・クロウ|クロウ・アンド・テイル)」の構え。" />
-    <a time="554" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="タンク強攻撃" />
+    <a time="554" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="スイッチ" />
     <a time="560" text="ベノムクランチ" sync="プロトカーバンクルの「ベノムクランチ」" />
     <a time="600" text="時間切れ調査中" />
   </s>
