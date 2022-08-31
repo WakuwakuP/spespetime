@@ -3,8 +3,6 @@
   <name>Abyssos: The Fifth Circle (Savage) timeline</name>
   <rev>TEST1</rev>
   <description>
-    202208310323:TEST1　動作未チェック
-    AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
   </description>
   <author>Aqua Cat,sheeva,RINGS,wakuwaku</author>
   <license>CC BY-SA</license>
@@ -39,7 +37,6 @@
     <a time="123" text="トパーズストーン" sync="プロトカーバンクルの「トパーズストーン」" notice="" />
     <a time="126" text="突進確認" sync="プロトカーバンクルは「ダブルラッシュ」の構え。" notice="" />
     <a time="132" text="ノックバック" sync="プロトカーバンクルの「ダブルラッシュ」" notice="@ANTI_KNOCKBACK" sync-count="1" />
-    <!--a time="135" text="ダブルラッシュ" sync="プロトカーバンクルの「ダブルラッシュ」" /-->
     <a time="146" text="ソニックハウル" sync="プロトカーバンクルの「ソニックハウル」" notice="全体攻撃" />
     <a time="159" text="ルビーの光" sync="プロトカーバンクルの「ルビーの光」" notice="ルビーの光" />
     <a time="162" text="【予告】3連クラスター" />
@@ -52,9 +49,7 @@
     <a time="289" text="ソニックハウル" sync="プロトカーバンクルは「ソニックハウル」の構え。" sync-s="-30" />
     <a time="294" text="ソニックハウル" sync="プロトカーバンクルの「ソニックハウル」" notice="全体攻撃" />
     <a time="301" text="ルビーの光" sync="プロトカーバンクルの「ルビーの光」" notice="ルビーの光" />
-    <a time="304" text="【予告】石に範囲当て" />
     <a time="307" text="トパーズストーン" sync="プロトカーバンクルの「トパーズストーン」" notice="" />
-    <!--散開パターンが存在するかも？。-->
     <a time="315" text="ベノムスプラッシュ" sync="プロトカーバンクルの「ベノムスプラッシュ」" />
     <a time="326" text="レイorクロウ" sync="プロトカーバンクルの「(レイジングクロウ|シアリングレイ)」" />
     <a time="341" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="スイッチ" />
@@ -90,23 +85,22 @@
   <t sync="^14:7716" notice="散開から">
     <v-notice text="散開→中央→4人頭割り" duration="9" />
   </t>
-
   <t sync="^14:771A" notice="頭割りから">
     <v-notice text="4人頭割り→中央→散開" duration="9" />
   </t>
+
   <!--クロウorテイル-->
   <t sync="^14:770E" notice="後ろ安置">
     <v-notice text="前から後ろ" duration="9" />
   </t>
-
   <t sync="^14:7712" notice="前安置">
     <v-notice text="前から後ろ" duration="9" />
   </t>
+
   <!--レイorテイル-->
   <t sync="^14:76F7" notice="前安置">
     <v-notice text="前安置" duration="9" />
   </t>
-
   <t sync="^14:76FB" notice="後ろ安置">
     <v-notice text="後ろ安置" duration="9" />
   </t>
