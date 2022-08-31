@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>Abyssos: The Fifth Circle (Savage) timeline</name>
+  <rev>TEST1</rev>
+  <description>
+    202208310323:TEST1　動作未チェック
+    AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
+  </description>
+  <author>Aqua Cat,sheeva,RINGS,wakuwaku</author>
+  <license>CC BY-SA</license>
+  <zone>Abyssos: The Fifth Circle (Savage)</zone>
+  <locale>JA</locale>
+  <start>0039::戦闘開始！</start>
+  <entry>ENTRY</entry>
+
+  @{
+    var ANTI_KNOCKBACK = Model.Player.InRole("HEALER","MagicDPS") ?
+      "堅実魔" :
+      "アムレン";
+  }
+
+  <!--X秒前通知のセット-->
+  <default target-element="Activity" target-attr="notice-o" value="-3" />
+
+  <s name="ENTRY">
+    <a time="014" text="全体攻撃" sync="プロトカーバンクルの「ソニックハウル」" notice="全体攻撃" />
+    <a time="022" text="ルビーの光" sync="プロトカーバンクルの「ルビーの光」" notice="ルビーの光" />
+    <a time="029" text="安置を確認" sync="プロトカーバンクルの「トパーズストーン」" notice="" />
+    <a time="056" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="スイッチ" />
+    <a time="063" text="ベノムクランチ" sync="プロトカーバンクルの「ベノムクランチ」" />
+    <a time="083" text="沼を踏む" notice="沼を踏む" />
+    <a time="094" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="タンク" />
+    <a time="100" text="ベノムクランチ" sync="プロトカーバンクルの「ベノムクランチ」" />
+    <a time="115" text="ルビーの光" sync="プロトカーバンクルの「ルビーの光」" notice="ルビーの光" />
+    <a time="120" text="【予告】突進" />
+    <a time="123" text="トパーズストーン" sync="プロトカーバンクルの「トパーズストーン」" notice="" />
+    <a time="126" text="突進確認" sync="プロトカーバンクルは「ダブルラッシュ」の構え。" notice="" />
+    <a time="132" text="ノックバック" sync="プロトカーバンクルの「ダブルラッシュ」" notice="@ANTI_KNOCKBACK" sync-count="1" />
+    <!--a time="135" text="ダブルラッシュ" sync="プロトカーバンクルの「ダブルラッシュ」" /-->
+    <a time="146" text="ソニックハウル" sync="プロトカーバンクルの「ソニックハウル」" notice="全体攻撃" />
+    <a time="159" text="ルビーの光" sync="プロトカーバンクルの「ルビーの光」" notice="ルビーの光" />
+    <a time="162" text="【予告】3連クラスター" />
+    <a time="165" text="トパーズクラスター" sync="プロトカーバンクルの「トパーズクラスター」" notice="" />
+    <a time="192" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="スイッチ" />
+    <a time="199" text="ベノムクランチ" sync="プロトカーバンクルの「ベノムクランチ」" />
+    <a time="211" text="スコールorスプラッシュ" sync="プロトカーバンクルの「ベノム(スコール|スプラッシュ)」" />
+    <a time="225" text="テイルorクロウ" sync="プロトカーバンクルは「(テイル・アンド・クロウ|クロウ・アンド・テイル)」の構え。" />
+    <a time="243" text="捕食ギミック開始" sync="プロトカーバンクル:ググ、ギュグァアアアア！" />
+    <a time="289" text="ソニックハウル" sync="プロトカーバンクルは「ソニックハウル」の構え。" sync-s="-30" />
+    <a time="294" text="ソニックハウル" sync="プロトカーバンクルの「ソニックハウル」" notice="全体攻撃" />
+    <a time="301" text="ルビーの光" sync="プロトカーバンクルの「ルビーの光」" notice="ルビーの光" />
+    <a time="304" text="【予告】石に範囲当て" />
+    <a time="307" text="トパーズストーン" sync="プロトカーバンクルの「トパーズストーン」" notice="" />
+    <!--散開パターンが存在するかも？。-->
+    <a time="315" text="ベノムスプラッシュ" sync="プロトカーバンクルの「ベノムスプラッシュ」" />
+    <a time="326" text="レイorクロウ" sync="プロトカーバンクルの「(レイジングクロウ|シアリングレイ)」" />
+    <a time="341" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="スイッチ" />
+    <a time="347" text="ベノムクランチ" sync="プロトカーバンクルの「ベノムクランチ」" />
+    <a time="361" text="ルビーの光" sync="プロトカーバンクルの「ルビーの光」" notice="ルビーの光" />
+    <a time="365" text="【予告】2箇所安置に分かれる" />
+    <a time="368" text="トパーズストーン" sync="プロトカーバンクルの「トパーズストーン」" notice="2箇所に分かれる" />
+    <a time="383" text="スコールorスプラッシュ" sync="プロトカーバンクルの「ベノム(スコール|スプラッシュ)」" />
+    <a time="405" text="沼を踏む" notice="沼を踏む" />
+    <a time="407" text="テイルorクロウ" sync="プロトカーバンクルは「(テイル・アンド・クロウ|クロウ・アンド・テイル)」の構え。" />
+    <a time="426" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="スイッチ" />
+    <a time="433" text="ベノムクランチ" sync="プロトカーバンクルの「ベノムクランチ」" />
+    <a time="445" text="ソニックハウル" sync="プロトカーバンクルの「ソニックハウル」" notice="全体攻撃" />
+    <a time="452" text="ルビーの光" sync="プロトカーバンクルの「ルビーの光」" notice="ルビーの光" />
+    <a time="455" text="【予告】範囲を当てる" />
+    <a time="458" text="トパーズストーン" sync="プロトカーバンクルの「トパーズストーン」" notice="範囲を当てる" />
+    <!--散開パターンあるかも？-->
+    <a time="465" text="ベノムスプラッシュ" sync="プロトカーバンクルの「ベノムスプラッシュ」" />
+    <a time="475" text="突進注意" sync="プロトカーバンクルは「ダブルラッシュ」の構え。" />
+    <a time="482" text="ノックバック" sync="プロトカーバンクルの「ダブルラッシュ」" notice="@ANTI_KNOCKBACK" sync-count="1" />
+    <!--a time="484" text="ダブルラッシュ" sync="プロトカーバンクルの「ダブルラッシュ」" /-->
+    <a time="492" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="スイッチ" />
+    <a time="498" text="ベノムクランチ" sync="プロトカーバンクルの「ベノムクランチ」" />
+    <a time="513" text="ソニックハウル" sync="プロトカーバンクルの「ソニックハウル」" notice="全体攻撃" />
+    <a time="521" text="スコールorスプラッシュ" sync="プロトカーバンクルの「ベノム(スコール|スプラッシュ)」" />
+    <a time="534" text="クロウorテイル" sync="プロトカーバンクルは「(テイル・アンド・クロウ|クロウ・アンド・テイル)」の構え。" />
+    <a time="554" text="ベノムマス" sync="プロトカーバンクルの「ベノムマス」" notice="タンク強攻撃" />
+    <a time="560" text="ベノムクランチ" sync="プロトカーバンクルの「ベノムクランチ」" />
+    <a time="600" text="時間切れ調査中" />
+  </s>
+
+  <!--スコール/スプラッシュ-->
+  <t sync="^14:7716" notice="散開から">
+    <v-notice text="散開→中央→4人頭割り" duration="9" />
+  </t>
+
+  <t sync="^14:771A" notice="頭割りから">
+    <v-notice text="4人頭割り→中央→散開" duration="9" />
+  </t>
+  <!--クロウorテイル-->
+  <t sync="^14:770E" notice="後ろ安置">
+    <v-notice text="前から後ろ" duration="9" />
+  </t>
+
+  <t sync="^14:7712" notice="前安置">
+    <v-notice text="前から後ろ" duration="9" />
+  </t>
+  <!--レイorテイル-->
+  <t sync="^14:76F7" notice="前安置">
+    <v-notice text="前安置" duration="9" />
+  </t>
+
+  <t sync="^14:76FB" notice="後ろ安置">
+    <v-notice text="後ろ安置" duration="9" />
+  </t>
+</timeline>
