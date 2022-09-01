@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <timeline>
-  <name>Abyssos: The Fourth Circle (Savage) timeline</name>
+  <name>Abyssos: The Eighth Circle (Savage) timeline</name>
   <rev>TEST1</rev>
   <description>
   </description>
   <author>wakuwaku</author>
   <license>CC BY-SA</license>
-  <zone>Abyssos: The Fourth Circle (Savage)</zone>
+  <zone>Abyssos: The Eighth Circle (Savage)</zone>
   <locale>JA</locale>
   <start>0039::戦闘開始！</start>
   <entry>ENTRY</entry>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <timeline>
-  <name>Abyssos: The Second Circle (Savage) timeline</name>
-  <rev>TEST1</rev>
+  <name>Abyssos: The Sixth Circle (Savage) timeline</name>
+  <rev>TEST3</rev>
   <description>
   </description>
-  <author>wakuwaku</author>
+  <author>
+    Aqua Cat,RINGS
+    wakuwaku
+  </author>
   <license>CC BY-SA</license>
-  <zone>Abyssos: The Second Circle (Savage)</zone>
+  <zone>Abyssos: The Sixth Circle (Savage)</zone>
   <locale>JA</locale>
   <start>0039::戦闘開始！</start>
   <entry>ENTRY</entry>
@@ -17,13 +20,233 @@
       "アムレン";
   }
 
-    <!--X秒前通知のセット-->
   <default target-element="Activity" target-attr="notice-o" value="-3" />
   <default target-element="Activity" target-attr="notice-d" value="Main" />
   <default target-element="Trigger" target-attr="notice-d" value="Main" />
 
 
-
   <s name="ENTRY">
+    <a time="000" sync="ヘーゲモネー:私が任された……この煉獄を、守り抜いてみせる！" />
+    <a time="013" text="全体" sync="ヘーゲモネーの「ヘーミテオス・ダージャ」" notice="全体攻撃" />
+    <a time="027" text="タンク頭割り" sync="ヘーゲモネーの「キール・シュネルギア」" notice="タンク頭割り" />
+    <a time="036" text="セリフ" sync="ヘーゲモネー:エーテル・ポリオミノ、展開……貴様らを、排除する！" />
+    <a time="041" text="ポリオミノ" sync="ヘーゲモネーの「エーテル・ポリオミノ」" notice="床を確認" />
+    <a time="048" text="【予兆】ペア頭割り" sync="ヘーゲモネーの「ダークホーリー」" notice="ペアの頭割り" />
+    <a time="054" text="エクソークリーバー" sync="ヘーゲモネーの「エクソークリーバー」" notice="移動注意" />
+    <a time="062" text="セリフ" sync="ヘーゲモネー:寄生され、朽ち果てるがいい……。" />
+    <a time="071" text="軟体細胞流1" sync="ヘーゲモネーの「軟体細胞流」" sync-count="1" />
+    <a time="073" text="軟体細胞流2" />
+    <a time="075" text="軟体細胞流3" />
+    <a time="077" text="軟体細胞流4" />
+    <a time="079" text="軟体細胞流5" />
+    <a time="080" text="軟体細胞流6" />
+    <a time="082" text="軟体細胞流7" />
+    <a time="084" text="軟体細胞流8" />
+
+    <a time="096" text="【予告】マーカーと線" sync="ヘーゲモネーの「エーテルチェンジ」" notice="マーカー入れ替えギミック" />
+    <a time="098" sync="ヘーゲモネー:見極められると思うなよ……！" />
+    <a time="102" text="チェンジバースト" sync="ヘーゲモネーの「チェンジバースト」" />
+    <a time="105" text="タテヨコ確認" sync="ヘーゲモネーは「ホロス・イクソス」の構え。" />
+    <a time="110" text="ホロス・イクソス2" />
+    <a time="113" text="ホロス・イクソス1" />
+    <a time="127" text="シュネルギア" sync="ヘーゲモネーの「(キール・|)シュネルギア」" />
+    <a time="140" text="全体攻撃" sync="ヘーゲモネーの「ヘーミテオス・ダージャ」" notice="全体攻撃" />
+    <a time="146" sync="ヘーゲモネー:この身に宿りし獣たちよ、奴らに寄生するのだ！" />
+    <a time="152" text="寄生" sync="ヘーゲモネーの「寄生」" notice="デバフを確認" />
+
+    <a time="159" text="タテヨコ確認" sync="ヘーゲモネーは「ホロス・イクソス」の構え。" />
+    <a time="164" text="ホロス・イクソス2" />
+    <a time="164.5" text="寄生攻撃" />
+    <a time="167" text="ホロス・イクソス1" />
+    <a time="177" text="【予告】安置1、AoE設置" sync="ヘーゲモネーの「エーテルチェンジ」" />
+    <a time="179" text="" sync="ヘーゲモネーは「エーテル・ポリオミノΣ」を唱えた。" notice="安置が１つ、ダークドーム" />
+    <a time="184" text="エーテル・ポリオミノΣ" sync="ヘーゲモネーの「エーテル・ポリオミノΣ」" notice="床を確認" />
+    <a time="189" text="AoE注意" sync="ヘーゲモネーは「ダークドーム」を唱えた。" notice="えーおーいー注意" />
+    <a time="193" text="ダークドーム" sync="ヘーゲモネーの「ダークドーム」" />
+
+    <a time="208" text="【予告】2組頭割り" sync="ヘーゲモネーの「エーテルチェンジ」" notice="2組頭割り" />
+    <a time="214" text="チェンジバースト" sync="ヘーゲモネーの「チェンジバースト」" />
+    <a time="222" text="移動注意" sync="ヘーゲモネーの「エクソークリーバー」" notice="移動注意" />
+
+    <a time="238" text="シュネルギア" sync="ヘーゲモネーの「(キール・|)シュネルギア」" />
+    <a time="250" text="全体攻撃" sync="ヘーゲモネーの「ヘーミテオス・ダージャ」" />
+    <a time="260" text="【予告】2箇所安置2頭割り" sync="ヘーゲモネーの「エーテルチェンジ」" />
+    <a time="266" text="エーテル・ポリオミノΣ" sync="ヘーゲモネーの「エーテル・ポリオミノΣ」" notice="安置を確認" />
+    <a time="273" text="2組頭割り" sync="ヘーゲモネーの「ダークホーリー」" notice="頭割り" />
+    <a time="292" text="X散開" sync="ヘーゲモネーの「ダークアッシュ」" notice="エックス字に散開" />
+    <a time="295" text="タテヨコ確認" sync="ヘーゲモネーは「ホロス・イクソス」の構え。" />
+    <a time="300" text="ホロス・イクソス2" />
+    <a time="303" text="ホロス・イクソス1" />
+
+    <a time="312" sync="ヘーゲモネー:その肉体に、厄災をもたらそう！" />
+    <a time="312" text="カヘキシー1回目" sync="ヘーゲモネーは「カヘキシー」を唱えた。" notice="カヘキシー1回目" />
+    <a time="316" text="カヘキシー" sync="ヘーゲモネーの「カヘキシー」" />
+    <a time="326" text="双撃詠唱" sync="ヘーゲモネーは「甲軟双撃」の構え。" notice="双撃4連" />
+    <a time="333" text="甲軟双撃1" />
+    <a time="337" text="甲軟双撃2" />
+    <a time="341" text="甲軟双撃3" />
+    <a time="345" text="甲軟双撃4" />
+
+    <a time="348" text="デバフ注意" sync="ヘーゲモネーは「プテラ・イクソス」の構え。" />
+    <a time="355" text="プテラ・イクソス" sync="ヘーゲモネーの「プテラ・イクソス」" notice="プテライクソス" />
+    <a time="369" text="シュネルギア" sync="ヘーゲモネーの「(キール・|)シュネルギア」」" />
+    <a time="382" text="全体攻撃" sync="ヘーゲモネーの「ヘーミテオス・ダージャ」" notice="全体攻撃" />
+
+    <a time="388" text="【予告】市松模様とAoE設置" sync="ヘーゲモネーは「エーテル・ポリオミノ」を唱えた。" />
+    <a time="393" text="エーテル・ポリオミノ" sync="ヘーゲモネーの「エーテル・ポリオミノ」" notice="安置へ散開" />
+    <a time="399" text="ダークスフィア" sync="ヘーゲモネーの「ダークスフィア」" />
+    <a time="401" text="AoE注意" sync="ヘーゲモネーは「ダークドーム」を唱えた。" notice="えーおーいー注意" />
+    <a time="405" text="ダークドーム" sync="ヘーゲモネーの「ダークドーム」" />
+    <a time="421" text="【予告】マーカーと線" sync="ヘーゲモネーの「エーテルチェンジ」" />
+    <a time="428" text="チェンジバースト" sync="ヘーゲモネーの「チェンジバースト」" />
+    <a time="430" text="タテヨコ確認" sync="ヘーゲモネーは「ホロス・イクソス」の構え。" />
+    <a time="435" text="ホロス・イクソス" />
+    <a time="438" text="ホロス・イクソス" />
+
+    <a time="448" text="【予告】タテヨコと安置探し" sync="ヘーゲモネーの「エーテルチェンジ」" />
+    <a time="450" text="エーテル・ポリオミノΣ" sync="ヘーゲモネーは「エーテル・ポリオミノΣ」を唱えた。" />
+    <a time="454" text="エーテル・ポリオミノΣ" sync="ヘーゲモネーの「エーテル・ポリオミノΣ」" />
+    <a time="461" text="タテヨコ注意" sync="ヘーゲモネーは「ホロス・イクソス」の構え。" />
+    <a time="466" text="ホロス・イクソス" />
+    <a time="469" text="ホロス・イクソス" />
+    <a time="483" text="シュネルギア" sync="ヘーゲモネーの「(キール・|)シュネルギア」」" />
+    <a time="495" text="全体攻撃" sync="ヘーゲモネーの「ヘーミテオス・ダージャ」" notice="全体攻撃" />
+
+
+    <!--a time="504" sync="ヘーゲモネー:全魔力を解放……これで貴様らも終わりだ……！" /-->
+    <a time="504" text="カヘキシー2回目" sync="ヘーゲモネーは「カヘキシー」を唱えた。" notice="カヘキシ2回目" />
+    <a time="508" text="カヘキシー" sync="ヘーゲモネーの「カヘキシー」" />
+    <a time="516" text="寄生" sync="ヘーゲモネーの「寄生」" />
+    <a time="523" text="予告】4か所安置ペア頭割り" sync="ヘーゲモネーの「エーテルチェンジ」" />
+    <!--a time="525" text="エーテル・ポリオミノΣ" sync="ヘーゲモネーは「エーテル・ポリオミノΣ」を唱えた。" notice="次は、エーテル・ポリオミノΣ。" /-->
+    <a time="530" text="エーテル・ポリオミノΣ" sync="ヘーゲモネーの「エーテル・ポリオミノΣ」" />
+    <a time="543" text="プテラ・イクソス" sync="ヘーゲモネーの「プテラ・イクソス」" notice="プテライクソス" />
+
+    <a time="552" text="【予告】安置が１つAoE設置" sync="ヘーゲモネーは「エーテル・ポリオミノ」を唱えた。" notice="安置が１つダークドーム" />
+    <a time="556" text="エーテル・ポリオミノ" sync="ヘーゲモネーの「エーテル・ポリオミノ」" />
+    <a time="560" text="AoE注意" sync="ヘーゲモネーは「ダークドーム」を唱えた。" notice="えーおーいー注意" />
+    <a time="565" text="ダークドーム" sync="ヘーゲモネーの「ダークドーム」" />
+    <a time="570" text="調査中" />
+
+    <a time="607" text="シュネルギア" sync="ヘーゲモネーの「(キール・|)シュネルギア」」" />
+    <a time="629" text="時間切れ開始" sync="ヘーゲモネー:煉獄は私が守る……！　貴様らは、去ねい！" />
   </s>
+
+  <!--タンク強攻撃-->
+  <t sync="ヘーゲモネーは「シュネルギア」の構え。" notice="タンクスイッチ" />
+  <t sync="ヘーゲモネーは「キール・シュネルギア」の構え。" notice="タンク頭割り" />
+
+
+  <!--タテヨコ-->
+  <t sync="^14:7881" notice="横安置">
+    <v-notice text="安置:横から縦" duration="9" />
+  </t>
+  <t sync="^14:7883" notice="縦安置">
+    <v-notice text="安置:縦から横" duration="9" />
+  </t>
+
+  <!--寄生範囲-->
+  <t sync="^1A:D48:.*?:[mex]:" notice="前に範囲">
+    <v-notice text="前に範囲" duration="9" />
+  </t>
+
+  <t sync="^1A:CF3:.*?:[mex]:" notice="後ろに範囲">
+    <v-notice text="後ろに範囲" duration="9" />
+  </t>
+
+  <!--カヘキシー１回目-->
+  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 20.00 Seconds." notice="1回目">
+    <v-notice text="1回目" duration="32" />
+  </t>
+  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="2回目">
+    <v-notice text="2回目" duration="32" />
+  </t>
+  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 12.00 Seconds." notice="3回目">
+    <v-notice text="3回目" duration="32" />
+  </t>
+  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 16.00 Seconds." notice="4回目">
+    <v-notice text="4回目" duration="32" />
+  </t>
+
+  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3319_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 32.00 Seconds.">
+    <v-notice text="西へ" duration="32" />
+  </t>
+  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3320_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 32.00 Seconds.">
+    <v-notice text="東へ" duration="32" />
+  </t>
+
+  <t sync="^1A:CF7:.*?:[mex]:" notice="爪を受ける">
+    <v-notice text="爪を受ける" duration="16" />
+  </t>
+  <t sync="^1A:CF8:.*?:[mex]:" notice="蛇を受ける">
+    <v-notice text="蛇を受ける" duration="16" />
+  </t>
+
+  <!--マーカーセット。最初の頭割りを基準にし、他マーカーを逆算するよう試作。-->
+  <t sync="^1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):" sync-count="1">
+    <expressions>
+      <set name="marker_origin" value="0x${marker}" scope="CurrentZone" />
+    </expressions>
+  </t>
+
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 0, X4):" notice="頭割り">
+    <v-notice text="頭割り対象" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 10, X4):" notice="範囲対象">
+    <v-notice text="範囲対象" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 37, X4):" notice="中央へ">
+    <v-notice text="中央(頭割り)" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 38, X4):" notice="外側へ">
+    <v-notice text="外側(AoE)" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 39, X4):" notice="外側へ">
+    <v-notice text="外側(線先:AoE)" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 40, X4):" notice="調査中">
+    <v-notice text="調査中ID +40" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 41, X4):" notice="中央へ">
+    <v-notice text="中央(線先:頭割り)" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 42, X4):" notice="中央へ">
+    <v-notice text="中央(線先:ドーナツ)" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 43, X4):" notice="調査中">
+    <v-notice text="調査中ID +43" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 44, X4):" notice="外側へ">
+    <v-notice text="外側(線先:AoE)" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 48, X4):" notice="内側へ">
+    <v-notice text="内側(ドーナツ範囲)" duration="15" />
+  </t>
+
+  <!--サイコロ-->
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 239, X4):" notice="1番">
+    <v-notice text="1番" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 238, X4):" notice="2番">
+    <v-notice text="2番" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 237, X4):" notice="3番">
+    <v-notice text="3番" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 236, X4):" notice="4番">
+    <v-notice text="4番" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 235, X4):" notice="5番">
+    <v-notice text="5番" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 234, X4):" notice="6番">
+    <v-notice text="6番" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 233, X4):" notice="7番">
+    <v-notice text="7番" duration="15" />
+  </t>
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 232, X4):" notice="8番">
+    <v-notice text="8番" duration="15" />
+  </t>
+
 </timeline>

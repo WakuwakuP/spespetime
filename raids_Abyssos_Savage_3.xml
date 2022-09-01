@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <timeline>
-  <name>Abyssos: The Third Circle (Savage) timeline</name>
+  <name>Abyssos: The Seventh Circle (Savage) timeline</name>
   <rev>TEST1</rev>
   <description>
   </description>
-  <author>wakuwaku</author>
+  <author>
+    Aqua Cat,RINGS
+    wakuwaku
+  </author>
   <license>CC BY-SA</license>
-  <zone>Abyssos: The Third Circle (Savage)</zone>
+  <zone>Abyssos: The Seventh Circle (Savage)</zone>
   <locale>JA</locale>
   <start>0039::戦闘開始！</start>
   <entry>ENTRY</entry>
@@ -17,13 +20,133 @@
       "アムレン";
   }
 
-      <!--X秒前通知のセット-->
   <default target-element="Activity" target-attr="notice-o" value="-3" />
   <default target-element="Activity" target-attr="notice-d" value="Main" />
   <default target-element="Trigger" target-attr="notice-d" value="Main" />
 
-
-
   <s name="ENTRY">
+    <a time="001" sync="テミス:この巨体、獄卒長としての肉体など、もはや……！" />
+    <a time="014" text="全体攻撃" sync="アグディスティスの「生命の光芒」" notice="全体攻撃" />
+    <a time="019" sync="アグディスティス:アナタを……あなた、を、貴方を……！　滅シマす……！！！" />
+    <a time="027" text="エアロラ" sync="アグディスティスの「(スプレッド|アグリゲート)・エアロラ」" />
+    <a time="035" text="刃葉" sync="アグディスティスの「アッティスの刃葉」" notice="安置確認" />
+    <a time="039" text="セリフ" sync="テミス:足場を破壊する気か……ならば、こちらで生成し直す！" />
+    <a time="045" text="床破壊+打ち上げ" sync="アグディスティスの「生滅の導枝」" notice="打ち上げ" />
+    <!--a time="054" sync="ラハブレア:足場が足りぬなら、拡張するまでだ。" /-->
+    <a time="055" text="【予告】外周鳥のみの床へ" sync="アグディスティスは「生命の果実」を唱えた。" />
+    <a time="059" text="生命の果実" sync="アグディスティスの「生命の果実」" notice="雑魚を確認" />
+
+    <!--a time="061" sync="ラハブレア:あの実にエーテルが集中している……！ ヤツが生み出す創造生物に気を払え！" /-->
+    <a time="067" text="【予兆】2組頭割り" sync="アグディスティスは「ヘーミテオス・ホーリガ」を唱えた。" />
+    <a time="073" sync="アグディスティス:侵入……シンニュウ、シャを……排除！！ 叩き潰し……マス……！" />
+    <a time="080" text="巨枝" sync="アグディスティスの「アッティスの巨枝」" />
+    <a time="081" text="頭割り" sync="イマチュア・イーオーの「スタティックムーン」" notice="頭割り" />
+    <a time="092" text="エアロラ" sync="アグディスティスの「(スプレッド|アグリゲート)・エアロラ」" />
+    <a time="103" text="全体攻撃" sync="アグディスティスの「生命の光芒」" notice="全体攻撃" />
+
+    <!--a time="107" sync="アグディスティス:私は……アグディスティス……？　この肉体が、ワタシ……？ これが、私の力……獄卒長のチカラ！" /-->
+    <a time="107" text="【予告】散開/頭割り 2連" sync="アグディスティスは「魔印創成」を唱えた。" />
+    <a time="112" text="魔印創成" sync="アグディスティスの「魔印創成」" notice="デバフを確認" />
+    <a time="122" text="巨枝" sync="アグディスティスの「アッティスの巨枝」" />
+    <a time="130" text="パンチ" notice="安置へ移動" />
+    <a time="139" text="通路破壊" sync="アグディスティスの「アッティスの根」" notice="通路破壊" />
+    <a time="145" text="セリフ" sync="ラハブレア:飽きもせず、破壊するものだ……！ 足場を再生するには時間がかかるぞ……。" />
+    <a time="158" text="エアロラ" sync="アグディスティスの「(スプレッド|アグリゲート)・エアロラ」" />
+
+    <a time="161" text="【予告】ノックバックと散開" sync="アグディスティスは「生命の果実」を唱えた。" />
+    <a time="166" text="生命の果実" sync="アグディスティスの「生命の果実」" />
+    <!--a time="173" text="マルチキャスト" sync="アグディスティスは「マルチキャスト」を唱えた。" notice="次は、マルチキャスト。" /-->
+    <a time="176" text="マルチキャスト" sync="アグディスティスの「マルチキャスト」" />
+    <a time="183" text="ノックバック" sync="イマチュア・ステュムパリデスは「バードストライク」の構え。" />
+    <a time="186" text="散開" sync="イマチュア・ステュムパリデスの「バードストライク」" />
+    <a time="194" text="通路破壊" sync="アグディスティスの「アッティスの根」" notice="通路破壊" />
+    <a time="200" text="セリフ" sync="ラハブレア:チィ……！　すべて破壊されたか……再生を急ぐ……！" />
+
+    <a time="201" text="【予告】新通路で頭割り" sync="アグディスティスは「生命の果実」を唱えた。" />
+    <a time="205" text="生命の果実" sync="アグディスティスの「生命の果実」" />
+    <a time="214" text="2組頭割り" sync="アグディスティスは「ヘーミテオス・ホーリガ」を唱えた。" notice="2組頭割り" />
+    <a time="219" text="セリフ" sync="ラハブレア:この程度で、出し抜いたと思うなよ……。 別の位置に、足場を創り直すぞ！" />
+    <a time="241" text="アッティスの巨枝" sync="アグディスティスの「アッティスの巨枝」" />
+    <a time="249" text="パンチ" notice="安置へ異動" />
+    <a time="259" text="エアロラ" sync="アグディスティスの「(スプレッド|アグリゲート)・エアロラ」" />
+
+    <a time="261" text="【予告】牛:線 ミノ:誘導" sync="アグディスティスは「生命の果実」を唱えた。" />
+    <a time="266" text="生命の果実" sync="アグディスティスの「生命の果実」" />
+    <a time="287" text="スワイプ" sync="イマチュア・タウロスの「ブルスワイプ」" notice="スワイプ" />
+
+    <!--a time="291" sync="アグディスティス:滅却……します、ショウメツ、させま……す。 消え、なさササイィィ……！" /-->
+    <a time="291" text="【予告】ノックバックと頭割り" sync="アグディスティスは「アッティスの刃葉」の構え。" />
+    <a time="295" text="刃葉" sync="アグディスティスの「アッティスの刃葉」" />
+    <a time="298" sync="テミス:これでは逃げ場がない！ もう一度、足場を最初の状態に戻す！" />
+    <a time="301" text="マルチキャスト" sync="アグディスティスの「マルチキャスト」" />
+    <a time="307" text="ノックバック" />
+    <a time="324" text="エアロラ" sync="アグディスティスの「(スプレッド|アグリゲート)・エアロラ」" />
+
+    <a time="329" text="【予告】塔と線処理" sync="アグディスティスは「生命の果実」を唱えた。" />
+    <a time="333" text="生命の果実" sync="アグディスティスの「生命の果実」" />
+    <a time="343" text="塔が出る" sync="アグディスティスの「アッティスの光雫」" notice="次は、アッティスの光雫。" />
+    <a time="354" text="ノックバック" sync="イマチュア・ステュムパリデスの「ガストストライク」" notice="ノックバック" />
+    <a time="363" text="全体攻撃" sync="アグディスティスの「生命の光芒」" notice="全体攻撃" />
+    <a time="370" text="【予告】床破壊" sync="アグディスティスは「生滅の導枝」の構え。" notice="安置へ移動" />
+    <!--a time="372" sync="テミス:また、足場を壊す気か！ ならば、こちらも生成しなおすまで……どうか気をつけてくれ！" /-->
+    <a time="377" text="打ち上げ" sync="アグディスティスの「生滅の導枝」" notice="打ち上げ" />
+
+    <a time="380" text="【予告】連続の頭割り/散開" sync="アグディスティスは「生命の果実」を唱えた。" />
+    <a time="385" text="生命の果実" sync="アグディスティスの「生命の果実」" />
+    <a time="396" text="魔印創成・獄" sync="アグディスティスの「魔印創成・獄」" notice="デバフを確認" />
+    <a time="408" text="1回目" sync="イマチュア・イーオーの「スタティックムーン」" notice="1回目" />
+    <a time="430" text="全体攻撃" sync="アグディスティスの「生命の極光」" notice="全体攻撃" />
+    <!--a time="437" text="2回目" notice="2回目" /-->
+    <!--a time="452" text="3回目" notice="3回目" /-->
+    <a time="461" text="全体攻撃" sync="アグディスティスの「生命の極光」" notice="全体攻撃" />
+    <a time="467" text="AoE注意" notice="AoE注意" />
+
+    <a time="471" text="【予告】追尾AoE捨て" sync="アグディスティスは「生命の果実」を唱えた。" />
+    <a time="476" text="生命の果実" sync="アグディスティスの「生命の果実」" />
+    <a time="486" text="通路破壊" sync="アグディスティスの「アッティスの根」" notice="通路破壊" />
+    <a time="494" text="移動開始" sync="アグディスティスの「ヘーミテオス・グレア」" notice="範囲見て移動" />
+    <!--a time="497" sync="ラハブレア:フン……その行動は予測済みだ。 破壊されたのなら、再生させればよい……！" /-->
+    <a time="501" text="バードストライク" sync="イマチュア・ステュムパリデスの「バードストライク」" />
+
+    <a time="503" text="【予告】ミノ:三カ所誘導" sync="アグディスティスは「生命の繁茂【猛】」を唱えた。" />
+    <a time="508" text="生命の繁茂【猛】" sync="アグディスティスの「生命の繁茂【猛】」" notice="生命の繁茂、猛" />
+    <a time="529" text="スラッシュ" sync="イマチュア・タウロスの「ブルスラッシュ」" notice="スラッシュ。" />
+
+    <a time="536" text="【予告】牛:線4x2" sync="アグディスティスは「生命の繁茂【凶】」を唱えた。" />
+    <a time="540" text="生命の繁茂【凶】" sync="アグディスティスの「生命の繁茂【凶】」" notice="生命の繁茂、凶" />
+    <a time="561" text="スタティックパース" sync="イマチュア・イーオーの「スタティックパース」" notice="スタティックパース。" />
+    <a time="580" text="この後、乱" />
+    <a time="580" text="調査中" />
   </s>
+
+  <!--スプレッドorアグリゲート-->
+  <t sync="^14:7835" notice="タンク離れる">
+    <v-notice text="タンク離れる" duration="6" />
+  </t>
+  <t sync="^14:7836" notice="タンク頭割り">
+    <v-notice text="タンク頭割り" duration="6" />
+  </t>
+
+  <!--パンチ-->
+  <t sync="^14:7823" notice="右安置">
+    <v-notice text="右安置" duration="6" />
+  </t>
+  <t sync="^14:7824" notice="左安置">
+    <v-notice text="左安置" duration="6" />
+  </t>
+
+  <!--頭割り/散開-->
+  <t sync="1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 10.00 Seconds.">
+    <v-notice text="1回目散開" duration="11" />
+  </t>
+  <t sync="1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 25.00 Seconds.">
+    <v-notice text="2回目散開" duration="26" />
+  </t>
+  <t sync="1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 40.00 Seconds.">
+    <v-notice text="3回目散開" duration="41" />
+  </t>
+  <t sync="1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 55.00 Seconds.">
+    <v-notice text="4回目散開" duration="56" />
+  </t>
+
 </timeline>
