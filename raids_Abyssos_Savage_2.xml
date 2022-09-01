@@ -138,10 +138,10 @@
 
 
   <!--タテヨコ-->
-  <t sync="^14:7881" notice="横安置">
+  <t sync="^14:7881" notice="東西から">
     <v-notice text="安置:横から縦" duration="9" />
   </t>
-  <t sync="^14:7883" notice="縦安置">
+  <t sync="^14:7883" notice="南北から">
     <v-notice text="安置:縦から横" duration="9" />
   </t>
 
@@ -155,23 +155,23 @@
   </t>
 
   <!--カヘキシー１回目-->
-  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 20.00 Seconds." notice="1回目">
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 20.00 Seconds." notice="1回目">
     <v-notice text="1回目" duration="32" />
   </t>
-  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="2回目">
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="2回目">
     <v-notice text="2回目" duration="32" />
   </t>
-  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 12.00 Seconds." notice="3回目">
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 12.00 Seconds." notice="3回目">
     <v-notice text="3回目" duration="32" />
   </t>
-  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 16.00 Seconds." notice="4回目">
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 16.00 Seconds." notice="4回目">
     <v-notice text="4回目" duration="32" />
   </t>
 
-  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3319_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 32.00 Seconds.">
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3319_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 32.00 Seconds.">
     <v-notice text="西へ" duration="32" />
   </t>
-  <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3320_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 32.00 Seconds.">
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3320_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 32.00 Seconds.">
     <v-notice text="東へ" duration="32" />
   </t>
 
