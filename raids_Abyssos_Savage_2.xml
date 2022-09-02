@@ -155,31 +155,24 @@
   </t>
 
   <!--カヘキシー１回目-->
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 20.00 Seconds." notice="1回目">
-    <v-notice text="1回目" duration="32" />
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 20.00 Seconds." notice="/wait 14, 1回目入る">
+    <v-notice icon="my1" text="1回目" duration="32" />
   </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="2回目">
-    <v-notice text="2回目" duration="32" />
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="/wait 18, 2回目入る">
+    <v-notice icon="my2" text="2回目" duration="32" />
   </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 12.00 Seconds." notice="3回目">
-    <v-notice text="3回目" duration="32" />
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 12.00 Seconds." notice="/wait 22, 3回目入る">
+    <v-notice icon="my3" text="3回目" duration="32" />
   </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 16.00 Seconds." notice="4回目">
-    <v-notice text="4回目" duration="32" />
-  </t>
-
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3319_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 32.00 Seconds.">
-    <v-notice text="西へ" duration="32" />
-  </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3320_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 32.00 Seconds.">
-    <v-notice text="東へ" duration="32" />
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 16.00 Seconds." notice="/wait 25, 4回目 入る">
+    <v-notice icon="my4" text="4回目" duration="32" />
   </t>
 
-  <t sync="^1A:CF7:.*?:[mex]:" notice="爪を受ける">
-    <v-notice text="爪を受ける" duration="16" />
+  <t sync="^00:[id4]::[mex]に「軟体攻撃耐性低下」の効果。" notice="西へ">
+    <v-notice icon="West" text="西へ" duration="32" />
   </t>
-  <t sync="^1A:CF8:.*?:[mex]:" notice="蛇を受ける">
-    <v-notice text="蛇を受ける" duration="16" />
+  <t sync="^00:[id4]::[mex]に「甲殻攻撃耐性低下」の効果。" notice="東へ">
+    <v-notice icon="East" text="東へ" duration="32" />
   </t>
 
   <!--マーカーセット。最初の頭割りを基準にし、他マーカーを逆算するよう試作。-->
