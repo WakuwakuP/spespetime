@@ -26,7 +26,13 @@
 
   <s name="ENTRY">
     <a time="001" sync="テミス:この巨体、獄卒長としての肉体など、もはや……！" />
-    <a time="014" text="全体攻撃" sync="アグディスティスの「生命の光芒」" notice="全体攻撃" />
+    <a time="014" text="全体攻撃" sync="アグディスティスの「生命の光芒」" notice="全体攻撃">
+      <expressions>
+        <set name="" value="false" />
+        <set name="" value="false" />
+        <set name="" value="false" />
+      </expressions>
+    </a>
     <a time="019" sync="アグディスティス:アナタを……あなた、を、貴方を……！　滅シマす……！！！" />
     <a time="027" text="エアロラ" sync="アグディスティスの「(スプレッド|アグリゲート)・エアロラ」" />
     <a time="035" text="刃葉" sync="アグディスティスの「アッティスの刃葉」" notice="安置確認" />
@@ -46,7 +52,7 @@
 
     <!--a time="107" sync="アグディスティス:私は……アグディスティス……？　この肉体が、ワタシ……？ これが、私の力……獄卒長のチカラ！" /-->
     <a time="107" text="【予告】散開/頭割り 2連" sync="アグディスティスは「魔印創成」を唱えた。" />
-    <a time="112" text="魔印創成" sync="アグディスティスの「魔印創成」" notice="デバフを確認" />
+    <a time="113" text="魔印創成" sync="アグディスティスの「魔印創成」" notice="デバフを確認" />
     <a time="122" text="巨枝" sync="アグディスティスの「アッティスの巨枝」" />
     <a time="130" text="パンチ" notice="安置へ移動" />
     <a time="139" text="通路破壊" sync="アグディスティスの「アッティスの根」" notice="通路破壊" />
@@ -139,22 +145,67 @@
   <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3308_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 9.00 Seconds." notice="1回目散開">
     <v-notice icon="my1" text="散開\n→頭割り" />
   </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3308_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 9.00 Seconds." notice="2回目散開">
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3308_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 20.00 Seconds." notice="2回目散開">
     <v-notice icon="my2" text="頭割り\n→散開" />
   </t>
 
   <!-- 魔印創成・獄 -->
-  <t sync="1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 10.00 Seconds." notice="1回目散開">
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 10.00 Seconds." notice="1回目散開">
     <v-notice icon="my1" text="1回目散開" duration="11" />
   </t>
-  <t sync="1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 25.00 Seconds." notice="2回目散開">
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 25.00 Seconds." notice="2回目散開">
     <v-notice icon="my2" text="2回目散開" duration="26" />
   </t>
-  <t sync="1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 40.00 Seconds." notice="3回目散開">
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 40.00 Seconds." notice="3回目散開">
     <v-notice icon="my3" text="3回目散開" duration="41" />
   </t>
-  <t sync="1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 55.00 Seconds." notice="4回目散開">
+  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 55.00 Seconds." notice="4回目散開">
     <v-notice icon="my4" text="4回目散開" duration="56" />
+  </t>
+
+  <!-- 猛 -->
+  <t sync="^00:[id4]::アグディスティスの「生命の繁茂【猛】」">
+    <expressions>
+      <set name="farminesHarvest" value="true" />
+    </expressions>
+  </t>
+  <t sync="^23:[id8]:イマチュア・タウロス:[id8]:[mex]:" notice="タウロスついた" sync-count="1">
+    <expressions>
+      <pre name="farminesHarvest" value="true" />
+    </expressions>
+    <v-notice text="タウロス" duration="15" />
+  </t>
+  <!-- 凶 -->
+  <t sync="^00:[id4]::アグディスティスの「生命の繁茂【凶】」">
+    <expressions>
+      <set name="farminesHarvest" value="false" />
+      <set name="deathsHarvest" value="true" />
+    </expressions>
+  </t>
+  <!-- 乱 -->
+  <t sync="^00:[id4]::アグディスティスの「生命の繁茂【乱】」">
+    <expressions>
+      <set name="deathsHarvest" value="false" />
+      <set name="warsHarvest" value="true" />
+    </expressions>
+  </t>
+  <t sync="^23:[id8]:イマチュア・タウロス:[id8]:[mex]:" notice="タウロス ついた" sync-count="1">
+    <expressions>
+      <pre name="warsHarvest" value="true" />
+    </expressions>
+    <v-notice text="タウロス" duration="15" />
+  </t>
+  <t sync="^23:[id8]:イマチュア・ステュムパリデス:[id8]:[mex]:" notice="とり ついた" sync-count="1">
+    <expressions>
+      <pre name="warsHarvest" value="true" />
+    </expressions>
+    <v-notice text="鳥" duration="15" />
+  </t>
+  <t sync="^23:[id8]::[id8]:[mex]:" notice="うし ついた" sync-count="1">
+    <expressions>
+      <pre name="warsHarvest" value="true" />
+    </expressions>
+    <v-notice text="牛" duration="15" />
   </t>
 
 </timeline>
