@@ -1,29 +1,455 @@
 <?xml version="1.0" encoding="utf-8"?>
 <timeline>
-  <name>Abyssos: The Eighth Circle (Savage) timeline</name>
-  <rev>TEST1</rev>
+  <name>パンデモ零式:煉獄4層</name>
+  <rev>build4-0550</rev>
   <description>
+    20220903:TEST1 疲れたもう無理ギブアップ
+    AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
   </description>
-  <author>wakuwaku</author>
+  <author>Aqua Cat,RINGS</author>
   <license>CC BY-SA</license>
   <zone>Abyssos: The Eighth Circle (Savage)</zone>
   <locale>JA</locale>
   <start>0039::戦闘開始！</start>
   <entry>ENTRY</entry>
 
-  @{
-    var ANTI_KNOCKBACK = Model.Player.InRole("HEALER","MagicDPS") ?
-      "堅実魔" :
-      "アムレン";
-  }
-
-      <!--X秒前通知のセット-->
   <default target-element="Activity" target-attr="notice-o" value="-3" />
-  <default target-element="Activity" target-attr="notice-d" value="Main" />
-  <default target-element="Trigger" target-attr="notice-d" value="Main" />
-
-
 
   <s name="ENTRY">
+    <a time="10" text="前半後半の判別" icon="分岐.png" />
+    <t sync="(ヘファイストス:この昏き牢獄を、終のしとねとしてやろう|ヘファイストスは「創世の真炎」を唱えた。)" sync-count="1">
+      <load target="human1" truncate="true"/>
+    </t>
+
+    <t sync="(ヘファイストス:消エヨ……小サきっ、命ッ|ヘファイストスは「アイオンピュール」を唱えた。)" sync-count="1">
+      <load target="hephaistos" truncate="true"/>
+    </t>
+  </s>
+
+
+  <!--オタク/テトラ/ディ　コンシーヴ-->
+  <t sync="^14:7914" notice="遅延、散開">
+    <v-notice text="【遅延】散開" duration="40" />
+  </t>
+  <t sync="^14:7915" notice="遅延、ペア">
+    <v-notice text="【遅延】ペア頭割り" duration="40" />
+  </t>
+  <t sync="^14:7916" notice="遅延、2人">
+    <v-notice text="【遅延】2人頭割り" duration="40" />
+  </t>
+  <t sync="^14:7918" notice="4人頭割り">
+    <v-notice text="【遅延】4人頭割り" duration="40" />
+  </t>
+
+
+  <t sync="^14:791D" notice="散開">
+    <v-notice text="散開【範囲】" duration="5" />
+  </t>
+  <t sync="^14:791E" notice="頭割">
+    <v-notice text="ペア【頭割】" duration="5" />
+  </t>
+  <t sync="^14:791F" notice="直線">
+    <v-notice text="散開【直線】" duration="5" />
+  </t>
+
+  <!--本体からの創造獣-->
+  <t sync="^14:7910" notice="左右安置">
+    <v-notice text="龍:本体から直線" duration="5" />
+  </t>
+  <t sync="^14:7911" notice="中央安置">
+    <v-notice text="鳥:本体から左右" duration="5" />
+  </t>
+
+  <!--外周からの創造獣-->
+  <t sync="^14:7950" notice="外、竜">
+    <v-notice text="外周:龍" duration="5" />
+  </t>
+  <t sync="^14:7951" notice="外、鳥">
+    <v-notice text="外周:鳥" duration="5" />
+  </t>
+
+  <!--変身-->
+  <t sync="^14:794B" notice="ノックバック">
+    <v-notice text="ノックバック" duration="5" />
+  </t>
+  <t sync="^14:794C" notice="離れる">
+    <v-notice text="離れる" duration="5" />
+  </t>
+
+
+  <s name="human1">
+    <a time="000" sync="ヘファイストス:この昏き牢獄を、終のしとねとしてやろう……！" />
+    <a time="007" text="同期待ち" sync="ヘファイストスは「創世の真炎」を唱えた。" />
+    <a time="012" text="全体攻撃" sync="ヘファイストスの「創世の真炎」" notice="全体攻撃" />
+    <a time="018" text="【記憶】オクタCorテトラC" sync="ヘファイストスの「(オクタフレア|テトラフレア)・コンシーヴ」" />
+    <a time="021" text="セリフ" sync="ヘファイストス:灼熱よ……走れッ！" />
+    <a time="024" text="熾炎創火" sync="ヘファイストスの「熾炎創火」" notice="熾炎創火" />
+    <a time="032" text="セリフ" sync="ヘファイストス:燃え上がれ、猛き獣よ！" />
+    <a time="040" text="創獣炎舞" sync="ヘファイストスの「創獣炎舞」" />
+    <a time="042" text="【予告】炎蛇砲" sync="ヘファイストスは「炎蛇砲」を唱えた。" notice="タンクスイッチ" />
+    <a time="048" text="炎蛇砲1" />
+    <a time="051" text="炎蛇砲2" />
+
+    <a time="060" text="移行待ち" sync="ヘファイストスは「変異創身」を唱えた。" />
+    <!--a time="060.0" sync="ヘファイストス:我が身すら捧げた成果、とくと見ろ！" /-->
+    <a time="063" text="強制移行待ち" sync="ヘファイストスの「変異創身」" />
+
+    <t sync="^14:794B" notice="ノックバック">
+      <load target="Beast1" truncate="true" />
+      <load target="human2" />
+      <load target="snake1" />
+      <load target="human3" />
+    </t>
+    <t sync="^14:794C" notice="離れる">
+      <load target="snake1" truncate="true" />
+      <load target="human2" />
+      <load target="Beast1" />
+      <load target="human3" />
+    </t>
+    <!-- 移行トリガバックアップ。動作未確認が多いため一時的にコメントアウト
+  <t sync="ヘファイストスは「リアリングランページ」の構え。" notice="ノックバック">
+    <load target="Beast1" truncate="true" />
+    <load target="human2" />
+    <load target="snake1" />
+    <load target="human3" />
+  </t>
+  <t sync="ヘファイストスの「スネークキック」" notice="離れる">
+    <load target="snake1" truncate="true" />
+    <load target="human2" />
+    <load target="Beast1" />
+    <load target="human3" />
+  </t>-->
+  </s>
+
+  <s name="snake1">
+    <!--a time="000.0" text="変異創身" sync="ヘファイストスは「変異創身」を唱えた。" notice="次は、変異創身。" /-->
+    <a time="003.0" text="変異創身" sync="ヘファイストスの「変異創身」" />
+    <a time="011.0" text="スネークキック" sync="ヘファイストスの「スネークキック」" notice="スネークキック。" />
+    <a time="017.0" text="ゴルゴンの呪詛" sync="ヘファイストスの「ゴルゴンの呪詛」" notice="デバフを確認" />
+    <a time="020.0" text="セリフ" sync="ヘファイストス:進め、荒ぶる身躯よ！" />
+    <a time="024.0" text="イントゥシャドウ" sync="ヘファイストスの「イントゥシャドウ」" />
+    <a time="040.0" text="蛇1回目" sync="ゴルゴンは「ゴルゴネイオン」を唱えた。" sync-count="1" />
+    <a time="048.0" text="蛇2回目" />
+    <a time="062.0" text="爆炎波動" sync="ヘファイストスの「爆炎波動」" notice="全体攻撃" />
+    <a time="077.0" text="移行待ち" sync="ヘファイストスは「(幻影創造|(オクタフレア|テトラフレア)・コンシーヴ)」を唱えた。" />
+
+    <t sync="^14:792B:.*100.00,85.00," notice="前">
+      <v-notice text="前に蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*85.00,100.00," notice="左">
+      <v-notice text="左に蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*100.00,115.00," notice="後ろ">
+      <v-notice text="後ろに蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*115.00,100.00," notice="右">
+      <v-notice text="右に蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*110.61,89.39," notice="右前">
+      <v-notice text="右前に蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*110.61,110.61," notice="右後ろ">
+      <v-notice text="右後ろに蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*89.39,110.61," notice="左後ろ">
+      <v-notice text="左後ろ蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*89.39,89.39," notice="左前">
+      <v-notice text="左前に蛇" duration="10" />
+    </t>
+  </s>
+
+  <s name="Beast1">
+    <a time="003" text="変異創身" sync="ヘファイストスの「変異創身」" />
+    <a time="010" text="同期待ち" sync="ヘファイストスは「リアリングランページ」の構え。" />
+    <a time="016" text="ランページ1" sync="ヘファイストスの「リアリングランページ」" sync-count="1" />
+    <a time="018" text="ランページ2" />
+    <a time="020" text="ランページ3" />
+    <a time="022" text="ランページ4" />
+    <a time="024" text="神に逆らうなど、愚かしい！" sync="ヘファイストス:神に逆らうなど、愚かしい！" />
+    <a time="030" text="ストンプ1" sync="ヘファイストスの「フェイタルストンプ」" sync-count="1" />
+    <a time="032" text="ストンプ2" />
+    <a time="034" text="ストンプ3" />
+    <a time="037" text="ストンプ4" />
+    <a time="050" text="移行待ち" sync="ヘファイストスは「(幻影創造|(オクタフレア|テトラフレア)・コンシーヴ)」を唱えた。" />
+  </s>
+
+  <s name="human2">
+    <a time="003" text="幻影創造" sync="ヘファイストスの「幻影創造」" />
+    <a time="006" text="セリフ" sync="ヘファイストス:燃え上がれ、猛き獣よ！" />
+    <a time="006" text="幻影がPOP" sync="ヘファイストスは「創造命令」を唱えた。" notice="幻影がPOP" />
+    <!--a time="009.0" text="創造命令" sync="ヘファイストスの「創造命令」" /-->
+    <a time="009" text="外周を確認" sync="ヘファイストスの幻影は「創獣炎舞」を唱えた。" />
+    <!--a time="012.0" text="多重操炎" sync="ヘファイストスは「多重操炎」を唱えた。" notice="多重操炎。" /-->
+    <!--a time="017.0" text="創獣炎舞" sync="ヘファイストスの幻影の「創獣炎舞」" /-->
+    <a time="017" text="創獣炎舞+多重操炎" sync="ヘファイストスの「多重操炎」" notice="単体を確認" />
+    <!--a time="022.0" text="創獣炎舞" sync="ヘファイストスの幻影は「創獣炎舞」を唱えた。" notice="次は、創獣炎舞。" /-->
+    <a time="022" text="直線誘導" notice="直線誘導注意" />
+    <a time="029" text="創獣炎舞+フレア" sync="ヘファイストスの幻影の「創獣炎舞」" />
+    <a time="041" text="安置に入る" sync="ヘファイストスは「創世の真炎」を唱えた。" notice="安置に入る" />
+    <a time="047" text="全体攻撃" sync="ヘファイストスの「創世の真炎」" notice="全体攻撃" />
+    <a time="056" text="移行待ち" sync="ヘファイストスは「変異創身」を唱えた。" />
+  </s>
+
+
+  <s name="human3">
+    <a time="004.0" text="【記憶】オクタCorテトラC" sync="ヘファイストスの「(オクタフレア|テトラフレア)・コンシーヴ」" />
+    <a time="006.0" sync="ヘファイストス:炎獄の力を受けるがいい！" />
+    <a time="010.0" text="中央集合" sync="ヘファイストスの「四重炎嵐」" notice="中央集合" />
+    <a time="015.0" sync="ヘファイストス:炎獣よ、貪り喰らえ！" />
+    <a time="015.0" text="噴炎昇蛇" sync="ヘファイストスは「噴炎昇蛇」を唱えた。" />
+    <a time="029.0" text="オクタorテトラ" sync="ヘファイストスは「(オクタフレア|テトラフレア)」を唱えた。" />
+    <a time="040.0" sync="ヘファイストス:我が炎は、愛しき獣と化す！" />
+    <a time="048.0" text="創獣炎舞" sync="ヘファイストスの「創獣炎舞」" />
+    <a time="050.0" text="【予告】炎蛇砲" sync="ヘファイストスは「炎蛇砲」を唱えた。" notice="タンクスイッチ" />
+    <a time="056.0" text="炎蛇砲1" />
+    <a time="059.0" text="炎蛇砲2" />
+    <a time="068.0" text="変異創身" sync="ヘファイストスは「変異創身」を唱えた。" />
+    <t sync="^14:794B" notice="ノックバック">
+      <load target="Beast2" truncate="true" />
+      <load target="snake2" />
+    </t>
+    <t sync="^14:794C" notice="離れる">
+      <load target="snake2" truncate="true" />
+      <load target="Beast2" />
+    </t>
+
+  </s>
+
+  <s name="snake2">
+    <a time="003.0" text="変異創身" sync="ヘファイストスの「変異創身」" />
+    <a time="011.0" text="スネークキック" sync="ヘファイストスの「スネークキック」" notice="スネークキック。" />
+    <a time="017.0" text="ゴルゴンの呪詛" sync="ヘファイストスの「ゴルゴンの呪詛」" />
+    <a time="024.0" text="イントゥシャドウ" sync="ヘファイストスの「イントゥシャドウ」" />
+    <!--a time="040.0" text="ゴルゴネイオン" sync="ゴルゴンは「ゴルゴネイオン」を唱えた。" notice="次は、ゴルゴネイオン。" /-->
+    <a time="040.0" text="外周注意" sync="ヘファイストスの幻影の「ゴルゴンスピット」" notice="外周に注意" />
+    <a time="064.0" text="【予告】炎蛇砲" sync="ヘファイストスは「炎蛇砲」を唱えた。" notice="タンクスイッチ" />
+    <a time="070.0" text="炎蛇砲" />
+    <a time="073.0" text="炎蛇砲" />
+
+    <!--このあとタンク強攻撃-->
+
+    <t sync="^14:792B:.*100.00,85.00," notice="前">
+      <v-notice text="前に蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*85.00,100.00," notice="左">
+      <v-notice text="左に蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*100.00,115.00," notice="後ろ">
+      <v-notice text="後ろに蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*115.00,100.00," notice="右">
+      <v-notice text="右に蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*110.61,89.39," notice="右前">
+      <v-notice text="右前に蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*110.61,110.61," notice="右後ろ">
+      <v-notice text="右後ろに蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*89.39,110.61," notice="左後ろ">
+      <v-notice text="左後ろ蛇" duration="10" />
+    </t>
+    <t sync="^14:792B:.*89.39,89.39," notice="左前">
+      <v-notice text="左前に蛇" duration="10" />
+    </t>
+
+    <!--テスト中 100,120のみを確認-->
+    <t sync="^14:7932:.*(80.00,100.00,|120.00,100.00,)" notice="上下の蛇">
+      <v-notice text="上下の蛇" duration="10" />
+    </t>
+    <t sync="^14:7932:.*(100.00,80.00,|100.00,120.00,)" notice="左右の蛇">
+      <v-notice text="左右ろ蛇" duration="10" />
+    </t>
+    <t sync="^14:7932:.*(80.00,89.00,|120.00,89.00,)" notice="下側左右の蛇">
+      <v-notice text="下側、左右" duration="10" />
+    </t>
+    <t sync="^14:7932:.*(80.00,110.00,|120.00,110.00,)" notice="上側左右の蛇">
+      <v-notice text="上側、左右" duration="10" />
+    </t>
+  </s>
+
+  <s name="Beast2">
+    <a time="003.0" text="変異創身" sync="ヘファイストスの「変異創身」" />
+    <a time="010.0" sync="ヘファイストス:今の私は、いささか凶暴だッ！" />
+    <a time="011.0" text="【予告】離れるorノックバック" sync="ヘファイストスは「フィート(クラッシュ|インパクト)」の構え。" />
+    <a time="017.0" text="クラッシュ" sync="ヘファイストスの「フィート(クラッシュ|インパクト)」" />
+    <a time="023.0" text="【記憶】オクタCorテトラC" sync="ヘファイストスの「(オクタフレア|テトラフレア)・コンシーヴ」" />
+    <a time="025.0" text="予告開始" sync="ヘファイストスは「ブレイジングフィート」の構え。" />
+    <a time="038.0" text="ブレイジングフィート" sync="ヘファイストスの「ブレイジングフィート」" notice="突進" />
+    <a time="043.0" text="フィート1" />
+    <a time="047.0" text="突進" sync="ヘファイストスの「トレイルブレイズ」" />
+    <a time="050.0" text="フィート2" />
+    <a time="061.0" text="【予告】炎蛇砲" sync="ヘファイストスは「炎蛇砲」を唱えた。" notice="タンクスイッチ" />
+    <a time="067.0" text="炎蛇砲" />
+    <a time="070.0" text="炎蛇砲" />
+
+    <!--このあとタンク強攻撃-->
+
+    <t sync="^14:7A04" notice="ノックバック">
+      <v-notice text="ノックバック" duration="5" />
+    </t>
+    <t sync="^14:7A05" notice="離れる">
+      <v-notice text="離れる" duration="5" />
+    </t>
+
+    <t sync="^14:793B:.*100.00,80.00," notice="突進">
+      <v-notice text="Aから突進" duration="10" />
+    </t>
+    <t sync="^14:793B:.*80.00,100.00," notice="突進">
+      <v-notice text="Dから突進" duration="10" />
+    </t>
+    <t sync="^14:793B:.*100.00,120.00," notice="突進">
+      <v-notice text="Cから突進" duration="10" />
+    </t>
+    <t sync="^14:793B:.*120.00,100.00," notice="突進">
+      <v-notice text="Bから突進" duration="10" />
+    </t>
+    <t sync="^14:793C:.*100.00,80.00," notice="ノックバック">
+      <v-notice text="Aからノックバック" duration="10" />
+    </t>
+    <t sync="^14:793C:.*80.00,100.00," notice="ノックバック">
+      <v-notice text="Dからノックバック" duration="10" />
+    </t>
+    <t sync="^14:793C:.*100.00,120.00," notice="ノックバック">
+      <v-notice text="Cからノックバック" duration="10" />
+    </t>
+    <t sync="^14:793C:.*120.00,100.00," notice="ノックバック">
+      <v-notice text="Bからノックバック" duration="10" />
+    </t>
+    <t sync="^14:793D:.*100.00,80.00," notice="えーおーいー">
+      <v-notice text="Aから離れる" duration="10" />
+    </t>
+    <t sync="^14:793D:.*80.00,100.00," notice="えーおーいー">
+      <v-notice text="Dから離れる" duration="10" />
+    </t>
+    <t sync="^14:793D:.*100.00,120.00," notice="えーおーいー">
+      <v-notice text="Cから離れる" duration="10" />
+    </t>
+    <t sync="^14:793D:.*120.00,100.00," notice="えーおーいー">
+      <v-notice text="Bから離れる" duration="10" />
+    </t>
+  </s>
+
+  <!--ここから後半-->
+
+  <s name="Hephaistos">
+    <t sync="ヘファイストスは「タイラント・ダークホーリー」を唱えた。" notice="タンク離れる" />
+
+    <t sync="^14:79D7:" notice="右安置">
+      <v-notice text="右安置" duration="10" />
+    </t>
+    <t sync="^14:79D8:" notice="左安置">
+      <v-notice text="左安置" duration="10" />
+    </t>
+
+    <t sync="^14:7A8B:.*?(80.00|120.00),85.00," notice="後列安置">
+      <v-notice text="後列安置" duration="10" />
+    </t>
+    <t sync="^14:7A8B:.*?(80.00|120.00),95.00," notice="前列安置">
+      <v-notice text="前列安置" duration="10" />
+    </t>
+
+
+    <a time="000" sync="ヘファイストス:消エヨ……小サきっ、命ッ！" />
+    <a time="005" text="AA" />
+    <a time="008" text="AA" />
+    <a time="011" text="AA" />
+    <a time="010" text="同期待ち" sync="ヘファイストスは「アイオンピュール」を唱えた。" />
+    <a time="016" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
+    <a time="019" text="AA" />
+    <a time="021" text="" sync="ヘファイストスは「タイラント・ダークホーリー」を唱えた。" />
+    <a time="022" text="AA" />
+    <a time="027" text="タンク強攻撃" sync="ヘファイストスの「タイラント・ダークホーリー」" notice="タンク強攻撃" />
+    <a time="032" text="AA" />
+    <a time="035" text="AA" />
+
+    <a time="041" text="術式記述" sync="ヘファイストスの「術式記述」" notice="術式記述。" />
+    <!--a time="046" sync="ヘファイストス:我ガ意の……意のままニ踊れッ！" /-->
+    <a time="046" text="【予告】散開or頭割り" sync="ヘファイストスは「強制詠唱」を唱えた。" />
+    <a time="050" text="強制詠唱" sync="ヘファイストスの「強制詠唱」" notice="強制詠唱開始" />
+    <a time="052" text="【予告】AoE設置" sync="ヘファイストスは「タイラント・フレア」を唱えた。" notice="えーおーいー注意" />
+    <a time="056" text="AoE" sync="ヘファイストスの「タイラント・フレア」" notice="移動" />
+    <a time="065" text="半面攻撃" sync="ヘファイストスの「アッシュブレイズ」" />
+    <a time="070" text="【予告】炎or氷" />
+    <a time="077" text="1回目処理" sync="ヘファイストスの幻影の「メギドフレイム」" notice="1回目" sync-s="-4" sync-e="4" />
+    <a time="083" text="2回目処理" sync="ヘファイストスの幻影の「メギドフレイム」" notice="2回目" sync-s="-4" sync-e="4" />
+    <a time="089" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
+    <a time="092" text="AA" />
+    <a time="095" text="AA" />
+    <a time="103" text="タンク強攻撃" sync="ヘファイストスの「タイラント・ダークホーリー」" notice="タンク強攻撃" />
+    <a time="107" text="AA" />
+
+    <!--犯罪だろ古代警察に捕まってくれ
+    <a time="109.0" sync="ヘファイストス:我ガ遺伝子を、分け与えヨウ！" /-->
+    <a time="109" text="軽減注意" sync="ヘファイストスは「概念支配」を唱えた。" />
+    <a time="118" text="概念支配1回目" sync="ヘファイストスの「概念支配」" notice="概念支配" />
+    <a time="127" text="魔法陣起動1回目" sync="ヘファイストスの「魔法陣起動」" notice="1回目、発動" />
+    <a time="139" text="半面＋塔発動" sync="ヘファイストスの「アッシュブレイズ」" notice="塔処理" />
+    <a time="145" text="魔法陣起動2回目" sync="ヘファイストスの「魔法陣起動」" notice="2回目、発動" />
+    <a time="157" text="半面＋塔発動" sync="ヘファイストスの「アッシュブレイズ」" notice="塔処理" />
+    <a time="163" text="概念消去" sync="ヘファイストスの「概念消去」" notice="概念消去" />
+    <a time="172" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
+    <a time="175" text="AA" />
+    <a time="178" text="AA" />
+    <a time="181" text="AA" />
+    <a time="180" text="【予告】AoE処理＋塔踏み" sync="ヘファイストスは「万象灰燼」を唱えた。" />
+    <a time="186" text="万象灰燼" sync="ヘファイストスの「万象灰燼」" notice="順番を確認" />
+    <a time="187" text="1ファイガ" />
+    <a time="190" text="2ファイガ" />
+    <a time="193" text="3ファイガ" />
+    <a time="196" text="4ファイガ" />
+    <a time="198" text="1フレアII" />
+    <a time="201" text="2フレアII" />
+    <a time="204" text="3フレアII" />
+    <a time="207" text="4フレアII" />
+    <a time="214" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
+    <a time="217" text="AA" />
+    <a time="220" text="AA" />
+    <a time="227" text="タンク強攻撃" sync="ヘファイストスの「タイラント・ダークホーリー」" notice="タンク強攻撃" />
+    <a time="232" text="AA" />
+    <a time="235" text="AA" />
+
+    <a time="243" text="術式記述" sync="ヘファイストスの「術式記述」" />
+    <!--a time="245.0" text="マジックインヴァージョン" sync="ヘファイストスは「マジックインヴァージョン」を唱えた。" notice="次は、マジックインヴァージョン。" />
+    <a time="249.0" text="マジックインヴァージョン" sync="ヘファイストスの「マジックインヴァージョン」" /-->
+    <a time="251" text="【予告】逆詠唱" sync="ヘファイストスは「強制詠唱」を唱えた。" />
+    <a time="255" text="強制詠唱" sync="ヘファイストスの「強制詠唱」" notice="強制詠唱開始" />
+    <a time="264" text="1回目" sync="ヘファイストスの幻影の「メギドフレイム」" notice="1回目" sync-s="-4" sync-e="4" />
+    <a time="283" text="2回目" sync="ヘファイストスの幻影の「メギドフレイム」" notice="2回目" sync-s="-4" sync-e="4" />
+    <a time="295.0" text="半面攻撃" sync="ヘファイストスの「アッシュブレイズ」" />
+    <a time="303.0" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
+    <a time="306" text="AA" />
+    <a time="309" text="AA" />
+    <a time="316.0" text="タンク強攻撃" sync="ヘファイストスの「タイラント・ダークホーリー」" />
+    <a time="321" text="AA" />
+
+    <a time="322.0" text="軽減注意" sync="ヘファイストスは「概念支配」を唱えた。" />
+    <a time="332.0" text="概念支配" sync="ヘファイストスの「概念支配」" notice="概念支配" />
+
+    <a time="341.0" text="魔法陣起動" sync="ヘファイストスの「魔法陣起動」" notice="1回目、発動" />
+    <a time="353.0" text="半面+塔発動" sync="ヘファイストスの「アッシュブレイズ」" />
+
+    <a time="359.0" text="魔法陣起動" sync="ヘファイストスの「魔法陣起動」" notice="2回目、発動" />
+    <a time="371.0" text="塔と線処理" sync="ヘファイストスの幻影の「メギドフレイム」" notice="発動" />
+
+    <a time="380.0" text="セリフ" sync="ヘファイストス:コレデ、最後ダ……小さき、アワレな命ヨ！！" />
+    <a time="390.0" text="自己概念崩壊" sync="ヘファイストスの「自己概念崩壊」" notice="概念崩壊" />
+
+    <a time="410.0" text="セリフ" sync="ヘファイストス:こ、こここれぞ、キュウキョク……ノッ！" />
+    <a time="426.0" text="全体攻撃" sync="ヘファイストスの「アイオンアゴニア」" notice="全体攻撃" />
+
+    <a time="428.0" text="散開" sync="ヘファイストスは「支配者の一撃」の構え。" />
+    <a time="436.0" text="支配者の一撃" sync="ヘファイストスの「支配者の一撃」" notice="支配者の一撃" />
+    <a time="443.0" text="地盤隆起" />
+    <a time="449.0" text="地盤隆起" />
+    <a time="455.0" text="全体攻撃" sync="ヘファイストスの「アイオンアゴニア」" notice="全体攻撃" />
+
+    <a time="457.0" text="散開" sync="ヘファイストスは「支配者の一撃」の構え。" />
+    <a time="465.0" text="支配者の一撃" sync="ヘファイストスの「支配者の一撃」" notice="支配者の一撃" />
+    <a time="472.0" text="地盤隆起" />
+    <a time="479.0" text="地盤隆起" />
+    <a time="484.0" text="全体攻撃" sync="ヘファイストスの「アイオンアゴニア」" notice="全体攻撃" />
+    <a time="490.0" text="自己概念崩壊" sync="ヘファイストスは「自己概念崩壊」を唱えた。" notice="時間切れ開始" />
   </s>
 </timeline>
