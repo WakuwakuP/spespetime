@@ -4,6 +4,8 @@
   <rev>rev1.0</rev>
   <description>
     202209050215:動作とトリガに大体満足したので Rev1.0 時間切れまでは未チェック
+    202209060338:各通知に修正、蛇に回目の通知を追加。Rev1.1
+    202209071946:human2のシンク時間を調整。P様ありがとうございます。
     SPECIAL THANKS!!:Niiino Roofe
     AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
   </description>
@@ -40,16 +42,16 @@
 
   <!--オタク/テトラ/ディ　コンシーヴ-->
   <t sync="^14:7914" notice="遅延、散開">
-    <v-notice text="【遅延】散開" duration="40" />
+    <v-notice text="【遅延】散開" duration="50" />
   </t>
   <t sync="^14:7915" notice="遅延、ペア">
-    <v-notice text="【遅延】ペア頭割り" duration="40" />
+    <v-notice text="【遅延】ペア頭割り" duration="50" />
   </t>
   <t sync="^14:7916" notice="遅延、2人">
-    <v-notice text="【遅延】2人頭割り" duration="40" />
+    <v-notice text="【遅延】2人頭割り" duration="50" />
   </t>
   <t sync="^14:7917" notice="遅延、4人">
-    <v-notice text="【遅延】4人頭割り" duration="40" />
+    <v-notice text="【遅延】4人頭割り" duration="50" />
   </t>
 
 
@@ -277,13 +279,19 @@
       <v-notice text="上下の蛇" duration="10" />
     </t>
     <t sync="^14:7932:.*(100.00,80.00,|100.00,120.00,)" notice="左右の蛇">
-      <v-notice text="左右ろ蛇" duration="10" />
+      <v-notice text="左右の蛇" duration="10" />
     </t>
-    <t sync="^14:7932:.*(80.00,89.00,|120.00,89.00,)" notice="下側左右の蛇">
+    <t sync="^14:7932:.*(80.00,90.00,|120.00,90.00,)" notice="下側の蛇">
       <v-notice text="下側、左右" duration="10" />
     </t>
-    <t sync="^14:7932:.*(80.00,110.00,|120.00,110.00,)" notice="上側左右の蛇">
+    <t sync="^14:7932:.*(80.00,110.00,|120.00,110.00,)" notice="上側の蛇">
       <v-notice text="上側、左右" duration="10" />
+    </t>
+    <t sync="^14:7932:.*(110,80.00,|110.00,120.00,)" notice="左側の蛇">
+      <v-notice text="左側、上下" duration="10" />
+    </t>
+    <t sync="^14:7932:.*(90.00,80.00,|90.00,120.00,)" notice="右側の蛇">
+      <v-notice text="右側、上下" duration="10" />
     </t>
   </s>
 
@@ -468,20 +476,18 @@
       <v-notice text="前列安置" duration="10" />
     </t>
 
-    <!--危険すぎるため封印
-    <t sync="^26:.*?:01DD09F8:" notice="炎から氷">
+    <t sync="^26:.*?:01DD09F8:" notice="炎から氷" sync-interval="10">
       <v-notice text="炎→氷" duration="10" />
     </t>
-    <t sync="^26:.*?:01DF09F8:" notice="氷から炎">
+    <t sync="^26:.*?:01DF09F8:" notice="氷から炎" sync-interval="10">
       <v-notice text="氷から炎" duration="10" />
     </t>
 
-    <t sync="^26:.*?:01E109F8:" notice="頭割りから散開">
+    <t sync="^26:.*?:01E109F8:" notice="頭割りから散開" sync-interval="10">
       <v-notice text="頭割り→散開" duration="10" />
     </t>
-    <t sync="^26:.*?:01E309F8:" notice="頭割りから散開">
-      <v-notice text="頭割り→散開" duration="10" />
+    <t sync="^26:.*?:01E309F8:" notice="散開から頭割り" sync-interval="10">
+      <v-notice text="散開→頭割り" duration="10" />
     </t>
-  -->
   </s>
 </timeline>
