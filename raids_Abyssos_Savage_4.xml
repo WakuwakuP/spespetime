@@ -275,23 +275,46 @@
     </t>
 
     <!--テスト中 100,120のみを確認-->
-    <t sync="^14:7932:.*(80.00,100.00,|120.00,100.00,)" notice="上下の蛇">
-      <v-notice text="上下の蛇" duration="10" />
+    <t sync="^14:7932:.*(80.00,100.00,0.00)" notice="上下の蛇">
+      <v-notice text="A C" duration="10" />
     </t>
-    <t sync="^14:7932:.*(100.00,80.00,|100.00,120.00,)" notice="左右の蛇">
-      <v-notice text="左右の蛇" duration="10" />
+    <t sync="^14:7932:.*(120.00,100.00,0.00)" notice="上下の蛇">
+      <v-notice text="A C" duration="10" />
     </t>
-    <t sync="^14:7932:.*(80.00,90.00,|120.00,90.00,)" notice="下側の蛇">
-      <v-notice text="下側、左右" duration="10" />
+
+    <t sync="^14:7932:.*(100.00,80.00,0.00)" notice="左右の蛇">
+      <v-notice text="B D" duration="10" />
     </t>
-    <t sync="^14:7932:.*(80.00,110.00,|120.00,110.00,)" notice="上側の蛇">
-      <v-notice text="上側、左右" duration="10" />
+    <t sync="^14:7932:.*(100.00,120.00,0.00)" notice="左右の蛇">
+      <v-notice text="B D" duration="10" />
     </t>
-    <t sync="^14:7932:.*(110,80.00,|110.00,120.00,)" notice="左側の蛇">
-      <v-notice text="左側、上下" duration="10" />
+
+    <t sync="^14:7932:.*(80.00,90.00,0.00)" notice="下側の蛇">
+      <v-notice text="3 4" duration="10" />
     </t>
-    <t sync="^14:7932:.*(90.00,80.00,|90.00,120.00,)" notice="右側の蛇">
-      <v-notice text="右側、上下" duration="10" />
+    <t sync="^14:7932:.*(120.00,90.00,0.00)" notice="下側の蛇">
+      <v-notice text="3 4" duration="10" />
+    </t>
+
+    <t sync="^14:7932:.*(80.00,110.00,0.00)" notice="上側の蛇">
+      <v-notice text="1 2" duration="10" />
+    </t>
+    <t sync="^14:7932:.*(120.00,110.00,0.00)" notice="上側の蛇">
+      <v-notice text="1 2" duration="10" />
+    </t>
+
+    <t sync="^14:7932:.*(110,80.00,0.00)" notice="左側の蛇">
+      <v-notice text="1 4" duration="10" />
+    </t>
+    <t sync="^14:7932:.*(110.00,120.00,0.00)" notice="左側の蛇">
+      <v-notice text="1 4" duration="10" />
+    </t>
+
+    <t sync="^14:7932:.*(90.00,80.00,0.00)" notice="右側の蛇">
+      <v-notice text="2 3" duration="10" />
+    </t>
+    <t sync="^14:7932:.*(90.00,120.00,0.00)" notice="右側の蛇">
+      <v-notice text="2 3" duration="10" />
     </t>
   </s>
 
@@ -310,7 +333,7 @@
     <a time="067.0" text="炎蛇砲" />
     <a time="070.0" text="炎蛇砲" />
 
-    <t sync="^14:7A04" notice="@ANTI_KNOCKBACK">
+    <t sync="^14:7A04" notice="ノックバック">
       <v-notice text="ノックバック" duration="5" />
     </t>
     <t sync="^14:7A05" notice="離れる">
