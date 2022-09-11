@@ -417,7 +417,7 @@
 
     <!--犯罪だろ古代警察に捕まってくれ
     <a time="109.0" sync="ヘファイストス:我ガ遺伝子を、分け与えヨウ！" /-->
-    <a time="109" text="軽減注意" sync="ヘファイストスは「概念支配」を唱えた。" />
+    <a time="109" text="軽減注意" sync="ヘファイストスは「概念支配」を唱えた。">
       <expressions>
         <set name="HighConcept1" value="true" />
       </expressions>
