@@ -329,7 +329,7 @@
     <a time="043.0" text="フィート1" />
     <a time="047.0" text="突進" sync="ヘファイストスの「トレイルブレイズ」" />
     <a time="050.0" text="フィート2" />
-    <a time="061.0" text="【予告】炎蛇砲" sync="ヘファイストスは「炎蛇砲」を唱えた。" notice="タンクスイッチ" />
+    <a time="061.0" text="【予告】炎蛇砲" sync="ヘファイストスは「炎蛇砲」を唱えた。" notice="全体" />
     <a time="067.0" text="炎蛇砲" />
     <a time="070.0" text="炎蛇砲" />
 
@@ -385,7 +385,12 @@
     <a time="005" text="AA" />
     <a time="008" text="AA" />
     <a time="011" text="AA" />
-    <a time="010" text="同期待ち" sync="ヘファイストスは「アイオンピュール」を唱えた。" />
+    <a time="010" text="同期待ち" sync="ヘファイストスは「アイオンピュール」を唱えた。" >
+      <expressions>
+        <set name="HighConcept1" value="false" />
+        <set name="HighConcept2" value="false" />
+      </expressions>
+    </a>
     <a time="016" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
     <a time="019" text="AA" />
     <a time="021" text="" sync="ヘファイストスは「タイラント・ダークホーリー」を唱えた。" />
@@ -413,12 +418,20 @@
     <!--犯罪だろ古代警察に捕まってくれ
     <a time="109.0" sync="ヘファイストス:我ガ遺伝子を、分け与えヨウ！" /-->
     <a time="109" text="軽減注意" sync="ヘファイストスは「概念支配」を唱えた。" />
+      <expressions>
+        <set name="HighConcept1" value="true" />
+      </expressions>
+    </a>
     <a time="118" text="概念支配1回目" sync="ヘファイストスの「概念支配」" notice="概念支配" />
     <a time="127" text="魔法陣起動1回目" sync="ヘファイストスの「魔法陣起動」" notice="1回目、発動" />
     <a time="139" text="半面＋塔発動" sync="ヘファイストスの「アッシュブレイズ」" notice="塔処理" />
     <a time="145" text="魔法陣起動2回目" sync="ヘファイストスの「魔法陣起動」" notice="2回目、発動" />
     <a time="157" text="半面＋塔発動" sync="ヘファイストスの「アッシュブレイズ」" notice="塔処理" />
-    <a time="163" text="概念消去" sync="ヘファイストスの「概念消去」" notice="概念消去" />
+    <a time="163" text="概念消去" sync="ヘファイストスの「概念消去」" notice="概念消去" >
+      <expressions>
+        <set name="HighConcept1" value="false" />
+      </expressions>
+    </a>
     <a time="172" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
     <a time="175" text="AA" />
     <a time="178" text="AA" />
@@ -454,7 +467,12 @@
     <a time="316.0" text="タンク強攻撃" sync="ヘファイストスの「タイラント・ダークホーリー」" />
     <a time="321" text="AA" />
 
-    <a time="322.0" text="軽減注意" sync="ヘファイストスは「概念支配」を唱えた。" />
+    <a time="322.0" text="軽減注意" sync="ヘファイストスは「概念支配」を唱えた。" >
+      <expressions>
+        <set name="HighConcept1" value="false" />
+        <set name="HighConcept2" value="true" />
+      </expressions>
+    </a>
     <a time="332.0" text="概念支配" sync="ヘファイストスの「概念支配」" notice="概念支配" />
 
     <a time="341.0" text="魔法陣起動" sync="ヘファイストスの「魔法陣起動」" notice="1回目、発動" />
@@ -486,10 +504,10 @@
     <t sync="ヘファイストスは「タイラント・ダークホーリー」を唱えた。" notice="タンク離れる" />
 
     <t sync="^14:79D7:" notice="右安置">
-      <v-notice text="右安置" duration="10" />
+      <v-notice text="右安置" duration="10" order="10" />
     </t>
     <t sync="^14:79D8:" notice="左安置">
-      <v-notice text="左安置" duration="10" />
+      <v-notice text="左安置" duration="10" order="10" />
     </t>
 
     <t sync="^14:7A8B:.*?(80.00|120.00),85.00," notice="後列安置">
@@ -499,10 +517,10 @@
       <v-notice text="前列安置" duration="10" />
     </t>
 
-    <t sync="^26:.*?:01DD09F8:" notice="炎から氷" sync-interval="10">
+    <t sync="^26:.*?:01DD09F8:" notice="炎から氷" sync-interval="15">
       <v-notice text="炎→氷" duration="10" />
     </t>
-    <t sync="^26:.*?:01DF09F8:" notice="氷から炎" sync-interval="10">
+    <t sync="^26:.*?:01DF09F8:" notice="氷から炎" sync-interval="15">
       <v-notice text="氷から炎" duration="10" />
     </t>
 
@@ -511,6 +529,101 @@
     </t>
     <t sync="^26:.*?:01E309F8:" notice="散開から頭割り" sync-interval="10">
       <v-notice text="散開→頭割り" duration="10" />
+    </t>
+
+
+    <!-- 概念支配1回目 -->
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3346_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="B">
+      <v-notice icon="B" text="B: 複相\n→ 北西 > 北東" duration="30"/>
+      <expressions>
+        <pre name="HighConcept1" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3347_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="C">
+      <v-notice icon="C" text="C: 重相\n→ 南東 > 北東" duration="30" />
+      <expressions>
+        <pre name="HighConcept1" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="北西">
+      <v-notice icon="Alpha" text="北西: 早alpha" duration="30" />
+      <expressions>
+        <pre name="HighConcept1" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="北東">
+      <v-notice icon="Beta" text="北東: 早beta" duration="30" />
+      <expressions>
+        <pre name="HighConcept1" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="南東">
+      <v-notice icon="Gamma" text="南東: 早Gamma" duration="30" />
+      <expressions>
+        <pre name="HighConcept1" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Bから北西">
+      <v-notice icon="B" text="B: 遅alpha" duration="10" order="0" />
+      <v-notice icon="Alpha" text="遅Alpha" duration="30" order="1" />
+      <expressions>
+        <pre name="HighConcept1" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Cから北東">
+      <v-notice icon="C" text="B: 遅Beta" duration="10" order="0" />
+      <v-notice icon="Beta" text="遅ABeta" duration="30" order="1" />
+      <expressions>
+        <pre name="HighConcept1" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Cから南東">
+      <v-notice icon="C" text="B: 遅Gamma" duration="10" order="0" />
+      <v-notice icon="Gamma" text="遅Gamma" duration="30" order="1" />
+      <expressions>
+        <pre name="HighConcept1" value="true" />
+      </expressions>
+    </t>
+
+    <!-- 概念支配2回目 -->
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="北西">
+      <v-notice icon="Alpha" text="北西: 早alpha" duration="30" />
+      <expressions>
+        <pre name="HighConcept2" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="北東">
+      <v-notice icon="Beta" text="北東: 早beta" duration="30" />
+      <expressions>
+        <pre name="HighConcept2" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="南東">
+      <v-notice icon="Gamma" text="南東: 早Gamma" duration="30" />
+      <expressions>
+        <pre name="HighConcept2" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Bから北西">
+      <v-notice icon="B" text="B: 遅alpha" duration="10" order="0" />
+      <v-notice icon="Alpha" text="遅Alpha" duration="30" order="1" />
+      <expressions>
+        <pre name="HighConcept2" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Cから北東">
+      <v-notice icon="C" text="B: 遅Beta" duration="10" order="0" />
+      <v-notice icon="Beta" text="遅ABeta" duration="30" order="1" />
+      <expressions>
+        <pre name="HighConcept2" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Cから南東">
+      <v-notice icon="C" text="B: 遅Gamma" duration="10" order="0" />
+      <v-notice icon="Gamma" text="遅Gamma" duration="30" order="1" />
+      <expressions>
+        <pre name="HighConcept2" value="true" />
+      </expressions>
     </t>
   </s>
 </timeline>
