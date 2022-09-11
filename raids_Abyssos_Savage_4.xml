@@ -86,7 +86,7 @@
     <a time="007" text="同期待ち" sync="ヘファイストスは「創世の真炎」を唱えた。" />
     <a time="012" text="全体攻撃" sync="ヘファイストスの「創世の真炎」" notice="全体攻撃">
       <expressions>
-        <set name="beast_target_count" value="0" />
+        <set name="BEAST_TARGET_COUNT" value="0" />
       </expressions>
     </a>
     <a time="018" text="【記憶】オクタCorテトラC" sync="ヘファイストスの「(オクタフレア|テトラフレア)・コンシーヴ」" />
@@ -169,9 +169,9 @@
 
   <s name="beast1">
     <a time="003" text="変異創身" sync="ヘファイストスの「変異創身」" />
-    <a time="010" text="同期待ち" sync="ヘファイストスは「リアリングランページ」の構え。" >
+    <a time="010" text="同期待ち" sync="ヘファイストスは「リアリングランページ」の構え。">
       <expressions>
-        <set name="beast_target_count" value="0" />
+        <set name="BEAST_TARGET_COUNT" value="0" />
       </expressions>
     </a>
     <a time="016" text="ランページ1" sync="ヘファイストスの「リアリングランページ」" sync-count="1" />
@@ -188,11 +188,11 @@
     <!-- 隆起着弾順 -->
     <t no="1" name="隆起対象カウント" sync="^15:[id8]:ヘファイストス:[id4]:隆起:[id8]:" sync-interval="1">
       <expressions>
-        <set name="beast_target_count" value="EVAL(VAR['beast_target_count']+1,N0)" />
+        <set name="BEAST_TARGET_COUNT" value="EVAL(VAR['BEAST_TARGET_COUNT']+1,N0)" />
       </expressions>
     </t>
-    <t no="2" sync="^15:[id8]:ヘファイストス:[id4]:隆起:[id8]:[mex]:" sync-count="1" notice="VAR['beast_target_count']回目">
-      <v-notice text="VAR['beast_target_count']回目" duration="10" />
+    <t no="2" sync="^15:[id8]:ヘファイストス:[id4]:隆起:[id8]:[mex]:" sync-count="1" notice="VAR['BEAST_TARGET_COUNT']回目">
+      <v-notice text="VAR['BEAST_TARGET_COUNT']回目" duration="10" />
     </t>
   </s>
 
@@ -385,10 +385,13 @@
     <a time="005" text="AA" />
     <a time="008" text="AA" />
     <a time="011" text="AA" />
-    <a time="010" text="同期待ち" sync="ヘファイストスは「アイオンピュール」を唱えた。" >
+    <a time="010" text="同期待ち" sync="ヘファイストスは「アイオンピュール」を唱えた。">
       <expressions>
-        <set name="HighConcept1" value="false" />
-        <set name="HighConcept2" value="false" />
+        <set name="HIGH_CONCEPT_1" value="false" />
+        <set name="HIGH_CONCEPT_2" value="false" />
+        <set name="FIRE3_COUNT" value="0"/>
+        <set name="HIGH_CONCEPT_1_SPLICER_GREY" value="false" />
+        <set name="HIGH_CONCEPT_1_SPLICER_BLUE" value="false" />
       </expressions>
     </a>
     <a time="016" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
@@ -402,14 +405,14 @@
     <a time="041" text="術式記述" sync="ヘファイストスの「術式記述」" notice="術式記述。" />
     <!--a time="046" sync="ヘファイストス:我ガ意の……意のままニ踊れッ！" /-->
     <a time="046" text="【予告】散開or頭割り" sync="ヘファイストスは「強制詠唱」を唱えた。" />
-    <a time="050" text="強制詠唱" sync="ヘファイストスの「強制詠唱」" notice="強制詠唱開始" />
-    <a time="052" text="【予告】AoE設置" sync="ヘファイストスは「タイラント・フレア」を唱えた。" notice="えーおーいー注意" />
-    <a time="056" text="AoE" sync="ヘファイストスの「タイラント・フレア」" notice="移動" />
+    <a time="050" text="強制詠唱" sync="ヘファイストスの「強制詠唱」" />
+    <a time="052" text="【予告】AoE設置" sync="ヘファイストスは「タイラント・フレア」を唱えた。" />
+    <a time="056" text="AoE" sync="ヘファイストスの「タイラント・フレア」" notice="移動" notice-o="-1" />
     <a time="065" text="半面攻撃" sync="ヘファイストスの「アッシュブレイズ」" />
     <a time="070" text="【予告】炎or氷" />
     <a time="077" text="1回目処理" sync="ヘファイストスの幻影の「メギドフレイム」" notice="1回目" sync-s="-4" sync-e="4" />
     <a time="083" text="2回目処理" sync="ヘファイストスの幻影の「メギドフレイム」" notice="2回目" sync-s="-4" sync-e="4" />
-    <a time="089" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
+    <a time="089" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃 タンク集合" />
     <a time="092" text="AA" />
     <a time="095" text="AA" />
     <a time="103" text="タンク強攻撃" sync="ヘファイストスの「タイラント・ダークホーリー」" notice="タンク強攻撃" />
@@ -419,7 +422,7 @@
     <a time="109.0" sync="ヘファイストス:我ガ遺伝子を、分け与えヨウ！" /-->
     <a time="109" text="軽減注意" sync="ヘファイストスは「概念支配」を唱えた。">
       <expressions>
-        <set name="HighConcept1" value="true" />
+        <set name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </a>
     <a time="118" text="概念支配1回目" sync="ヘファイストスの「概念支配」" notice="概念支配" />
@@ -427,12 +430,12 @@
     <a time="139" text="半面＋塔発動" sync="ヘファイストスの「アッシュブレイズ」" notice="塔処理" />
     <a time="145" text="魔法陣起動2回目" sync="ヘファイストスの「魔法陣起動」" notice="2回目、発動" />
     <a time="157" text="半面＋塔発動" sync="ヘファイストスの「アッシュブレイズ」" notice="塔処理" />
-    <a time="163" text="概念消去" sync="ヘファイストスの「概念消去」" notice="概念消去" >
+    <a time="163" text="概念消去" sync="ヘファイストスの「概念消去」" notice="概念消去">
       <expressions>
-        <set name="HighConcept1" value="false" />
+        <set name="HIGH_CONCEPT_1" value="false" />
       </expressions>
     </a>
-    <a time="172" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
+    <a time="172" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃 タンク集合" />
     <a time="175" text="AA" />
     <a time="178" text="AA" />
     <a time="181" text="AA" />
@@ -446,7 +449,7 @@
     <a time="201" text="2フレアII" />
     <a time="204" text="3フレアII" />
     <a time="207" text="4フレアII" />
-    <a time="214" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
+    <a time="214" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃 タンク集合" />
     <a time="217" text="AA" />
     <a time="220" text="AA" />
     <a time="227" text="タンク強攻撃" sync="ヘファイストスの「タイラント・ダークホーリー」" notice="タンク強攻撃" />
@@ -461,16 +464,15 @@
     <a time="264" text="1回目" sync="ヘファイストスの幻影の「メギドフレイム」" notice="1回目" sync-s="-4" sync-e="4" />
     <a time="283" text="2回目" sync="ヘファイストスの幻影の「メギドフレイム」" notice="2回目" sync-s="-4" sync-e="4" />
     <a time="295.0" text="半面攻撃" sync="ヘファイストスの「アッシュブレイズ」" />
-    <a time="303.0" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃" />
+    <a time="303.0" text="全体攻撃" sync="ヘファイストスの「アイオンピュール」" notice="全体攻撃 タンク集合" />
     <a time="306" text="AA" />
     <a time="309" text="AA" />
     <a time="316.0" text="タンク強攻撃" sync="ヘファイストスの「タイラント・ダークホーリー」" />
     <a time="321" text="AA" />
 
-    <a time="322.0" text="軽減注意" sync="ヘファイストスは「概念支配」を唱えた。" >
+    <a time="322.0" text="軽減注意" sync="ヘファイストスは「概念支配」を唱えた。">
       <expressions>
-        <set name="HighConcept1" value="false" />
-        <set name="HighConcept2" value="true" />
+        <set name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </a>
     <a time="332.0" text="概念支配" sync="ヘファイストスの「概念支配」" notice="概念支配" />
@@ -536,93 +538,155 @@
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3346_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="B">
       <v-notice icon="B" text="B: 複相\n→ 北西 > 北東" duration="30"/>
       <expressions>
-        <pre name="HighConcept1" value="true" />
+        <pre name="HIGH_CONCEPT_1" value="true" />
+        <set name="HIGH_CONCEPT_1_SPLICER_GREY" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3347_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="C">
       <v-notice icon="C" text="C: 重相\n→ 南東 > 北東" duration="30" />
       <expressions>
-        <pre name="HighConcept1" value="true" />
+        <pre name="HIGH_CONCEPT_1" value="true" />
+        <set name="HIGH_CONCEPT_1_SPLICER_BLUE" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="北西">
       <v-notice icon="Alpha" text="北西: 早alpha" duration="30" />
       <expressions>
-        <pre name="HighConcept1" value="true" />
+        <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="北東">
       <v-notice icon="Beta" text="北東: 早beta" duration="30" />
       <expressions>
-        <pre name="HighConcept1" value="true" />
+        <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="南東">
       <v-notice icon="Gamma" text="南東: 早Gamma" duration="30" />
       <expressions>
-        <pre name="HighConcept1" value="true" />
+        <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Bから北西">
       <v-notice icon="B" text="B: 遅alpha" duration="10" order="0" />
-      <v-notice icon="Alpha" text="遅Alpha" duration="30" order="1" />
+      <v-notice icon="Alpha" text="遅Alpha" duration="30" order="1" delay="5" />
       <expressions>
-        <pre name="HighConcept1" value="true" />
+        <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Cから北東">
       <v-notice icon="C" text="B: 遅Beta" duration="10" order="0" />
-      <v-notice icon="Beta" text="遅ABeta" duration="30" order="1" />
+      <v-notice icon="Beta" text="遅ABeta" duration="30" order="1" delay="5" />
       <expressions>
-        <pre name="HighConcept1" value="true" />
+        <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Cから南東">
       <v-notice icon="C" text="B: 遅Gamma" duration="10" order="0" />
-      <v-notice icon="Gamma" text="遅Gamma" duration="30" order="1" />
+      <v-notice icon="Gamma" text="遅Gamma" duration="30" order="1" delay="5" />
       <expressions>
-        <pre name="HighConcept1" value="true" />
+        <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
+    </t>
+
+    <!-- 合成時の頭割り対象の異動先通知 -->
+    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3337_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="アルファを受ける">
+      <v-notice icon="Alpha" text="複相: αを受ける" duration="10" order="1" />
+      <expressions>
+        <pre name="HIGH_CONCEPT_1" value="true" />
+        <pre name="HIGH_CONCEPT_1_SPLICER_GREY" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3337_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="ベータを受ける">
+      <v-notice icon="Beta" text="重相: βを受ける" duration="10" order="1" />
+      <expressions>
+        <pre name="HIGH_CONCEPT_1" value="true" />
+        <pre name="HIGH_CONCEPT_1_SPLICER_BLUE" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3338_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="アルファを受ける">
+      <v-notice icon="Alpha" text="複相: αを受ける" duration="10" order="1" />
+      <expressions>
+        <pre name="HIGH_CONCEPT_1" value="true"/>
+        <pre name="HIGH_CONCEPT_1_SPLICER_GREY" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3338_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="ガンマを受ける">
+      <v-notice icon="Gamma" text="重相: γを受ける" duration="10" order="1" />
+      <expressions>
+        <pre name="HIGH_CONCEPT_1" value="true" />
+        <pre name="HIGH_CONCEPT_1_SPLICER_BLUE" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3339_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="ベータを受ける">
+      <v-notice icon="Beta" text="複相: βを受ける" duration="10" order="1" />
+      <expressions>
+        <pre name="HIGH_CONCEPT_1" value="true" />
+        <pre name="HIGH_CONCEPT_1_SPLICER_GREY" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3339_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="ガンマを受ける">
+      <v-notice icon="Gamma" text="重相: γを受ける" duration="10" order="1" />
+      <expressions>
+        <pre name="HIGH_CONCEPT_1" value="true" />
+        <pre name="HIGH_CONCEPT_1_SPLICER_BLUE" value="true" />
+      </expressions>
+    </t>
+
+    <!-- タイラントファイガ -->
+    <t no="1" name="隆起対象カウント" sync="^15:[id8]:ヘファイストス:[id4]:タイラント・ファイガ:[id8]:" sync-interval="1">
+      <expressions>
+        <set name="FIRE3_COUNT" value="EVAL(VAR['FIRE3_COUNT']+1,N0)" />
+      </expressions>
+    </t>
+    <t no="2" sync="^15:[id8]:ヘファイストス:[id4]:タイラント・ファイガ:[id8]:[mex]:" sync-count="1" notice="VAR['FIRE3_COUNT']回目">
+      <v-notice text="VAR['FIRE3_COUNT']回目" duration="15" />
     </t>
 
     <!-- 概念支配2回目 -->
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="北西">
       <v-notice icon="Alpha" text="北西: 早alpha" duration="30" />
       <expressions>
-        <pre name="HighConcept2" value="true" />
+        <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="北東">
       <v-notice icon="Beta" text="北東: 早beta" duration="30" />
       <expressions>
-        <pre name="HighConcept2" value="true" />
+        <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="南東">
       <v-notice icon="Gamma" text="南東: 早Gamma" duration="30" />
       <expressions>
-        <pre name="HighConcept2" value="true" />
+        <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Bから北西">
       <v-notice icon="B" text="B: 遅alpha" duration="10" order="0" />
       <v-notice icon="Alpha" text="遅Alpha" duration="30" order="1" />
       <expressions>
-        <pre name="HighConcept2" value="true" />
+        <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Cから北東">
       <v-notice icon="C" text="B: 遅Beta" duration="10" order="0" />
-      <v-notice icon="Beta" text="遅ABeta" duration="30" order="1" />
+      <v-notice icon="Beta" text="遅Beta" duration="30" order="1" />
       <expressions>
-        <pre name="HighConcept2" value="true" />
+        <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
     <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Cから南東">
       <v-notice icon="C" text="B: 遅Gamma" duration="10" order="0" />
       <v-notice icon="Gamma" text="遅Gamma" duration="30" order="1" />
       <expressions>
-        <pre name="HighConcept2" value="true" />
+        <pre name="HIGH_CONCEPT_2" value="true" />
+      </expressions>
+    </t>
+    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_333(0|1|2)_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for (8|26).00 Seconds." sync-count="6" notice="無色 北西へ">
+      <v-notice icon="" text="無色: 北西" duration="10" order="0" />
+      <expressions>
+        <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
   </s>
