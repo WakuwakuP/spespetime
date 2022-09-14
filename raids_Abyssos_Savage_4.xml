@@ -589,20 +589,20 @@
         <pre name="TABLE['MAGIC_INVERSE'][0][name]" value="$1" />
         <set name="INVERSE2" value="true" />
       </expressions>
-      <v-notice text="炎→氷" duration="10" />
+      <v-notice text="氷から炎" duration="10" />
     </t>
     <t no="2" sync="^26:[id8]:([pc]):.*?:01DD09F8:" notice="氷から炎" sync-interval="15">
       <expressions>
         <pre name="TABLE['MAGIC_INVERSE'][1][name]" value="$1" />
         <set name="INVERSE2" value="true" />
       </expressions>
-      <v-notice text="炎→氷" duration="10" />
+      <v-notice text="氷から炎" duration="10" />
     </t>
     <t no="3" sync="^26:[id8]:([pc]):.*?:01DD09F8:" notice="炎から氷" sync-interval="15">
       <expressions>
         <pre name="INVERSE2" value="false" />
       </expressions>
-      <v-notice text="炎→氷" duration="10" />
+      <v-notice text="炎から氷" duration="10" />
     </t>
 
     <t no="1" sync="^26:[id8]:([pc]):.*?:01DF09F8:" notice="炎から氷" sync-interval="15">
@@ -610,14 +610,14 @@
         <pre name="TABLE['MAGIC_INVERSE'][0][name]" value="$1" />
         <set name="INVERSE2" value="true" />
       </expressions>
-      <v-notice text="氷から炎" duration="10" />
+      <v-notice text="炎から氷" duration="10" />
     </t>
     <t no="2" sync="^26:[id8]:([pc]):.*?:01DF09F8:" notice="炎から氷" sync-interval="15">
       <expressions>
         <pre name="TABLE['MAGIC_INVERSE'][1][name]" value="$1" />
         <set name="INVERSE2" value="true" />
       </expressions>
-      <v-notice text="氷から炎" duration="10" />
+      <v-notice text="炎から氷" duration="10" />
     </t>
     <t no="3" sync="^26:[id8]:([pc]):.*?:01DF09F8:" notice="氷から炎" sync-interval="15">
       <expressions>
@@ -627,53 +627,53 @@
     </t>
 
     <!-- 概念支配1回目 -->
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3346_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="B">
+    <t sync="^1A:[id8]:[mex] gains the effect of 複相式反発概念 from  for 8.00 Seconds." notice="B">
       <v-notice icon="B" text="B: 複相\n→ 北西 > 北東" duration="30"/>
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
         <set name="HIGH_CONCEPT_1_SPLICER_GREY" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3347_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="C">
+    <t sync="^1A:[id8]:[mex] gains the effect of 重相式反発概念 from  for 8.00 Seconds." notice="C">
       <v-notice icon="C" text="C: 重相\n→ 南東 > 北東" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
         <set name="HIGH_CONCEPT_1_SPLICER_BLUE" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="北西">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 8.00 Seconds." notice="北西">
       <v-notice icon="Alpha" text="北西: 早alpha" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="北東">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 8.00 Seconds." notice="北東">
       <v-notice icon="Beta" text="北東: 早beta" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="南東">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 8.00 Seconds." notice="南東">
       <v-notice icon="Gamma" text="南東: 早Gamma" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Bから北西">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 26.00 Seconds." notice="Bから北西">
       <v-notice icon="B" text="B: 遅alpha" duration="10" order="0" />
       <v-notice icon="Alpha" text="遅Alpha" duration="30" order="1" delay="7" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Cから北東">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 26.00 Seconds." notice="Cから北東">
       <v-notice icon="C" text="B: 遅Beta" duration="10" order="0" />
-      <v-notice icon="Beta" text="遅ABeta" duration="30" order="1" delay="7" />
+      <v-notice icon="Beta" text="遅Beta" duration="30" order="1" delay="7" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="Cから南東">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 26.00 Seconds." notice="Cから南東">
       <v-notice icon="C" text="B: 遅Gamma" duration="10" order="0" />
       <v-notice icon="Gamma" text="遅Gamma" duration="30" order="1" delay="7" />
       <expressions>
@@ -682,42 +682,42 @@
     </t>
 
     <!-- 合成時の頭割り対象の異動先通知 -->
-    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3337_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="アルファを受ける">
+    <t sync="^1A:[id8]:[pc] gains the effect of 概念生成：飛行生物 from  for 18.00 Seconds." sync-interval="60" notice="アルファを受ける">
       <v-notice icon="Alpha" text="複相: αを受ける" duration="10" order="1" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
         <pre name="HIGH_CONCEPT_1_SPLICER_GREY" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3337_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="ベータを受ける">
+    <t sync="^1A:[id8]:[pc] gains the effect of 概念生成：飛行生物 from  for 18.00 Seconds." sync-interval="60" notice="ベータを受ける">
       <v-notice icon="Beta" text="重相: βを受ける" duration="10" order="1" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
         <pre name="HIGH_CONCEPT_1_SPLICER_BLUE" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3338_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="アルファを受ける">
+    <t sync="^1A:[id8]:[pc] gains the effect of 概念生成：水棲生物 from  for 18.00 Seconds." sync-interval="60" notice="アルファを受ける">
       <v-notice icon="Alpha" text="複相: αを受ける" duration="10" order="1" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true"/>
         <pre name="HIGH_CONCEPT_1_SPLICER_GREY" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3338_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="ガンマを受ける">
+    <t sync="^1A:[id8]:[pc] gains the effect of 概念生成：水棲生物 from  for 18.00 Seconds." sync-interval="60" notice="ガンマを受ける">
       <v-notice icon="Gamma" text="重相: γを受ける" duration="10" order="1" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
         <pre name="HIGH_CONCEPT_1_SPLICER_BLUE" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3339_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="ベータを受ける">
+    <t sync="^1A:[id8]:[pc] gains the effect of 概念生成：雷獣 from  for 18.00 Seconds." sync-interval="60" notice="ベータを受ける">
       <v-notice icon="Beta" text="複相: βを受ける" duration="10" order="1" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
         <pre name="HIGH_CONCEPT_1_SPLICER_GREY" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3339_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 18.00 Seconds." sync-interval="60" notice="ガンマを受ける">
+    <t sync="^1A:[id8]:[pc] gains the effect of 概念生成：雷獣 from  for 18.00 Seconds." sync-interval="60" notice="ガンマを受ける">
       <v-notice icon="Gamma" text="重相: γを受ける" duration="10" order="1" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
@@ -736,57 +736,57 @@
     </t>
 
     <!-- 概念支配2回目 -->
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="アルファ 北西">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 8.00 Seconds." notice="アルファ 北西">
       <v-notice icon="Alpha" text="早alpha: 北西" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="ベータ 北東">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 8.00 Seconds." notice="ベータ 北東">
       <v-notice icon="Beta" text="早beta: 北東" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="ガンマ 南東">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 8.00 Seconds." notice="ガンマ 南東">
       <v-notice icon="Gamma" text="早Gamma: 南東" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3330_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="アルファ 北西" notice-o="15">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 26.00 Seconds." notice="アルファ 北西" notice-o="15">
       <v-notice icon="Alpha" text="遅Alpha 北西" duration="30" order="1" delay="7" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3331_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="ベータ 北東" notice-o="15">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 26.00 Seconds." notice="ベータ 北東" notice-o="15">
       <v-notice icon="Beta" text="遅Beta 北東" duration="30" order="1" delay="7" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3332_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 26.00 Seconds." notice="ガンマ 南東" notice-o="15">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 26.00 Seconds." notice="ガンマ 南東" notice-o="15">
       <v-notice icon="Gamma" text="遅Gamma 南東" duration="30" order="1" delay="7" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
 
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3346_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="複相 Bへ">
+    <t sync="^1A:[id8]:[mex] gains the effect of 複相式反発概念 from  for 8.00 Seconds." notice="複相 Bへ">
       <v-notice icon="B" text="複相: B" duration="30" order="0" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_334(5|8)_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="ソロ Cへ">
+    <t sync="^1A:[id8]:[mex] gains the effect of ソロ反発概念 from  for 8.00 Seconds." notice="ソロ Cへ">
       <v-notice icon="C" text="ソロ: C" duration="30" order="0" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
 
-    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_333(0|1|2)_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for (8|26).00 Seconds." sync-count="6" notice="無色 北西へ">
+    <t sync="^1A:[id8]:[pc] gains the effect of 未完概念：(α|β|γ) from  for (8|26).00 Seconds." sync-count="6" notice="無色 北西へ">
       <v-notice icon="" text="無色: 北西" duration="10" order="0" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
