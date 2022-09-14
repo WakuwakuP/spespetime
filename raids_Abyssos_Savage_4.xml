@@ -552,7 +552,7 @@
     <t no="1" sync="^26:[id8]:([pc]):.*?:01E109F8:" notice="散開から頭割り">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_1" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][0][name]" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][0]['name']" value="$1" />
         <set name="INVERSE1" value="true" />
         <set name="NATURAL_ALIGNMENT_1" value="true" />
       </expressions>
@@ -561,7 +561,7 @@
     <t no="2" sync="^26:[id8]:([pc]):.*?:01E109F8:" notice="散開から頭割り">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_1" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][1][name]" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][1]['name']" value="$1" />
         <set name="INVERSE1" value="true" />
         <set name="NATURAL_ALIGNMENT_1" value="true" />
       </expressions>
@@ -579,7 +579,7 @@
     <t no="1" sync="^26:[id8]:([pc]):.*?:01E309F8:" notice="散開から頭割り">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_1" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][0][name]" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][0]['name']" value="$1" />
         <set name="INVERSE1" value="true" />
         <set name="NATURAL_ALIGNMENT_1" value="true" />
       </expressions>
@@ -588,7 +588,7 @@
     <t no="2" sync="^26:[id8]:([pc]):.*?:01E309F8:" notice="散開から頭割り">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_1" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][1][name]" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][1]['name']" value="$1" />
         <set name="INVERSE1" value="true" />
         <set name="NATURAL_ALIGNMENT_1" value="true" />
       </expressions>
@@ -606,7 +606,7 @@
     <t no="1" sync="^26:[id8]:([pc]):.*?:01DD09F8:" notice="氷から炎">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_2" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][0][name]" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][0]['name']" value="$1" />
         <set name="INVERSE2" value="true" />
         <set name="NATURAL_ALIGNMENT_2" value="true" />
       </expressions>
@@ -615,7 +615,7 @@
     <t no="2" sync="^26:[id8]:([pc]):.*?:01DD09F8:" notice="氷から炎">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_2" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][1][name]" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][1]['name']" value="$1" />
         <set name="INVERSE2" value="true" />
         <set name="NATURAL_ALIGNMENT_2" value="true" />
 
@@ -634,7 +634,7 @@
     <t no="1" sync="^26:[id8]:([pc]):.*?:01DF09F8:" notice="炎から氷">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_2" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][0][name]" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][0]['name']" value="$1" />
         <set name="INVERSE2" value="true" />
         <set name="NATURAL_ALIGNMENT_2" value="true" />
       </expressions>
@@ -643,7 +643,7 @@
     <t no="2" sync="^26:[id8]:([pc]):.*?:01DF09F8:" notice="炎から氷">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_2" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][1][name]" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][1]['name']" value="$1" />
         <set name="INVERSE2" value="true" />
         <set name="NATURAL_ALIGNMENT_2" value="true" />
       </expressions>
