@@ -811,7 +811,7 @@
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of ソロ反発概念 from  for 8.00 Seconds." notice="ソロ Cへ">
+    <t sync="^1A:[id8]:[mex] gains the effect of 単相式反発概念 from  for 8.00 Seconds." notice="ソロ Cへ">
       <v-notice icon="C" text="ソロ: C" duration="30" order="0" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
