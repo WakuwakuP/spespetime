@@ -533,15 +533,14 @@
 
     <!-- マジックインヴァージョン -->
     <!-- <t sync="^1A:[id8]:([pc]) gains the effect of _rsv_3349_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 25.00 Seconds."> -->
-    <t sync="^00:[id4]::([pc])に「マジックインヴァージョン」の効果。">
+    <t sync="^00:([id4])::([pc])に「マジックインヴァージョン」の効果。">
       <expressions>
         <table>
           {
-            "method" : "Insert",
-            "table" : "MAGIC_INVERSE",
+            "method" : "Insert", "table" : "MAGIC_INVERSE",
             "cols" : [
-              { "name" : "name", "val" : "$1", "key" : "true" },
-              { "name" : "INVERSE1", "val" : "true" }
+              { "name" : "id", "val" : "$1", "key" : "true" },
+              { "name" : "character", "val" : "$2" }
             ]
           }
         </table>
@@ -549,23 +548,23 @@
     </t>
 
     <!-- 術式記述 -->
-    <t no="1" sync="^26:[id8]:([pc]):.*?:01E109F8:" notice="散開から頭割り">
+    <t no="1" sync="^26:[id8]:([pc]):.*?:01E109F8:" notice="反転 散開から頭割り">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_1" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][0]['name']" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][0]['character']" value="$1" />
         <set name="INVERSE1" value="true" />
         <set name="NATURAL_ALIGNMENT_1" value="true" />
       </expressions>
-      <v-notice text="散開→頭割り" duration="10" />
+      <v-notice text="反転: 散開→頭割り" duration="10" />
     </t>
-    <t no="2" sync="^26:[id8]:([pc]):.*?:01E109F8:" notice="散開から頭割り">
+    <t no="2" sync="^26:[id8]:([pc]):.*?:01E109F8:" notice="反転 散開から頭割り">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_1" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][1]['name']" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][1]['character']" value="$1" />
         <set name="INVERSE1" value="true" />
         <set name="NATURAL_ALIGNMENT_1" value="true" />
       </expressions>
-      <v-notice text="散開→頭割り" duration="10" />
+      <v-notice text="反転: 散開→頭割り" duration="10" />
     </t>
     <t no="3" sync="^26:[id8]:([pc]):.*?:01E109F8:" notice="頭割りから散開">
       <expressions>
@@ -576,23 +575,23 @@
       <v-notice text="頭割り→散開" duration="10" />
     </t>
 
-    <t no="1" sync="^26:[id8]:([pc]):.*?:01E309F8:" notice="散開から頭割り">
+    <t no="1" sync="^26:[id8]:([pc]):.*?:01E309F8:" notice="反転 散開から頭割り">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_1" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][0]['name']" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][0]['character']" value="$1" />
         <set name="INVERSE1" value="true" />
         <set name="NATURAL_ALIGNMENT_1" value="true" />
       </expressions>
-      <v-notice text="散開→頭割り" duration="10" />
+      <v-notice text="反転: 散開→頭割り" duration="10" />
     </t>
-    <t no="2" sync="^26:[id8]:([pc]):.*?:01E309F8:" notice="散開から頭割り">
+    <t no="2" sync="^26:[id8]:([pc]):.*?:01E309F8:" notice="反転 散開から頭割り">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_1" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][1]['name']" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][1]['character']" value="$1" />
         <set name="INVERSE1" value="true" />
         <set name="NATURAL_ALIGNMENT_1" value="true" />
       </expressions>
-      <v-notice text="散開→頭割り" duration="10" />
+      <v-notice text="反転: 散開→頭割り" duration="10" />
     </t>
     <t no="3" sync="^26:[id8]:([pc]):.*?:01E309F8:" notice="散開から頭割り">
       <expressions>
@@ -603,24 +602,23 @@
       <v-notice text="散開→頭割り" duration="10" />
     </t>
 
-    <t no="1" sync="^26:[id8]:([pc]):.*?:01DD09F8:" notice="氷から炎">
+    <t no="1" sync="^26:[id8]:([pc]):.*?:01DD09F8:" notice="反転 氷から炎">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_2" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][0]['name']" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][0]['character']" value="$1" />
         <set name="INVERSE2" value="true" />
         <set name="NATURAL_ALIGNMENT_2" value="true" />
       </expressions>
-      <v-notice text="氷から炎" duration="10" />
+      <v-notice text="反転: 氷から炎" duration="10" />
     </t>
-    <t no="2" sync="^26:[id8]:([pc]):.*?:01DD09F8:" notice="氷から炎">
+    <t no="2" sync="^26:[id8]:([pc]):.*?:01DD09F8:" notice="反転 氷から炎">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_2" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][1]['name']" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][1]['character']" value="$1" />
         <set name="INVERSE2" value="true" />
         <set name="NATURAL_ALIGNMENT_2" value="true" />
-
       </expressions>
-      <v-notice text="氷から炎" duration="10" />
+      <v-notice text="反転: 氷から炎" duration="10" />
     </t>
     <t no="3" sync="^26:[id8]:([pc]):.*?:01DD09F8:" notice="炎から氷">
       <expressions>
@@ -631,23 +629,23 @@
       <v-notice text="炎から氷" duration="10" />
     </t>
 
-    <t no="1" sync="^26:[id8]:([pc]):.*?:01DF09F8:" notice="炎から氷">
+    <t no="1" sync="^26:[id8]:([pc]):.*?:01DF09F8:" notice="反転 炎から氷">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_2" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][0]['name']" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][0]['character']" value="$1" />
         <set name="INVERSE2" value="true" />
         <set name="NATURAL_ALIGNMENT_2" value="true" />
       </expressions>
-      <v-notice text="炎から氷" duration="10" />
+      <v-notice text="反転: 炎から氷" duration="10" />
     </t>
-    <t no="2" sync="^26:[id8]:([pc]):.*?:01DF09F8:" notice="炎から氷">
+    <t no="2" sync="^26:[id8]:([pc]):.*?:01DF09F8:" notice="反転 炎から氷">
       <expressions>
         <pre name="NATURAL_ALIGNMENT_2" value="false" />
-        <pre name="TABLE['MAGIC_INVERSE'][1]['name']" value="$1" />
+        <pre name="TABLE['MAGIC_INVERSE'][1]['character']" value="$1" />
         <set name="INVERSE2" value="true" />
         <set name="NATURAL_ALIGNMENT_2" value="true" />
       </expressions>
-      <v-notice text="炎から氷" duration="10" />
+      <v-notice text="反転: 炎から氷" duration="10" />
     </t>
     <t no="3" sync="^26:[id8]:([pc]):.*?:01DF09F8:" notice="氷から炎">
       <expressions>
@@ -768,37 +766,37 @@
     </t>
 
     <!-- 概念支配2回目 -->
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 8.00 Seconds." notice="アルファ 北西">
+    <t no="1" sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 8.00 Seconds." notice="はや アルファ 北西">
       <v-notice icon="Alpha" text="早alpha: 北西" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 8.00 Seconds." notice="ベータ 北東">
+    <t no="1" sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 8.00 Seconds." notice="はや ベータ 北東">
       <v-notice icon="Beta" text="早beta: 北東" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 8.00 Seconds." notice="ガンマ 南東">
+    <t no="1" sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 8.00 Seconds." notice="はや ガンマ 南東">
       <v-notice icon="Gamma" text="早Gamma: 南東" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 26.00 Seconds." notice="アルファ 北西" notice-o="15">
+    <t no="1" sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 26.00 Seconds." notice="おそ アルファ 北西">
       <v-notice icon="Alpha" text="遅Alpha 北西" duration="30" order="1" delay="7" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 26.00 Seconds." notice="ベータ 北東" notice-o="15">
+    <t no="1" sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 26.00 Seconds." notice="おそ ベータ 北東">
       <v-notice icon="Beta" text="遅Beta 北東" duration="30" order="1" delay="7" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 26.00 Seconds." notice="ガンマ 南東" notice-o="15">
+    <t no="1" sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 26.00 Seconds." notice="おそ ガンマ 南東">
       <v-notice icon="Gamma" text="遅Gamma 南東" duration="30" order="1" delay="7" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
@@ -811,14 +809,14 @@
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 単相式反発概念 from  for 8.00 Seconds." notice="ソロ Cへ">
-      <v-notice icon="C" text="ソロ: C" duration="30" order="0" />
+    <t sync="^1A:[id8]:[mex] gains the effect of 単相式反発概念 from  for 8.00 Seconds." notice="単相 Cへ">
+      <v-notice icon="C" text="単相: C" duration="30" order="0" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
       </expressions>
     </t>
 
-    <t sync="^1A:[id8]:[pc] gains the effect of 未完概念：(α|β|γ) from  for (8|26).00 Seconds." sync-count="6" notice="無色 北西へ">
+    <t no="2" sync="^1A:[id8]:[nex] gains the effect of 未完概念：(α|β|γ) from  for (8|26).00 Seconds." sync-count="6" notice="無色 北西へ">
       <v-notice icon="" text="無色: 北西" duration="10" order="0" />
       <expressions>
         <pre name="HIGH_CONCEPT_2" value="true" />
