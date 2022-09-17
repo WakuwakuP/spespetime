@@ -532,8 +532,8 @@
     </t>
 
     <!-- マジックインヴァージョン -->
-    <!-- <t sync="^1A:[id8]:([pc]) gains the effect of _rsv_3349_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 25.00 Seconds."> -->
-    <t sync="^00:([id4])::([pc])に「マジックインヴァージョン」の効果。">
+    <t sync="^1A:([id8]):([pc]) gains the effect of マジックインヴァージョン from  for 25.00 Seconds.">
+    <!-- <t sync="^00:([id4])::([pc])に「マジックインヴァージョン」の効果。"> -->
       <expressions>
         <table>
           {
