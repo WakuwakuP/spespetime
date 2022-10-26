@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>異聞シラディハ</name>
+  <rev>TEST1</rev>
+  <description>
+      202210200101:試作版。動作未チェックTEST1
+      AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
+  </description>
+  <author>Aqua Cat,RINGS</author>
+  <license>CC BY-SA</license>
+  <zone>Another Sil'dihn Subterrane</zone>
+  <locale>JA</locale>
+  <start>試練の封鎖まで</start>
+  <entry>ENTRY</entry>
+
+  <default target-element="Activity" target-attr="notice-o" value="-5" />
+  <!--強制復帰トリガ-->
+  <t sync="TLリセット" notice="リロードします">
+    <load target="ENTRY" truncate="true"/>
+    <v-notice text="リロードします" duration="5" />
+  </t>
+
+  <!--グローバルトリガで終了/全滅時にエントリーへ戻す。-->
+  <t sync="試練の封鎖が解かれた">
+    <load target="ENTRY" truncate="true"/>
+  </t>
+
+
+  <!-- 前半/後半識別用のエントリ-->
+  <s name="ENTRY">
+    <a time="0" text="ENTRY" name="ENTRY-0" />
+    <a time="60" text="戦闘の判別" icon="分岐.png" />
+    <a time="120" text="待機中(120s)" />
+    <a time="180" text="待機中(180s)" />
+    <a time="240" text="待機中(240s)" />
+    <a time="121" text="待機中(300s)" goto="ENTRY-0" />
+    <!--核ステージのロードトリガ-->
+    <t sync="シルキーは「ぱちぱちシャンプー」の構え">
+      <load target="s1" truncate="true"/>
+    </t>
+    <t sync="シラディハ・グラディアトルは「闘人の波動」の構え。">
+      <load target="s2" truncate="true"/>
+    </t>
+    <t sync="影火のゼレズ・ガーは「勇士の咆哮」の構え。">
+      <load target="s3" truncate="true"/>
+    </t>
+
+
+    <!--雑魚戦1回目-->
+    <t sync="^14:7963" notice="左安置">
+      <v-notice text="左安置" duration="8" />
+    </t>
+    <t sync="^14:7964" notice="右安置">
+      <v-notice text="右安置" duration="8" />
+    </t>
+    <t sync="^14:7965" notice="前方範囲">
+      <v-notice text="前方範囲" duration="8" />
+    </t>
+    <t sync="^14:7960" notice="足元安置">
+      <v-notice text="足元安置" duration="8" />
+    </t>
+    <t sync="^14:7961" notice="視線注意">
+      <v-notice text="視線注意" duration="8" />
+    </t>
+    <t sync="^14:7962" notice="きょうこうげき">
+      <v-notice text="強攻撃" duration="8" />
+    </t>
+    <t sync="^14:7957" notice="円形範囲">
+      <v-notice text="円形範囲" duration="8" />
+    </t>
+    <t sync="^14:7959" notice="乱タゲ範囲">
+      <v-notice text="乱タゲ範囲" duration="8" />
+    </t>
+    <t sync="^14:795A" notice="雑魚から範囲">
+      <v-notice text="雑魚範囲" duration="8" />
+    </t>
+    <t sync="^14:795B" notice="右安置">
+      <v-notice text="右安置" duration="8" />
+    </t>
+    <t sync="^14:795C" notice="左安置">
+      <v-notice text="左安置" duration="8" />
+    </t>
+    <t sync="^14:795D" notice="前方範囲">
+      <v-notice text="前方範囲" duration="8" />
+    </t>
+    <!--雑魚戦2回目-->
+    <t sync="^14:7966" notice="円形範囲">
+      <v-notice text="円形範囲" duration="8" />
+    </t>
+    <t sync="^14:7968" notice="自己強化">
+      <v-notice text="自己強化" duration="8" />
+    </t>
+    <t sync="^14:7969" notice="全体ペイン">
+      <v-notice text="全体ペイン" duration="8" />
+    </t>
+    <t sync="^14:796B" notice="ヘヴィ">
+      <v-notice text="ヘビィ" duration="8" />
+    </t>
+    <t sync="^14:796C" notice="えいちぴーいち">
+      <v-notice text="HP1" duration="8" />
+    </t>
+  </s>
+
+  <s name="s1">
+    <a time="013" text="ぱちぱちシャンプー" sync="シルキーの「ぱちぱちシャンプー」" sync-s="-13" />
+    <a time="019" text="シャンプーボム" sync="シルキーの「シャンプーボム」" notice="シャンプーボム" />
+    <a time="030" text="ダストブロワー" sync="シルキーの「ダストブロワー」" notice="ノックバック" />
+    <a time="036" text="ポンポン創出" sync="シルキーの「ポンポン創出」" notice="ポンポン創出。" />
+    <a time="042" text="そよそよシャンプー" sync="シルキーの「そよそよシャンプー」" />
+    <a time="049" text="水拭き" sync="シルキーの「水拭き」" />
+
+    <a time="060" text="ひえひえシャンプー" sync="シルキーの「ひえひえシャンプー」" />
+    <a time="067" text="すべってシャンプーボム" sync="シルキーの「すべってシャンプーボム」" notice="すべってシャンプーボム。" />
+    <a time="079" text="カーペットビーター" sync="シルキーの「カーペットビーター」" notice="カーペットビーター。" />
+    <a time="088" text="みんなでシャンプーボム" sync="シルキーの「みんなでシャンプーボム」" notice="みんなでシャンプーボム。" />
+    <a time="099" text="全体攻撃" sync="シルキーの「水洗い」" notice="全体攻撃" />
+    <a time="104" text="青or緑シャンプー" sync="シルキーの「(そよそよ|ひえひえ)シャンプー」" notice="色を確認" />
+    <a time="110" text="ポンポン創出" sync="シルキーの「ポンポン創出」" notice="ポンポン創出。" />
+    <a time="113" text="線がつく" notice="線が付くよ" />
+    <a time="128" text="みんなでシャンプーボム" sync="シルキーの「みんなでシャンプーボム」" notice="みんなでシャンプーボム。" />
+
+    <a time="133" text="(ランダム)シャンプー" sync="シルキーの「(そよそよ|ひえひえ|ぱちぱち)シャンプー」" notice="色を確認" />
+    <a time="140" text="すべってシャンプーボム" sync="シルキーの「すべってシャンプーボム」" notice="すべってシャンプーボム。" />
+    <a time="158" text="全体攻撃" sync="シルキーの「水洗い」" notice="全体攻撃" />
+    <a time="165" text="ポンポン創出" sync="シルキーの「ポンポン創出」" notice="ポンポン創出。" />
+    <a time="171" text="洗い壺" sync="シルキーの「洗い壺」" notice="洗い壺。" />
+    <a time="181" text="安置を確認" sync="シルキーは「みんなでシャンプーボム」の構え。" notice="安置を確認" />
+    <a time="187" text="みんなでシャンプーボム" sync="シルキーの「みんなでシャンプーボム」" notice="みんなでシャンプーボム。" />
+    <a time="194" text="ひえひえシャンプー" sync="シルキーの「ひえひえシャンプー」" notice="誘導注意" />
+    <a time="201" text="カーペットビーター" sync="シルキーの「カーペットビーター」" notice="カーペットビーター。" />
+    <a time="202" text="誘導注意" sync="シルキーは「すべってシャンプーボム」の構え。" notice="誘導位置注意" />
+    <a time="208" text="すべってシャンプーボム" sync="シルキーの「すべってシャンプーボム」" notice="シャンプーボム" />
+    <a time="212" text="ボスを誘導" notice="ボスを誘導" />
+    <a time="225" text="そよそよシャンプー" sync="シルキーの「そよそよシャンプー」" />
+    <a time="232" text="みんなでシャンプーボム" sync="シルキーの「みんなでシャンプーボム」" notice="みんなでシャンプーボム" />
+
+    <a time="243" text="ダストブロワー" sync="シルキーの「ダストブロワー」" notice="ノックバック" />
+    <a time="248" text="そよそよシャンプー" sync="シルキーの「そよそよシャンプー」" />
+    <a time="254" text="ポンポン創出" sync="シルキーの「ポンポン創出」" notice="ポンポン創出。" />
+    <a time="256" text="誘導位置確認" sync="シルキーは「水拭き」の構え。" notice="誘導位置確認" />
+    <a time="262" text="水拭き" sync="シルキーの「水拭き」" notice="水拭き" />
+
+    <a time="300" text="調査中" />
+
+    <!--水拭きの通知-->
+    <t sync="^14:7755" notice="左安置">
+      <v-notice text="左安置" duration="8" />
+    </t>
+    <t sync="^14:7756" notice="右安置">
+      <v-notice text="右安置" duration="8" />
+    </t>
+  </s>
+
+
+  <s name="s2">
+    <a time="013" text="全体攻撃" sync="シラディハ・グラディアトルの「闘人の波動」" notice="全体攻撃" name="loopS2" sync-s="-13" />
+    <a time="025" text="亡念幻身" sync="シラディハ・グラディアトルの「亡念幻身」" />
+    <a time="039" text="大剛の突撃" sync="ミラージュ・グラディアトルの「大剛の突撃」" notice="突撃" />
+    <a time="044" text="亡念幻身" sync="シラディハ・グラディアトルの「亡念幻身」" />
+    <a time="058" text="大剛の突撃" sync="ミラージュ・グラディアトルの「大剛の突撃」" notice="突撃" />
+
+    <a time="069" text="頭割り" sync="シラディハ・グラディアトルの「闘人砲」" notice="頭割り" />
+    <a time="085" text="強攻撃" sync="シラディハ・グラディアトルの「闘人の斬撃」" notice="きょうこうげき" />
+    <a time="097" text="呪怨の咆哮" sync="シラディハ・グラディアトルの「呪怨の咆哮」" notice="デバフを確認" />
+    <a time="111" text="大剛の旋撃" sync="シラディハ・グラディアトルの「大剛の旋撃」" />
+
+    <a time="123" text="全体攻撃" sync="シラディハ・グラディアトルの「闘人の波動」" notice="全体攻撃" />
+    <a time="139" text="呪像起動" sync="シラディハ・グラディアトルの「呪像起動」" />
+    <a time="144" text="亡念励起" sync="シラディハ・グラディアトルの「亡念励起」" notice="散開" />
+    <a time="154" text="座下隆起" sync="シラディハ・グラディアトルの「座下隆起」" />
+
+    <a time="163" text="全体攻撃" sync="シラディハ・グラディアトルの「闘人の波動」" notice="全体攻撃" />
+    <a time="174" text="呪怨呪像" sync="シラディハ・グラディアトルの「呪怨呪像」" notice="デバフを確認" />
+    <a time="179" text="亡念励起" sync="シラディハ・グラディアトルの「亡念励起」" />
+    <a time="189" text="座下隆起" sync="シラディハ・グラディアトルの「座下隆起」" />
+
+    <a time="199" text="全体攻撃" sync="シラディハ・グラディアトルの「闘人の波動」" notice="全体攻撃" />
+    <a time="210" text="鎖とデバフ確認" sync="シラディハ・グラディアトルは「呪怨の連撃」の構え。" notice="鎖とデバフ" />
+    <a time="235" text="呪怨の大残響1" notice="塔踏み1回目" />
+    <a time="239" text="呪怨の大残響2" notice="塔踏み2回目" />
+
+    <a time="247" text="ループS2" sync="シラディハ・グラディアトルの「闘人の波動」" goto="loopS2" />
+
+    <t sync="^14:7658" notice="　">
+      <v-notice text="チャージ1" duration="8" />
+    </t>
+    <t sync="^14:7659" notice="　">
+      <v-notice text="チャージ2" duration="8" />
+    </t>
+    <t sync="^14:765A" notice="　">
+      <v-notice text="チャージ3" duration="8" />
+    </t>
+    <t sync="^14:765D" notice="チャージ1">
+      <v-notice text="チャージ1" duration="8" />
+    </t>
+    <t sync="^14:765E" notice="チャージ2">
+      <v-notice text="チャージ2" duration="8" />
+    </t>
+    <t sync="^14:765F" notice="チャージ3">
+      <v-notice text="チャージ3" duration="8" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of 呪怨の残響 from  for 14.00" notice="先に散開">
+      <v-notice text="先に散開" duration="19" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of 呪怨の残響 from  for 17.00" notice="後で散開">
+      <v-notice text="後で散開" duration="19" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of 呪怨の大残響 from  for 19.00" notice="後で塔踏み">
+      <v-notice text="離れる→塔踏み" duration="25" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of 呪怨の大残響 from  for 23.00" notice="先に塔踏み">
+      <v-notice text="塔踏み→離れる" duration="25" />
+    </t>
+  </s>
+
+
+  <s name="s3">
+    <a time="016" text="全体攻撃" sync="影火のゼレズ・ガーの「勇士の咆哮」" notice="全体攻撃" sync-s="-16" />
+    <a time="028" text="呪具設置" sync="影火のゼレズ・ガーの「呪具設置」" />
+    <a time="035" text="安置で散開" sync="影火のゼレズ・ガーの「転移の呪印」" notice="安置で散開" />
+    <a time="047" text="ジャンプ1" sync="影火のゼレズ・ガーの「石火豪衝」" sync-count="1" />
+    <a time="048" text="燃焼" sync="火球の「燃焼」" notice="燃焼。" />
+    <a time="049" text="ジャンプ2" />
+    <a time="051" text="デバフ無しが前" sync="影火のゼレズ・ガーは「天の聖火」の構え。" notice="デバフ無しが前へ" />
+    <a time="057" text="天の聖火1" />
+    <a time="059" text="天の聖火2" />
+    <a time="069" text="強攻撃" sync="影火のゼレズ・ガーの「石火豪打」" notice="きょう攻撃" />
+
+    <a time="081" text="呪具設置" sync="影火のゼレズ・ガーの「呪具設置」" />
+    <a time="084" text="デバフを確認" sync="影火のゼレズ・ガーは「火焔の呪印」の構え。" notice="デバフを確認" />
+    <a time="093" text="線処理開始" sync="影火のゼレズ・ガーの「火焔の呪印」" notice="線処理開始" />
+    <a time="106" text="1回目安置へ" sync="立体魔法陣の「聖火砲」" notice="1回目安置へ" />
+    <a time="107" text="影火呪式" sync="影火のゼレズ・ガーの「影火呪式」" />
+    <a time="118" text="2回目安置へ" sync="立体魔法陣の「聖火砲」" notice="2回目安置へ" />
+    <a time="122" text="強攻撃" sync="影火のゼレズ・ガーの「石火豪打」" notice="きょうこうげき" />
+    <a time="131" text="全体攻撃" sync="影火のゼレズ・ガーの「勇士の咆哮」" notice="全体攻撃" />
+
+    <a time="144" text="呪具設置" sync="影火のゼレズ・ガーの「呪具設置」" />
+    <a time="152" text="呪具流火" sync="影火のゼレズ・ガーの「呪具流火」" />
+    <a time="161" text="うちそと確認" sync="影火のゼレズ・ガーの「強制転移の呪」" notice="うちそと確認" />
+    <a time="169" text="呪具警陣" sync="影火のゼレズ・ガーの「呪具警陣」" notice="強制移動" />
+    <a time="193" text="石火豪打" sync="影火のゼレズ・ガーの「石火豪打」" notice="きょうこうげき" />
+
+    <a time="205" text="呪具設置" sync="影火のゼレズ・ガーの「呪具設置」" />
+    <a time="212" text="転移の呪印" sync="影火のゼレズ・ガーの「転移の呪印」" />
+    <a time="218" text="安置で散開" sync="影火のゼレズ・ガーは「石火豪衝」の構え。" notice="安置で散開" />
+    <a time="224" text="ジャンプ1" sync="影火のゼレズ・ガーの「石火豪衝」" sync-count="1" />
+    <a time="224" text="ビーム" sync="立体魔法陣の「聖火砲」" notice="ビーム" />
+    <a time="225" text="ジャンプ2" />
+    <a time="227" text="デバフ無しが前" sync="影火のゼレズ・ガーは「天の聖火」の構え。" notice="デバフ無しが前へ" />
+    <a time="233" text="天の聖火1" />
+    <a time="235" text="天の聖火2" />
+    <a time="246" text="全体攻撃" sync="影火のゼレズ・ガーの「勇士の咆哮」" notice="全体攻撃" />
+
+    <a time="258" text="呪具設置" sync="影火のゼレズ・ガーの「呪具設置」" />
+    <a time="266" text="呪具流火" sync="影火のゼレズ・ガーの「呪具流火」" />
+    <a time="269" text="火焔の呪印" sync="影火のゼレズ・ガーは「火焔の呪印」の構え。" notice="火焔の呪印。" />
+    <a time="278" text="線処理開始" sync="影火のゼレズ・ガーの「火焔の呪印」" notice="線処理開始" />
+    <a time="300" text="調査中" />
+  </s>
+</timeline>

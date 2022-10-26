@@ -17,7 +17,7 @@
       "アムレン";
   }
 
-  <!--X秒前通知のセット-->
+    <!--X秒前通知のセット-->
   <default target-element="Activity" target-attr="notice-o" value="-3" />
   <default target-element="Activity" target-attr="notice-d" value="Main" />
   <default target-element="Trigger" target-attr="notice-d" value="Main" />
@@ -85,7 +85,7 @@
   <t sync="^14:7716" notice="散開から">
     <v-notice text="散開→中央→4人頭割り" duration="9" />
   </t>
-  <t sync="^14:771A" notice="頭割りから">
+  <t sync="^14:7717" notice="頭割りから">
     <v-notice text="4人頭割り→中央→散開" duration="9" />
   </t>
 

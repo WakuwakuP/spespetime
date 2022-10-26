@@ -155,16 +155,16 @@
   </t>
 
   <!--カヘキシー１回目-->
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 20.00 Seconds." notice="/wait 14, 1回目入る">
+  <t sync="^1A:[id8]:[mex] gains the effect of 魔活細胞 from  for 20.00 Seconds." notice="/wait 14, 1回目入る">
     <v-notice icon="my1" text="1回目" duration="32" />
   </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 8.00 Seconds." notice="/wait 18, 2回目入る">
+  <t sync="^1A:[id8]:[mex] gains the effect of 魔活細胞 from  for 8.00 Seconds." notice="/wait 18, 2回目入る">
     <v-notice icon="my2" text="2回目" duration="32" />
   </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 12.00 Seconds." notice="/wait 22, 3回目入る">
+  <t sync="^1A:[id8]:[mex] gains the effect of 魔活細胞 from  for 12.00 Seconds." notice="/wait 22, 3回目入る">
     <v-notice icon="my3" text="3回目" duration="32" />
   </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3321_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 16.00 Seconds." notice="/wait 25, 4回目 入る">
+  <t sync="^1A:[id8]:[mex] gains the effect of 魔活細胞 from  for 16.00 Seconds." notice="/wait 25, 4回目 入る">
     <v-notice icon="my4" text="4回目" duration="32" />
   </t>
 

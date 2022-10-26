@@ -25,7 +25,7 @@
       "アムレン";
   }
 
-  <default target-element="Activity" target-attr="notice-o" value="-3" />
+  <default target-element="Activity" target-attr="notice-o" value="-4" />
   <default target-element="Activity" target-attr="notice-d" value="Main" />
   <default target-element="Trigger" target-attr="notice-d" value="Main" />
 
@@ -303,7 +303,7 @@
       <v-notice text="1 2" duration="10" />
     </t>
 
-    <t sync="^14:7932:.*(110,80.00,0.00)" notice="左側の蛇">
+    <t sync="^14:7932:.*(110.00,80.00,0.00)" notice="左側の蛇">
       <v-notice text="1 4" duration="10" />
     </t>
     <t sync="^14:7932:.*(110.00,120.00,0.00)" notice="左側の蛇">
@@ -499,7 +499,11 @@
     <a time="390.0" text="自己概念崩壊" sync="ヘファイストスの「自己概念崩壊」" notice="概念崩壊" />
 
     <a time="410.0" text="セリフ" sync="ヘファイストス:こ、こここれぞ、キュウキョク……ノッ！" />
-    <a time="426.0" text="全体攻撃" sync="ヘファイストスの「アイオンアゴニア」" notice="全体攻撃" />
+    @if (Model.Player.InRole("MagicDPS")) {
+      <a time="426.0" text="全体攻撃" sync="ヘファイストスの「アイオンアゴニア」" notice="アドル" />
+    } else {
+      <a time="426.0" text="全体攻撃" sync="ヘファイストスの「アイオンアゴニア」" notice="全体攻撃" />
+    }
 
     <a time="428.0" text="散開" sync="ヘファイストスは「支配者の一撃」の構え。" />
     <a time="436.0" text="支配者の一撃" sync="ヘファイストスの「支配者の一撃」" notice="支配者の一撃" />
@@ -671,40 +675,40 @@
         <set name="HIGH_CONCEPT_1_SPLICER_BLUE" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 8.00 Seconds." notice="北西">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 8.00 Seconds." notice="はや アルファ 北西">
       <v-notice icon="Alpha" text="北西: 早alpha" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 8.00 Seconds." notice="北東">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 8.00 Seconds." notice="はや ベータ 北東">
       <v-notice icon="Beta" text="北東: 早beta" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 8.00 Seconds." notice="南東">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 8.00 Seconds." notice="はや ガンマ 南東">
       <v-notice icon="Gamma" text="南東: 早Gamma" duration="30" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 26.00 Seconds." notice="Bから北西">
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：α from  for 26.00 Seconds." notice="おそ アルファ B から 北西">
       <v-notice icon="B" text="B: 遅alpha" duration="10" order="0" />
       <v-notice icon="Alpha" text="遅Alpha" duration="30" order="1" delay="7" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 26.00 Seconds." notice="Cから北東">
-      <v-notice icon="C" text="B: 遅Beta" duration="10" order="0" />
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：β from  for 26.00 Seconds." notice="おそ ベータ C から 北東">
+      <v-notice icon="C" text="C: 遅Beta" duration="10" order="0" />
       <v-notice icon="Beta" text="遅Beta" duration="30" order="1" delay="7" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />
       </expressions>
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 26.00 Seconds." notice="Cから南東">
-      <v-notice icon="C" text="B: 遅Gamma" duration="10" order="0" />
+    <t sync="^1A:[id8]:[mex] gains the effect of 未完概念：γ from  for 26.00 Seconds." notice="おそ ガンマ C から 南東">
+      <v-notice icon="C" text="C: 遅Gamma" duration="10" order="0" />
       <v-notice icon="Gamma" text="遅Gamma" duration="30" order="1" delay="7" />
       <expressions>
         <pre name="HIGH_CONCEPT_1" value="true" />

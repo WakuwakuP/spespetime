@@ -142,24 +142,24 @@
   </t>
 
   <!-- 魔印創成 -->
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3308_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 9.00 Seconds." notice="1回目散開">
+  <t sync="^1A:[id8]:[mex] gains the effect of 風の魔印 from  for 9.00 Seconds." notice="1回目散開">
     <v-notice icon="my1" text="散開\n→頭割り" />
   </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3308_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 20.00 Seconds." notice="2回目散開">
+  <t sync="^1A:[id8]:[mex] gains the effect of 風の魔印 from  for 20.00 Seconds." notice="2回目散開">
     <v-notice icon="my2" text="頭割り\n→散開" />
   </t>
 
   <!-- 魔印創成・獄 -->
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 10.00 Seconds." notice="1回目散開">
+  <t sync="^1A:[id8]:[mex] gains the effect of 風の二重印 from  for 10.00 Seconds." notice="1回目散開">
     <v-notice icon="my1" text="1回目散開" duration="11" />
   </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 25.00 Seconds." notice="2回目散開">
+  <t sync="^1A:[id8]:[mex] gains the effect of 風の二重印 from  for 25.00 Seconds." notice="2回目散開">
     <v-notice icon="my2" text="2回目散開" duration="26" />
   </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 40.00 Seconds." notice="3回目散開">
+  <t sync="^1A:[id8]:[mex] gains the effect of 風の二重印 from  for 40.00 Seconds." notice="3回目散開">
     <v-notice icon="my3" text="3回目散開" duration="41" />
   </t>
-  <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3310_-1_0_0_0_S74CFC3B0_E74CFC3B0 from  for 55.00 Seconds." notice="4回目散開">
+  <t sync="^1A:[id8]:[mex] gains the effect of 風の二重印 from  for 55.00 Seconds." notice="4回目散開">
     <v-notice icon="my4" text="4回目散開" duration="56" />
   </t>
 
