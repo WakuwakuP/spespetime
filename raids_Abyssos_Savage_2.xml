@@ -188,31 +188,31 @@
   <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 10, X4):" notice="範囲対象">
     <v-notice text="範囲対象" duration="15" />
   </t>
-  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 37, X4):" notice="中央へ">
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 37, X4):" notice="頭割り">
     <v-notice text="中央(頭割り)" duration="15" />
   </t>
-  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 38, X4):" notice="外側へ">
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 38, X4):" notice="ひとりうけ">
     <v-notice text="外側(AoE)" duration="15" />
   </t>
-  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 39, X4):" notice="外側へ">
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 39, X4):" notice="ひとりうけ">
     <v-notice text="外側(線先:AoE)" duration="15" />
   </t>
   <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 40, X4):" notice="調査中">
     <v-notice text="調査中ID +40" duration="15" />
   </t>
-  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 41, X4):" notice="中央へ">
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 41, X4):" notice="頭割り">
     <v-notice text="中央(線先:頭割り)" duration="15" />
   </t>
-  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 42, X4):" notice="中央へ">
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 42, X4):" notice="頭割り">
     <v-notice text="中央(線先:ドーナツ)" duration="15" />
   </t>
   <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 43, X4):" notice="調査中">
     <v-notice text="調査中ID +43" duration="15" />
   </t>
-  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 44, X4):" notice="外側へ">
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 44, X4):" notice="ひとりうけ">
     <v-notice text="外側(線先:AoE)" duration="15" />
   </t>
-  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 48, X4):" notice="内側へ">
+  <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] + 48, X4):" notice="頭割り">
     <v-notice text="内側(ドーナツ範囲)" duration="15" />
   </t>
 
