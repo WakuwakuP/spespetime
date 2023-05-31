@@ -69,6 +69,7 @@
     <!-- 1回目 -->
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-388, X4):" notice="2番、誘導">
       <expressions>
+        <pre name="dice_phase_1" value="true" />
         <set name="dice" value="1" />
         <set name="dice_2" value="集合" />
         <set name="dice_3" value="塔踏み" />
@@ -82,6 +83,7 @@
     </t>
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-386, X4):" notice="4番、集合">
       <expressions>
+        <pre name="dice_phase_1" value="true" />
         <set name="dice" value="1" />
         <set name="dice_2" value="誘導" />
         <set name="dice_3" value="集合" />
@@ -95,6 +97,7 @@
     </t>
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-384, X4):" notice="6番、塔踏み">
       <expressions>
+        <pre name="dice_phase_1" value="true" />
         <set name="dice" value="1" />
         <set name="dice_2" value="集合" />
         <set name="dice_3" value="誘導" />
@@ -108,6 +111,7 @@
     </t>
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-382, X4):" notice="8番、集合">
       <expressions>
+        <pre name="dice_phase_1" value="true" />
         <set name="dice" value="1" />
         <set name="dice_2" value="塔踏み" />
         <set name="dice_3" value="集合" />
@@ -124,15 +128,27 @@
 
     <!-- 2回目 -->
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-389, X4):" notice="1番">
+      <expressions>
+        <pre name="dice_phase_2" value="true" />
+      </expressions>
       <v-notice text="1番" icon="Dice1.png" duration="40" />
     </t>
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-388, X4):" notice="2番">
+      <expressions>
+        <pre name="dice_phase_2" value="true" />
+      </expressions>
       <v-notice text="2番" icon="Dice2.png" duration="40" />
     </t>
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-387, X4):" notice="3番">
+      <expressions>
+        <pre name="dice_phase_2" value="true" />
+      </expressions>
       <v-notice text="3番" icon="Dice3.png" duration="40" />
     </t>
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-386 ,X4):" notice="4番">
+      <expressions>
+        <pre name="dice_phase_2" value="true" />
+      </expressions>
       <v-notice text="4番" icon="Dice4.png" duration="40" />
     </t>
 
@@ -146,6 +162,8 @@
     <a time="000">
       <expressions>
         <set name="dice" value="false" />
+        <set name="dice_phase_1" value="false" />
+        <set name="dice_phase_2" value="false" />
         <set name="dice_2" value="" />
         <set name="dice_3" value="" />
         <set name="dice_4" value="" />
@@ -165,7 +183,11 @@
     <a time="169.0" text="古式破砕拳" sync="コキュートスの「古式破砕拳」" />
     <a time="175.4" text="グラトニーズアーガー" sync="コキュートスの「グラトニーズアーガー」" notice="全体攻撃" />
     <a time="186.9" text="穿昇拳" sync="コキュートスの「穿昇拳」" notice="タンク強攻撃" />
-    <a time="214.4" text="魂喰らい(キメリック)" sync="コキュートスの「魂喰らい」" />
+    <a time="214.4" text="魂喰らい(キメリック)" sync="コキュートスの「魂喰らい」">
+      <expressions>
+        <set name="dice_phase_1" value="true" />
+      </expressions>
+    </a>
     <a time="221.5" text="サモンライトニング" sync="コキュートスの「サモンライトニング」" notice="サイコロ確認" />
     <a time="238.0" text="1回目">
       <expressions>
@@ -197,7 +219,12 @@
         <pre name="dice" value="true" />
       </expressions>
     </a>
-    <a time="255.6" text="4回目" />
+    <a time="255.6" text="4回目">
+      <expressions>
+        <set name="dice_phase_1" value="false" />
+        <set name="dice_phase_2" value="true" />
+      </expressions>
+    </a>
     <a time="265.6" text="憑魔双撃" sync="コキュートスの「憑魔双撃」" />
     <a time="272.1" text="グラトニーズアーガー" sync="コキュートスの「グラトニーズアーガー」" notice="全体攻撃" />
     <a time="288.8" text="魂喰らい(ビースト)" sync="コキュートスの「魂喰らい」" />
