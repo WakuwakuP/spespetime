@@ -42,7 +42,7 @@
     <t name="前方連転脚" sync="コキュートスは「前方連転脚」の構え。" notice="後ろ安置">
       <v-notice text="後ろ安置" duration="10" />
     </t>
-    <t name="後方連転脚" sync="コキュートスは「後方連転脚」の構え。" notice="前安置">
+    <t name="後方連転脚" sync="コキュートスは「後方連転脚」の構え。" notice="まえ安置">
       <v-notice text="前安置" duration="10" />
     </t>
 
@@ -58,9 +58,13 @@
       サイコロ6       00F6  246 246-630= -384
       サイコロ7       00F7  247 247-630= -383
       サイコロ8       00F8  248 248-630= -382
-      あおまる        0173  371 371-630= -259
+      あおまる        01EC  492 492-630= -138
     -->
-
+    <t name="サインコードを変数に格納するサンプル" sync="1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):" sync-count="1">
+      <expressions>
+        <set name="1B_MARKER" value="0x${marker}" />
+      </expressions>
+    </t>
 
     <!--
       タイミングメモ 15+0=15 15+6=21 21+6=27 27+6=33
@@ -124,7 +128,7 @@
       <v-notice text="4:誘導" order="3" icon="AOE.png" duration="5" delay="27" />
     </t>
 
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-259, X4):" notice="あおまるついた" />
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-138, X4):" notice="あおまるついた" />
 
     <!-- 2回目 -->
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-389, X4):" notice="1番">
