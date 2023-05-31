@@ -50,7 +50,7 @@
     <!-- 
       MEMO 
       最初のマーカー  0276  630
-      サイコロ1       00F1  241 241-630= -389
+      サイコロ1       00F1  241 241-630= -389 630-389= 241
       サイコロ2       00F2  242 242-630= -388
       サイコロ3       00F3  243 243-630= -387
       サイコロ4       00F4  244 244-630= -386
@@ -60,7 +60,7 @@
       サイコロ8       00F8  248 248-630= -382
       あおまる        01EC  492 492-630= -138
     -->
-    <t name="サインコードを変数に格納するサンプル" sync="1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):" sync-count="1">
+    <t name="サインコードを変数に格納するサンプル" sync="1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):">
       <expressions>
         <set name="1B_MARKER" value="0x${marker}" />
       </expressions>
@@ -71,7 +71,7 @@
     -->
 
     <!-- 1回目 -->
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-388, X4):" notice="2番、誘導">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-138, X4):" notice="2番、誘導">
       <expressions>
         <pre name="dice_phase_1" value="true" />
         <set name="dice" value="1" />
@@ -85,7 +85,7 @@
       <v-notice text="3:塔踏み" order="4" icon="FallingObject.png" duration="5" delay="21" />
       <v-notice text="4:集合" order="5" icon="PunishmentGroup.png" duration="5" delay="27" />
     </t>
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-386, X4):" notice="4番、集合">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-136, X4):" notice="4番、集合">
       <expressions>
         <pre name="dice_phase_1" value="true" />
         <set name="dice" value="1" />
@@ -99,7 +99,7 @@
       <v-notice text="3:集合" order="4" icon="PunishmentGroup.png" duration="5" delay="21" />
       <v-notice text="4:塔踏み" order="5" icon="FallingObject.png" duration="5" delay="27" />
     </t>
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-384, X4):" notice="6番、塔踏み">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-134, X4):" notice="6番、塔踏み">
       <expressions>
         <pre name="dice_phase_1" value="true" />
         <set name="dice" value="1" />
@@ -113,7 +113,7 @@
       <v-notice text="3:誘導" order="3" icon="AOE.png" duration="5" delay="21" />
       <v-notice text="4:集合" order="4" icon="PunishmentGroup.png" duration="5" delay="27" />
     </t>
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-382, X4):" notice="8番、集合">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-132, X4):" notice="8番、集合">
       <expressions>
         <pre name="dice_phase_1" value="true" />
         <set name="dice" value="1" />
