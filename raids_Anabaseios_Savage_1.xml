@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <timeline>
-  <name>Anabaseios:The Ninth Circle (Savage) timeline</name>
+  <name>Anabaseios: The Ninth Circle (Savage) timeline</name>
   <rev>draft</rev>
   <description>
     天獄篇零式1層 タイムライン
   </description>
   <author>Wakuwaku</author>
   <license>CC BY-SA</license>
-  <zone>Anabaseios:The Ninth Circle (Savage)</zone>
+  <zone>Anabaseios: The Ninth Circle (Savage)</zone>
   <locale>JA</locale>
   <start>0039::戦闘開始！</start>
   <entry>main</entry>
@@ -47,25 +47,27 @@
     </t>
 
     <!-- キメリック サイコロ -->
-    <!-- いつもの 最初のマーカーから逆算するやつ -->
     <!-- 
       MEMO 
-      最初のマーカー  01FD  509
-      サイコロ1       0078  120
-      あおまる        0173  371
+      最初のマーカー  0276  630
+      サイコロ1       00F1  241 241-630= -389
+      サイコロ2       00F2  242 242-630= -388
+      サイコロ3       00F3  243 243-630= -387
+      サイコロ4       00F4  244 244-630= -386
+      サイコロ5       00F5  245 245-630= -385
+      サイコロ6       00F6  246 246-630= -384
+      サイコロ7       00F7  247 247-630= -383
+      サイコロ8       00F8  248 248-630= -382
+      あおまる        0173  371 371-630= -259
     -->
-    <t sync="^1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):" sync-count="1">
-      <expressions>
-        <set name="marker_origin" value="0x${maker}" scope="CurrentZone" />
-      </expressions>
-    </t>
+
 
     <!--
       タイミングメモ 15+0=15 15+6=21 21+6=27 27+6=33
     -->
 
     <!-- 1回目 -->
-    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 388, X4):" notice="2番、誘導">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-388, X4):" notice="2番、誘導">
       <expressions>
         <set name="dice" value="1" />
         <set name="dice_2" value="集合" />
@@ -78,7 +80,7 @@
       <v-notice text="3:塔踏み" order="4" icon="FallingObject.png" duration="5" delay="21" />
       <v-notice text="4:集合" order="5" icon="PunishmentGroup.png" duration="5" delay="27" />
     </t>
-    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 386, X4):" notice="4番、集合">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-386, X4):" notice="4番、集合">
       <expressions>
         <set name="dice" value="1" />
         <set name="dice_2" value="誘導" />
@@ -91,7 +93,7 @@
       <v-notice text="3:集合" order="4" icon="PunishmentGroup.png" duration="5" delay="21" />
       <v-notice text="4:塔踏み" order="5" icon="FallingObject.png" duration="5" delay="27" />
     </t>
-    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 384, X4):" notice="6番、塔踏み">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-384, X4):" notice="6番、塔踏み">
       <expressions>
         <set name="dice" value="1" />
         <set name="dice_2" value="集合" />
@@ -104,7 +106,7 @@
       <v-notice text="3:誘導" order="3" icon="AOE.png" duration="5" delay="21" />
       <v-notice text="4:集合" order="4" icon="PunishmentGroup.png" duration="5" delay="27" />
     </t>
-    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 382, X4):" notice="8番、集合">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-382, X4):" notice="8番、集合">
       <expressions>
         <set name="dice" value="1" />
         <set name="dice_2" value="塔踏み" />
@@ -118,20 +120,19 @@
       <v-notice text="4:誘導" order="3" icon="AOE.png" duration="5" delay="27" />
     </t>
 
-    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 138, X4):" notice="あおまるついた" />
-
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-259, X4):" notice="あおまるついた" />
 
     <!-- 2回目 -->
-    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 389, X4):" notice="1番">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-389, X4):" notice="1番">
       <v-notice text="1番" icon="Dice1.png" duration="40" />
     </t>
-    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 388, X4):" notice="2番">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-388, X4):" notice="2番">
       <v-notice text="2番" icon="Dice2.png" duration="40" />
     </t>
-    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 387, X4):" notice="3番">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-387, X4):" notice="3番">
       <v-notice text="3番" icon="Dice3.png" duration="40" />
     </t>
-    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 386 ,X4):" notice="4番">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-386 ,X4):" notice="4番">
       <v-notice text="4番" icon="Dice4.png" duration="40" />
     </t>
 
