@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>Anabaseios:The Ninth Circle (Savage) timeline</name>
+  <rev>draft</rev>
+  <description>
+    天獄篇零式1層 タイムライン
+  </description>
+  <author>Wakuwaku</author>
+  <license>CC BY-SA</license>
+  <zone>Anabaseios:The Ninth Circle (Savage)</zone>
+  <locale>JA</locale>
+  <start>0039::戦闘開始！</start>
+  <entry>main</entry>
+
+  <default target-element="Activity" target-attr="notice-o" value="-3" />
+  <default target-element="Activity" target-attr="notice-d" value="Main" />
+  <default target-element="Trigger" target-attr="notice-d" value="Main" />
+
+  @{
+    var ANTI_KNOCKBACK = Model.Player.InRole("HEALER","MagicDPS") ?
+      "堅実魔" :
+      "アムレン";
+  }
+
+  // start 01:46:35
+  <s name="main">
+    <!-- メイガス ダブルスペル -->
+    <t name="ダブルスペル(炎)" sync="^14:8154:" notice="頭割り">
+      <expressions>
+        <set name="" />
+      </expressions>
+      <v-notice text="頭割り" duration="10" />
+    </t>
+    <t name="ダブルスペル(雷)" sync="^14:8155:" notice="散開">
+      <expressions>
+        <set name="" />
+      </expressions>
+      <v-notice text="散開" duration="10" />
+    </t>
+
+    <!-- マーシャリスト 前・後 -->
+    <t name="前方連転脚" sync="コキュートスは「前方連転脚」の構え。" notice="後ろ安置">
+      <v-notice text="後ろ安置" duration="10" />
+    </t>
+    <t name="後方連転脚" sync="コキュートスは「後方連転脚」の構え。" notice="前安置">
+      <v-notice text="前安置" duration="10" />
+    </t>
+
+    <!-- キメリック サイコロ -->
+    <!-- いつもの 最初のマーカーから逆算するやつ -->
+    <!-- 
+      MEMO 
+      最初のマーカー  01FD  509
+      サイコロ1       0078  120
+      あおまる        0173  371
+    -->
+    <t sync="^1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):" sync-count="1">
+      <expressions>
+        <set name="marker_origin" value="0x${maker}" scope="CurrentZone" />
+      </expressions>
+    </t>
+
+    <!--
+      タイミングメモ 15+0=15 15+6=21 21+6=27 27+6=33
+    -->
+
+    <!-- 1回目 -->
+    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 388, X4):" notice="2番、誘導">
+      <expressions>
+        <set name="dice" value="1" />
+        <set name="dice_2" value="集合" />
+        <set name="dice_3" value="塔踏み" />
+        <set name="dice_4" value="集合" />
+      </expressions>
+      <v-notice text="2番" order="1" icon="Dice2.png" duration="32" />
+      <v-notice text="1:誘導" order="2" icon="AOE.png" duration="14" notice="誘導" />
+      <v-notice text="2:集合" order="3" icon="PunishmentGroup.png" duration="5" delay="15" />
+      <v-notice text="3:塔踏み" order="4" icon="FallingObject.png" duration="5" delay="21" />
+      <v-notice text="4:集合" order="5" icon="PunishmentGroup.png" duration="5" delay="27" />
+    </t>
+    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 386, X4):" notice="4番、集合">
+      <expressions>
+        <set name="dice" value="1" />
+        <set name="dice_2" value="誘導" />
+        <set name="dice_3" value="集合" />
+        <set name="dice_4" value="塔踏み" />
+      </expressions>
+      <v-notice text="4番" icon="Dice4.png" duration="32" />
+      <v-notice text="1:集合" order="2" icon="PunishmentGroup.png" duration="14" />
+      <v-notice text="2:誘導" order="3" icon="AOE.png" duration="5" delay="15" />
+      <v-notice text="3:集合" order="4" icon="PunishmentGroup.png" duration="5" delay="21" />
+      <v-notice text="4:塔踏み" order="5" icon="FallingObject.png" duration="5" delay="27" />
+    </t>
+    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 384, X4):" notice="6番、塔踏み">
+      <expressions>
+        <set name="dice" value="1" />
+        <set name="dice_2" value="集合" />
+        <set name="dice_3" value="誘導" />
+        <set name="dice_4" value="集合" />
+      </expressions>
+      <v-notice text="6番" icon="Dice6.png" duration="32" />
+      <v-notice text="1:塔踏み" order="5" icon="FallingObject.png" duration="14"/>
+      <v-notice text="2:集合" order="2" icon="PunishmentGroup.png" duration="5" delay="15" />
+      <v-notice text="3:誘導" order="3" icon="AOE.png" duration="5" delay="21" />
+      <v-notice text="4:集合" order="4" icon="PunishmentGroup.png" duration="5" delay="27" />
+    </t>
+    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 382, X4):" notice="8番、集合">
+      <expressions>
+        <set name="dice" value="1" />
+        <set name="dice_2" value="塔踏み" />
+        <set name="dice_3" value="集合" />
+        <set name="dice_4" value="誘導" />
+      </expressions>
+      <v-notice text="8番" icon="Dice8.png" duration="32" />
+      <v-notice text="1:集合" order="4" icon="PunishmentGroup.png" duration="14" />
+      <v-notice text="2:塔踏み" order="5" icon="FallingObject.png" duration="5" delay="15" />
+      <v-notice text="3:集合" order="2" icon="PunishmentGroup.png" duration="5" delay="21" />
+      <v-notice text="4:誘導" order="3" icon="AOE.png" duration="5" delay="27" />
+    </t>
+
+    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 138, X4):" notice="あおまるついた" />
+
+
+    <!-- 2回目 -->
+    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 389, X4):" notice="1番">
+      <v-notice text="1番" icon="Dice1.png" duration="40" />
+    </t>
+    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 388, X4):" notice="2番">
+      <v-notice text="2番" icon="Dice2.png" duration="40" />
+    </t>
+    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 387, X4):" notice="3番">
+      <v-notice text="3番" icon="Dice3.png" duration="40" />
+    </t>
+    <t sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 386 ,X4):" notice="4番">
+      <v-notice text="4番" icon="Dice4.png" duration="40" />
+    </t>
+
+    <t name="憑魔双撃(炎)" sync="^14:8184" notice="頭割り">
+      <v-notice text="頭割り" duration="10" />
+    </t>
+    <t name="憑魔双撃(雷)" sync="^14:8185" notice="散開">
+      <v-notice text="散開" duration="10" />
+    </t>
+
+    <a time="000">
+      <expressions>
+        <set name="dice" value="false" />
+        <set name="dice_2" value="" />
+        <set name="dice_3" value="" />
+        <set name="dice_4" value="" />
+      </expressions>
+    </a>
+    <a time="011.9" text="グラトニーズアーガー" sync="コキュートスの「グラトニーズアーガー」" notice="全体攻撃" />
+    <a time="031.2" text="魂喰らい(メイガス)" sync="コキュートスの「魂喰らい」" />
+    <a time="046.7" text="デストゥワイス" sync="コキュートスの「デストゥワイス」" notice="スイッチ" />
+    <a time="059.9" text="ダブルスペル" sync="コキュートスの「ダブルスペル」" />
+    <a time="073.2" text="ダブルスペル" sync="コキュートスの「ダブルスペル」" />
+    <a time="086.3" text="ダブルスペル" sync="コキュートスの「ダブルスペル」" />
+    <a time="104.1" text="ソウルリバース" sync="コキュートスの「ソウルリバース」" />
+    <a time="120.3" text="魂喰らい(マーシャリスト)" sync="コキュートスの「魂喰らい」" />
+    <a time="133.5" text="穿昇拳" sync="コキュートスの「穿昇拳」" notice="タンク強攻撃" />
+    <a time="146.8" text="古式地烈斬" sync="コキュートスの「古式地烈斬」" />
+    <a time="154.6" text="前方・後方 連転脚" sync="コキュートスの「(前方|後方)連転脚」" />
+    <a time="169.0" text="古式破砕拳" sync="コキュートスの「古式破砕拳」" />
+    <a time="175.4" text="グラトニーズアーガー" sync="コキュートスの「グラトニーズアーガー」" notice="全体攻撃" />
+    <a time="186.9" text="穿昇拳" sync="コキュートスの「穿昇拳」" notice="タンク強攻撃" />
+    <a time="214.4" text="魂喰らい(キメリック)" sync="コキュートスの「魂喰らい」" />
+    <a time="221.5" text="サモンライトニング" sync="コキュートスの「サモンライトニング」" notice="サイコロ確認" />
+    <a time="238.0" text="1回目">
+      <expressions>
+        <pre name="dice" value="false" />
+      </expressions>
+    </a>
+    <a time="238.0" text="1回目" notice="VAR['dice_2']" notice-o="0">
+      <expressions>
+        <pre name="dice" value="true" />
+      </expressions>
+    </a>
+    <a time="244.2" text="2回目">
+      <expressions>
+        <pre name="dice" value="false" />
+      </expressions>
+    </a>
+    <a time="244.2" text="2回目" notice="VAR['dice_3']" notice-o="0">
+      <expressions>
+        <pre name="dice" value="true" />
+      </expressions>
+    </a>
+    <a time="249.8" text="3回目">
+      <expressions>
+        <pre name="dice" value="false" />
+      </expressions>
+    </a>
+    <a time="249.8" text="3回目" notice="VAR['dice_4']" notice-o="0">
+      <expressions>
+        <pre name="dice" value="true" />
+      </expressions>
+    </a>
+    <a time="255.6" text="4回目" />
+    <a time="265.6" text="憑魔双撃" sync="コキュートスの「憑魔双撃」" />
+    <a time="272.1" text="グラトニーズアーガー" sync="コキュートスの「グラトニーズアーガー」" notice="全体攻撃" />
+    <a time="288.8" text="魂喰らい(ビースト)" sync="コキュートスの「魂喰らい」" />
+    <a time="303.0" text="ミールストーム" sync="コキュートスの「ミールストーム」" />
+    <a time="310.2" text="コメット" sync="コキュートスの「コメット」" />
+    <a time="319.3" text="ビーストバイル" sync="コキュートスの「ビーストバイル」" />
+    <a time="324.5" text="サンダーボルト" sync="コキュートスの「サンダーボルト」" />
+    <a time="330.6" text="サンダーボルト" sync="コキュートスの「サンダーボルト」" />
+    <a time="341.7" text="エクリプスメテオ" sync="コキュートスの「エクリプスメテオ」" />
+    <a time="355.4" text="ビーストフューリー" sync="コキュートスの「ビーストフューリー」" notice="全体攻撃" />
+    <a time="380.6" text="魂喰らい" sync="コキュートスの「魂喰らい」" />
+    <a time="393.9" text="デストゥワイス" sync="コキュートスの「デストゥワイス」" notice="スイッチ" />
+    <a time="403.9" text="古式地烈斬" sync="コキュートスの「古式地烈斬」" />
+    <a time="413.3" text="ダブルスペル" sync="コキュートスの「ダブルスペル」" />
+    <a time="438.9" text="キメリックコンボ" sync="コキュートスの「キメリックコンボ」" />
+    <a time="454.6" text="重炎撃" sync="コキュートスの「重炎撃」" />
+    <a time="460.0" text="旋身撃" sync="コキュートスの「旋身撃」" />
+    <a time="471.0" text="憑魔双撃" sync="コキュートスの「憑魔双撃」" />
+    <a time="486.0" text="魂喰らい" sync="コキュートスの「魂喰らい」" />
+    <a time="500.7" text="ダブルスペル" sync="コキュートスの「ダブルスペル」" />
+    <a time="513.7" text="グラトニーズアーガー" sync="コキュートスの「グラトニーズアーガー」" notice="全体攻撃" />
+    <a time="521.0" text="ダブルスペル" sync="コキュートスの「ダブルスペル」" />
+    <a time="535.2" text="デストゥワイス" sync="コキュートスの「デストゥワイス」" notice="スイッチ" />
+    <a time="544.3" text="ダブルスペル" sync="コキュートスの「ダブルスペル」" />
+    <a time="557.1" text="グラトニーズアーガー" sync="コキュートスの「グラトニーズアーガー」" notice="全体攻撃" />
+    <a time="580" text="調査中" />
+  </s>
+</timeline>
