@@ -84,7 +84,7 @@
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-138, X4):" notice="2番、誘導">
       <expressions>
         <pre name="dice_phase_1" value="true" />
-        <set name="dice" value="1" />
+        <set name="dice" value="true" />
         <set name="dice_2" value="集合" />
         <set name="dice_3" value="塔踏み" />
         <set name="dice_4" value="集合" />
@@ -98,7 +98,7 @@
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-136, X4):" notice="4番、集合">
       <expressions>
         <pre name="dice_phase_1" value="true" />
-        <set name="dice" value="1" />
+        <set name="dice" value="true" />
         <set name="dice_2" value="誘導" />
         <set name="dice_3" value="集合" />
         <set name="dice_4" value="塔踏み" />
@@ -112,7 +112,7 @@
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-134, X4):" notice="6番、塔踏み">
       <expressions>
         <pre name="dice_phase_1" value="true" />
-        <set name="dice" value="1" />
+        <set name="dice" value="true" />
         <set name="dice_2" value="集合" />
         <set name="dice_3" value="誘導" />
         <set name="dice_4" value="集合" />
@@ -126,7 +126,7 @@
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-132, X4):" notice="8番、集合">
       <expressions>
         <pre name="dice_phase_1" value="true" />
-        <set name="dice" value="1" />
+        <set name="dice" value="true" />
         <set name="dice_2" value="塔踏み" />
         <set name="dice_3" value="集合" />
         <set name="dice_4" value="誘導" />
@@ -138,7 +138,9 @@
       <v-notice text="4:誘導" order="3" icon="AOE.png" duration="5" delay="27" />
     </t>
 
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-51, X4):" notice="あおまるついた" />
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-51, X4):" notice="あおまるついた">
+      <v-notice text="あおまる" icon="AOE.png" duration="32" />
+    </t>
 
     <!-- 2回目 -->
     <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-139, X4):" notice="1番">
