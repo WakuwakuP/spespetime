@@ -3,7 +3,8 @@
   <name>Anabaseios: The Tenth Circle (Savage) timeline</name>
   <rev>draft</rev>
   <description>
-    天獄篇零式1層 タイムライン
+    天獄篇零式2層 タイムライン
+    未検証
   </description>
   <author>Wakuwaku</author>
   <license>CC BY-SA</license>
@@ -17,8 +18,9 @@
   <default target-element="Trigger" target-attr="notice-d" value="Main" />
 
   <!-- 
-    1B_ORIGIN                     = 0x02AC = 684 EVAL(VAR['1B_ORIGIN'] + 0, X4)
-    グランドウェブ                = 0x0287 = 647 EVAL(VAR['1B_ORIGIN'] - 37, X4)
+    1B_ORIGIN                     = 0x0276 = 630 EVAL(VAR['1B_ORIGIN'] - 0, X4)
+    ヘビーウェブ                  = 0x024F = 591 EVAL(VAR['1B_ORIGIN'] - 37, X4)
+    グランドウェブ                = 0x0251 = 593 EVAL(VAR['1B_ORIGIN'] - 37, X4)
     パンデモニックウェブ(頭割り)  = 0x0285 = 645 EVAL(VAR['1B_ORIGIN'] - 39, X4)
     メルトン                      = 0x00F0 = 240 EVAL(VAR['1B_ORIGIN'] - 444, X4)
   -->
@@ -33,8 +35,13 @@
 
     <t name="グランドウェブ対象" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN'] - 37, X4):" notice="グランドウェブついた" />
 
-    <t name="メルトン" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN'] - 444, X4):" notice="メルトンついた" />
+    <t name="メルトン" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN'] - 444, X4):" notice="メルトンついた">
+      <v-notice text="ビーム誘導" duration="10" />
+    </t>
 
+    <t name="ディバイドウィング" sync="23:[id8]:パンデモニウム:[id8]:[mex]:" notice="線ついた">
+      <v-notice text="ウィング誘導" duration="10" />
+    </t>
     <!-- 
       MEMO
       秒数      22 25 or 38 41

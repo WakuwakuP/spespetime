@@ -48,6 +48,7 @@
     <!-- キメリック サイコロ -->
     <!-- 
       MEMO 
+      なんでこれで動くのかわからん?????
       1B_ORIGIN       020E 526 = EVAL(VAR['1B_ORIGIN'] + 0, X4) 
       サイコロ1       0089 137 = EVAL(VAR['1B_ORIGIN'] - 139, X4)
       サイコロ2       008A 138 = EVAL(VAR['1B_ORIGIN'] - 138, X4)
@@ -57,18 +58,7 @@
       サイコロ6       008E 142 = EVAL(VAR['1B_ORIGIN'] - 134, X4)
       サイコロ7       008F 143 = EVAL(VAR['1B_ORIGIN'] - 133, X4)
       サイコロ8       0090 144 = EVAL(VAR['1B_ORIGIN'] - 132, X4)
-      あおまる        0184 388 = EVAL(VAR['1B_ORIGIN'] -  51, X4)
-
-      1B_ORIGIN       0276 630 = EVAL(VAR['1B_ORIGIN'] + 0, X4)
-      サイコロ1       00F1 241 = EVAL(VAR['1B_ORIGIN'] - 139, X4)
-      サイコロ2       00F2 242 = EVAL(VAR['1B_ORIGIN'] - 138, X4)
-      サイコロ3       00F3 243 = EVAL(VAR['1B_ORIGIN'] - 137, X4)
-      サイコロ4       00F4 244 = EVAL(VAR['1B_ORIGIN'] - 136, X4)
-      サイコロ5       00F5 245 = EVAL(VAR['1B_ORIGIN'] - 135, X4)
-      サイコロ6       00F6 246 = EVAL(VAR['1B_ORIGIN'] - 134, X4)
-      サイコロ7       00F7 247 = EVAL(VAR['1B_ORIGIN'] - 133, X4)
-      サイコロ8       00F8 248 = EVAL(VAR['1B_ORIGIN'] - 132, X4)
-      あおまる        01EC 492 = EVAL(VAR['1B_ORIGIN'] -  51, X4)
+      あおまる        0184 388 = EVAL(VAR['1B_ORIGIN'] -  50, X4)
     -->
     <t name="基準の1Bを取る" sync="1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):" sync-count="1">
       <expressions>
@@ -81,7 +71,7 @@
     -->
 
     <!-- 1回目 -->
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-138, X4):" notice="2番、誘導">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-138, X4):" notice="2番、5に行く、誘導">
       <expressions>
         <pre name="dice_phase_1" value="true" />
         <set name="dice" value="true" />
@@ -95,7 +85,7 @@
       <v-notice text="3:塔踏み" order="4" icon="FallingObject.png" duration="5" delay="21" />
       <v-notice text="4:集合" order="5" icon="PunishmentGroup.png" duration="5" delay="27" />
     </t>
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-136, X4):" notice="4番、集合">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-136, X4):" notice="4番、5に行く、集合">
       <expressions>
         <pre name="dice_phase_1" value="true" />
         <set name="dice" value="true" />
@@ -109,7 +99,7 @@
       <v-notice text="3:集合" order="4" icon="PunishmentGroup.png" duration="5" delay="21" />
       <v-notice text="4:塔踏み" order="5" icon="FallingObject.png" duration="5" delay="27" />
     </t>
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-134, X4):" notice="6番、塔踏み">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-134, X4):" notice="6番、5に行く、塔踏み">
       <expressions>
         <pre name="dice_phase_1" value="true" />
         <set name="dice" value="true" />
@@ -123,7 +113,7 @@
       <v-notice text="3:誘導" order="3" icon="AOE.png" duration="5" delay="21" />
       <v-notice text="4:集合" order="4" icon="PunishmentGroup.png" duration="5" delay="27" />
     </t>
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-132, X4):" notice="8番、集合">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-132, X4):" notice="8番、5に行く、集合">
       <expressions>
         <pre name="dice_phase_1" value="true" />
         <set name="dice" value="true" />
@@ -138,7 +128,9 @@
       <v-notice text="4:誘導" order="3" icon="AOE.png" duration="5" delay="27" />
     </t>
 
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-51, X4):" notice="あおまるついた">
+
+    <!-- なぜか動かん -->
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN']-50, X4):" notice="あおまるついた">
       <v-notice text="あおまる" icon="AOE.png" duration="32" />
     </t>
 
