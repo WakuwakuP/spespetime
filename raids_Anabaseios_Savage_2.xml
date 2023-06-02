@@ -32,10 +32,17 @@
     <t name="パンデモニックレイ(右)" sync="^14:8289" notice="右安置" />
     <t name="パンデモニックレイ(左)" sync="^14:828B" notice="左安置" />
 
+    <t name="基準の1Bを取る" sync="1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):">
+      <expressions>
+        <pre name="1B_CHECK" value="false" />
+        <set name="1B_MARKER" value="0x${marker}" />
+      </expressions>
+    </t>
 
-    <t name="グランドウェブ対象" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN'] - 37, X4):" notice="グランドウェブついた" />
 
-    <t name="メルトン" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_ORIGIN'] - 444, X4):" notice="メルトンついた">
+    <t name="グランドウェブ対象" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER'] - 37, X4):" notice="グランドウェブついた" />
+
+    <t name="メルトン" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER'] - 444, X4):" notice="メルトンついた">
       <v-notice text="ビーム誘導" duration="10" />
     </t>
 
@@ -113,9 +120,17 @@
     </t>
 
     <a time="000" sync="パンデモニウム:我ハ障害、立チハダカル城壁ナリ！" />
-    <a time="014.0" text="アルテマ" sync="パンデモニウムの「アルテマ」" notice="全体攻撃" />
+    <a time="014.0" text="アルテマ" sync="パンデモニウムの「アルテマ」" notice="全体攻撃">
+      <expressions>
+        <pre name="1B_CHECK" value="false" />
+      </expressions>
+    </a>
     <a time="024.0" text="ソウルグラスプ" sync="パンデモニウムの「ソウルグラスプ」" notice="タンク頭割り" />
-    <a time="035.0" text="ディバイドウィング" sync="パンデモニウムの「ディバイドウィング」" />
+    <a time="035.0" text="ディバイドウィング" sync="パンデモニウムの「ディバイドウィング」">
+      <expressions>
+        <pre name="1B_CHECK" value="true" />
+      </expressions>
+    </a>
     <a time="042.0" text="ヘビーウェブ" sync="パンデモニウムの「ヘビーウェブ」" />
     <a time="059.0" text="リング or ホーリー" sync="パンデモニウムの「パンデモニック(リング|ホーリー)」" />
     <a time="068.0" text="尖脚" sync="パンデモニウムの「尖脚」" notice="タンク強攻撃" />

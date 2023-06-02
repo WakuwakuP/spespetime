@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>Anabaseios: The Eleventh Circle (Savage) timeline</name>
+  <rev>draft</rev>
+  <description>
+    天獄篇零式3層 タイムライン
+    未検証
+  </description>
+  <author>Wakuwaku</author>
+  <license>CC BY-SA</license>
+  <zone>Anabaseios: The Eleventh Circle (Savage)</zone>
+  <locale>JA</locale>
+  <start>0039::戦闘開始！</start>
+  <entry>main</entry>
+
+  <default target-element="Activity" target-attr="notice-o" value="-3" />
+  <default target-element="Activity" target-attr="notice-d" value="Main" />
+  <default target-element="Trigger" target-attr="notice-d" value="Main" />
+
+  @{
+    var ANTI_KNOCKBACK = Model.Player.InRole("HEALER","MagicDPS") ?
+      "堅実魔" :
+      "アムレン";
+  }
+
+  <s name="main">
+    <t sync="^14:81E6" notice="散開から4人">
+      <v-notice text="光:散開→4人割" duration="10" />
+    </t>
+    <t sync="^14:81E7" notice="散開からペア">
+      <v-notice text="闇:散開→ドーナツ+ペア" duration="10" />
+    </t>
+
+    <t sync="^14:81EC" notice="直線から外で4人">
+      <v-notice text="光:直線→外で4人" duration="10" />
+    </t>
+    <t sync="^14:81ED" notice="直前から内でペア">
+      <v-notice text="闇:直線→内でペア処理" duration="10" />
+    </t>
+
+    <t sync="^14:8784" notice="ノックバックで外4人">
+      <v-notice text="光:NB→外で4人" duration="10" />
+    </t>
+    <t sync="^14:8785" notice="ノックバックで外4人">
+      <v-notice text="闇:NB→内でペア" duration="10" />
+    </t>
+
+    <t sync="^14:87D3" notice="全員割りから4人頭割">
+      <v-notice text="光:8人→外で4人" duration="10" />
+    </t>
+    <t sync="^14:87D4" notice="ノックバックで外4人">
+      <v-notice text="闇:NB→内でペア" duration="10" />
+    </t>
+
+    <t sync="^14:(820D|820F|8211)" notice="黒安置">
+      <v-notice text="黒安置" duration="15" />
+    </t>
+    <t sync="^14:(820E|820F|8212)" notice="白安置">
+      <v-notice text="白安置" duration="15" />
+    </t>
+
+    <t sync="^1A:[id8]:[mex] gains the effect of 光の判紋：調和" notice="ひかり担当">
+      <v-notice text="光担当" duration="15" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of 光の判紋：不和" notice="やみ担当">
+      <v-notice text="闇担当" duration="15" />
+    </t>
+
+
+    <a time="001.0" sync="テミス:何故かな、心が沸き立つのを感じるよ……！" />
+    <a time="016.0" text="エウノミアー" sync="テミスの「エウノミアー」" notice="全体攻撃" />
+    <a time="019.0" text="ディケー" sync="テミスの「ディケー」" notice="タンク攻撃" />
+    <a time="036.0" sync="テミス:この技で、君を判じよう……！" />
+    <a time="044.0" text="散開→光or闇" sync="テミスの「ジューリー＆オーバールール」" />
+    <a time="062.0" text="内or外→光or闇" sync="テミスの「アップヘルド＆オーバールール」" />
+    <a time="081.0" text="直線→光or闇" sync="テミスの「ディバイド＆オーバールール」" />
+    <a time="094.0" text="ステュクス" sync="テミスの「ステュクス」" sync-count="1" notice="頭割り" />
+    <a time="095.0" text="4" />
+    <a time="097.0" text="3" />
+    <a time="098.0" text="2" />
+    <a time="099.0" text="1" />
+    <a time="108.0" sync="テミス:くらえ、エメトセルク仕込みの術式だ！" />
+    <a time="114.0" text="魔法陣展開" sync="テミスの「魔法陣展開」" />
+    <a time="121.0" text="NB→闇or光" sync="テミスの「ディスミサル＆オーバールール」" />
+    <a time="123.0" text="ビーム" sync="立体魔法陣の「アルケー」" />
+    <a time="127.0" text="内or外" />
+    <a time="149.0" sync="テミス:私の存在を核に、幻体を創造しよう！" />
+    <a time="154.0" text="戒律の幻奏" sync="テミスの「戒律の幻奏」" />
+    <a time="158.0" text="安置を確認" sync="テミスの幻影は「ディバイド＆ルーリング」の構え。" notice="安置を確認" />
+    <a time="167.0" text="直線1" sync="テミスの幻影の「ディバイド＆ルーリング」" />
+    <a time="171.0" text="直線2" sync="テミスの「ディバイド＆オーバールール」" />
+    <a time="180.0" text="線誘導" sync="テミスの幻影の「アップヘルド＆ルーリング」" />
+    <a time="191.0" text="散開" sync="テミスの「ジューリー＆オーバールール」" />
+    <a time="204.0" text="ステュクス" sync="テミスの「ステュクス」" sync-count="1" notice="頭割り" />
+    <a time="206.0" text="5" />
+    <a time="207.0" text="4" />
+    <a time="208.0" text="3" />
+    <a time="209.0" text="2" />
+    <a time="210.0" text="1" />
+    <a time="222.0" text="玉がPOP" sync="テミスの「ライトストリーム」" />
+    <a time="235.0" text="ライトストリーム" sync="指向魔法陣の「ライトストリーム」" notice="回転開始" />
+    <a time="243.0" text="直線→光or闇" sync="テミスの「ディバイド＆オーバールール」" />
+    <a time="258.0" text="全体攻撃" sync="テミスの「エウノミアー」" notice="全体" />
+    <a time="273.0" text="内or外→光or闇" sync="テミスの「アップヘルド＆オーバールール」" />
+
+    <a time="291.0" sync="テミス:私は調停者……その命は絶対だ！" />
+    <a time="296.0" text="光と闇の調停" sync="テミスの「光と闇の調停」" notice="光と闇の調停" />
+    <a time="309.0" text="魔法陣展開" sync="テミスの「魔法陣展開」" />
+    <a time="318.0" text="魔爆" sync="立体魔法陣の「魔爆」" />
+    <a time="326.0" text="散開→光or闇" sync="テミスの「ジューリー＆オーバールール」" />
+    <a time="345.0" text="直線→光or闇" sync="テミスの「ディバイド＆オーバールール」" />
+    <a time="351.0" sync="テミス:君という存在を、調停する！" />
+    <a time="355.0" text="調停" sync="テミスの「調停」" />
+    <a time="364.0" text="ステュクス" sync="テミスの「ステュクス」" sync-count="1" notice="連続頭割り" />
+    <a time="365.0" text="6" />
+    <a time="366.0" text="5" />
+    <a time="367.0" text="4" />
+    <a time="368.0" text="3" />
+    <a time="369.0" text="2" />
+    <a time="370.0" text="1" />
+    <a time="375.0" text="ディケー" sync="テミスは「ディケー」の構え。" notice="タンク攻撃" />
+    <a time="390.0" sync="テミス:参ったな、これほど心躍るとは……！" />
+    <a time="405.0" text="ダークストリーム" sync="テミスの「ダークストリーム」" notice="ダークストリーム" />
+    <a time="415.0" text="光弾" sync="テミスの「光弾」" />
+    <a time="430.0" text="散開→光or闇" sync="テミスの「ジューリー＆オーバールール」" />
+    <a time="449.0" text="内or外→光or闇" sync="テミスの「アップヘルド＆オーバールール」" />
+    <a time="470.0" text="直線→光or闇" sync="テミスの「ディバイド＆オーバールール」" />
+    <a time="487.0" text="全体攻撃" sync="テミスの「エウノミアー」" notice="全体" />
+    <a time="513.0" text="理法の幻奏" sync="テミスの「理法の幻奏」" />
+    <a time="520.0" text="二種魔法陣展開" sync="テミスの「二種魔法陣展開」" />
+    <a time="530.0" text="ビーム" sync="テミスの「刑律の波動」" notice="ビームに注意" />
+    <a time="532.0" text="線誘導" sync="テミスの幻影の「アップヘルド＆ルーリング」" notice="線を誘導" />
+    <a time="532.0" text="内or外→光or闇" sync="テミスの幻影の「アップヘルド＆ルーリング」" />
+    <a time="551.0" text="NB→闇or光" sync="テミスの「ディスミサル＆オーバールール」" />
+    <a time="565.0" text="ステュクス" sync="テミスの「ステュクス」" sync-count="1" notice="連続頭割り" />
+    <a time="566.0" text="6" />
+    <a time="568.0" text="5" />
+    <a time="570.0" text="4" />
+    <a time="571.0" text="3" />
+    <a time="572.0" text="2" />
+    <a time="573.0" text="1" />
+    <a time="584.0" text="玉がPOP" sync="テミスの「ライトストリーム」" />
+    <a time="596.0" text="ライトストリーム" sync="指向魔法陣の「ライトストリーム」" />
+    <a time="604.0" text="直線→光or闇" sync="テミスの「ディバイド＆オーバールール」" />
+    <a time="616.0" text="ディケー" sync="テミスは「ディケー」の構え。" notice="タンク攻撃" />
+    <a time="644.0" text="散開→光or闇" sync="テミスの「ジューリー＆オーバールール」" />
+
+  </s>
+</timeline>
