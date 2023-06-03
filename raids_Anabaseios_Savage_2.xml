@@ -29,8 +29,12 @@
 
     <t name="パンデモニックリング" sync="^14:82A6" notice="離れる" />
     <t name="パンデモニックホーリー" sync="^14:82A7" notice="近づく" />
-    <t name="パンデモニックレイ(右)" sync="^14:8289" notice="右安置" />
-    <t name="パンデモニックレイ(左)" sync="^14:828B" notice="左安置" />
+    <t name="パンデモニックレイ(右)" sync="^14:8289" notice="右安置">
+      <v-notice text="右安置" icon="East.png" duration="10" />
+    </t>
+    <t name="パンデモニックレイ(左)" sync="^14:828B" notice="左安置">
+      <v-notice text="左安置" icon="West.png" duration="10" />
+    </t>
 
     <t name="基準の1Bを取る" sync="1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):">
       <expressions>
@@ -40,16 +44,18 @@
     </t>
 
 
-    <t name="グランドウェブ対象" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER'] - 37, X4):" notice="グランドウェブついた" />
+    <t name="グランドウェブ" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER'] - 37, X4):" notice="グランドウェブついた">
+      <v-notice text="グランドウェブ" duration="10" />
+    </t>
 
     <t name="メルトン" sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER'] - 444, X4):" notice="メルトンついた">
       <v-notice text="ビーム誘導" duration="10" />
     </t>
 
     <t name="ディバイドウィング" sync="23:[id8]:パンデモニウム:[id8]:[mex]:" notice="線ついた">
-      <v-notice text="ウィング誘導" duration="10" />
+      <v-notice text="ウィング誘導" icon="Targetaoe02.png" duration="10" />
     </t>
-    
+
     <t text="ヘビーウェブ" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER'] - 39, X4):" notice="頭割り">
       <v-notice text="頭割り" duration="20" />
     </t>
@@ -60,69 +66,69 @@
       MEMO
       秒数      22 25 or 38 41
     -->
-    <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 21.00" sync-interval="10" notice="/wait 18, 散開から">
+    <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 21.00" sync-interval="10" notice="/wait 15, 散開から">
       <v-notice text="散開" order="1" duration="25" />
     </t>
-    <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 22.00" sync-interval="10" notice="/wait 18, 散開から">
+    <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 22.00" sync-interval="10" notice="/wait 15, 散開から">
       <v-notice text="散開" order="1" duration="25" />
     </t>
     <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 25.00" sync-interval="10" notice="/wait 22, 散開">
       <v-notice text="散開" order="2" duration="25" />
     </t>
-    <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 32.00" sync-interval="10" notice="/wait 27, 散開から">
+    <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 32.00" sync-interval="10" notice="/wait 25, 散開から">
       <v-notice text="散開" order="1" duration="35" />
     </t>
     <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 35.00" sync-interval="10" notice="/wait 32, 散開">
       <v-notice text="散開" order="2" duration="35" />
     </t>
-    <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 38.00" sync-interval="10" notice="/wait 35, 散開から">
+    <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 38.00" sync-interval="10" notice="/wait 30, 散開から">
       <v-notice text="散開" order="1" duration="41" />
     </t>
-    <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 41.00" sync-interval="10" notice="/wait 41, 散開">
+    <t name="パンデモニックボンド" sync="1A:[id8]:[pc] gains the effect of (_rsv_3550_.*|パンデモニックボンド) from  for 41.00" sync-interval="10" notice="/wait 38, 散開">
       <v-notice text="散開" order="2" duration="41" />
     </t>
 
-    <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 21.00" sync-interval="10" notice="/wait 18, ペアから">
+    <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 21.00" sync-interval="10" notice="/wait 15, ペアから">
       <v-notice text="ペア" order="1" duration="25" />
     </t>
-    <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 22.00" sync-interval="10" notice="/wait 18, ペアから">
+    <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 22.00" sync-interval="10" notice="/wait 15, ペアから">
       <v-notice text="ペア" order="1" duration="25" />
     </t>
     <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 25.00" sync-interval="10" notice="/wait 22, ペア">
       <v-notice text="ペア" order="2" duration="25" />
     </t>
-    <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 32.00" sync-interval="10" notice="/wait 27, ペアから">
+    <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 32.00" sync-interval="10" notice="/wait 25, ペアから">
       <v-notice text="ペア" order="1" duration="35" />
     </t>
     <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 35.00" sync-interval="10" notice="/wait 32, ペア">
       <v-notice text="ペア" order="2" duration="35" />
     </t>
-    <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 38.00" sync-interval="10" notice="/wait 35, ペアから">
+    <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 38.00" sync-interval="10" notice="/wait 30, ペアから">
       <v-notice text="ペア" order="1" duration="41" />
     </t>
-    <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 41.00" sync-interval="10" notice="/wait 41, ペア">
+    <t name="パンデモニックボンド・ダブル" sync="1A:[id8]:[pc] gains the effect of (_rsv_3551_.*|パンデモニックボンド・ダブル) from  for 41.00" sync-interval="10" notice="/wait 38, ペア">
       <v-notice text="ペア" order="2" duration="41" />
     </t>
 
-    <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 21.00" sync-interval="10" notice="/wait 18, 4人から">
+    <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 21.00" sync-interval="10" notice="/wait 15, 4人から">
       <v-notice text="4人" order="1" duration="25" />
     </t>
-    <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 22.00" sync-interval="10" notice="/wait 18, 4人から">
+    <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 22.00" sync-interval="10" notice="/wait 15, 4人から">
       <v-notice text="4人" order="1" duration="25" />
     </t>
     <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 25.00" sync-interval="10" notice="/wait 22, 4人">
       <v-notice text="4人" order="2" duration="25" />
     </t>
-    <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 32.00" sync-interval="10" notice="/wait 27, 4人から">
+    <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 32.00" sync-interval="10" notice="/wait 25, 4人から">
       <v-notice text="4人" order="1" duration="35" />
     </t>
     <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 35.00" sync-interval="10" notice="/wait 32, 4人">
       <v-notice text="4人" order="2" duration="35" />
     </t>
-    <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 38.00" sync-interval="10" notice="/wait 35, 4人から">
+    <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 38.00" sync-interval="10" notice="/wait 30, 4人から">
       <v-notice text="4人" order="1" duration="41" />
     </t>
-    <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 41.00" sync-interval="10" notice="/wait 41, 4人">
+    <t name="パンデモニックボンド・クアドラ" sync="1A:[id8]:[pc] gains the effect of (_rsv_3696_.*|パンデモニックボンド・クアドラ) from  for 41.00" sync-interval="10" notice="/wait 38, 4人">
       <v-notice text="4人" order="2" duration="41" />
     </t>
 
