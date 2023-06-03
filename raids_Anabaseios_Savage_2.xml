@@ -49,6 +49,13 @@
     <t name="ディバイドウィング" sync="23:[id8]:パンデモニウム:[id8]:[mex]:" notice="線ついた">
       <v-notice text="ウィング誘導" duration="10" />
     </t>
+    
+    <t text="ヘビーウェブ" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER'] - 39, X4):" notice="頭割り">
+      <v-notice text="頭割り" duration="20" />
+    </t>
+    <t text="グランドウェブ" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER'] - 37, X4):" notice="範囲捨てる">
+      <v-notice text="範囲捨て" duration="20" />
+    </t>
     <!-- 
       MEMO
       秒数      22 25 or 38 41
