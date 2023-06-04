@@ -31,6 +31,12 @@
   }
 
   <s name="main">
+    <t name="基準の1Bを取る" sync="1B:[id8]:.*:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):0000:0000:0000" sync-count="1">
+      <expressions>
+        <set name="1B_MARKER" value="0x${marker}" />
+      </expressions>
+    </t>
+
     <!-- ジューリー＆オーバールール -->
     <t sync="^14:81E6" notice="散開から4人">
       <v-notice text="光:散開→4人割" duration="10" />
@@ -43,7 +49,7 @@
     <t sync="^14:81EC" notice="直線から外で4人">
       <v-notice text="光:直線→外で4人" duration="10" />
     </t>
-    <t sync="^14:81ED" notice="直前から内でペア">
+    <t sync="^14:81ED" notice="直線から内でペア">
       <v-notice text="闇:直線→内でペア処理" duration="10" />
     </t>
 
@@ -66,11 +72,135 @@
     <t sync="^14:(820D|820F|8211)" notice="黒安置">
       <v-notice text="黒安置" duration="15" />
     </t>
-    <t sync="^14:(820E|820F|8212)" notice="白安置">
+    <t sync="^14:(820E|8210|8212)" notice="白安置">
       <v-notice text="白安置" duration="15" />
     </t>
 
+    <!-- ライトストリーム -->
+    <t no="1" name="ライトストリーム時計" sync="^1B:([0-9A-F]{8}):指向魔法陣:0000:[id4]:EVAL(VAR['1B_MARKER'] - 319, X4):">
+      <expressions>
+        <table>
+        {
+          "method": "Insert", "table": "light_stream",
+          "cols": [
+            { "name": "id", "val": "$1", "key": "true" },
+            { "name": "rotate", "val": "right" }
+          ]
+        }
+        </table>
+      </expressions>
+    </t>
+    <t no="2" name="ライトストリーム反時計" sync="^1B:([0-9A-F]{8}):指向魔法陣:0000:[id4]:EVAL(VAR['1B_MARKER'] - 318, X4):">
+      <expressions>
+        <table>
+        {
+          "method": "Insert", "table": "light_stream",
+          "cols": [
+            { "name": "id", "val": "$1", "key": "true" },
+            { "name": "rotate", "val": "left" }
+          ]
+        }
+        </table>
+      </expressions>
+    </t>
+
+    <t no="3" name="ライトストリームカウント" sync="^1B:([id8]):指向魔法陣:0000:">
+      <expressions>
+        <set name="light_stream_count" value="EVAL(VAR['light_stream_count']+1, N0)" />
+      </expressions>
+    </t>
+
+    <t no="3" name="ライトストリーム 1安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="1安置">
+      <expressions>
+        <pre name="light_stream_count" value="3" />
+        <pre name="TABLE['light_stream'][0]['rotate']" value="right" />
+        <pre name="TABLE['light_stream'][1]['rotate']" value="right" />
+        <pre name="TABLE['light_stream'][2]['rotate']" value="left" />
+      </expressions>
+      <v-notice text="1安置" duration="10" />
+    </t>
+
+    <t no="4" name="ライトストリーム B安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="B安置">
+      <expressions>
+        <pre name="light_stream_count" value="3" />
+        <pre name="TABLE['light_stream'][0][rotate]" value="right" />
+        <pre name="TABLE['light_stream'][1][rotate]" value="left" />
+        <pre name="TABLE['light_stream'][2][rotate]" value="right" />
+      </expressions>
+      <v-notice text="B安置" duration="10" />
+    </t>
+
+    <t no="5" name="ライトストリーム 5安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="4安置">
+      <expressions>
+        <pre name="light_stream_count" value="3" />
+        <pre name="TABLE['light_stream'][0][rotate]" value="left" />
+        <pre name="TABLE['light_stream'][1][rotate]" value="right" />
+        <pre name="TABLE['light_stream'][2][rotate]" value="right" />
+      </expressions>
+      <v-notice text="4安置" duration="10" />
+    </t>
+
+    <t no="6" name="ライトストリーム 3安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="3安置">
+      <expressions>
+        <pre name="light_stream_count" value="3" />
+        <pre name="TABLE['light_stream'][0][rotate]" value="left" />
+        <pre name="TABLE['light_stream'][1][rotate]" value="left" />
+        <pre name="TABLE['light_stream'][2][rotate]" value="right" />
+      </expressions>
+      <v-notice text="3安置" duration="10" />
+    </t>
+
+    <t no="7" name="ライトストリーム D安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="D安置">
+      <expressions>
+        <pre name="light_stream_count" value="3" />
+        <pre name="TABLE['light_stream'][0][rotate]" value="left" />
+        <pre name="TABLE['light_stream'][1][rotate]" value="right" />
+        <pre name="TABLE['light_stream'][2][rotate]" value="left" />
+      </expressions>
+      <v-notice text="D安置" duration="10" />
+    </t>
+
+    <t no="8" name="ライトストリーム 2安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="2安置">
+      <expressions>
+        <pre name="light_stream_count" value="3" />
+        <pre name="TABLE['light_stream'][0][rotate]" value="right" />
+        <pre name="TABLE['light_stream'][1][rotate]" value="left" />
+        <pre name="TABLE['light_stream'][2][rotate]" value="left" />
+      </expressions>
+      <v-notice text="2安置" duration="10" />
+    </t>
+
+    <t no="9" name="削除" sync="15:([0-9A-F]{8}):指向魔法陣:8207:ライトストリーム:">
+      <expressions>
+        <set name="light_stream_count" value="0" />
+        <table>
+        {
+          "method": "Delete", "table": "light_stream",
+          "cols": [
+            { "name": "id", "val": "$1", "key": "true" },
+          ]
+        }
+        </table>
+      </expressions>
+    </t>
     <!-- 光と闇の調停 -->
+
+    <t name="光ついた" sync="^1A:[id8]:[mex] gains the effect of 光の判紋：不和">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <set name="light" value="true" />
+      </expressions>
+      <v-notice text="光" duration="60" />
+    </t>
+    <t name="闇ついた" sync="^1A:[id8]:[mex] gains the effect of 光の判紋：不和">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <set name="dark" value="true" />
+      </expressions>
+      <v-notice text="闇" duration="60" />
+    </t>
+
+
     @if (Model.Player.InRole("DPS")) {
     <t name="DPS:東側(待機)" sync="^23:[id8]:[mex]:[id8]:[TANK]" notice="東側">
       <expressions>
@@ -98,7 +228,8 @@
     </t>
     }
 
-    @if (Model.Player.InRole("HEALER", "TANK")) {
+
+    @if (Model.Player.InRole("SMN")) {
     <t name="データ用意(闇)" sync="^1A:[id8]:([DPS]) gains the effect of 闇の判紋：不和">
       <expressions>
         <pre name="dark_and_light" value="true" />
@@ -106,7 +237,7 @@
         {
           "method: "Insert", "table": "dps_light",
           "cols": [
-            {  "name": "name", "value": "$1", "key": "true" }
+            {  "name": "name", "val": "$1", "key": "true" }
           ]
         }
         </table>
@@ -119,23 +250,57 @@
         {
           "method: "Insert", "table": "dps_dark",
           "cols": [
-            {  "name": "name", "value": "$1", "key": "true" }
+            {  "name": "name", "val": "$1", "key": "true" }
           ]
         }
         </table>
       </expressions>
     </t>
 
-    <t name="光ついた" sync="^1A:[id8]:[mex] gains the effect of 光の判紋：不和">
+    <t no="1" name="test-相方の名前取得" sync="^23:[id8]:[mex]:[id8]:([DPS])">
       <expressions>
         <pre name="dark_and_light" value="true" />
-        <set name="light" value="true" />
+        <set name="PARTNER_NAME" value="$1" />
       </expressions>
     </t>
-    <t name="闇ついた" sync="^1A:[id8]:[mex] gains the effect of 光の判紋：不和">
+    <t no="2" name="test-相方の名前取得" sync="^23:[id8]:([DPS]):[id8]:[mex]">
       <expressions>
         <pre name="dark_and_light" value="true" />
-        <set name="dark" value="true" />
+        <set name="PARTNER_NAME" value="$1" />
+      </expressions>
+    </t>
+    <t no="3" name="test-相方" sync="^23:[id8]:[pc]" sync-count="4">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+      </expressions>
+      <v-notice text="相方は VAR['PARTNER_NAME']" duration="10" />
+    </t>
+    }
+    @if (Model.Player.InRole("HEALER", "TANK")) {
+    <t name="データ用意(闇)" sync="^1A:[id8]:([DPS]) gains the effect of 闇の判紋：不和">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <table>
+        {
+          "method: "Insert", "table": "dps_light",
+          "cols": [
+            {  "name": "name", "val": "$1", "key": "true" }
+          ]
+        }
+        </table>
+      </expressions>
+    </t>
+    <t name="データ用意(光)" sync="^1A:[id8]:([DPS]) gains the effect of 光の判紋：不和">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <table>
+        {
+          "method: "Insert", "table": "dps_dark",
+          "cols": [
+            {  "name": "name", "val": "$1", "key": "true" }
+          ]
+        }
+        </table>
       </expressions>
     </t>
 
@@ -160,7 +325,7 @@
       </expressions>
       <v-notice text="@COLOR_SAME" duration="10" />
     </t>
-    <t no="3" name="光ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_SAME">
+    <t no="4" name="光ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_SAME">
       <expressions>
         <pre name="dark_and_light" value="true" />
         <pre name="light" value="true" />
@@ -169,7 +334,7 @@
       <v-notice text="@COLOR_SAME" duration="10" />
     </t>
 
-    <t no="3" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
+    <t no="5" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
       <expressions>
         <pre name="dark_and_light" value="true" />
         <pre name="dark" value="true" />
@@ -178,7 +343,7 @@
       <v-notice text="@COLOR_DIFF" duration="10" />
 
     </t>
-    <t no="3" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
+    <t no="6" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
       <expressions>
         <pre name="dark_and_light" value="true" />
         <pre name="dark" value="true" />
@@ -187,7 +352,7 @@
       <v-notice text="@COLOR_DIFF" duration="10" />
     </t>
 
-    <t no="3" name="光ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_SAME">
+    <t no="7" name="光ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_SAME">
       <expressions>
         <pre name="dark_and_light" value="true" />
         <pre name="light" value="true" />
@@ -196,17 +361,16 @@
       <v-notice text="@COLOR_SAME" duration="10" />
 
     </t>
-    <t no="3" name="光ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_SAME">
+    <t no="8" name="光ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_SAME">
       <expressions>
         <pre name="dark_and_light" value="true" />
         <pre name="light" value="true" />
         <pre name="TABLE['dps_dark'][1]['name']" value="VAR['PARTNER_NAME']" />
       </expressions>
       <v-notice text="@COLOR_SAME" duration="10" />
-
     </t>
 
-    <t no="3" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
+    <t no="9" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
       <expressions>
         <pre name="dark_and_light" value="true" />
         <pre name="dark" value="true" />
@@ -215,7 +379,7 @@
       <v-notice text="@COLOR_DIFF" duration="10" />
 
     </t>
-    <t no="3" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
+    <t no="10" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
       <expressions>
         <pre name="dark_and_light" value="true" />
         <pre name="dark" value="true" />
@@ -224,7 +388,6 @@
       <v-notice text="@COLOR_DIFF" duration="10" />
     </t>
     }
-
 
     <a time="001.0" sync="テミス:何故かな、心が沸き立つのを感じるよ……！">
       <expressions>
@@ -262,7 +425,11 @@
     <a time="171.0" text="直線2" sync="テミスの「ディバイド＆オーバールール」" />
     <a time="180.0" text="線誘導" sync="テミスの幻影の「アップヘルド＆ルーリング」" />
     <a time="191.0" text="散開" sync="テミスの「ジューリー＆オーバールール」" />
-    <a time="204.0" text="ステュクス" sync="テミスの「ステュクス」" sync-count="1" notice="頭割り" />
+    <a time="204.0" text="ステュクス" sync="テミスの「ステュクス」" sync-count="1" notice="頭割り">
+      <expressions>
+        <set name="light_stream_count" value="0" />
+      </expressions>
+    </a>
     <a time="206.0" text="5" />
     <a time="207.0" text="4" />
     <a time="208.0" text="3" />
@@ -319,7 +486,11 @@
     <a time="532.0" text="線誘導" sync="テミスの幻影の「アップヘルド＆ルーリング」" notice="線を誘導" />
     <a time="532.0" text="内or外→光or闇" sync="テミスの幻影の「アップヘルド＆ルーリング」" />
     <a time="551.0" text="NB→闇or光" sync="テミスの「ディスミサル＆オーバールール」" />
-    <a time="565.0" text="ステュクス" sync="テミスの「ステュクス」" sync-count="1" notice="連続頭割り" />
+    <a time="565.0" text="ステュクス" sync="テミスの「ステュクス」" sync-count="1" notice="連続頭割り">
+      <expressions>
+        <set name="light_stream_count" value="0" />
+      </expressions>
+    </a>
     <a time="566.0" text="6" />
     <a time="568.0" text="5" />
     <a time="570.0" text="4" />
