@@ -148,7 +148,7 @@
     <a time="103.0" text="リング or ホーリー" sync="パンデモニウムの「パンデモニック(リング|ホーリー)」" />
     <a time="110.0" text="スピットウェブ" sync="パンデモニウムの「スピットウェブ」" />
     <a time="123.0" text="パンデモニックボンド" sync="パンデモニウムの「パンデモニックボンド」" />
-    @if (Model.Player.INRole("MagicDPS")) {
+    @if (Model.Player.InRole("MagicDPS")) {
     <a time="132.0" text="パンデモニックメルトン" sync="パンデモニウムの「パンデモニックメルトン」" notice="アドル" />
     } else {
     <a time="132.0" text="パンデモニックメルトン" sync="パンデモニウムの「パンデモニックメルトン」" />
@@ -162,7 +162,7 @@
     <a time="210" text="2" />
     <a time="214" text="3" />
     <a time="219" text="4" />
-    @if (Model.Player.INRole("MagicDPS")) {
+    @if (Model.Player.InRole("MagicDPS")) {
     <a time="221.0" text="アドル" notice="アドル" />
     }
     <a time="233.0" text="パンデモニックレイ" sync="パンデモニウムの「パンデモニックレイ」" />
@@ -174,7 +174,7 @@
     <a time="307.0" text="パンデモニックボンド" sync="パンデモニウムの「パンデモニックボンド」" />
     <a time="316.0" text="パンデモニックピラー" sync="パンデモニウムの「パンデモニックピラー」" />
     <a time="322.0" text="リング or ホーリー" sync="パンデモニウムの「パンデモニック(リング|ホーリー)」" />
-    @if (Model.Player.INRole("MagicDPS")) {
+    @if (Model.Player.InRole("MagicDPS")) {
     <a time="325.0" text="アドル" notice="アドル" />
     }
     <a time="329.0" text="パンデモニックレイ" sync="パンデモニウムの「パンデモニックレイ」" />
@@ -188,7 +188,7 @@
     <a time="418.0" text="パンデモニックホーリー" sync="パンデモニウムの「パンデモニックホーリー」" />
     <a time="425.0" text="パンデモニックボンド" sync="パンデモニウムの「パンデモニックボンド」" />
     <a time="437.0" text="魔殿の震撃" sync="パンデモニウムの「魔殿の震撃」" />
-    @if (Model.Player.INRole("MagicDPS")) {
+    @if (Model.Player.InRole("MagicDPS")) {
     <a time="472.0" text="アルテマ" sync="パンデモニウムの「アルテマ」" notice="アドル、全体攻撃" />
     } else {
     <a time="472.0" text="アルテマ" sync="パンデモニウムの「アルテマ」" notice="全体攻撃" />
@@ -202,7 +202,7 @@
     <a time="569.0" text="スピットウェブ" sync="パンデモニウムの「スピットウェブ」" />
     <a time="585.0" text="パンデモニックピラー" sync="パンデモニウムの「パンデモニックピラー」" />
     <a time="592.0" text="リング or ホーリー" sync="パンデモニウムの「パンデモニック(リング|ホーリー)」" />
-    @if (Model.Player.INRole("MagicDPS")) {
+    @if (Model.Player.InRole("MagicDPS")) {
     <a time="600.0" text="パンデモニックメルトン" sync="パンデモニウムの「パンデモニックメルトン」" notice="アドル" />
     } else {
     <a time="600.0" text="パンデモニックメルトン" sync="パンデモニウムの「パンデモニックメルトン」" />

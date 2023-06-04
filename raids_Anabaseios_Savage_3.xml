@@ -68,7 +68,11 @@
 
 
     <a time="001.0" sync="テミス:何故かな、心が沸き立つのを感じるよ……！" />
+    @if (Model.Player.InRole("MagicDPS")) {
+    <a time="016.0" text="エウノミアー" sync="テミスの「エウノミアー」" notice="アドル、全体攻撃" />
+    } else {
     <a time="016.0" text="エウノミアー" sync="テミスの「エウノミアー」" notice="全体攻撃" />
+    }
     <a time="019.0" text="ディケー" sync="テミスの「ディケー」" notice="タンク攻撃" />
     <a time="036.0" sync="テミス:この技で、君を判じよう……！" />
     <a time="044.0" text="散開→光or闇" sync="テミスの「ジューリー＆オーバールール」" />
@@ -81,7 +85,11 @@
     <a time="099.0" text="1" />
     <a time="108.0" sync="テミス:くらえ、エメトセルク仕込みの術式だ！" />
     <a time="114.0" text="魔法陣展開" sync="テミスの「魔法陣展開」" />
+    @if (Model.Player.InRole("MagicDPS")) {
+    <a time="121.0" text="NB→闇or光" sync="テミスの「ディスミサル＆オーバールール」" notice="アドル"/>
+    } else {
     <a time="121.0" text="NB→闇or光" sync="テミスの「ディスミサル＆オーバールール」" />
+    }
     <a time="123.0" text="ビーム" sync="立体魔法陣の「アルケー」" />
     <a time="127.0" text="内or外" />
     <a time="149.0" sync="テミス:私の存在を核に、幻体を創造しよう！" />
@@ -100,7 +108,11 @@
     <a time="222.0" text="玉がPOP" sync="テミスの「ライトストリーム」" />
     <a time="235.0" text="ライトストリーム" sync="指向魔法陣の「ライトストリーム」" notice="回転開始" />
     <a time="243.0" text="直線→光or闇" sync="テミスの「ディバイド＆オーバールール」" />
+    @if (Model.Player.InRole("MagicDPS")) {
+    <a time="258.0" text="全体攻撃" sync="テミスの「エウノミアー」" notice="アドル、全体" />
+    } else {
     <a time="258.0" text="全体攻撃" sync="テミスの「エウノミアー」" notice="全体" />
+    }
     <a time="273.0" text="内or外→光or闇" sync="テミスの「アップヘルド＆オーバールール」" />
 
     <a time="291.0" sync="テミス:私は調停者……その命は絶対だ！" />
@@ -111,7 +123,11 @@
     <a time="345.0" text="直線→光or闇" sync="テミスの「ディバイド＆オーバールール」" />
     <a time="351.0" sync="テミス:君という存在を、調停する！" />
     <a time="355.0" text="調停" sync="テミスの「調停」" />
+    @if (Model.Player.InRole("MagicDPS")) {
+    <a time="364.0" text="ステュクス" sync="テミスの「ステュクス」" sync-count="1" notice="アドル、連続頭割り" />
+    } else {
     <a time="364.0" text="ステュクス" sync="テミスの「ステュクス」" sync-count="1" notice="連続頭割り" />
+    }
     <a time="365.0" text="6" />
     <a time="366.0" text="5" />
     <a time="367.0" text="4" />
