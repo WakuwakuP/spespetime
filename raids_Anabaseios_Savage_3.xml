@@ -13,7 +13,7 @@
   <start>0039::戦闘開始！</start>
   <entry>main</entry>
 
-  <default target-element="Activity" target-attr="notice-o" value="-3" />
+  <default target-element="Activity" target-attr="notice-o" value="-5" />
   <default target-element="Activity" target-attr="notice-d" value="Main" />
   <default target-element="Trigger" target-attr="notice-d" value="Main" />
 
@@ -21,9 +21,17 @@
     var ANTI_KNOCKBACK = Model.Player.InRole("HEALER","MagicDPS") ?
       "堅実魔" :
       "アムレン";
+
+    var COLOR_DIFF = Model.Player.InRole("HEALER") ?
+      "西側":
+      "東側";
+    var COLOR_SAME = Model.Player.InRole("HEALER") ?
+      "東側":
+      "西側";
   }
 
   <s name="main">
+    <!-- ジューリー＆オーバールール -->
     <t sync="^14:81E6" notice="散開から4人">
       <v-notice text="光:散開→4人割" duration="10" />
     </t>
@@ -31,6 +39,7 @@
       <v-notice text="闇:散開→ドーナツ+ペア" duration="10" />
     </t>
 
+    <!-- ディバイド&オーバールール -->
     <t sync="^14:81EC" notice="直線から外で4人">
       <v-notice text="光:直線→外で4人" duration="10" />
     </t>
@@ -38,13 +47,14 @@
       <v-notice text="闇:直線→内でペア処理" duration="10" />
     </t>
 
-    <t sync="^14:8784" notice="ノックバックで外4人">
+    <t sync="^14:8784" notice="ノックバックで外で4人">
       <v-notice text="光:NB→外で4人" duration="10" />
     </t>
-    <t sync="^14:8785" notice="ノックバックで外4人">
+    <t sync="^14:8785" notice="ノックバックで内でペア">
       <v-notice text="闇:NB→内でペア" duration="10" />
     </t>
 
+    <!-- アップヘルド＆オーバールール -->
     <t sync="^14:87D3" notice="全員割りから4人頭割">
       <v-notice text="光:8人→外で4人" duration="10" />
     </t>
@@ -52,6 +62,7 @@
       <v-notice text="闇:NB→内でペア" duration="10" />
     </t>
 
+    <!-- 魔法陣展開 -->
     <t sync="^14:(820D|820F|8211)" notice="黒安置">
       <v-notice text="黒安置" duration="15" />
     </t>
@@ -59,15 +70,167 @@
       <v-notice text="白安置" duration="15" />
     </t>
 
-    <t sync="^1A:[id8]:[mex] gains the effect of 光の判紋：調和" notice="ひかり担当">
-      <v-notice text="光担当" duration="15" />
+    <!-- 光と闇の調停 -->
+    @if (Model.Player.InRole("DPS")) {
+    <t name="DPS:東側(待機)" sync="^23:[id8]:[mex]:[id8]:[TANK]" notice="東側">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+      </expressions>
+      <v-notice text="東側" duration="10" />
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of 光の判紋：不和" notice="やみ担当">
-      <v-notice text="闇担当" duration="15" />
+    <t name="DPS:東側(待機)" sync="^23:[id8]:[TANK]:[id8]:[mex]" notice="東側">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+      </expressions>
+      <v-notice text="東側" duration="10" />
+    </t>
+    <t name="DPS:西側(移動)" sync="^23:[id8]:[mex]:[id8]:[HEALER]" notice="西側">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+      </expressions>
+      <v-notice text="西側" duration="10" />
+    </t>
+    <t name="DPS:西側(移動)" sync="^23:[id8]:[HEALER]:[id8]:[mex]" notice="西側">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+      </expressions>
+      <v-notice text="西側" duration="10" />
+    </t>
+    }
+
+    @if (Model.Player.InRole("HEALER", "TANK")) {
+    <t name="データ用意(闇)" sync="^1A:[id8]:([DPS]) gains the effect of 闇の判紋：不和">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <table>
+        {
+          "method: "Insert", "table": "dps_light",
+          "cols": [
+            {  "name": "name", "value": "$1", "key": "true" }
+          ]
+        }
+        </table>
+      </expressions>
+    </t>
+    <t name="データ用意(光)" sync="^1A:[id8]:([DPS]) gains the effect of 光の判紋：不和">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <table>
+        {
+          "method: "Insert", "table": "dps_dark",
+          "cols": [
+            {  "name": "name", "value": "$1", "key": "true" }
+          ]
+        }
+        </table>
+      </expressions>
     </t>
 
+    <t name="光ついた" sync="^1A:[id8]:[mex] gains the effect of 光の判紋：不和">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <set name="light" value="true" />
+      </expressions>
+    </t>
+    <t name="闇ついた" sync="^1A:[id8]:[mex] gains the effect of 光の判紋：不和">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <set name="dark" value="true" />
+      </expressions>
+    </t>
 
-    <a time="001.0" sync="テミス:何故かな、心が沸き立つのを感じるよ……！" />
+    <t no="1" name="相方の名前取得" sync="^23:[id8]:[mex]:[id8]:([DPS])">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <set name="PARTNER_NAME" value="$1" />
+      </expressions>
+    </t>
+    <t no="2" name="相方の名前取得" sync="^23:[id8]:([DPS]):[id8]:[mex]">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <set name="PARTNER_NAME" value="$1" />
+      </expressions>
+    </t>
+
+    <t no="3" name="光ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_SAME">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <pre name="light" value="true" />
+        <pre name="TABLE['dps_light'][0]['name']" value="VAR['PARTNER_NAME']" />
+      </expressions>
+      <v-notice text="@COLOR_SAME" duration="10" />
+    </t>
+    <t no="3" name="光ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_SAME">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <pre name="light" value="true" />
+        <pre name="TABLE['dps_light'][1]['name']" value="VAR['PARTNER_NAME']" />
+      </expressions>
+      <v-notice text="@COLOR_SAME" duration="10" />
+    </t>
+
+    <t no="3" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <pre name="dark" value="true" />
+        <pre name="TABLE['dps_light'][0]['name']" value="VAR['PARTNER_NAME']" />
+      </expressions>
+      <v-notice text="@COLOR_DIFF" duration="10" />
+
+    </t>
+    <t no="3" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <pre name="dark" value="true" />
+        <pre name="TABLE['dps_light'][1]['name']" value="VAR['PARTNER_NAME']" />
+      </expressions>
+      <v-notice text="@COLOR_DIFF" duration="10" />
+    </t>
+
+    <t no="3" name="光ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_SAME">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <pre name="light" value="true" />
+        <pre name="TABLE['dps_dark'][0]['name']" value="VAR['PARTNER_NAME']" />
+      </expressions>
+      <v-notice text="@COLOR_SAME" duration="10" />
+
+    </t>
+    <t no="3" name="光ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_SAME">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <pre name="light" value="true" />
+        <pre name="TABLE['dps_dark'][1]['name']" value="VAR['PARTNER_NAME']" />
+      </expressions>
+      <v-notice text="@COLOR_SAME" duration="10" />
+
+    </t>
+
+    <t no="3" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <pre name="dark" value="true" />
+        <pre name="TABLE['dps_dark'][0]['name']" value="VAR['PARTNER_NAME']" />
+      </expressions>
+      <v-notice text="@COLOR_DIFF" duration="10" />
+
+    </t>
+    <t no="3" name="闇ついて相方光" sync="^23:[id8]:[pc]" sync-count="4" notice="@COLOR_DIFF">
+      <expressions>
+        <pre name="dark_and_light" value="true" />
+        <pre name="dark" value="true" />
+        <pre name="TABLE['dps_dark'][1]['name']" value="VAR['PARTNER_NAME']" />
+      </expressions>
+      <v-notice text="@COLOR_DIFF" duration="10" />
+    </t>
+    }
+
+
+    <a time="001.0" sync="テミス:何故かな、心が沸き立つのを感じるよ……！">
+      <expressions>
+        <set name="dark_and_light" value="false" />
+      </expressions>
+    </a>
     @if (Model.Player.InRole("MagicDPS")) {
     <a time="016.0" text="エウノミアー" sync="テミスの「エウノミアー」" notice="アドル、全体攻撃" />
     } else {
@@ -115,14 +278,22 @@
     }
     <a time="273.0" text="内or外→光or闇" sync="テミスの「アップヘルド＆オーバールール」" />
 
-    <a time="291.0" sync="テミス:私は調停者……その命は絶対だ！" />
+    <a time="291.0" sync="テミス:私は調停者……その命は絶対だ！">
+      <expressions>
+        <set name="dark_and_light" value="true" />
+      </expressions>
+    </a>
     <a time="296.0" text="光と闇の調停" sync="テミスの「光と闇の調停」" notice="光と闇の調停" />
     <a time="309.0" text="魔法陣展開" sync="テミスの「魔法陣展開」" />
     <a time="318.0" text="魔爆" sync="立体魔法陣の「魔爆」" />
     <a time="326.0" text="散開→光or闇" sync="テミスの「ジューリー＆オーバールール」" />
     <a time="345.0" text="直線→光or闇" sync="テミスの「ディバイド＆オーバールール」" />
     <a time="351.0" sync="テミス:君という存在を、調停する！" />
-    <a time="355.0" text="調停" sync="テミスの「調停」" />
+    <a time="355.0" text="調停" sync="テミスの「調停」">
+      <expressions>
+        <set name="dark_and_light" value="false" />
+      </expressions>
+    </a>
     @if (Model.Player.InRole("MagicDPS")) {
     <a time="364.0" text="ステュクス" sync="テミスの「ステュクス」" sync-count="1" notice="アドル、連続頭割り" />
     } else {
@@ -135,7 +306,7 @@
     <a time="369.0" text="2" />
     <a time="370.0" text="1" />
     <a time="375.0" text="ディケー" sync="テミスは「ディケー」の構え。" notice="タンク攻撃" />
-    <a time="390.0" sync="テミス:参ったな、これほど心躍るとは……！" />
+    <a time="390.0" sync="テミス:参ったな、これほど心躍るとは……！" /> 
     <a time="405.0" text="ダークストリーム" sync="テミスの「ダークストリーム」" notice="ダークストリーム" />
     <a time="415.0" text="光弾" sync="テミスの「光弾」" />
     <a time="430.0" text="散開→光or闇" sync="テミスの「ジューリー＆オーバールール」" />
