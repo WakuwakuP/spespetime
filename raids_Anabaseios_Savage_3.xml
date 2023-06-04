@@ -58,7 +58,7 @@
     <t sync="^14:87D3" notice="全員割りから4人頭割">
       <v-notice text="光:8人→外で4人" duration="10" />
     </t>
-    <t sync="^14:87D4" notice="ノックバックで外4人">
+    <t sync="^14:87D4" notice="外から内でペア">
       <v-notice text="闇:NB→内でペア" duration="10" />
     </t>
 
@@ -306,7 +306,7 @@
     <a time="369.0" text="2" />
     <a time="370.0" text="1" />
     <a time="375.0" text="ディケー" sync="テミスは「ディケー」の構え。" notice="タンク攻撃" />
-    <a time="390.0" sync="テミス:参ったな、これほど心躍るとは……！" /> 
+    <a time="390.0" sync="テミス:参ったな、これほど心躍るとは……！" />
     <a time="405.0" text="ダークストリーム" sync="テミスの「ダークストリーム」" notice="ダークストリーム" />
     <a time="415.0" text="光弾" sync="テミスの「光弾」" />
     <a time="430.0" text="散開→光or闇" sync="テミスの「ジューリー＆オーバールール」" />
