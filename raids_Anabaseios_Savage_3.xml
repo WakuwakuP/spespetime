@@ -123,7 +123,7 @@
       </expressions>
     </t>
 
-    <t no="3" name="ライトストリーム 1安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="1安置">
+    <t no="4" name="ライトストリーム 1安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="1安置">
       <expressions>
         <pre name="light_stream_count" value="3" />
         <pre name="TABLE['light_stream'][0]['rotate']" value="right" />
@@ -133,7 +133,7 @@
       <v-notice text="1安置" duration="10" />
     </t>
 
-    <t no="4" name="ライトストリーム B安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="B安置">
+    <t no="5" name="ライトストリーム B安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="B安置">
       <expressions>
         <pre name="light_stream_count" value="3" />
         <pre name="TABLE['light_stream'][0][rotate]" value="right" />
@@ -143,7 +143,7 @@
       <v-notice text="B安置" duration="10" />
     </t>
 
-    <t no="5" name="ライトストリーム 5安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="4安置">
+    <t no="6" name="ライトストリーム 5安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="4安置">
       <expressions>
         <pre name="light_stream_count" value="3" />
         <pre name="TABLE['light_stream'][0][rotate]" value="left" />
@@ -153,7 +153,7 @@
       <v-notice text="4安置" duration="10" />
     </t>
 
-    <t no="6" name="ライトストリーム 3安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="3安置">
+    <t no="7" name="ライトストリーム 3安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="3安置">
       <expressions>
         <pre name="light_stream_count" value="3" />
         <pre name="TABLE['light_stream'][0][rotate]" value="left" />
@@ -163,7 +163,7 @@
       <v-notice text="3安置" duration="10" />
     </t>
 
-    <t no="7" name="ライトストリーム D安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="D安置">
+    <t no="8" name="ライトストリーム D安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="D安置">
       <expressions>
         <pre name="light_stream_count" value="3" />
         <pre name="TABLE['light_stream'][0][rotate]" value="left" />
@@ -173,7 +173,7 @@
       <v-notice text="D安置" duration="10" />
     </t>
 
-    <t no="8" name="ライトストリーム 2安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="2安置">
+    <t no="9" name="ライトストリーム 2安置" sync="^1B:([id8]):指向魔法陣:0000:" notice="2安置">
       <expressions>
         <pre name="light_stream_count" value="3" />
         <pre name="TABLE['light_stream'][0][rotate]" value="right" />
@@ -183,7 +183,7 @@
       <v-notice text="2安置" duration="10" />
     </t>
 
-    <t no="9" name="削除" sync="15:([0-9A-F]{8}):指向魔法陣:8207:ライトストリーム:">
+    <t no="10" name="削除" sync="15:([0-9A-F]{8}):指向魔法陣:8207:ライトストリーム:">
       <expressions>
         <set name="light_stream_count" value="0" />
         <table>
@@ -270,13 +270,13 @@
       </expressions>
     </t>
 
-    <t no="1" name="test-相方の名前取得" sync="^23:[id8]:[mex]:[id8]:([DPS])">
+    <t no="1" name="test-相方の名前取得" sync="^23:[id8]:[WAR]:[id8]:([DPS])">
       <expressions>
         <pre name="dark_and_light" value="true" />
         <set name="PARTNER_NAME" value="$1" />
       </expressions>
     </t>
-    <t no="2" name="test-相方の名前取得" sync="^23:[id8]:([DPS]):[id8]:[mex]">
+    <t no="2" name="test-相方の名前取得" sync="^23:[id8]:([DPS]):[id8]:[WAR]">
       <expressions>
         <pre name="dark_and_light" value="true" />
         <set name="PARTNER_NAME" value="$1" />
@@ -286,7 +286,7 @@
       <expressions>
         <pre name="dark_and_light" value="true" />
       </expressions>
-      <v-notice text="相方は VAR['PARTNER_NAME']" duration="10" />
+      <v-notice text="戦士の相方は VAR['PARTNER_NAME']" duration="10" />
     </t>
     }
     @if (Model.Player.InRole("HEALER", "TANK")) {
