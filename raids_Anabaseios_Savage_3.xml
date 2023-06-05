@@ -13,6 +13,14 @@
   <start>0039::戦闘開始！</start>
   <entry>main</entry>
 
+  <!--
+    フィールドマーカー
+    :       A
+    :    1     2
+    :   C        B
+    :    4     3
+    :       D
+   -->
   <default target-element="Activity" target-attr="notice-o" value="-5" />
   <default target-element="Activity" target-attr="notice-d" value="Main" />
   <default target-element="Trigger" target-attr="notice-d" value="Main" />
@@ -65,7 +73,7 @@
       <v-notice text="光:8人→外で4人" duration="10" />
     </t>
     <t sync="^14:87D4" notice="外から内でペア">
-      <v-notice text="闇:NB→内でペア" duration="10" />
+      <v-notice text="闇:外→内でペア" duration="10" />
     </t>
 
     <!-- 魔法陣展開 -->
@@ -76,7 +84,12 @@
       <v-notice text="白安置" duration="15" />
     </t>
 
+    <!-- アップヘルド＆ルーリング -->
+    <t text="誘導線" sync="^23:[id8]:テミスの幻影:[id8]:[mex]:0000:[id4]:00F9:" notice="線ついた" />
+    <t text="誘導線" sync="^23:[id8]:テミスの幻影:[id8]:[mex]:0000:[id4]:00F0:" notice="線ついた" />
+
     <!-- ライトストリーム -->
+    <!-- 北西 南 北東 の順のIDになる前提で組んでいるためこれが崩れるようなら終わり -->
     <t no="1" name="ライトストリーム時計" sync="^1B:([0-9A-F]{8}):指向魔法陣:0000:[id4]:EVAL(VAR['1B_MARKER'] - 319, X4):">
       <expressions>
         <table>
