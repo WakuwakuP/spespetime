@@ -104,7 +104,7 @@
       <v-notice text="3:集合" order="4" icon="PunishmentGroup.png" duration="5" delay="21" />
       <v-notice text="4:塔踏み" order="5" icon="FallingObject.png" duration="5" delay="27" />
     </t>
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-388, X4):" notice="6番、5に行く、塔踏み">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-384, X4):" notice="6番、5に行く、塔踏み">
       <expressions>
         <pre name="dice_phase_1" value="true" />
         <set name="dice" value="true" />
@@ -118,7 +118,7 @@
       <v-notice text="3:誘導" order="3" icon="AOE.png" duration="5" delay="21" />
       <v-notice text="4:集合" order="4" icon="PunishmentGroup.png" duration="5" delay="27" />
     </t>
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-388, X4):" notice="8番、5に行く、集合">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-382, X4):" notice="8番、5に行く、集合">
       <expressions>
         <pre name="dice_phase_1" value="true" />
         <set name="dice" value="true" />
@@ -140,25 +140,25 @@
     </t>
 
     <!-- 2回目 -->
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-139, X4):" notice="1番">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-389, X4):" notice="1番">
       <expressions>
         <pre name="dice_phase_2" value="true" />
       </expressions>
       <v-notice text="1番" icon="Dice1.png" duration="40" />
     </t>
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-138, X4):" notice="2番">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-388, X4):" notice="2番">
       <expressions>
         <pre name="dice_phase_2" value="true" />
       </expressions>
       <v-notice text="2番" icon="Dice2.png" duration="40" />
     </t>
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-137, X4):" notice="3番">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-387, X4):" notice="3番">
       <expressions>
         <pre name="dice_phase_2" value="true" />
       </expressions>
       <v-notice text="3番" icon="Dice3.png" duration="40" />
     </t>
-    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-136 ,X4):" notice="4番">
+    <t sync="1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['1B_MARKER']-386 ,X4):" notice="4番">
       <expressions>
         <pre name="dice_phase_2" value="true" />
       </expressions>
