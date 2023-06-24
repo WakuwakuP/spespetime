@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>天獄4層</name>
+  <rev>TEST7</rev>
+  <description>
+    202306030641:TEST1 試作版　チェインIIAまで
+    202306040546:TEST5 いろいろ。キツすぎ
+    202306070027:TEST7 多数の修正を実施。時間切れまで
+    AquaCatのブログをよろしくお願いします。(https://www.aquacat.work/)
+  </description>
+  <author>Aqua Cat,RINGS</author>
+  <license>CC BY-SA</license>
+  <zone>Anabaseios: The Twelfth Circle (Savage)</zone>
+  <locale>JA</locale>
+  <start>0039::戦闘開始！</start>
+  <entry>ENTRY</entry>
+
+  <s name="ENTRY">
+    <a time="20" text="前半後半の判別" icon="分岐.png" />
+
+    <t sync="アテナ:貴方のことを教えて！ 完全なる神に至るために……！">
+      <load target="P1-1" truncate="true"/>
+    </t>
+    <t sync="パラスアテナ:これぞ真なるカミ、セカイを創造する存在！">
+      <load target="P2-1" truncate="true"/>
+    </t>
+  </s>
+
+  <s name="P1-1">
+    <a time="001" sync="アテナ:貴方のことを教えて！ 完全なる神に至るために……！" />
+    <a time="013" text="オン・ザ・ソウル" sync="アテナの「オン・ザ・ソウル」" notice="全体" sync-s="13" />
+    <a time="019" sync="アテナ:無から「生命」を創造しましょう……！" />
+    <a time="023" text="パラデイグマ" sync="アテナの「パラデイグマ」" />
+    <a time="038" text="トリニティ・ソウル1" sync="アテナの「トリニティ・ソウル」" sync-interval="10" />
+    <a time="041" text="トリニティ・ソウル2" />
+    <a time="043" text="トリニティ・ソウル3" />
+    <a time="059" text="パラデイグマ" sync="アテナの「パラデイグマ」" />
+    <a time="065" text="移行待ち" sync="アテナは「魂の刻印」の構え。" goto="P1-2" sync-o="-30" />
+  </s>
+
+  <!--特殊なトリガを仕込むためにルーチンを分離-->
+  <s name="P1-2">
+    <a time="004" text="魂の刻印" sync="アテナの「魂の刻印」" />
+    <a time="029" text="全体" sync="アテナの「オン・ザ・ソウル」" notice="全体攻撃" />
+    <!--a enabled="false" time="093.5" text="Marker:020A" sync="^1B:[id8]:[WAR]:0000:0000:020A:0000:0000:0000" /-->
+    <a time="037" text="タンクスイッチ" sync="アテナの「グラウコピス」" notice="タンク攻撃" sync-interval="10" />
+    <a time="040" text="グラウコピス" />
+    <a time="050" sync="アテナ:この鎖は、万物を有する……。" />
+    <a time="056" text="セオリーI" sync="アテナの「スーパーチェイン・セオリーI」" />
+    <a time="063" text="魂の刻印" sync="アテナの「魂の刻印」" />
+    <!--
+  <a time="074" text="ポラリティレイ" sync="アテナの「ポラリティレイ」" notice="次は、ポラリティレイ。" />
+  <a time="083" text="ポラリティグロウ" sync="アテナの「ポラリティグロウ」" notice="次は、ポラリティグロウ。" />
+-->
+    <a time="097" text="トリニティ・ソウル1" sync="アテナの「トリニティ・ソウル」" sync-interval="10" />
+    <a time="100" text="トリニティ・ソウル2" />
+    <a time="102" text="トリニティ・ソウル3" />
+    <a time="111" text="ペリorアポ" sync="アテナの「(ペリ|アポ)・ディアロゴス」" />
+    <a time="119" text="全体" sync="アテナの「オン・ザ・ソウル」" notice="全体攻撃" />
+    <a time="135" text="パラデイグマ" sync="アテナの「パラデイグマ」" />
+    <a time="145" text="移行待ち" sync="アテナは「魂の刻印」の構え。" goto="P1-3" sync-o="-30" />
+
+    <!--タンク強攻撃を1Bの基準値を取得-->
+    <t no="1" sync="^1B:[id8]:[pc]:0000:[id4]:(?&lt;marker&gt;[0-9a-fA-F]{4}):" sync-count="1">
+      <expressions>
+        <set name="marker_origin" value="0x${marker}" scope="CurrentZone" />
+      </expressions>
+    </t>
+
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3576" notice="白デバフ">
+      <v-notice text="白デバフ" duration="19" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3577" notice="黒デバフ">
+      <v-notice text="黒デバフ" duration="19" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3579" notice="白塔">
+      <v-notice text="白塔担当" duration="19" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3580" notice="黒塔">
+      <v-notice text="黒塔担当" duration="19" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3581" notice="白ビーム">
+      <v-notice text="白ビーム担当" duration="11" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3582" notice="黒ビーム">
+      <v-notice text="黒ビーム担当" duration="11" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3578" notice="範囲対象">
+      <v-notice text="黒ビーム担当" duration="23" />
+    </t>
+
+    <t sync="^14:82FF" notice="タンク内側">
+      <v-notice text="タンク内側" duration="4" />
+    </t>
+    <t sync="^14:82FE" notice="タンク外側">
+      <v-notice text="タンク外側" duration="4" />
+    </t>
+  </s>
+
+  <s name="P1-3">
+    <a time="005" text="魂の刻印" sync="アテナの「魂の刻印」" />
+    <a time="007" sync="アテナ:物言わぬ器に、魂を与えましょう！" notice="安置確認" />
+    <a time="015" text="魂の鎖" sync="アテナの「魂の鎖」" />
+    <a time="032" text="全体" sync="アテナの「オン・ザ・ソウル」" notice="全体攻撃" />
+
+    <a time="044" text="タンクスイッチ" sync="アテナの「グラウコピス」" notice="タンク攻撃" sync-interval="10" />
+    <a time="047" text="グラウコピス" />
+
+    <a time="055" text="履行技" sync="アテナ:神の力の一端を見せてあげる……！" />
+    <a time="084" text="同期待ち" sync="アテナ:純然たる力を味わいなさい！" />
+    <!--a time="084" text="パラディオン" sync="アテナは「パラディオン」の構え。" notice="次は、パラディオン。" /-->
+    <a time="092" text="パラディオン1" sync="アテナの「パラディオン」" sync-interval="30" />
+    <a time="096" text="パラディオン2" />
+    <a time="099" text="パラディオン3" />
+    <a time="102" text="パラディオン4" />
+    <a time="105" text="パラディオン5" />
+    <a time="108" text="パラディオン6" />
+    <a time="111" text="パラディオン7" />
+    <a time="114" text="パラディオン8" />
+    <a time="127" text="セリフ" sync="アテナ:渦なす生命の色、七つの扉開き、力の塔の天に至らん！" />
+    <a time="138" text="テオス・アルテマ" sync="アテナの「テオス・アルテマ」" />
+    <a time="143" sync="アテナ:その魂の薄さで……驚異的な存在ね。" />
+    <a time="155" text="セオリーIIA" sync="アテナの「スーパーチェイン・セオリーIIA」" />
+    <a time="168" text="トリニティ・ソウル1" sync="アテナの「トリニティ・ソウル」" sync-interval="10" />
+    <a time="170" text="トリニティ・ソウル2" />
+    <a time="173" text="トリニティ・ソウル3" />
+    <a time="183" text="ペリorアポ" sync="アテナの「(ペリ|アポ)・ディアロゴス」" />
+    <a time="191" text="全体" sync="アテナの「オン・ザ・ソウル」" notice="全体攻撃" />
+    <a time="206" text="セオリーIIB" sync="アテナの「スーパーチェイン・セオリーIIB」" />
+    <a time="212" text="パラデイグマ" sync="アテナの「パラデイグマ」" />
+    <a time="222" text="パルテノン" sync="アテナの「パルテノン」" notice="直線" />
+    <a time="224" text="外周確認" notice="外周ビームを確認" />
+    <a time="238" text="魂の鎖" sync="アテナの「魂の鎖」" />
+    <a time="246" text="オン・ザ・ソウル" sync="アテナの「オン・ザ・ソウル」" />
+    <a time="254" text="オン・ザ・ソウル" />
+    <a time="260" text="時間切れ" sync="アテナ:渦なす生命の色、七つの扉開き、力の塔の天に至らん！" />
+    <a time="271" text="テオス・アルテマ" sync="アテナの「テオス・アルテマ」" />
+
+    <!--トリガー-->
+    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3579" notice="黒が踏む">
+      <v-notice text="黒が塔処理" duration="19" />
+    </t>
+    <t sync="^1A:[id8]:[pc] gains the effect of _rsv_3580" notice="白が踏む">
+      <v-notice text="白が塔処理" duration="19" />
+    </t>
+
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3583" notice="範囲対象1">
+      <v-notice text="範囲対象1？(情報求)" duration="19" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3584" notice="範囲対象2">
+      <v-notice text="範囲対象2？(情報求)" duration="19" />
+    </t>
+
+    <t no="31" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 135, X4):" notice="1番">
+      <v-notice text="1番/ビーム3回目" duration="15" />
+    </t>
+    <t no="32" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 134, X4):" notice="2番">
+      <v-notice text="2番/ビーム4回目" duration="15" />
+    </t>
+    <t no="33" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 133, X4):" notice="3番">
+      <v-notice text="3番/ビーム3回目" duration="15" />
+    </t>
+    <t no="34" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 132, X4):" notice="4番">
+      <v-notice text="4番/ビーム4回目" duration="15" />
+    </t>
+    <t no="35" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 34, X4):" notice="5番">
+      <v-notice text="5番/ビーム1回目" duration="15" />
+    </t>
+    <t no="36" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 33, X4):" notice="6番">
+      <v-notice text="6番/ビーム2回目" duration="15" />
+    </t>
+    <t no="37" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 32, X4):" notice="7番">
+      <v-notice text="7番/ビーム1回目" duration="15" />
+    </t>
+    <t no="38" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 31, X4):" notice="8番">
+      <v-notice text="8番/ビーム2回目" duration="15" />
+    </t>
+
+    <t sync="^14:82FF" notice="タンク内側">
+      <v-notice text="タンク内側" duration="4" />
+    </t>
+    <t sync="^14:82FE" notice="タンク外側">
+      <v-notice text="タンク外側" duration="4" />
+    </t>
+  </s>
+
+  <s name="P2-1">
+    <a time="000" sync="パラスアテナ:これぞ真なるカミ、セカイを創造する存在！">
+      <expressions>
+        <set name="Wing" value="null" />
+      </expressions>
+    </a>
+    <a time="012" text="全体攻撃" sync="パラスアテナの「アルテマ」" notice="全体攻撃" />
+    <a time="024" text="パラスの手" sync="パラスアテナの「パラスの手」" sync-interval="6" />
+    <a time="027" text="パラスの手" />
+    <a time="033" sync="パラスアテナ:これが、セカイの在ルべき姿！" />
+    <a time="040" text="ガイアオコス" sync="パラスアテナの「ガイアオコス」" />
+    <a time="048" sync="パラスアテナ:漆黒の暗渠より悪鬼を招かん……。 サモンダークネス！！" />
+    <a time="052" text="サモンダークネス" sync="パラスアテナの「サモンダークネス」" notice="安置確認" />
+    <a time="074" text="デミパルヘリオン" sync="パラスアテナの「デミパルヘリオン」" />
+    <a time="084" text="ジオセントリズム" sync="パラスアテナの「ジオセントリズム」" />
+
+    <a time="094" text="全体" sync="パラスアテナの「アルテマ」" notice="全体攻撃" />
+    <a time="100" sync="パラスアテナ:元素たちは引き寄せ合う！" />
+    <a time="108" text="イデア・エレメンタル" sync="パラスアテナの「イデア・エレメンタル」" notice="全体" />
+    <a time="144" text="全体攻撃" sync="パラスアテナの「アルテマ」" notice="全体攻撃" />
+    <a time="147" sync="パラスアテナ:我に相見えし不幸を呪うがよい！ 星よ降れ！　星天爆撃打！" />
+    <a time="147" text="星天爆撃打" sync="パラスアテナは「星天爆撃打 」の構え。" notice="タンクにエスナ" />
+    <a time="154" text="4連デバフ" />
+    <a time="159" text="強攻撃" />
+
+    <a time="164" sync="パラスアテナ:熱の性質を見切れるかしら？" />
+    <a time="173" text="カロリックセオリー" sync="パラスアテナの「カロリックセオリー」" notice="全体" />
+    <a time="185" text="1回目" sync="パラスアテナの「重熱波」" sync-interval="20" />
+    <a time="196" text="2回目" />
+
+    <a time="207" text="エクピロシス" sync="パラスアテナの「エクピロシス」" />
+    <a time="227" text="全体攻撃" sync="パラスアテナの「アルテマ」" notice="全体攻撃" />
+    <a time="233" sync="パラスアテナ:進化の道筋は、ワタシが整える……！" />
+    <a time="241" text="パンゲネシス" sync="パラスアテナの「パンゲネシス」" notice="全体攻撃" />
+    <a time="249" text="パンテオス" sync="パラスアテナの「パンテオス」" />
+    <a time="275" text="線取り確認" sync="パラスアテナは「パラスの手」の構え。" notice="無職が線取り" />
+    <a time="281" text="パラスの手" sync="パラスアテナの「パラスの手」" sync-interval="6" />
+    <a time="284" text="パラスの手" />
+    <a time="297" text="イデア・エレメンタル" sync="パラスアテナの「イデア・エレメンタル」" />
+    <a time="304" sync="パラスアテナ:万物は流転する……！" />
+    <a time="314" text="パンタレイ" sync="パラスアテナの「パンタレイ」" />
+    <a time="322" text="パラスレイ" sync="パラスアテナの「パラスレイ」" />
+    <a time="334" text="全体攻撃" sync="パラスアテナの「アルテマ」" />
+    <a time="337" text="星天爆撃打 " sync="パラスアテナは「星天爆撃打 」の構え。" notice="次は、星天爆撃打 。" />
+    <a time="344" text="4連デバフ" />
+    <a time="363" text="カロリックセオリー" sync="パラスアテナの「カロリックセオリー」" />
+    <a time="393" text="エクピロシス" sync="パラスアテナの「エクピロシス」" />
+    <a time="412" text="アルテマ" sync="パラスアテナの「アルテマ」" />
+    <a time="427" text="ガイアオコス" sync="パラスアテナの「ガイアオコス」" />
+    <a time="438" text="サモンダークネス" sync="パラスアテナの「サモンダークネス」" />
+    <a time="444" text="デミパルヘリオン" sync="パラスアテナの「デミパルヘリオン」" />
+    <a time="454" text="ジオセントリズム" sync="パラスアテナの「ジオセントリズム」" />
+    <a time="482" text="アルテマ" sync="パラスアテナの「アルテマ」" />
+    <a time="490" sync="パラスアテナ:どうしてまだ消えない……！？" />
+    <a time="496" text="アルテマ" sync="パラスアテナの「アルテマ」" />
+    <a time="506" sync="パラスアテナ:ワタシはカミ、すべてを理解したはずなのに……！" />
+    <a time="509" text="時間切れ開始" sync="パラスアテナは「イグノラビムス」の構え。" />
+    <a time="513" text="セリフ" sync="パラスアテナ:何故……このセカイは在るの……？" />
+    <a time="524" text="時間切れ" />
+
+
+
+
+    <!--ジオセントリズムの回転-->
+    <t sync="^14:8329" notice="たて">
+      <v-notice text="タテ安置" duration="4" />
+    </t>
+    <t sync="^14:832A" notice="回転">
+      <v-notice text="リング安置" duration="4" />
+    </t>
+    <t sync="^14:832B" notice="よこ">
+      <v-notice text="ヨコ安置" duration="4" />
+    </t>
+    <!--プレステマーカーの通知-->
+    <t no="22" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 104, X4):" notice="まる">
+      <v-notice text="〇担当" duration="15" />
+    </t>
+    <t no="23" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 103, X4):" notice="さんかく">
+      <v-notice text="△担当" duration="15" />
+    </t>
+    <t no="24" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 102, X4):" notice="しかく">
+      <v-notice text="□担当" duration="15" />
+    </t>
+    <t no="25" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 101, X4):" notice="ばつ">
+      <v-notice text="×担当" duration="15" />
+    </t>
+    <!--カロリーの通知-->
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3590_" notice="ほのお担当">
+      <v-notice text="炎デバフ" duration="12" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3590_" notice="かぜ担当">
+      <v-notice text="風デバフ" duration="23" />
+    </t>
+    <!--距離減の逃げ先コール-->
+    <t sync="^14:8321" notice="ヨコに行く">
+      <v-notice text="ヨコに行く" duration="4" />
+    </t>
+    <t sync="^14:8683" notice="タテに行く">
+      <v-notice text="タテに行く" duration="4" />
+    </t>
+    <!--塔担当の通知-->
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3593_.*BuffID: 0E09-01" notice="１回目">
+      <v-notice text="１回目塔(色なし)" duration="23" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3576_.*16.00 Seconds" notice="1回目、くろへ">
+      <v-notice text="1回目塔(黒担当)" duration="16" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3577_.*16.00 Seconds" notice="1回目、しろへ">
+      <v-notice text="1回目塔(白担当)" duration="16" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3576_.*20.00 Seconds" notice="2回目、くろへ">
+      <v-notice text="2回目塔(黒担当)" duration="16" />
+    </t>
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3577_.*20.00 Seconds" notice="2回目、しろへ">
+      <v-notice text="2回目塔(白担当)" duration="16" />
+    </t>
+  </s>
+
+
+  <!--グローバルトリガ-->
+  <t no="2" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 46, X4):" notice="右から">
+    <v-notice text="右から" duration="15" />
+    <expressions>
+      <set name="Wing" value="bottom" />
+    </expressions>
+  </t>
+  <t no="3" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 45, X4):" notice="左から">
+    <v-notice text="左から" duration="15" />
+    <expressions>
+      <set name="Wing" value="bottom" />
+    </expressions>
+  </t>
+  <t no="4" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 50, X4):" notice="右から">
+    <v-notice text="右から" duration="15" />
+    <expressions>
+      <set name="Wing" value="top" />
+    </expressions>
+  </t>
+  <t no="5" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 49, X4):" notice="左から">
+    <v-notice text="左から" duration="15" />
+    <expressions>
+      <set name="Wing" value="top" />
+    </expressions>
+  </t>
+  <!--逆転パターン-->
+  <t no="6" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 48, X4):" notice="左">
+    <v-notice text="左2" duration="15" />
+    <expressions>
+      <pre name="Wing" value="bottom" />
+    </expressions>
+  </t>
+  <t no="7" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 47, X4):" notice="右">
+    <v-notice text="右2" duration="15" />
+    <expressions>
+      <pre name="Wing" value="bottom" />
+    </expressions>
+  </t>
+  <!--逆転なし-->
+  <t no="8" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 48, X4):" notice="右">
+    <v-notice text="右2" duration="15" />
+    <expressions>
+      <pre name="Wing" value="top" />
+    </expressions>
+  </t>
+  <t no="9" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 47, X4):" notice="左">
+    <v-notice text="左2" duration="15" />
+    <expressions>
+      <pre name="Wing" value="top" />
+    </expressions>
+  </t>
+  <t no="10" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 40, X4):" notice="右">
+    <v-notice text="右3" duration="15" />
+  </t>
+  <t no="11" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 39, X4):" notice="左">
+    <v-notice text="左3" duration="15" />
+  </t>
+  <t no="12" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 38, X4):" notice="右">
+    <v-notice text="右3" duration="15" />
+  </t>
+  <t no="13" sync="^1B:[id8]::0000:[id4]:EVAL(VAR['marker_origin'] - 37, X4):" notice="左">
+    <v-notice text="左3" duration="15" />
+  </t>
+
+</timeline>
