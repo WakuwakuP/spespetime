@@ -462,6 +462,15 @@
       <v-notice order="-1" icon="Pair.png" duration="10" duration-visible="false" />
     </t>
 
+    @{
+      var NOTICE_DEBUFF = Model.Player.InRole("DPS") ?
+        "でかいほう南。赤マルとなり。":
+        "でかいほう南。赤マルとなり。";
+      var CALL_DEBUFF = Model.Player.InRole("DPS") ?
+        "でかいほう南。赤マルとなり。":
+        "でかいほう南。赤マルとなり。";
+    }
+
     <t text="加重罰\nジャスティス南" sync="[mex] gains the effect of 確定判決：加重罰 from  for 9999.00 Seconds." notice="でかいほう南。赤マルとなり。" sync-count="1">
       <expressions>
         <pre name="is_inception_formation" value="false" />
@@ -545,14 +554,14 @@
       <v-notice order="-1" icon="Arrow3.png" duration="10" duration-visible="false" />
     </t>
     }
-    <t text="マーカー1番" sync="1B:[id8]::[mex]:0000:[id4]:004F:0000:0000:0000:" notice="いちばん、Aで外見る、切られたら無い側にスプリント、ざんげ３回目。">
+    <t text="マーカー1番" sync="1B:[id8]::[mex]:0000:[id4]:004F:0000:0000:0000:" notice="いちばん、Aで外見る、切られたら無い側にスプリント、ざんげ3回目。">
       <expressions>
         <set name="call_delay" value="1" />
       </expressions>
       <v-notice text="１番 Aで 外周向く\nレイ誘導 ➜ 懺悔３回目" icon="Arrow8.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー2番" sync="1B:[id8]::[mex]:0000:[id4]:0050:0000:0000:0000:" notice="にばん、プライム横、ない側、飛んで来たら移動、ざんげ３回目。">
+    <t text="マーカー2番" sync="1B:[id8]::[mex]:0000:[id4]:0050:0000:0000:0000:" notice="にばん、プライム横、ない側、飛んで来たら移動、ざんげ3回目。">
       <expressions>
         <set name="call_delay" value="1" />
       </expressions>
@@ -573,28 +582,28 @@
       <v-notice text="４番 ４マーカー\n突進誘導 ➜ 懺悔なし。" icon="Arrow4.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー5番" sync="1B:[id8]::[mex]:0000:[id4]:0053:0000:0000:0000:" notice="ごばん、Bマーカー側、ざんげ１回目。">
+    <t text="マーカー5番" sync="1B:[id8]::[mex]:0000:[id4]:0053:0000:0000:0000:" notice="ごばん、Bマーカー側、ざんげ1回目。">
       <expressions>
         <set name="call_delay" value="3" />
       </expressions>
       <v-notice text="５番 Ｂマーカー。\n懺悔１回目 ➜ １マーカーで切られる。" icon="Arrow8.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー6番" sync="1B:[id8]::[mex]:0000:[id4]:0054:0000:0000:0000:" notice="ろくばん、Ｄマーカー。ざんげ１回目。">
+    <t text="マーカー6番" sync="1B:[id8]::[mex]:0000:[id4]:0054:0000:0000:0000:" notice="ろくばん、Dマーカー。ざんげ1回目。">
       <expressions>
         <set name="call_delay" value="3" />
       </expressions>
       <v-notice text="６番 Ｄマーカー。\n懺悔１回目 ➜ 4マーカー突進。" icon="Arrow2.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー7番" sync="1B:[id8]::[mex]:0000:[id4]:0055:0000:0000:0000:" notice="ななばん、Ｂマーカー。ざんげ２回目。">
+    <t text="マーカー7番" sync="1B:[id8]::[mex]:0000:[id4]:0055:0000:0000:0000:" notice="ななばん、Bマーカー。ざんげ2回目。">
       <expressions>
         <set name="call_delay" value="4" />
       </expressions>
       <v-notice text="７番 Ｂマーカー。\n懺悔２回目 ➜ １マーカーで切られる。" icon="Arrow8.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー8番" sync="1B:[id8]::[mex]:0000:[id4]:0056:0000:0000:0000:" notice="はちばん、Ｄマーカー。ざんげ２回目。">
+    <t text="マーカー8番" sync="1B:[id8]::[mex]:0000:[id4]:0056:0000:0000:0000:" notice="はちばん、Dマーカー。ざんげ2回目。">
       <expressions>
         <set name="call_delay" value="4" />
       </expressions>
@@ -662,6 +671,7 @@
         <set name="count_left" count="0" />
         <set name="count_right" count="0" />
       </expressions>
+      <i-notice image="時間停止.png" scale="1" left="1559" top="77" duration="15" />
     </a>
     <a time="4" text="時間停止（詠唱）" icon="Timer.png" sync="アレキサンダー・プライムは「時間停止」の構え。" />
     <!-- 時間停止 begin -->
