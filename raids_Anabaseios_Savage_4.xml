@@ -107,7 +107,12 @@
     <a time="047" text="グラウコピス" />
 
     <a time="055" text="履行技" sync="アテナ:神の力の一端を見せてあげる……！" />
-    <a time="084" text="同期待ち" sync="アテナ:純然たる力を味わいなさい！" />
+    <a time="084" text="同期待ち" sync="アテナ:純然たる力を味わいなさい！">
+      <expressions>
+        <set name="dice" value="true" />
+        <set name="laser_count" value="0" />
+      </expressions>
+    </a>
     <!--a time="084" text="パラディオン" sync="アテナは「パラディオン」の構え。" notice="次は、パラディオン。" /-->
     <a time="092" text="パラディオン1" sync="アテナの「パラディオン」" sync-interval="30" />
     <a time="096" text="パラディオン2" />
@@ -144,36 +149,81 @@
       <v-notice text="白が塔処理" duration="19" />
     </t>
 
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3583" notice="範囲対象1">
-      <v-notice text="範囲対象1？(情報求)" duration="19" />
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3583" notice="じゅうじ担当">
+      <v-notice text="十字担当" duration="19" />
     </t>
-    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3584" notice="範囲対象2">
-      <v-notice text="範囲対象2？(情報求)" duration="19" />
+    <t sync="^1A:[id8]:[mex] gains the effect of _rsv_3584" notice="えっくすじ担当">
+      <v-notice text="X字担当" duration="19" />
     </t>
 
     <t no="31" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 135, X4):" notice="1番">
+      <expressions>
+        <set name="laser_induction" value="3" />
+      </expressions>
       <v-notice text="1番/ビーム3回目" duration="15" />
     </t>
     <t no="32" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 134, X4):" notice="2番">
+      <expressions>
+        <set name="laser_induction" value="4" />
+      </expressions>
       <v-notice text="2番/ビーム4回目" duration="15" />
     </t>
     <t no="33" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 133, X4):" notice="3番">
+      <expressions>
+        <set name="laser_induction" value="3" />
+      </expressions>
       <v-notice text="3番/ビーム3回目" duration="15" />
     </t>
     <t no="34" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 132, X4):" notice="4番">
+      <expressions>
+        <set name="laser_induction" value="4" />
+      </expressions>
       <v-notice text="4番/ビーム4回目" duration="15" />
     </t>
     <t no="35" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 34, X4):" notice="5番">
+      <expressions>
+        <set name="laser_induction" value="1" />
+      </expressions>
       <v-notice text="5番/ビーム1回目" duration="15" />
     </t>
     <t no="36" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 33, X4):" notice="6番">
+      <expressions>
+        <set name="laser_induction" value="2" />
+      </expressions>
       <v-notice text="6番/ビーム2回目" duration="15" />
     </t>
     <t no="37" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 32, X4):" notice="7番">
+      <expressions>
+        <set name="laser_induction" value="1" />
+      </expressions>
       <v-notice text="7番/ビーム1回目" duration="15" />
     </t>
     <t no="38" sync="^1B:[id8]:[mex]:0000:[id4]:EVAL(VAR['marker_origin'] - 31, X4):" notice="8番">
+      <expressions>
+        <set name="laser_induction" value="2" />
+      </expressions>
       <v-notice text="8番/ビーム2回目" duration="15" />
+    </t>
+
+    <t no="1" sync=":アンスロポス:82EF:白火:" sync-interval="1">
+      <expressions>
+        <pre name="dice" value="true" />
+        <set name="laser_count" value="EVAL(VAR['laser_count']+1, N0)" />
+      </expressions>
+    </t>
+
+    <t no="2" sync=":アンスロポス:82EF:白火:" sync-interval="1" notice="VAR['laser_count']回目" notice-sync="true">
+      <expressions>
+        <pre name="dice" value="true" />
+      </expressions>
+      <v-notice text="レーザー VAR['laser_count']回目" sync-to-hide=":アンスロポス:82EF:白火:" duration="15" />
+    </t>
+
+    <t no="3" sync=":アンスロポス:82EF:白火:" sync-interval="1" notice="入る" notice-sync="true">
+      <expressions>
+        <pre name="dice" value="true" />
+        <pre name="laser_count" value="EVAL(VAR['laser_induction']-1, N0)" />
+      </expressions>
     </t>
 
     <t sync="^14:82FF" notice="タンク内側">
