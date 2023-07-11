@@ -73,61 +73,62 @@
   </s>
 
   <s name="P2 JUDGEMENT">
-    <t text="プライムフェーズへ" sync="00:0044::アレキサンダー・プライム:我はアレキサンダー……機械仕掛けの神なり……。 理想郷に到る道を導くため……我が審判を受けよ……。">
+    <t text="プライムフェーズへ" sync="00:0044:アレキサンダー・プライム:我はアレキサンダー……機械仕掛けの神なり……。 理想郷に到る道を導くため……我が審判を受けよ……。">
       <load target="P3 PRIME" truncate="true" />
+      <i-notice image="時間停止.png" scale="1" left="1559" top="77" duration="15" />
     </t>
 
     <!-- 頭上マーカ識別用トリガ begin -->
-    <t text="マーカー1番" sync="1B:[id8]::[mex]:0000:[id4]:004F:0000:0000:0000:" notice="いちばん。">
+    <t text="マーカー1番" sync="1B:[id8]:[mex]:0000:[id4]:004F:0000:0000:0000" notice="いちばん。">
       <expressions>
         <set name="call_delay" value="1" />
       </expressions>
       <v-notice text="マーカー１番\n北 ➜ 中央 ➜ 北" duration="27" icon="Targetaoe03.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー2番" sync="1B:[id8]::[mex]:0000:[id4]:0050:0000:0000:0000:" notice="にばん。">
+    <t text="マーカー2番" sync="1B:[id8]:[mex]:0000:[id4]:0050:0000:0000:0000" notice="にばん。">
       <expressions>
         <set name="call_delay" value="1" />
       </expressions>
       <v-notice text="マーカー２番\n北 ➜ 中央 ➜ 北" duration="27" icon="Targetaoe02.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー3番" sync="1B:[id8]::[mex]:0000:[id4]:0051:0000:0000:0000:" notice="さんばん。">
+    <t text="マーカー3番" sync="1B:[id8]:[mex]:0000:[id4]:0051:0000:0000:0000" notice="さんばん。">
       <expressions>
         <set name="call_delay" value="2" />
       </expressions>
       <v-notice text="マーカー３番\n南 ➜ 時計回り" duration="27" icon="Targetaoe03.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー4番" sync="1B:[id8]::[mex]:0000:[id4]:0052:0000:0000:0000:" notice="よんばん。">
+    <t text="マーカー4番" sync="1B:[id8]:[mex]:0000:[id4]:0052:0000:0000:0000" notice="よんばん。">
       <expressions>
         <set name="call_delay" value="2" />
       </expressions>
       <v-notice text="マーカー４番\n南 ➜ 時計回り" duration="27" icon="Targetaoe02.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー5番" sync="1B:[id8]::[mex]:0000:[id4]:0053:0000:0000:0000:" notice="ごばん。">
+    <t text="マーカー5番" sync="1B:[id8]:[mex]:0000:[id4]:0053:0000:0000:0000" notice="ごばん。">
       <expressions>
         <set name="call_delay" value="3" />
       </expressions>
       <v-notice text="マーカー５番\n南 ➜ 中央 ➜ 南" duration="27" icon="Targetaoe03.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー6番" sync="1B:[id8]::[mex]:0000:[id4]:0054:0000:0000:0000:" notice="ろくばん。">
+    <t text="マーカー6番" sync="1B:[id8]:[mex]:0000:[id4]:0054:0000:0000:0000" notice="ろくばん。">
       <expressions>
         <set name="call_delay" value="3" />
       </expressions>
       <v-notice text="マーカー６番\n南 ➜ 中央 ➜ 南" duration="27" icon="Targetaoe02.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー7番" sync="1B:[id8]::[mex]:0000:[id4]:0055:0000:0000:0000:" notice="ななばん。">
+    <t text="マーカー7番" sync="1B:[id8]:[mex]:0000:[id4]:0055:0000:0000:0000" notice="ななばん。">
       <expressions>
         <set name="call_delay" value="4" />
       </expressions>
       <v-notice text="マーカー７番\n南 ➜ 中央 ➜ 北" duration="27" icon="Targetaoe03.png" duration-visible="false" />
     </t>
 
-    <t text="マーカー8番" sync="1B:[id8]::[mex]:0000:[id4]:0056:0000:0000:0000:" notice="はちばん。">
+    <t text="マーカー8番" sync="1B:[id8]:[mex]:0000:[id4]:0056:0000:0000:0000" notice="はちばん。">
       <expressions>
         <set name="call_delay" value="4" />
       </expressions>
@@ -309,7 +310,7 @@
     <!-- ジャッジメントナイサイの受け渡し識別用トリガ end -->
 
     <a time="0" sync="クルーズチェイサー:コードネーム「ブラスティー」！ 階差閉宇宙ヲ、脅カス敵ヲ発見……撃滅スル！" notice="北を確認。" notice-d="Sub" />
-    <a time="6" text="ホークブラスター1" sync="15:[id8]::クルーズチェイサー:4830:ホークブラスター:[id8]:" notice="" sync-s="-3" />
+    <a time="6" text="ホークブラスター1" sync="15:[id8]:クルーズチェイサー:4830:ホークブラスター:[id8]:" notice="" sync-s="-3" />
     <a time="8" text="ホークブラスター2" notice="" />
     <a time="10" text="ホークブラスター3" notice="" />
     <a time="12" text="ホークブラスター4" notice="" />
@@ -341,7 +342,7 @@
     <a time="53" text="システムリンク" sync="ブルートジャスティスの「システムリンク」" notice="システムリンク。" notice-d="Sub" />
     <a time="55" text="チャクラム出現" sync="スチームチャクラムは「ビームチャクラム」の構え。" notice="外周えー。" notice-d="Sub" />
     <a time="61" text="照準" sync="クルーズチェイサーの「照準」" notice="" />
-    <a time="61" text="ビームチャクラム" sync="15:[id8]::スチームチャクラム:4855:ビームチャクラム:[id8]:" icon="AOEHorizontal.png" notice="チャクラム。" notice-d="Sub" />
+    <a time="61" text="ビームチャクラム" sync="15:[id8]:スチームチャクラム:4855:ビームチャクラム:[id8]:" icon="AOEHorizontal.png" notice="チャクラム。" notice-d="Sub" />
 
     <a time="68" text="フォトン" sync="クルーズチェイサーの「フォトン」" icon="ForceHP1.png" notice="フォトン。ナイサイ。" notice-d="Sub" />
     <a time="79" text="スピンクラッシャー" sync="クルーズチェイサーは「スピンクラッシャー」の構え。" notice="" />
@@ -554,56 +555,56 @@
       <v-notice order="-1" icon="Arrow3.png" duration="10" duration-visible="false" />
     </t>
     }
-    <t text="マーカー1番" sync="1B:[id8]::[mex]:0000:[id4]:004F:0000:0000:0000:" notice="いちばん、Aで外見る、切られたら無い側にスプリント、ざんげ3回目。">
+    <t text="マーカー1番" sync="1B:[id8]:[mex]:0000:[id4]:004F:0000:0000:0000" notice="いちばん、Aで外見る、切られたら無い側にスプリント、ざんげ3回目。">
       <expressions>
         <set name="call_delay" value="1" />
       </expressions>
       <v-notice text="１番 Aで 外周向く\nレイ誘導 ➜ 懺悔３回目" icon="Arrow8.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー2番" sync="1B:[id8]::[mex]:0000:[id4]:0050:0000:0000:0000:" notice="にばん、プライム横、ない側、飛んで来たら移動、ざんげ3回目。">
+    <t text="マーカー2番" sync="1B:[id8]:[mex]:0000:[id4]:0050:0000:0000:0000" notice="にばん、プライム横、ない側、飛んで来たら移動、ざんげ3回目。">
       <expressions>
         <set name="call_delay" value="1" />
       </expressions>
       <v-notice text="２番 プライム横 黒2個目\nレイ誘導 ➜ 懺悔３回目" icon="Arrow2.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー3番" sync="1B:[id8]::[mex]:0000:[id4]:0051:0000:0000:0000:" notice="さんばん、スプリントして１マーカー。安置に逃げる。">
+    <t text="マーカー3番" sync="1B:[id8]:[mex]:0000:[id4]:0051:0000:0000:0000" notice="さんばん、スプリントして１マーカー。安置に逃げる。">
       <expressions>
         <set name="call_delay" value="2" />
       </expressions>
       <v-notice text="３番 1マーカー\n切られる ➜ 懺悔なし。" icon="Arrow6.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー4番" sync="1B:[id8]::[mex]:0000:[id4]:0052:0000:0000:0000:" notice="よんばん、スプリントして４マーカー。安置に逃げる。">
+    <t text="マーカー4番" sync="1B:[id8]:[mex]:0000:[id4]:0052:0000:0000:0000" notice="よんばん、スプリントして４マーカー。安置に逃げる。">
       <expressions>
         <set name="call_delay" value="2" />
       </expressions>
       <v-notice text="４番 ４マーカー\n突進誘導 ➜ 懺悔なし。" icon="Arrow4.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー5番" sync="1B:[id8]::[mex]:0000:[id4]:0053:0000:0000:0000:" notice="ごばん、Bマーカー側、ざんげ1回目。">
+    <t text="マーカー5番" sync="1B:[id8]:[mex]:0000:[id4]:0053:0000:0000:0000" notice="ごばん、Bマーカー側、ざんげ1回目。">
       <expressions>
         <set name="call_delay" value="3" />
       </expressions>
       <v-notice text="５番 Ｂマーカー。\n懺悔１回目 ➜ １マーカーで切られる。" icon="Arrow8.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー6番" sync="1B:[id8]::[mex]:0000:[id4]:0054:0000:0000:0000:" notice="ろくばん、Dマーカー。ざんげ1回目。">
+    <t text="マーカー6番" sync="1B:[id8]:[mex]:0000:[id4]:0054:0000:0000:0000" notice="ろくばん、Dマーカー。ざんげ1回目。">
       <expressions>
         <set name="call_delay" value="3" />
       </expressions>
       <v-notice text="６番 Ｄマーカー。\n懺悔１回目 ➜ 4マーカー突進。" icon="Arrow2.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー7番" sync="1B:[id8]::[mex]:0000:[id4]:0055:0000:0000:0000:" notice="ななばん、Bマーカー。ざんげ2回目。">
+    <t text="マーカー7番" sync="1B:[id8]:[mex]:0000:[id4]:0055:0000:0000:0000" notice="ななばん、Bマーカー。ざんげ2回目。">
       <expressions>
         <set name="call_delay" value="4" />
       </expressions>
       <v-notice text="７番 Ｂマーカー。\n懺悔２回目 ➜ １マーカーで切られる。" icon="Arrow8.png" order="-1" duration="30" duration-visible="false" />
     </t>
 
-    <t text="マーカー8番" sync="1B:[id8]::[mex]:0000:[id4]:0056:0000:0000:0000:" notice="はちばん、Dマーカー。ざんげ2回目。">
+    <t text="マーカー8番" sync="1B:[id8]:[mex]:0000:[id4]:0056:0000:0000:0000" notice="はちばん、Dマーカー。ざんげ2回目。">
       <expressions>
         <set name="call_delay" value="4" />
       </expressions>
@@ -626,14 +627,14 @@
       <v-notice text="@ANTI_KNOCKBACK" icon="KnockBack.png" duration="6" duration-visible="false" />
     </t>
 
-    <t text="ノックバック注意" sync="15:[id8]::ブルートジャスティス:484C:アポカリプティクレイ:[id8]" notice="/wait 1,@ANTI_KNOCKBACK。" sync-count="1">
+    <t text="ノックバック注意" sync="15:[id8]:ブルートジャスティス:484C:アポカリプティクレイ:[id8]" notice="/wait 1,@ANTI_KNOCKBACK。" sync-count="1">
       <expressions>
         <pre name="call_delay" value="3" />
       </expressions>
       <v-notice text="@ANTI_KNOCKBACK" icon="True.png" duration="6" duration-visible="false" />
     </t>
 
-    <t text="ノックバック注意" sync="15:[id8]::ブルートジャスティス:484C:アポカリプティクレイ:[id8]" notice="/wait 3,@ANTI_KNOCKBACK" sync-count="1">
+    <t text="ノックバック注意" sync="15:[id8]:ブルートジャスティス:484C:アポカリプティクレイ:[id8]" notice="/wait 3,@ANTI_KNOCKBACK" sync-count="1">
       <expressions>
         <pre name="call_delay" value="4" />
       </expressions>
@@ -645,26 +646,26 @@
 
     <!-- 遠隔DPSのみ優先度フラグ処理を動かす-->
     @if (Model.Player.InRole("DPS")) {
-    <t text="カウント➜ 忍" sync="^1B:[id8]::[NIN]:0000:[id4]:0041:">
+    <t text="カウント➜ 忍" sync="^1B:[id8]:[NIN]:0000:[id4]:0041:">
       <v-notice order="-29" duration="5" icon="NIN.png" />
     </t>
 
-    <t text="カウント➜ 侍" sync="^1B:[id8]::[SAM]:0000:[id4]:0041:">
+    <t text="カウント➜ 侍" sync="^1B:[id8]:[SAM]:0000:[id4]:0041:">
       <v-notice order="-28" duration="5" icon="SAM.png" />
     </t>
 
-    <t text="カウント➜ 召" sync="^1B:[id8]::[SMN]:0000:[id4]:0041:">
+    <t text="カウント➜ 召" sync="^1B:[id8]:[SMN]:0000:[id4]:0041:">
       <v-notice order="-27" duration="5" icon="SMN.png" />
     </t>
 
-    <t text="カウント➜ 踊" sync="^1B:[id8]::[DNC]:0000:[id4]:0041:">
+    <t text="カウント➜ 踊" sync="^1B:[id8]:[DNC]:0000:[id4]:0041:">
       <v-notice order="-26" duration="5" icon="DNC.png" />
     </t>
 
-    <t name="カウント" sync="^1B:[id8]::[pc]:0000:[id4]:0041:" notice="カウント" />
+    <t name="カウント" sync="^1B:[id8]:[pc]:0000:[id4]:0041:" notice="カウント" />
     }
 
-    <a time="0" sync="00:0044::アレキサンダー・プライム:我はアレキサンダー……機械仕掛けの神なり……。 理想郷に到る道を導くため……我が審判を受けよ……。">
+    <a time="1" sync="00:0044:アレキサンダー・プライム:我はアレキサンダー……機械仕掛けの神なり……。 理想郷に到る道を導くため……我が審判を受けよ……。">
       <expressions>
         <!-- フラグ初期化 -->
         <set name="is_inception_formation" value="false" />
@@ -821,12 +822,12 @@
       <v-notice order="-1" text="２回目：行動" icon="Avoid.png" duration="18" duration-visible="false" />
     </t>
 
-    <t text="安全地帯コール左" sync=":49AA:Unknown_49Aa:.*:91.00694:78.28883:.*:0.392657:" notice="" sync-count="1" notice-d="Sub">
+    <t text="安全地帯コール左" sync="^15:[id8]:パーフェクトアレキサンダー:49AA:Unknown_49aa:.*:91.01:78.29:.*:0.39:" notice="" sync-count="1" notice-d="Sub">
       <v-notice order="-3" text="左から２番目" icon="StackFront.png" duration="19" duration-visible="false" />
       <i-notice image="Alpha左上.png" scale="0.6" left="1332" top="100" duration="19" />
     </t>
 
-    <t text="安全地帯コール右" sync=":49AA:Unknown_49Aa:.*:108.9931:78.28883:.*:-0.3927531:" notice="" sync-count="1" notice-d="Sub">
+    <t text="安全地帯コール右" sync="^15:[id8]:パーフェクトアレキサンダー:49AA:Unknown_49aa:.*:108.99:78.29:.*:-0.39" notice="" sync-count="1" notice-d="Sub">
       <v-notice order="-3" text="右から２番目" icon="StackFront.png" duration="19" duration-visible="false" />
       <i-notice image="Alpha右上.png" scale="0.6" left="1332" top="100" duration="19" />
     </t>
@@ -849,75 +850,75 @@
       </expressions>
     </t>
 
-    <t name="InsertTableAlpha" sync="^03:([0-9a-fA-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:">
+    <t name="InsertTableAlpha" sync="^23:[id8]:(.*):([0-9a-fA-F]{8})::">
       <expressions>
         <pre name="alpha_start" value="true" />
         <table>
-        {
-          "method":"Insert", "table":"alpha",
-          "cols": [
-            { "name":"id", "val":"$1", "key":"true" },
-            { "name":"job", "val":"$2" }
-          ]
-        }
+      {
+        "method":"Insert", "table":"alpha",
+        "cols": [
+          { "name":"id", "val":"$2", "key":"true" },
+          { "name":"character", "val":"$1" }
+        ]
+      }
         </table>
       </expressions>
     </t>
     <!-- 試験的実装：テーブルのセット Alpha end -->
 
     <!-- 未来観測alpha ソート順によるデバフ判定 begin -->
-    <t name="α：デバフ無し1" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
+    <t name="α：デバフ無し1" sync="00:282B::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
       <expressions>
-        <pre name="TABLE['alpha'][0]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['alpha'][0]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="無職：左" icon="Free.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：デバフ無し2" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
+    <t name="α：デバフ無し2" sync="00:282B::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
       <expressions>
-        <pre name="TABLE['alpha'][1]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['alpha'][1]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="無職：左" icon="Free.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：デバフ無し3" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
+    <t name="α：デバフ無し3" sync="00:282B::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
       <expressions>
-        <pre name="TABLE['alpha'][2]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['alpha'][2]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="無職：左" icon="Free.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：加重罰1" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
+    <t name="α：加重罰1" sync="00:282B::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
       <expressions>
-        <pre name="TABLE['alpha'][3]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['alpha'][3]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="加重：右" icon="PunishmentHevy.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：加重罰2" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
+    <t name="α：加重罰2" sync="00:282B::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
       <expressions>
-        <pre name="TABLE['alpha'][4]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['alpha'][4]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="加重：右" icon="PunishmentHevy.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：加重罰3" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
+    <t name="α：加重罰3" sync="00:282B::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="加重罰、みぎえー。">
       <expressions>
-        <pre name="TABLE['alpha'][5]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['alpha'][5]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="加重：右" icon="PunishmentHevy.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：名誉罰" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="名誉罰、前えー。">
+    <t name="α：名誉罰" sync="00:282B::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="名誉罰、前えー。">
       <expressions>
-        <pre name="TABLE['alpha'][6]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['alpha'][6]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="名誉：アレキ前" icon="PunishmentGlory.png" duration="30" duration-visible="false" />
     </t>
 
-    <t name="α：集団罰" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="無職、ひだりえー。">
+    <t name="α：集団罰" sync="00:282B::パーフェクト・アレキサンダーは「未来確定α」の構え。" notice="集団罰、ひだりえー。">
       <expressions>
-        <pre name="TABLE['alpha'][7]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['alpha'][7]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="集団：左" icon="PunishmentGroup.png" duration="30" duration-visible="false" />
     </t>
@@ -931,16 +932,15 @@
         <set name="beta_start" value="true" />
       </expressions>
     </t>
-
-    <t no="0" name="InsertTableBeta" sync="^03:([0-9A-F]{8}):Added new combatant .  Job: (\w{3}) Level: 80 Max HP: 148000 Max MP: 10000 Pos:">
+    <t no="0" name="InsertTableBeta" sync="^23:[id8]:(.*):([0-9a-fA-F]{8})::">
       <expressions>
         <pre name="beta_start" value="true" />
         <table>
         {
           "method":"Insert", "table":"kansoku2",
           "cols": [
-            { "name":"id", "val":"$1", "key":"true" },
-            { "name":"job", "val":"$2" }
+            { "name":"id", "val":"$2", "key":"true" },
+            { "name":"character", "val":"$1" }
           ]
         }
         </table>
@@ -949,58 +949,58 @@
     <!-- 試験的実装：テーブルのセット Beta end -->
 
     <!-- 未来観測beta ソート順によるデバフ判定 begin -->
-    <t no="1" name="β：接触禁止＋接近禁止" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
+    <t no="1" name="β：接触禁止＋接近禁止" sync="00:282B::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
       <expressions>
-        <pre name="TABLE['kansoku2'][0]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][0]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="接触＋接近禁止\n２マーカー ➜ 左上" icon="DontTouch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="2" name="β：逃亡禁止＋接近禁止" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左下えー。">
+    <t no="2" name="β：逃亡禁止＋接近禁止" sync="00:282B::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左下えー。">
       <expressions>
-        <pre name="TABLE['kansoku2'][1]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][1]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="逃亡＋接近禁止\n２マーカー ➜ 左下" icon="DontEscape.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="3" name="β：接触禁止＋接近強制" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
+    <t no="3" name="β：接触禁止＋接近強制" sync="00:282B::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
       <expressions>
-        <pre name="TABLE['kansoku2'][2]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][2]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="接触＋接近強制\n２マーカー ➜ 左上" icon="DontTouch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="4" name="β：逃亡禁止＋接近強制" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
+    <t no="4" name="β：逃亡禁止＋接近強制" sync="00:282B::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
       <expressions>
-        <pre name="TABLE['kansoku2'][3]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][3]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="逃亡＋接近強制\n２マーカー ➜ 左上" icon="DontEscape.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="5" name="β：接触禁止＋集団罰" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
+    <t no="5" name="β：接触禁止＋集団罰" sync="00:282B::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左上えー。">
       <expressions>
-        <pre name="TABLE['kansoku2'][4]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][4]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="接触＋集団罰\n２マーカー ➜ 左上" icon="DontTouch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="6" name="β：逃亡禁止のみ" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左。">
+    <t no="6" name="β：逃亡禁止のみ" sync="00:282B::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、左。">
       <expressions>
-        <pre name="TABLE['kansoku2'][5]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][5]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="逃亡禁止\n２マーカー ➜ 左" icon="DontEscape.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="7" name="β：接触保護" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="北えー。">
+    <t no="7" name="β：接触保護" sync="00:282B::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="北えー。">
       <expressions>
-        <pre name="TABLE['kansoku2'][6]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][6]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="接触保護\n４マーカーのパレキ前" icon="Touch.png" duration="26" duration-visible="false" />
     </t>
 
-    <t no="8" name="β：逃亡監察" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、右えー。">
+    <t no="8" name="β：逃亡監察" sync="00:282B::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="2マーカー、右えー。">
       <expressions>
-        <pre name="TABLE['kansoku2'][7]['job']" value="@Model.Player.Job" />
+        <pre name="TABLE['kansoku2'][7]['character']" value="@Model.Player.Name" />
       </expressions>
       <v-notice text="逃亡監察\n２マーカー ➜ 右" icon="ObserveEscape.png" duration="26" duration-visible="false" />
     </t>
@@ -1021,7 +1021,7 @@
     <a time="90" text="頭割り／散開" />
     <a time="96" text="頭割り／散開" />
     <a time="111" text="未来観測α" sync="00:282b::パーフェクト・アレキサンダーの「未来観測α」" notice="" />
-    <a time="112" text="未来確定α Start" sync="00:282b::パーフェクト・アレキサンダーは「未来確定α」の構え。" icon="Attention.png" notice="" />
+    <a time="112" text="未来確定α Start" sync="00:282B::パーフェクト・アレキサンダーは「未来確定α」の構え。" icon="Attention.png" notice="" />
     <a time="135" text="未来確定α" sync="00:282b::パーフェクト・アレキサンダーの「未来確定α」" notice="" />
 
     <a time="142" text="α：静止命令" sync="00:282b::パーフェクト・アレキサンダーの「静止命令」" />
@@ -1039,7 +1039,7 @@
       <i-notice image="Beta.png" scale="0.55" left="1335" top="226" duration="80" />
     </a>
     <a time="184" text="未来観測β" sync="00:282b::パーフェクト・アレキサンダーの「未来観測β」" icon="Attention.png" notice="" />
-    <a time="186" text="未来確定β Start" sync="00:282b::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="" />
+    <a time="186" text="未来確定β Start" sync="00:282B::パーフェクト・アレキサンダーは「未来確定β」の構え。" notice="" />
     <a time="222" text="未来確定β" sync="00:282b::パーフェクト・アレキサンダーの「未来確定β」" notice="" />
     <a time="233" text="β：神判：判定" sync="00:302b::パーフェクト・アレキサンダーの「誓約の神判」" icon="Pair.png" />
     <a time="234" text="β：ジャスティスジャンプ" sync="00:302b::パーフェクト・アレキサンダーの「ジャスティスジャンプ」" icon="Targetaoe01.png" />
