@@ -11,7 +11,7 @@
   <zone>Eden's Promise: Eternity (Savage)</zone>
   <locale>JA</locale>
   <entry>ENTRY</entry>
-  <start>0039:戦闘開始！</start>
+  <start>0039::戦闘開始！</start>
 
   <default target-element="Activity" target-attr="notice-o" value="-9" />
   <default target-element="Activity" target-attr="notice-d" value="Main" />
