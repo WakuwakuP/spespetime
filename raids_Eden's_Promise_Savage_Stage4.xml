@@ -125,6 +125,10 @@
       <v-notice text="左右で離れる" duration="9" order="-1" />
     </t>
 
+    <t sync="プロミス・オブ・エデン:大地の記憶を再生する……！">
+      <i-notice image="Promise_Stage4_titan.png" scale="1" left="842" top="10" duration="45" />
+    </t>
+
     <a time="000" name="変数リセット">
       <expressions>
         <set name="first_branch" value="true" />
@@ -158,7 +162,6 @@
     <a time="155.0" text="マレフィキウム" sync="プロミス・オブ・エデンの「マレフィキウム」" notice="次は、全体攻撃。" />
     <a time="169.0" text="ジャンクション：タイタン" sync="プロミス・オブ・エデンの「ジャンクション：タイタン」" />
     <a time="174.0" sync="プロミス・オブ・エデン:大地の記憶を再生する……！">
-      <i-notice image="Eden's_Promise_Stage4_titan.png" scale="1" left="842" top="10" duration="45" />
     </a>
     <a time="180.0" text="大地の怒り" sync="プロミス・オブ・エデンの「大地の怒り」" />
     <a time="188.0" text="ボム＋マーカー付与１" />

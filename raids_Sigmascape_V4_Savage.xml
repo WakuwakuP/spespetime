@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>次元の狭間オメガ零式: シグマ編4</name>
+  <rev>v1</rev>
+  <description>
+  </description>
+  <author>Wakuwaku</author>
+  <license>CC BY-SA</license>
+  <zone>Sigmascape V4.0 (Savage)</zone>
+  <locale>JA</locale>
+  <entry>ENTRY</entry>
+  <start>0039::戦闘開始！</start>
+
+  <!-- 前後半の判別 -->
+  <s name="ENTRY">
+    <t sync="ケフカ : 魔力を……この身に……！" sync-count="1">
+      <load target="前半" truncate="true" />
+    </t>
+
+    <t sync="ケフカは「心ない天使」の構え。" sync-count="1">
+      <load target="後半" truncate="true" />
+    </t>
+  </s>
+
+  <t sync="神々の像 starts using 重力波" notice="東安置" />
+  <t sync="神々の像 starts using 撲殺の神気" notice="西安置" />
+
+  <s name="前半">
+    <t sync="神々の像 starts using 無情の神気" notice="見ない" />
+    <t sync="神々の像 starts using アヴェ・マリア" notice="見る" />
+    <t sync="神々の像 starts using 豪腕の神気 on [mex]" notice="レーザー" />
+  </s>
+
+  <s name="後半">
+    <t sync="^14:2900" notice="両翼" />
+    <t sync="^14:28FE" notice="右安置" />
+    <t sync="^14:28FF" notice="左安置" />
+
+    <t sync="ケフカは「未来の破滅」の構え。" notice="後ろ安置" />
+    <t sync="ケフカは「過去の破滅」の構え。" notice="前安置" />
+  </s>
+</timeline>
