@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timeline>
+  <name>The Cloud of Darkness (Chaotic)</name>
+  <rev>draft1</rev>
+  <description>
+    滅暗闇の雲激闘戦 タイムライン
+    P1
+  </description>
+  <author>Wakuwaku</author>
+  <license>CC BY-SA</license>
+  <zone>The Cloud of Darkness (Chaotic)</zone>
+  <start>0039::戦闘開始！</start>
+  <entry>P1</entry>
+
+  <default target-element="Activity" target-attr="notice-o" value="-5" />
+  <default target-element="Activity" target-attr="notice-d" value="Main" />
+  <default target-element="Trigger" target-attr="notice-d" value="Main" />
+
+  <s name="P1">
+
+    <!-- 闇の抱擁用 グリムエンブレイスカウント -->
+    <t text="グリムエンブレイス1回目" sync="暗闇の雲 starts using グリムエンブレイス on 暗闇の雲." sync-count="1">
+      <expressions>
+        <set name="grim" value="1" />
+      </expressions>
+    </t>
+
+    <t text="グリムエンブレイス2回目" sync="暗闇の雲 starts using グリムエンブレイス on 暗闇の雲." sync-count="2">
+      <expressions>
+        <set name="grim" value="2" />
+      </expressions>
+    </t>
+
+    <!-- 闇の抱擁トリガー -->
+    <t text="闇の抱擁" sync="[mex] gains the effect of (_rsv_4181_-1_0_0_0_S74CFC3B0_E74CFC3B0|闇の抱擁) from">
+      <expressions>
+        <pre name="grim" value="1" />
+      </expressions>
+      <v-notice text="後ろに回避" duration="128" duration-visible="false" order="0" />
+    </t>
+
+    <t text="闇の抱擁" sync="[mex] gains the effect of (_rsv_4181_-1_0_0_0_S74CFC3B0_E74CFC3B0|闇の抱擁) from">
+      <expressions>
+        <pre name="grim" value="2" />
+      </expressions>
+      <v-notice text="前に回避" duration="120" duration-visible="false" order="0" />
+    </t>
+
+    <!-- エンデスジャトリガー -->
+    <t text="エンデスジャ" sync="暗闇の雲は「エンデスジャ」を唱えた。">
+      <expressions>
+        <set name="death_4" value="1" />
+      </expressions>
+      <v-notice text="エンデスジャ" duration="100" duration-visible="false" order="0" />
+    </t>
+    <!-- エンエアロジャトリガー -->
+    <t text="エンエアロジャ" sync="暗闇の雲は「エンエアロジャ」を唱えた。">
+      <expressions>
+        <set name="aero_4" value="1" />
+      </expressions>
+      <v-notice text="エンエアロジャ" duration="100" duration-visible="false" order="0" />
+    </t>
+
+    <t text="闇の刃(next デスジャ)" sync="暗闇の雲は「闇の刃」の構え。" notice="次は、離れる">
+      <expressions>
+        <pre name="death_4" value="1" />
+      </expressions>
+      <v-notice text="デスジャ" duration="10" duration-visible="false" order="0" />
+    </t>
+
+    <t text="闇の刃(next エアロジャ)" sync="暗闇の雲は「闇の刃」の構え。" notice="次は、近づく">
+      <expressions>
+        <pre name="aero_4" value="1" />
+      </expressions>
+      <v-notice text="エアロジャ" duration="10" duration-visible="false" order="0" />
+    </t>
+
+    <!-- デスジャ|エアロジャトリガー -->
+    <t text="デスジャ" sync="暗闇の雲は「デスジャ」を唱えた。" notice="離れる" />
+    <t text="エアロジャ" sync="暗闇の雲は「エアロジャ」を唱えた。" notice="近づく" />
+
+
+    <a time="013.0" text="闇の刃" sync="暗闇の雲の「闇の刃」" />
+    <a time="025.0" text="闇の刃" sync="暗闇の雲の「闇の刃」" />
+    <a time="038.0" text="闇の大氾濫" sync="暗闇の雲の「闇の大氾濫」" />
+    <a time="052.0" text="グリムエンブレイス" sync="暗闇の雲の「グリムエンブレイス」" />
+    <a time="060.0" text="グリムエンブレイス" sync="暗闇の雲の「グリムエンブレイス」" />
+    <a time="065.0" text="斉射式波動砲" />
+    <a time="074.0" text="フレア" sync="暗闇の雲の「フレア」" />
+    <a time="082.0" text="ダークホーリー" sync="暗闇の雲の「ダークホーリー」" />
+    <a time="098.0" text="闇の刃" sync="暗闇の雲の「闇の刃」" />
+    <a time="099.0" text="エンデスジャ|エンエアロジャ" sync="暗闇の雲は「(エンデスジャ|エンエアロジャ)」を唱えた。"/>
+    <a time="104.0" text="連射式波動砲" />
+    <a time="125.0" text="斉射式波動砲" />
+    <a time="123.0" text="ブレクジャ" sync="暗闇の雲の「ブレクジャ」" />
+    <a time="135.0" text="闇の刃" sync="暗闇の雲の「闇の刃」" />
+    <a time="168.0" text="デスジャ|エアロジャ" sync="暗闇の雲の「(デスジャ|エアロジャ)」" />
+    <a time="184.0" text="闇の氾濫" sync="暗闇の雲の「闇の氾濫」">
+      <load target="P2" truncate="true" />
+    </a>
+  </s>
+
+  <s name="P2">
+    <a time="14.0" text="闇の大氾濫" sync="暗闇の雲の「闇の大氾濫」" />
+  </s>
+</timeline>
