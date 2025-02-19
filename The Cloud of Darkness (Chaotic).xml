@@ -19,13 +19,12 @@
   <s name="P1">
 
     <!-- 闇の抱擁用 グリムエンブレイスカウント -->
-    <t text="グリムエンブレイス1回目" sync="暗闇の雲 starts using グリムエンブレイス on 暗闇の雲." sync-count="1">
+    <t text="グリムエンブレイス 後ろに回避" sync="^14:9E39">
       <expressions>
         <set name="grim" value="1" />
       </expressions>
     </t>
-
-    <t text="グリムエンブレイス2回目" sync="暗闇の雲 starts using グリムエンブレイス on 暗闇の雲." sync-count="2">
+    <t text="グリムエンブレイス 前に回避" sync="^14:9E3A">
       <expressions>
         <set name="grim" value="2" />
       </expressions>
@@ -61,18 +60,24 @@
       <v-notice text="エンエアロジャ" duration="100" duration-visible="false" order="1" sync-to-hide="暗闇の雲の「闇の氾濫」" />
     </t>
 
-    <t text="闇の刃(next デスジャ)" sync="暗闇の雲は「闇の刃」の構え。" notice="次は、離れる">
+    <t no="0" text="闇の刃(next デスジャ)" sync="暗闇の雲は「闇の刃」の構え。" notice="次は、離れる">
       <expressions>
         <pre name="death_4" value="1" />
       </expressions>
       <v-notice text="デスジャ" duration="10" duration-visible="false" order="0" />
     </t>
 
-    <t text="闇の刃(next エアロジャ)" sync="暗闇の雲は「闇の刃」の構え。" notice="次は、近づく">
+    <t no="2" text="闇の刃(next エアロジャ)" sync="暗闇の雲は「闇の刃」の構え。" notice="次は、近づく">
       <expressions>
         <pre name="aero_4" value="1" />
       </expressions>
       <v-notice text="エアロジャ" duration="10" duration-visible="false" order="0" />
+    </t>
+    <t no="3" text="闇の刃(next デスジャ)" sync="暗闇の雲は「闇の刃」の構え。">
+      <expressions>
+        <set name="death_4" value="0" />
+        <set name="aero_4" value="0" />
+      </expressions>
     </t>
 
     <!-- デスジャ|エアロジャトリガー -->
